@@ -53,4 +53,5 @@
     justify-content: space-around;
     border-radius: 8px;
     background-color: #3a314f;
+    cursor: pointer;
 }
