@@ -13,6 +13,14 @@ export default function Home() {
       <div className={styles.contentSubTitle}>
         <p>The quiz game made for devs!</p>
       </div>
+      <div className={styles.contentMoreInformation}>
+        <p>Everything is ready for fun learning!</p>
+      </div>
+      <div className={styles.contentCreateGame}>
+        <div className={styles.contentIntoCreateGame}>
+          <p>Create a new game 🎮</p>
+        </div>
+      </div>
     </div>
   )
 }
