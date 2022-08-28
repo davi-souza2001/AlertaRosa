@@ -1,62 +1,73 @@
 .contentGeral {
-    width: 100%;
-    min-height: 100vh;
-    background: url("../../public/images/background.svg") repeat-y
+	width: 100%;
+	min-height: 100vh;
+	background: url("../../public/images/background.svg") repeat-y
 }
 
 .contentTitle {
-    height: 400px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	height: 400px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .contentSubTitle {
-    height: 150px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Roboto', sans-serif;
-    font-size: 80px;
-    font-weight: bold;
-    color: #e81fb2;
+	height: 150px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Roboto', sans-serif;
+	font-size: 80px;
+	font-weight: bold;
+	color: #e81fb2;
 }
 
 .contentMoreInformation {
-    height: 150px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Roboto', sans-serif;
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-    color: #fff;
+	height: 150px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Roboto', sans-serif;
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+	color: #fff;
 }
 
 .contentCreateGame {
-    height: 150px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-    color: #fff;
+	height: 150px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Roboto', sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	color: #fff;
 }
 
 .contentIntoCreateGame {
-    background-color: #291f47;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.2s;
+	background-color: #291f47;
+	padding: 10px;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: 0.2s;
 }
 
 .contentIntoCreateGame:hover {
-    color: #7958c5;
+	color: #7958c5;
+}
+
+@media (max-width: 650px) {
+	.contentTitle{
+		margin-top: -100px;
+	}
+
+	.contentSubTitle{
+		margin-top: -120px;
+		font-size: 40px;
+	}
 }

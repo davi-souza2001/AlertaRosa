@@ -63,6 +63,10 @@
 	display: none;
 }
 
+.contentMenuList{
+	display: none;
+}
+
 @media (max-width: 650px) {
 
 	.contentOptions,
@@ -72,7 +76,7 @@
 
 	.contentMobile {
 		height: 60%;
-		width: 150px;
+		width: 100px;
 		display: flex;
 		align-items: center;
 		justify-content: space-around;
@@ -90,6 +94,19 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+	}
+
+	.contentMenuList{
+		background-color: '#150633';
+		border: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+
+	.contentMenuList p{
+		margin-top: 10px;
 	}
 
 	.contentTitle{

@@ -45,14 +45,13 @@ export function Header() {
 							<HiChevronDown />
 						</div>
 					</MenuButton>
-					<MenuList style={{
-						backgroundColor: '#150633',
-						border: 'none',
-						display: 'flex',
-						alignItems: 'center',
-						justifyContent: 'center'
-					}}>
-						<h1>asd</h1>
+					<MenuList style={{backgroundColor: '#150633', border: 'none'}}>
+						<div className={styles.contentMenuList}>
+							<p>Create Game</p>
+							<p>Join a Game</p>
+							<p>Ranking</p>
+							<p>Rules</p>
+						</div>
 					</MenuList>
 				</Menu>
 			</div>
