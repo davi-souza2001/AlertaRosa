@@ -3,10 +3,10 @@ import {
 	Menu,
 	MenuButton,
 	MenuList,
-	MenuItem,
 	Button,
 } from '@chakra-ui/react'
 import { HiChevronDown } from "react-icons/hi"
+import Router from 'next/router'
 
 import Test from '../../../public/images/testUser.jpg'
 import styles from './Header.module.css'
@@ -15,13 +15,13 @@ export function Header() {
 	return (
 		<div className={styles.contentGeral}>
 			<div className={styles.contentTitle}>
-				<h1>QuizDev</h1>
+				<h1  onClick={() => Router.push('/')}>QuizDev</h1>
 			</div>
 			<div className={styles.contentOptions}>
-				<p>Create Game</p>
-				<p>Join a Game</p>
-				<p>Ranking</p>
-				<p>Rules</p>
+				<p onClick={() => Router.push('/createGame')}>Create Game</p>
+				<p onClick={() => Router.push('/createGame')}>Join a Game</p>
+				<p onClick={() => Router.push('/createGame')}>Ranking</p>
+				<p onClick={() => Router.push('/createGame')}>Rules</p>
 			</div>
 			<div className={styles.contentProfile}>
 				<div className={styles.contentIntoProfile}>
@@ -45,12 +45,12 @@ export function Header() {
 							<HiChevronDown />
 						</div>
 					</MenuButton>
-					<MenuList style={{backgroundColor: '#150633', border: 'none'}}>
+					<MenuList style={{ backgroundColor: '#150633', border: 'none' }}>
 						<div className={styles.contentMenuList}>
-							<p>Create Game</p>
-							<p>Join a Game</p>
-							<p>Ranking</p>
-							<p>Rules</p>
+							<p onClick={() => Router.push('/createGame')}>Create Game</p>
+							<p onClick={() => Router.push('/createGame')}>Join a Game</p>
+							<p onClick={() => Router.push('/createGame')}>Ranking</p>
+							<p onClick={() => Router.push('/createGame')}>Rules</p>
 						</div>
 					</MenuList>
 				</Menu>
