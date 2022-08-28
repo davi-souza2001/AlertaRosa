@@ -1,0 +1,55 @@
+@keyframes fade {
+	from {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.contentCreateGame {
+	height: 80vh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	animation-name: fade;
+	animation-duration: 200ms;
+}
+
+.contentCreateGameBox {
+	height: 350px;
+	width: 400px;
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	flex-direction: column;
+	border-radius: 10px;
+	background-color: #1e0a4a;
+	font-family: 'Poppins', sans-serif;
+}
+
+.contentCreateGameBox h1 {
+	color: #e81fb2;
+	font-size: 30px;
+	font-weight: 500;
+	margin-top: 30px;
+}
+
+.contentCreateGameBox input {
+	height: 40px;
+	width: 300px;
+	margin-top: 30px;
+	border-radius: 5px;
+	background-color: #34274E;
+	border: none;
+	outline: none;
+}
+
+.contentCreateGameBox p {
+	padding: 20px;
+	margin-top: 30px;
+}
