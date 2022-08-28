@@ -33,14 +33,17 @@ export function Header() {
 				<Menu>
 					<MenuButton as={Button} style={{
 						backgroundColor: '#684aae',
-						width: '62px',
+						width: '130px',
 						height: '100%',
 						display: 'flex',
 						alignItems: 'center',
 						justifyContent: 'center',
 						fontSize: '30px'
 					}}>
-						<HiChevronDown />
+						<div className={styles.contentIntoMobile}>
+							<Image src={Test} height={50} width={50} style={{ borderRadius: "100%" }} />
+							<HiChevronDown />
+						</div>
 					</MenuButton>
 					<MenuList style={{
 						backgroundColor: '#150633',
