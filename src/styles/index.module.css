@@ -1,3 +1,15 @@
+@keyframes fade {
+	from {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
 .contentGeral {
 	width: 100%;
 	min-height: 100vh;
@@ -10,6 +22,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	animation-name: fade;
+	animation-duration: 200ms;
 }
 
 .contentSubTitle {
@@ -22,6 +36,8 @@
 	font-size: 80px;
 	font-weight: bold;
 	color: #e81fb2;
+	animation-name: fade;
+	animation-duration: 400ms;
 }
 
 .contentMoreInformation {
@@ -35,6 +51,8 @@
 	font-weight: bold;
 	text-align: center;
 	color: #fff;
+	animation-name: fade;
+	animation-duration: 400ms;
 }
 
 .contentCreateGame {
@@ -47,6 +65,8 @@
 	font-size: 20px;
 	font-weight: bold;
 	color: #fff;
+	animation-name: fade;
+	animation-duration: 600ms;
 }
 
 .contentIntoCreateGame {
@@ -55,6 +75,8 @@
 	border-radius: 10px;
 	cursor: pointer;
 	transition: 0.2s;
+	animation-name: fade;
+	animation-duration: 600ms;
 }
 
 .contentIntoCreateGame:hover {
