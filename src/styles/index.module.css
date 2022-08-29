@@ -13,7 +13,7 @@
 .contentGeral {
 	width: 100%;
 	min-height: 100vh;
-	background: url("../../public/images/background.svg") repeat-y
+	background: url("../../public/images/background.svg") repeat-y;
 }
 
 .contentTitle {
@@ -93,3 +93,5 @@
 		font-size: 40px;
 	}
 }
+
+

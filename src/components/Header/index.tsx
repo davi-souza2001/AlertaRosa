@@ -20,7 +20,7 @@ export function Header() {
 			<div className={styles.contentOptions}>
 				<p onClick={() => Router.push('/createGame')}>Create Game</p>
 				<p onClick={() => Router.push('/joinGame')}>Join a Game</p>
-				<p onClick={() => Router.push('/')}>Ranking</p>
+				<p onClick={() => Router.push('/ranking')}>Ranking</p>
 				<p onClick={() => Router.push('/rules')}>Rules</p>
 			</div>
 			<div className={styles.contentProfile}>

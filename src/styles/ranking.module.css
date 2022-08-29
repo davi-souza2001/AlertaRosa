@@ -1,0 +1,47 @@
+.contentGeral {
+	width: 100%;
+	min-height: 100vh;
+	background: url("../../public/images/background.svg") repeat-y;
+	color: #fff;
+}
+
+.contentAreaBox{
+	height: 550px;
+	width: 100%;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+.contentBox{
+	background-color: #1e0a4a;
+	min-height: 200px;
+	max-height: 100%;
+	width: 500px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-direction: column;
+	border-radius: 10px;
+	overflow: scroll;
+	overflow-x: hidden;
+}
+
+.contentBox::-webkit-scrollbar-track {
+	background-color: #45455c;
+}
+
+.contentBox::-webkit-scrollbar {
+	width: 3px;
+	background: #45455c;
+}
+
+.contentBox::-webkit-scrollbar-thumb {
+	background: #23232e;
+}
+
+.contentBox h1{
+	margin: 10px 0 10px 0;
+	font-size: 28px;
+	font-weight: bold;
+}
