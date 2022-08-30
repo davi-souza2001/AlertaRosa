@@ -1,4 +1,27 @@
-.contentGeral{
-	background-color: red;
+.contentGeral {
+	background-color: #250b5e;
 	font-family: 'Poppins', sans-serif;
+	width: 80%;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 10px 0;
+	border-radius: 8px;
+}
+
+.contentGeral p {
+	font-size: 30px;
+}
+
+.contentGeral h1 {
+	margin: 0 10px;
+}
+
+.contentImage{
+	height: 100%;
+	width: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }

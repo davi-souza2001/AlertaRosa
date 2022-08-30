@@ -10,7 +10,9 @@ export default function ranking() {
 			<div className={styles.contentAreaBox}>
 				<div className={styles.contentBox}>
 					<h1>Players Ranking 🏆</h1>
-					<BoxRanking />
+					<BoxRanking rank="first" />
+					<BoxRanking rank="second" />
+					<BoxRanking rank="third" />
 				</div>
 			</div>
 		</div>

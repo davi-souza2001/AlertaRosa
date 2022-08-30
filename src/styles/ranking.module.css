@@ -1,3 +1,15 @@
+@keyframes fade {
+	from {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
 .contentGeral {
 	width: 100%;
 	min-height: 100vh;
@@ -5,15 +17,17 @@
 	color: #fff;
 }
 
-.contentAreaBox{
+.contentAreaBox {
 	height: 550px;
 	width: 100%;
 	display: flex;
 	align-items: flex-start;
 	justify-content: center;
+	animation-name: fade;
+	animation-duration: 200ms;
 }
 
-.contentBox{
+.contentBox {
 	background-color: #1e0a4a;
 	min-height: 200px;
 	max-height: 100%;
@@ -23,8 +37,6 @@
 	justify-content: flex-start;
 	flex-direction: column;
 	border-radius: 10px;
-	overflow: scroll;
-	overflow-x: hidden;
 }
 
 .contentBox::-webkit-scrollbar-track {
@@ -40,7 +52,7 @@
 	background: #23232e;
 }
 
-.contentBox h1{
+.contentBox h1 {
 	margin: 10px 0 10px 0;
 	font-size: 28px;
 	font-weight: bold;
