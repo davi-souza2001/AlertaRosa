@@ -1,0 +1,42 @@
+.contentGeral {
+	margin: 10px 0;
+	height: 70px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.contentNumberQuestion {
+	margin: 0 20px;
+	height: 100%;
+	width: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 500;
+	font-size: 20px;
+	background-color: #e81fb2;
+	border-radius: 10px;
+}
+
+.contentAnswers {
+	height: 100%;
+	width: 90%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	font-weight: 500;
+	font-size: 17px;
+	cursor: pointer;
+	transition: 0.2s;
+	border-radius: 10px;
+}
+
+.contentAnswers span{
+	margin-left: 10px;
+}
+
+.contentAnswers:hover {
+	background-color: #3d2767;
+}

@@ -1,0 +1,73 @@
+@keyframes fade {
+	from {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.contentGeral {
+	width: 100%;
+	min-height: 100vh;
+	background: url("../../public/images/background.svg") repeat-y;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+}
+
+.contentGeralQuestionBox {
+	height: 95vh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	animation-name: fade;
+	animation-duration: 200ms;
+}
+
+.contentQuestionBox {
+	background-color: #1E103B;
+	height: 100%;
+	width: 80%;
+	border-radius: 20px;
+}
+
+.contentQuestionNow {
+	max-width: 80%;
+}
+
+.contentQuestionNow h1 {
+	margin: 5px 0 0 20px;
+}
+
+.contentQuestion {
+	min-height: 13%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #2d1d4c;
+	border-radius: 20px 20px 0 0;
+}
+
+.contentTimer {
+	margin: 10px 0;
+	height: 100px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.contentAreaAnswers {
+	height: 40%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
