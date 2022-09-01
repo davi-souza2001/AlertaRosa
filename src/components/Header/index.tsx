@@ -24,7 +24,7 @@ export function Header() {
 				<p onClick={() => Router.push('/rules')}>Rules</p>
 			</div>
 			<div className={styles.contentProfile}>
-				<div className={styles.contentIntoProfile}>
+				<div className={styles.contentIntoProfile} onClick={() => Router.push('/profile')}>
 					<span>Davi Souza</span>
 					<Image src={Test} height={50} width={50} style={{ borderRadius: "100%" }} />
 				</div>

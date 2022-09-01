@@ -1,0 +1,98 @@
+@keyframes fade {
+	from {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.contentGeral {
+	width: 100%;
+	min-height: 100vh;
+	background: url("../../public/images/background.svg") repeat-y;
+	color: #fff;
+}
+
+.contentAreaExperience {
+	height: 200px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: start;
+}
+
+.contentProgressBar {
+	height: 100%;
+	width: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	animation-name: fade;
+	animation-duration: 200ms;
+}
+
+.contentLevelAndExperience {
+	height: 100%;
+	width: 100%;
+	font-size: 40px;
+	font-weight: 500;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-direction: column;
+	animation-name: fade;
+	animation-duration: 400ms;
+}
+
+.contentLevelAndExperience h1,
+.contentLevelAndExperience p {
+	margin-left: 30px;
+}
+
+.contentAreaUser {
+	height: 200px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: start;
+}
+
+.contentUser {
+	height: 100%;
+	width: 250px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	font-size: 30px;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 500;
+	animation-name: fade;
+	animation-duration: 600ms;
+}
+
+.contentUser h2 {
+	margin: 0 -50px 0 -30px;
+}
+
+.contentLogout {
+	height: 100%;
+	width: 250px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.contentButtonLogout{
+	background-color: rgb(215, 44, 44);
+	padding: 15px;
+	font-size: 20px;
+	font-family: 'Roboto', sans-serif;
+	border-radius: 10px;
+	cursor: pointer;
+	animation-name: fade;
+	animation-duration: 800ms;
+}
