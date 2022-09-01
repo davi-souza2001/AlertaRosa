@@ -37,6 +37,9 @@ export default function Room() {
 						<BoxQuestion />
 						<BoxQuestion />
 					</div>
+					<div className={styles.contentSubmitAnswer}>
+						<button>Submit 🚀</button>
+					</div>
 				</div>
 			</div>
 		</div>

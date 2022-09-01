@@ -19,7 +19,7 @@
 }
 
 .contentGeralQuestionBox {
-	height: 95vh;
+	height: 80vh;
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -70,4 +70,33 @@
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+}
+
+.contentSubmitAnswer {
+	height: 25%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0 0 20px 20px;
+}
+
+.contentSubmitAnswer button{
+	height: 70px;
+	width: 250px;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	background-color: #e81fb2;
+	transition: 0.2s;
+}
+
+.contentSubmitAnswer button:hover{
+	background-color: #b8188e;
+}
+
+@media (max-width: 650px) {
+	.contentGeral {
+		min-height: 112vh;
+	}
 }
