@@ -4,8 +4,13 @@ import logoTitle from '../../public/images/logoTitle.svg'
 import logoGoogle from '../../public/images/logoGoogle.png'
 
 import styles from '../styles/login.module.css'
+import UseAuth from '../service/hooks/useAuth'
 
 export default function login() {
+	const { loginGoogle, user } = UseAuth()
+
+	console.log(user)
+
 	return (
 		<div className={styles.contentGeral}>
 			<div className={styles.contentLeft}>
@@ -21,7 +26,7 @@ export default function login() {
 				<h1>Login</h1>
 				<div className={styles.contentLogin}>
 					<h2>Continue with</h2>
-					<div className={styles.contentBoxLoginPlatform}>
+					<div className={styles.contentBoxLoginPlatform} onClick={loginGoogle}>
 						<Image src={logoGoogle} height={30} width={30} />
 						<p>Sign in with Google</p>
 					</div>

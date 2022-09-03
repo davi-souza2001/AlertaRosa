@@ -1,7 +1,7 @@
 export interface UserProps {
 	name: string
 	email: string
-	avatar: string
+	photo: string
 }
 
 export class User {
@@ -11,7 +11,7 @@ export class User {
 
 	get name() { return this._props.name }
 	get email() { return this._props.email }
-	get avatar() { return this._props.avatar }
+	get photo() { return this._props.photo }
 
 	clone(props: UserProps) {
 		return new User({

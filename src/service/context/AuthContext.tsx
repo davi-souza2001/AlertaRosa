@@ -4,41 +4,41 @@ import { User } from "../../core/User"
 import AuthenticationProvider from "../../provider/AuthenticationProvider"
 
 interface AuthContextProps {
-	loginGoogle(): Promise<User>
+	loginGoogle(): Promise<void>
 	logout(): Promise<void>
 	user: User
+	loading: boolean
 }
 
 const AuthContext = createContext<AuthContextProps>({
-	loginGoogle: () => Promise.resolve(new User({
-		avatar: '',
-		email: '',
-		name: ''
-	})),
+	loginGoogle: () => Promise.resolve(),
 	logout: () => Promise.resolve(),
 	user: new User({
-		avatar: '',
+		photo: '',
 		email: '',
 		name: ''
-	})
+	}),
+	loading: false
 })
 
 export function AuthProvider(props: any) {
-	const [user, setUser] = useState<User>(
-		new User({
-			avatar: '',
-			email: '',
-			name: ''
-		})
-	)
+	const [loading, setLoading] = useState(false)
+	const [user, setUser] = useState<User>(new User({ photo: '', email: '', name: '' }))
 	const authentication = new AuthenticationProvider()
 
 	async function loginGoogle() {
-		const userReceived = await authentication.loginGoogle()
+		setLoading(true)
+		try {
+			const userReceived = await authentication.loginGoogle()
+			if (userReceived) {
+				setUser(userReceived)
+				setLoading(false)
+			}
 
-		setUser(userReceived)
-
-		return userReceived
+		} catch (error) {
+			console.log(error)
+			setLoading(false)
+		}
 	}
 
 	async function logout() {
@@ -49,7 +49,8 @@ export function AuthProvider(props: any) {
 		<AuthContext.Provider value={{
 			loginGoogle,
 			logout,
-			user
+			user,
+			loading
 		}}>
 			{props.children}
 		</AuthContext.Provider>
