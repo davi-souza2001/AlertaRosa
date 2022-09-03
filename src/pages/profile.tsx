@@ -1,8 +1,9 @@
 import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
 import Image from 'next/image'
 
-import Test from '../../public/images/testUser.jpg'
 import { Header } from '../components/Header'
+
+import Test from '../../public/images/testUser.jpg'
 import styles from '../styles/profile.module.css'
 
 export default function profile() {

@@ -1,5 +1,5 @@
-import { BoxGame } from '../components/BoxGame';
-import { Header } from '../components/Header';
+import { BoxGame } from '../components/BoxGame'
+import { Header } from '../components/Header'
 
 import styles from '../styles/createGame.module.css'
 

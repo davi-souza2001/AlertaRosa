@@ -1,5 +1,5 @@
-import { BoxRanking } from "../components/BoxRanking";
-import { Header } from "../components/Header";
+import { BoxRanking } from "../components/BoxRanking"
+import { Header } from "../components/Header"
 
 import styles from '../styles/ranking.module.css'
 

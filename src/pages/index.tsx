@@ -1,8 +1,10 @@
+import Router from 'next/router'
+import Image from 'next/image'
+
 import { Header } from '../components/Header'
+
 import logoTitle from '../../public/images/logoTitle.svg'
 import styles from '../styles/index.module.css'
-import Image from 'next/image'
-import Router from 'next/router'
 
 export default function Home() {
 	return (

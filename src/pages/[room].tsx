@@ -5,10 +5,10 @@ import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 
 import { Header } from '../components/Header'
 import { BoxQuestion } from '../components/BoxQuestion'
+import { BeforeGame } from '../components/BeforeGame'
 
 import logoQuestion from '../../public/images/logoQuestion.svg'
 import styles from '../styles/room.module.css'
-import { BeforeGame } from '../components/BeforeGame'
 
 export default function Room() {
 	const id = useRouter().query.room

@@ -1,6 +1,7 @@
-import { List, ListIcon, ListItem } from "@chakra-ui/react";
+import { List, ListIcon, ListItem } from "@chakra-ui/react"
 import { CheckCircleIcon } from '@chakra-ui/icons'
-import { Header } from "../components/Header";
+
+import { Header } from "../components/Header"
 
 import styles from '../styles/rules.module.css'
 
