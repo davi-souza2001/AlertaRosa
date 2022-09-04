@@ -5,8 +5,11 @@ import { Header } from '../components/Header'
 
 import Test from '../../public/images/testUser.jpg'
 import styles from '../styles/profile.module.css'
+import UseAuth from '../service/hooks/useAuth'
 
 export default function profile() {
+	const { logout } = UseAuth()
+
 	return (
 		<div className={styles.contentGeral}>
 			<Header />
@@ -29,7 +32,7 @@ export default function profile() {
 			</div>
 			<div className={styles.contentLogout}>
 				<div className={styles.contentButtonLogout}>
-					<button>Logout</button>
+					<button onClick={logout}>Logout</button>
 				</div>
 			</div>
 		</div>

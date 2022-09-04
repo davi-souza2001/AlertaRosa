@@ -1,4 +1,4 @@
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"
+import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth"
 
 import { auth, db } from '../firebase/config'
 import { ProviderProps } from "../core/Provider"
@@ -24,7 +24,23 @@ export default class AuthenticationProvider implements ProviderProps {
 		})
 	}
 
+	async getUser(): Promise<User | void> {
+		onAuthStateChanged(auth, async (user) => {
+			console.log(user)
+
+			setTimeout(() => {
+				return this._user.clone({
+					name: user?.displayName ?? '',
+					email: user?.email ?? '',
+					photo: user?.photoURL ?? ''
+				})
+			}, 2000)
+
+		})
+	}
+
 	async logout(): Promise<void> {
 		console.log('Logout')
+		await signOut(auth)
 	}
 }
