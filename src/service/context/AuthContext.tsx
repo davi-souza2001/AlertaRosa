@@ -1,7 +1,10 @@
+import { collection, getDocs, query, where } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import { createContext } from "react"
+import Cookie from 'js-cookie'
 
 import { User } from "../../core/User"
+import { db } from "../../firebase/config"
 import AuthenticationProvider from "../../provider/AuthenticationProvider"
 
 interface AuthContextProps {
@@ -30,6 +33,7 @@ export function AuthProvider(props: any) {
 	const [loading, setLoading] = useState(false)
 	const [user, setUser] = useState<User>(new User({ photo: '', email: '', name: '' }))
 	const authentication = new AuthenticationProvider()
+	const userCookie = Cookie.get('Admin-QuizDev')
 
 	async function loginGoogle() {
 		setLoading(true)
@@ -64,11 +68,24 @@ export function AuthProvider(props: any) {
 		await authentication.logout()
 	}
 
-	// useEffect(() => {
-	// 	const user = Cookie.get('Admin-QuizDev')
-	// 	console.log(user)
+	useEffect(() => {
+		setLoading(true)
 
-	// }, [])
+		const searchedUser = query(collection(db, 'users'), where('email', '==', userCookie))
+		const resolveQuery = getDocs(searchedUser)
+
+		resolveQuery.then((list) => {
+			list.forEach((doc) => {
+				setUser(new User({
+					name: doc.data().name,
+					email: doc.data().email,
+					photo: doc.data().photo
+				}))
+			})
+		})
+
+		setLoading(false)
+	}, [userCookie])
 
 	return (
 		<AuthContext.Provider value={{

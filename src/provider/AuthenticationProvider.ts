@@ -31,8 +31,6 @@ export default class AuthenticationProvider implements ProviderProps {
 
 		const resolveQuery = await getDocs(searchedUser)
 
-		await resolveQuery.forEach((doc) => console.log(doc.data()))
-
 		return resolveQuery.empty ? false : user
 	}
 
