@@ -16,6 +16,7 @@
     "@emotion/styled": "^11.10.0",
     "firebase": "^9.9.4",
     "framer-motion": "^6.5.1",
+    "js-cookie": "^3.0.1",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-countdown-circle-timer": "^3.0.9",
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "@types/jest": "^28.1.8",
+    "@types/js-cookie": "^3.0.2",
     "@types/node": "18.7.13",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",

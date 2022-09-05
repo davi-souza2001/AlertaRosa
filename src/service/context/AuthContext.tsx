@@ -38,10 +38,11 @@ export function AuthProvider(props: any) {
 
 		if (searchedUser) {
 			console.log('ok')
+
+			AuthenticationProvider.setCookieUser(searchedUser)
 		} else {
 			console.log('not ok')
 		}
-
 	}
 
 	async function getUser(user: User) {
@@ -64,7 +65,9 @@ export function AuthProvider(props: any) {
 	}
 
 	// useEffect(() => {
-	// 	getUser()
+	// 	const user = Cookie.get('Admin-QuizDev')
+	// 	console.log(user)
+
 	// }, [])
 
 	return (

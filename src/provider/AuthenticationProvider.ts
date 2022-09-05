@@ -1,9 +1,10 @@
-import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth"
+import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth"
+import { addDoc, collection, getDocs, query, where } from "firebase/firestore"
+import Cookie from 'js-cookie'
 
 import { auth, db } from '../firebase/config'
 import { ProviderProps } from "../core/Provider"
 import { User } from "../core/User"
-import { addDoc, collection, getDocs, query, where } from "firebase/firestore"
 
 export default class AuthenticationProvider implements ProviderProps {
 
@@ -30,6 +31,8 @@ export default class AuthenticationProvider implements ProviderProps {
 
 		const resolveQuery = await getDocs(searchedUser)
 
+		await resolveQuery.forEach((doc) => console.log(doc.data()))
+
 		return resolveQuery.empty ? false : user
 	}
 
@@ -45,5 +48,9 @@ export default class AuthenticationProvider implements ProviderProps {
 	async logout(): Promise<void> {
 		console.log('Logout')
 		await signOut(auth)
+	}
+
+	static setCookieUser(user: User) {
+		Cookie.set('Admin-QuizDev', user.email, { expires: 7 })
 	}
 }
