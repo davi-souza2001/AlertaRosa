@@ -9,10 +9,7 @@ import UseAuth from '../service/hooks/useAuth'
 export default function login() {
 	const { loginGoogle, user } = UseAuth()
 
-	if (user.email !== '') {
-		console.log(user)
-	}
-
+	// console.log(user)
 
 	return (
 		<div className={styles.contentGeral}>

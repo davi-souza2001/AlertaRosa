@@ -3,6 +3,7 @@ import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from
 import { auth, db } from '../firebase/config'
 import { ProviderProps } from "../core/Provider"
 import { User } from "../core/User"
+import { addDoc, collection } from "firebase/firestore"
 
 export default class AuthenticationProvider implements ProviderProps {
 
@@ -26,7 +27,6 @@ export default class AuthenticationProvider implements ProviderProps {
 
 	async getUser(): Promise<User | void> {
 		onAuthStateChanged(auth, async (user) => {
-			console.log(user)
 
 			setTimeout(() => {
 				return this._user.clone({
@@ -37,6 +37,15 @@ export default class AuthenticationProvider implements ProviderProps {
 			}, 2000)
 
 		})
+	}
+
+	async submitUser(user: User): Promise<void> {
+		const docRef = await addDoc(collection(db, "users"), {
+			name: user.name,
+			email: user.email,
+			photo: user.photo
+		});
+		console.log("Submitted");
 	}
 
 	async logout(): Promise<void> {

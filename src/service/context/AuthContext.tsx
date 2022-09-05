@@ -8,6 +8,7 @@ interface AuthContextProps {
 	loginGoogle(): Promise<void>
 	logout(): Promise<void>
 	getUser(): Promise<void>
+	submitUser(user: User): Promise<void>
 	user: User
 	loading: boolean
 }
@@ -16,6 +17,7 @@ const AuthContext = createContext<AuthContextProps>({
 	loginGoogle: () => Promise.resolve(),
 	logout: () => Promise.resolve(),
 	getUser: () => Promise.resolve(),
+	submitUser: (user: User) => Promise.resolve(),
 	user: new User({
 		photo: '',
 		email: '',
@@ -33,6 +35,7 @@ export function AuthProvider(props: any) {
 		setLoading(true)
 		try {
 			const userReceived = await authentication.loginGoogle()
+			submitUser(userReceived)
 			if (userReceived) {
 				setUser(userReceived)
 				setLoading(false)
@@ -47,11 +50,18 @@ export function AuthProvider(props: any) {
 	async function getUser() {
 		setLoading(true)
 		const userReceived = await authentication.getUser()
-		console.log(userReceived)
 
 		if (userReceived) {
 			setUser(userReceived)
 		}
+		setLoading(false)
+	}
+
+	async function submitUser(user: User) {
+		setLoading(true)
+
+		await authentication.submitUser(user)
+
 		setLoading(false)
 	}
 
@@ -68,6 +78,7 @@ export function AuthProvider(props: any) {
 			loginGoogle,
 			logout,
 			getUser,
+			submitUser,
 			user,
 			loading
 		}}>
