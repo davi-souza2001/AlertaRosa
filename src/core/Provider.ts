@@ -2,7 +2,7 @@ import { User } from "./User";
 
 export interface ProviderProps {
 	loginGoogle(): Promise<User>
-	getUser(): Promise<User | void>
+	getUser(user: User): Promise<User | false>
 	submitUser(user: User): Promise<void>
 	logout(): Promise<void>
 }
@@ -18,10 +18,10 @@ export default class Provider {
 		return user
 	}
 
-	async getUser(): Promise<User | void> {
-		const user = await this._providerAuthentication.getUser()
+	async getUser(user: User): Promise<User | false> {
+		const userReceived = await this._providerAuthentication.getUser(user)
 
-		return user
+		return userReceived
 	}
 
 	async submitUser(user: User): Promise<void> {

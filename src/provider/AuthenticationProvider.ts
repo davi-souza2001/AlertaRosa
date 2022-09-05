@@ -3,7 +3,7 @@ import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from
 import { auth, db } from '../firebase/config'
 import { ProviderProps } from "../core/Provider"
 import { User } from "../core/User"
-import { addDoc, collection } from "firebase/firestore"
+import { addDoc, collection, getDocs, query, where } from "firebase/firestore"
 
 export default class AuthenticationProvider implements ProviderProps {
 
@@ -25,27 +25,21 @@ export default class AuthenticationProvider implements ProviderProps {
 		})
 	}
 
-	async getUser(): Promise<User | void> {
-		onAuthStateChanged(auth, async (user) => {
+	async getUser(user: User): Promise<User | false> {
+		const searchedUser = query(collection(db, 'users'), where('email', '==', user.email))
 
-			setTimeout(() => {
-				return this._user.clone({
-					name: user?.displayName ?? '',
-					email: user?.email ?? '',
-					photo: user?.photoURL ?? ''
-				})
-			}, 2000)
+		const resolveQuery = await getDocs(searchedUser)
 
-		})
+		return resolveQuery.empty ? false : user
 	}
 
 	async submitUser(user: User): Promise<void> {
-		const docRef = await addDoc(collection(db, "users"), {
+		await addDoc(collection(db, "users"), {
 			name: user.name,
 			email: user.email,
 			photo: user.photo
-		});
-		console.log("Submitted");
+		})
+		console.log("Submitted")
 	}
 
 	async logout(): Promise<void> {

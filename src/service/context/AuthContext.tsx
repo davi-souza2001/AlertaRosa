@@ -7,7 +7,7 @@ import AuthenticationProvider from "../../provider/AuthenticationProvider"
 interface AuthContextProps {
 	loginGoogle(): Promise<void>
 	logout(): Promise<void>
-	getUser(): Promise<void>
+	getUser(user: User): Promise<User | false>
 	submitUser(user: User): Promise<void>
 	user: User
 	loading: boolean
@@ -16,7 +16,7 @@ interface AuthContextProps {
 const AuthContext = createContext<AuthContextProps>({
 	loginGoogle: () => Promise.resolve(),
 	logout: () => Promise.resolve(),
-	getUser: () => Promise.resolve(),
+	getUser: (user: User) => Promise.resolve(user),
 	submitUser: (user: User) => Promise.resolve(),
 	user: new User({
 		photo: '',
@@ -33,28 +33,22 @@ export function AuthProvider(props: any) {
 
 	async function loginGoogle() {
 		setLoading(true)
-		try {
-			const userReceived = await authentication.loginGoogle()
-			submitUser(userReceived)
-			if (userReceived) {
-				setUser(userReceived)
-				setLoading(false)
-			}
+		const loggedUser = await authentication.loginGoogle()
+		const searchedUser = await getUser(loggedUser)
 
-		} catch (error) {
-			console.log(error)
-			setLoading(false)
+		if (searchedUser) {
+			console.log('ok')
+		} else {
+			console.log('not ok')
 		}
+
 	}
 
-	async function getUser() {
+	async function getUser(user: User) {
 		setLoading(true)
-		const userReceived = await authentication.getUser()
+		const userReceived = await authentication.getUser(user)
 
-		if (userReceived) {
-			setUser(userReceived)
-		}
-		setLoading(false)
+		return userReceived ? userReceived : false
 	}
 
 	async function submitUser(user: User) {
@@ -69,9 +63,9 @@ export function AuthProvider(props: any) {
 		await authentication.logout()
 	}
 
-	useEffect(() => {
-		getUser()
-	}, [])
+	// useEffect(() => {
+	// 	getUser()
+	// }, [])
 
 	return (
 		<AuthContext.Provider value={{
