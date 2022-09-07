@@ -21,8 +21,8 @@ export function Header() {
 				<h1 onClick={() => Router.push('/')}>QuizDev</h1>
 			</div>
 			<div className={styles.contentOptions}>
-				<p onClick={() => Router.push('/createRoom')}>Create Game</p>
-				<p onClick={() => Router.push('/joinGame')}>Join a Game</p>
+				<p onClick={() => Router.push('/createRoom')}>Create Room</p>
+				<p onClick={() => Router.push('/joinRoom')}>Join Room</p>
 				<p onClick={() => Router.push('/ranking')}>Ranking</p>
 				<p onClick={() => Router.push('/rules')}>Rules</p>
 			</div>
@@ -52,10 +52,10 @@ export function Header() {
 					</MenuButton>
 					<MenuList style={{ backgroundColor: '#150633', border: 'none' }}>
 						<div className={styles.contentMenuList}>
-							<p onClick={() => Router.push('/createGame')}>Create Game</p>
-							<p onClick={() => Router.push('/createGame')}>Join a Game</p>
-							<p onClick={() => Router.push('/createGame')}>Ranking</p>
-							<p onClick={() => Router.push('/createGame')}>Rules</p>
+							<p onClick={() => Router.push('/createRoom')}>Create Room</p>
+							<p onClick={() => Router.push('/joinRoom')}>Join Room</p>
+							<p onClick={() => Router.push('/ranking')}>Ranking</p>
+							<p onClick={() => Router.push('/rules')}>Rules</p>
 						</div>
 					</MenuList>
 				</Menu>

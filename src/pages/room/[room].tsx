@@ -3,15 +3,15 @@ import Router, { useRouter } from 'next/router'
 import Image from 'next/image'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 
-import { ProviderRoom } from '../core/ProviderRoom'
-import { RoomProvider } from '../provider/RoomProvider'
-import UseAuth from '../service/hooks/useAuth'
-import { Header } from '../components/Header'
-import { BoxQuestion } from '../components/BoxQuestion'
-import { BeforeGame } from '../components/BeforeGame'
+import { ProviderRoom } from '../../core/ProviderRoom'
+import { RoomProvider } from '../../provider/RoomProvider'
+import UseAuth from '../../service/hooks/useAuth'
+import { Header } from '../../components/Header'
+import { BoxQuestion } from '../../components/BoxQuestion'
+import { BeforeGame } from '../../components/BeforeGame'
 
-import logoQuestion from '../../public/images/logoQuestion.svg'
-import styles from '../styles/room.module.css'
+import logoQuestion from '../../../public/images/logoQuestion.svg'
+import styles from '../../styles/room.module.css'
 
 export default function Room() {
 	const id = useRouter().query.room
@@ -67,7 +67,7 @@ export default function Room() {
 					</div>
 				</div>
 			) : (
-				<BeforeGame title='asd' />
+				<BeforeGame title='asdgg' />
 			)}
 		</div>
 	)

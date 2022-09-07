@@ -32,7 +32,7 @@ export default function createRoom() {
 
 		create(room, user.email)
 
-		Router.push(`/${room.id}`)
+		Router.push(`/room/${room.id}`)
 	}
 
 	return (
