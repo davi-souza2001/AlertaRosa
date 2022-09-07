@@ -1,3 +1,4 @@
+import Router from 'next/router'
 import { useState } from 'react'
 import { Header } from '../components/Header'
 import UseAuth from '../service/hooks/useAuth'
@@ -16,7 +17,8 @@ export default function createRoom() {
 			alert('Players number could not be 0')
 			return
 		}
-		create({
+
+		const room = {
 			id: crypto.randomUUID(),
 			title,
 			leader: user.email,
@@ -26,7 +28,11 @@ export default function createRoom() {
 			],
 			playing: false,
 
-		}, user.email)
+		}
+
+		create(room, user.email)
+
+		Router.push(`/${room.id}`)
 	}
 
 	return (

@@ -30,8 +30,9 @@ export function RoomProviderContext(props: any) {
 		setLoading(false)
 	}
 
-	async function sign(): Promise<void> {
+	async function sign(): Promise<number> {
 		console.log('sign')
+		return 0
 	}
 
 	async function handleAnswerQuestion(): Promise<void> {

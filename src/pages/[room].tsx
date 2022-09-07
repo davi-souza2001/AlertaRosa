@@ -1,8 +1,11 @@
-import { useState } from 'react'
-import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import Router, { useRouter } from 'next/router'
 import Image from 'next/image'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 
+import { ProviderRoom } from '../core/ProviderRoom'
+import { RoomProvider } from '../provider/RoomProvider'
+import UseAuth from '../service/hooks/useAuth'
 import { Header } from '../components/Header'
 import { BoxQuestion } from '../components/BoxQuestion'
 import { BeforeGame } from '../components/BeforeGame'
@@ -12,8 +15,23 @@ import styles from '../styles/room.module.css'
 
 export default function Room() {
 	const id = useRouter().query.room
-
+	const providerRooms = new ProviderRoom(new RoomProvider())
+	const { setLoading } = UseAuth()
 	const [playing, setPlaying] = useState(false)
+
+	async function checkIfExists(id: string) {
+		const exists = await providerRooms.sign(id as string ?? '')
+		exists === 0 && Router.push('/')
+	}
+
+	useEffect(() => {
+		setLoading(true)
+		if (id) {
+			checkIfExists(id as string)
+		}
+		setLoading(false)
+
+	}, [id])
 
 	return (
 		<div className={styles.contentGeral}>

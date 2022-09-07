@@ -15,12 +15,12 @@ export class RoomProvider implements ProviderRoomProps {
 		})
 	}
 
-	async sign(id: string): Promise<boolean> {
+	async sign(id: string): Promise<number> {
 		const searchedRoom = query(collection(db, 'rooms'), where('id', '==', id))
 
 		const resolveQuery = await getDocs(searchedRoom)
 
-		return resolveQuery.empty
+		return resolveQuery.size
 	}
 
 	async handleAnswerQuestion(): Promise<void> {

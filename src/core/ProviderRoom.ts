@@ -3,7 +3,7 @@ import { RoomProps } from "./Room"
 
 export interface ProviderRoomProps {
 	create(room: RoomProps, leader: string): Promise<void>
-	sign(id: string): Promise<any>
+	sign(id: string): Promise<number>
 	handleAnswerQuestion(question: Question): Promise<void>
 	result(): Promise<void>
 }
@@ -17,8 +17,10 @@ export class ProviderRoom {
 		await this._providerAuthentication.create(room, leader)
 	}
 
-	async sign(id: string): Promise<any> {
-		await this._providerAuthentication.sign(id)
+	async sign(id: string): Promise<number> {
+		const exists = await this._providerAuthentication.sign(id)
+
+		return exists
 	}
 
 	async handleAnswerQuestion(question: Question): Promise<void> {
