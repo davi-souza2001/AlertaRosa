@@ -7,6 +7,7 @@ import { collection, getDocs, query, where } from "firebase/firestore"
 import { User } from "../../core/User"
 import { db } from "../../firebase/config"
 import { AuthenticationProvider } from "../../provider/AuthenticationProvider"
+import { ProviderUser } from "../../core/ProviderUser"
 
 interface AuthContextProps {
 	loginGoogle(): Promise<void>
@@ -15,6 +16,7 @@ interface AuthContextProps {
 	submitUser(user: User): Promise<void>
 	user: User
 	loading: boolean
+	setLoading: any
 }
 
 const AuthContext = createContext<AuthContextProps>({
@@ -27,13 +29,14 @@ const AuthContext = createContext<AuthContextProps>({
 		email: '',
 		name: ''
 	}),
-	loading: false
+	loading: false,
+	setLoading: {}
 })
 
 export function AuthProvider(props: any) {
 	const [loading, setLoading] = useState(false)
 	const [user, setUser] = useState<User>(new User({ photo: '', email: '', name: '' }))
-	const authentication = new AuthenticationProvider()
+	const authentication = new ProviderUser(new AuthenticationProvider())
 	const userCookie = Cookie.get('Admin-QuizDev')
 
 	async function loginGoogle() {
@@ -101,7 +104,8 @@ export function AuthProvider(props: any) {
 			getUser,
 			submitUser,
 			user,
-			loading
+			loading,
+			setLoading
 		}}>
 			{props.children}
 		</AuthContext.Provider>

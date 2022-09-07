@@ -4,10 +4,10 @@ import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth"
 import { addDoc, collection, getDocs, query, where } from "firebase/firestore"
 
 import { auth, db } from '../firebase/config'
-import { ProviderProps } from "../core/ProviderUser"
+import { ProviderUserProps } from "../core/ProviderUser"
 import { User } from "../core/User"
 
-export class AuthenticationProvider implements ProviderProps {
+export class AuthenticationProvider implements ProviderUserProps {
 
 	private _provider = new GoogleAuthProvider()
 	private _user = new User({

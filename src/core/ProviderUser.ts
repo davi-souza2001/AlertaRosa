@@ -1,16 +1,16 @@
 import { User } from "./User";
 
-export interface ProviderProps {
+export interface ProviderUserProps {
 	loginGoogle(): Promise<User>
 	getUser(user: User): Promise<User | false>
 	submitUser(user: User): Promise<void>
 	logout(): Promise<void>
 }
 
-export default class Provider {
-	private _providerAuthentication: ProviderProps
+export class ProviderUser {
+	private _providerAuthentication: ProviderUserProps
 
-	constructor(provider: ProviderProps) { this._providerAuthentication = provider }
+	constructor(provider: ProviderUserProps) { this._providerAuthentication = provider }
 
 	async loginGoogle(): Promise<User> {
 		const user = await this._providerAuthentication.loginGoogle()

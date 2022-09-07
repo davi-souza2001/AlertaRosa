@@ -1,6 +1,4 @@
 import Image from 'next/image'
-import Router from 'next/router'
-import { useEffect } from 'react'
 
 import logoTitle from '../../public/images/logoTitle.svg'
 import logoGoogle from '../../public/images/logoGoogle.png'
@@ -9,14 +7,7 @@ import styles from '../styles/login.module.css'
 import UseAuth from '../service/hooks/useAuth'
 
 export default function login() {
-	const { loginGoogle, user } = UseAuth()
-
-	useEffect(() => {
-		if (user.email !== '') {
-			Router.push('/')
-		}
-
-	}, [user])
+	const { loginGoogle } = UseAuth()
 
 	return (
 		<div className={styles.contentGeral}>
