@@ -1,9 +1,10 @@
+import Router from "next/router"
+import Cookie from 'js-cookie'
 import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth"
 import { addDoc, collection, getDocs, query, where } from "firebase/firestore"
-import Cookie from 'js-cookie'
 
 import { auth, db } from '../firebase/config'
-import { ProviderProps } from "../core/Provider"
+import { ProviderProps } from "../core/ProviderUser"
 import { User } from "../core/User"
 
 export default class AuthenticationProvider implements ProviderProps {
@@ -44,8 +45,9 @@ export default class AuthenticationProvider implements ProviderProps {
 	}
 
 	async logout(): Promise<void> {
-		console.log('Logout')
 		await signOut(auth)
+		Cookie.remove('Admin-QuizDev')
+		Router.push('/login')
 	}
 
 	static setCookieUser(user: User) {

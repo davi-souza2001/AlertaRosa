@@ -86,6 +86,9 @@ export function AuthProvider(props: any) {
 					}))
 				})
 			})
+
+		} else {
+			Router.push('/login')
 		}
 
 		setLoading(false)
