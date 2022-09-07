@@ -1,5 +1,3 @@
-import { Question } from "./Question"
-
 export interface RoomProps {
 	id: string
 	players: string[]
