@@ -7,7 +7,7 @@ import { auth, db } from '../firebase/config'
 import { ProviderProps } from "../core/ProviderUser"
 import { User } from "../core/User"
 
-export default class AuthenticationProvider implements ProviderProps {
+export class AuthenticationProvider implements ProviderProps {
 
 	private _provider = new GoogleAuthProvider()
 	private _user = new User({

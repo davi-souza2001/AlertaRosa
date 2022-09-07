@@ -1,12 +1,12 @@
-import { collection, getDocs, query, where } from "firebase/firestore"
+import Router from "next/router"
 import { useEffect, useState } from "react"
 import { createContext } from "react"
 import Cookie from 'js-cookie'
+import { collection, getDocs, query, where } from "firebase/firestore"
 
 import { User } from "../../core/User"
 import { db } from "../../firebase/config"
-import AuthenticationProvider from "../../provider/AuthenticationProvider"
-import Router from "next/router"
+import { AuthenticationProvider } from "../../provider/AuthenticationProvider"
 
 interface AuthContextProps {
 	loginGoogle(): Promise<void>
