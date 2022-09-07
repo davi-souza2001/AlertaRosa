@@ -2,29 +2,22 @@ import { Question } from "./Question"
 
 export interface RoomProps {
 	id: string
-	members: string[]
+	players: string[]
+	playersLength: number
 	leader: string
-	questions: Question[]
+	title: string
 	playing: boolean
 }
 
 export class Room {
-	#id: string
-	#members: string[]
-	#questions: Question[]
-	#playing: boolean
-	#leader: string
+	private _props: RoomProps
 
-	constructor(members: string[], questions: Question[], playing: boolean, leader: string) {
-		this.#id = crypto.randomUUID()
-		this.#members = members
-		this.#leader = leader
-		this.#questions = questions
-		this.#playing = playing
-	}
+	constructor(props: RoomProps) { this._props = props }
 
-	get id() { return this.#id }
-	get members() { return this.#members }
-	get questions() { return this.#questions }
-	get playing() { return this.#playing }
+	get id() { return this._props.id }
+	get title() { return this._props.title }
+	get players() { return this._props.players }
+	get playing() { return this._props.playing }
+	get leader() { return this._props.leader }
+	get playersLength() { return this._props.playersLength }
 }

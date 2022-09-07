@@ -1,8 +1,8 @@
 import { Question } from "./Question"
-import { Room } from "./Room"
+import { RoomProps } from "./Room"
 
 export interface ProviderRoomProps {
-	create(room: Room, leader: string): Promise<void>
+	create(room: RoomProps, leader: string): Promise<void>
 	sign(id: string): Promise<any>
 	handleAnswerQuestion(question: Question): Promise<void>
 	result(): Promise<void>
@@ -13,7 +13,7 @@ export class ProviderRoom {
 
 	constructor(provider: ProviderRoomProps) { this._providerAuthentication = provider }
 
-	async create(room: Room, leader: string): Promise<void> {
+	async create(room: RoomProps, leader: string): Promise<void> {
 		await this._providerAuthentication.create(room, leader)
 	}
 

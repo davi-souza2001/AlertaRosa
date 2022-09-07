@@ -1,16 +1,16 @@
-import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import { addDoc, collection, getDocs, query, where } from "firebase/firestore"
 import { ProviderRoomProps } from "../core/ProviderRoom"
-import { Room } from "../core/Room";
-import { db } from "../firebase/config";
+import { RoomProps } from "../core/Room"
+import { db } from "../firebase/config"
 
 export class RoomProvider implements ProviderRoomProps {
 
-	async create(room: Room, leader: string): Promise<void> {
+	async create(room: RoomProps, leader: string): Promise<void> {
 		await addDoc(collection(db, "rooms"), {
 			id: room.id,
-			members: room.members,
+			players: room.players,
+			title: room.title,
 			leader,
-			questions: room.questions,
 			playing: room.playing
 		})
 	}
