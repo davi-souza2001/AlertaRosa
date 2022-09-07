@@ -7,7 +7,7 @@ import styles from '../styles/login.module.css'
 import UseAuth from '../service/hooks/useAuth'
 
 export default function login() {
-	const { loginGoogle, user } = UseAuth()
+	const { loginGoogle } = UseAuth()
 
 	return (
 		<div className={styles.contentGeral}>

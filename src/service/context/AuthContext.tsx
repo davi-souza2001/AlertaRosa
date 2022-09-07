@@ -6,6 +6,7 @@ import Cookie from 'js-cookie'
 import { User } from "../../core/User"
 import { db } from "../../firebase/config"
 import AuthenticationProvider from "../../provider/AuthenticationProvider"
+import Router from "next/router"
 
 interface AuthContextProps {
 	loginGoogle(): Promise<void>
@@ -41,11 +42,12 @@ export function AuthProvider(props: any) {
 		const searchedUser = await getUser(loggedUser)
 
 		if (searchedUser) {
-			console.log('ok')
-
 			AuthenticationProvider.setCookieUser(searchedUser)
+			Router.push('/')
 		} else {
-			console.log('not ok')
+			submitUser(loggedUser)
+			AuthenticationProvider.setCookieUser(loggedUser)
+			Router.push('/')
 		}
 	}
 
@@ -71,18 +73,20 @@ export function AuthProvider(props: any) {
 	useEffect(() => {
 		setLoading(true)
 
-		const searchedUser = query(collection(db, 'users'), where('email', '==', userCookie))
-		const resolveQuery = getDocs(searchedUser)
+		if (userCookie) {
+			const searchedUser = query(collection(db, 'users'), where('email', '==', userCookie))
+			const resolveQuery = getDocs(searchedUser)
 
-		resolveQuery.then((list) => {
-			list.forEach((doc) => {
-				setUser(new User({
-					name: doc.data().name,
-					email: doc.data().email,
-					photo: doc.data().photo
-				}))
+			resolveQuery.then((list) => {
+				list.forEach((doc) => {
+					setUser(new User({
+						name: doc.data().name,
+						email: doc.data().email,
+						photo: doc.data().photo
+					}))
+				})
 			})
-		})
+		}
 
 		setLoading(false)
 	}, [userCookie])

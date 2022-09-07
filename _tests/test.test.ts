@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest'
 
-it('test', () => {
-    expect(1 + 1).toBe(2)
+it('login user test', () => {
+    expect(1).toBeTruthy()
 })

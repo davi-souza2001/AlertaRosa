@@ -10,12 +10,15 @@ import Router from 'next/router'
 
 import Test from '../../../public/images/testUser.jpg'
 import styles from './Header.module.css'
+import UseAuth from '../../service/hooks/useAuth'
 
 export function Header() {
+	const { user } = UseAuth()
+
 	return (
 		<div className={styles.contentGeral}>
 			<div className={styles.contentTitle}>
-				<h1  onClick={() => Router.push('/')}>QuizDev</h1>
+				<h1 onClick={() => Router.push('/')}>QuizDev</h1>
 			</div>
 			<div className={styles.contentOptions}>
 				<p onClick={() => Router.push('/createGame')}>Create Game</p>
@@ -25,8 +28,10 @@ export function Header() {
 			</div>
 			<div className={styles.contentProfile}>
 				<div className={styles.contentIntoProfile} onClick={() => Router.push('/profile')}>
-					<span>Davi Souza</span>
-					<Image src={Test} height={50} width={50} style={{ borderRadius: "100%" }} />
+					<span>{user.name !== '' ? user.name : 'No user'}</span>
+					{user.photo !== '' ? (
+						<Image src={user.photo} height={50} width={50} style={{ borderRadius: "100%" }} />
+					) : false}
 				</div>
 			</div>
 			<div className={styles.contentMobile}>
