@@ -10,6 +10,13 @@
 	}
 }
 
+.contentGeral {
+	width: 100%;
+	min-height: 100vh;
+	background: url("../../public/images/background.svg") repeat-y;
+	color: #fff;
+}
+
 .contentCreateGame {
 	height: 80vh;
 	width: 100%;
@@ -39,14 +46,14 @@
 	margin-top: 30px;
 }
 
-.contentCreateGameBox form{
+.contentCreateGameBox form {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
 }
 
-.contentCreateGameBox button{
+.contentCreateGameBox button {
 	background-color: #e81fb2;
 	margin-top: 30px;
 	padding: 10px;
@@ -54,7 +61,7 @@
 	transition: 0.2s;
 }
 
-.contentCreateGameBox button:hover{
+.contentCreateGameBox button:hover {
 	background-color: #bc1b91;
 }
 
