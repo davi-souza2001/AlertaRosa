@@ -16,6 +16,12 @@ export default function createRoom() {
 		if (playersLength <= 0) {
 			alert('Players number could not be 0')
 			return
+		} else if (playersLength > 2) {
+			alert('Players number could not be more 2')
+			return
+		} else if (title.length > 20) {
+			alert('Invalid title size')
+			return
 		}
 
 		const room = {

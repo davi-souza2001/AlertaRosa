@@ -5,6 +5,7 @@ import styles from './beforegame.module.css'
 
 interface beforegameprops {
 	title: string
+	onClick: Function
 }
 
 export function BeforeGame(props: beforegameprops) {
@@ -25,7 +26,7 @@ export function BeforeGame(props: beforegameprops) {
 					<span>Davi Souza</span>
 				</div>
 				<div className={styles.contentButton}>
-					<button>Start</button>
+					<button onClick={() => props.onClick}>Start</button>
 				</div>
 			</div>
 		</div>

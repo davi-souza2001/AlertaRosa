@@ -67,7 +67,7 @@ export default function Room() {
 					</div>
 				</div>
 			) : (
-				<BeforeGame title='asdgg' />
+				<BeforeGame title='asdggasdsasadasdasda' onClick={() => setPlaying(true)} />
 			)}
 		</div>
 	)
