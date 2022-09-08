@@ -28,7 +28,7 @@ export default function createRoom() {
 			id: crypto.randomUUID(),
 			title,
 			leader: user.email,
-			playersLength,
+			playersLength: playersLength,
 			players: [
 				user.email
 			],

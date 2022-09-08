@@ -12,16 +12,26 @@ import { BeforeGame } from '../../components/BeforeGame'
 
 import logoQuestion from '../../../public/images/logoQuestion.svg'
 import styles from '../../styles/room.module.css'
+import { RoomProps } from '../../core/Room'
 
 export default function Room() {
 	const id = useRouter().query.room
 	const providerRooms = new ProviderRoom(new RoomProvider())
 	const { setLoading } = UseAuth()
 	const [playing, setPlaying] = useState(false)
+	const [room, setRoom] = useState<RoomProps>({
+		id: '',
+		leader: '',
+		players: [],
+		playersLength: 0,
+		playing: false,
+		title: ''
+	})
 
 	async function checkIfExists(id: string) {
-		const exists = await providerRooms.sign(id as string ?? '')
-		exists === 0 && Router.push('/')
+		const roomExists = await providerRooms.sign(id as string ?? '')
+		!roomExists && Router.replace('/')
+		roomExists && setRoom(roomExists)
 	}
 
 	useEffect(() => {
@@ -67,7 +77,7 @@ export default function Room() {
 					</div>
 				</div>
 			) : (
-				<BeforeGame title='asdggasdsasadasdasda' onClick={() => setPlaying(true)} />
+				<BeforeGame title={room.title ?? ''} onClick={() => setPlaying(true)} />
 			)}
 		</div>
 	)

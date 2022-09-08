@@ -9,18 +9,23 @@ export class RoomProvider implements ProviderRoomProps {
 		await addDoc(collection(db, "rooms"), {
 			id: room.id,
 			players: room.players,
+			playersLength: room.playersLength,
 			title: room.title,
 			leader,
 			playing: room.playing
 		})
 	}
 
-	async sign(id: string): Promise<number> {
+	async sign(id: string) {
+		let roomFound
+
 		const searchedRoom = query(collection(db, 'rooms'), where('id', '==', id))
 
 		const resolveQuery = await getDocs(searchedRoom)
 
-		return resolveQuery.size
+		resolveQuery.forEach((room) => roomFound = room.data())
+
+		return roomFound
 	}
 
 	async handleAnswerQuestion(): Promise<void> {
