@@ -6,6 +6,7 @@ import styles from './beforegame.module.css'
 interface beforegameprops {
 	title: string
 	onClick: Function
+	players: number
 }
 
 export function BeforeGame(props: beforegameprops) {
@@ -19,12 +20,14 @@ export function BeforeGame(props: beforegameprops) {
 					}} />
 					<span>Davi Souza</span>
 				</div>
-				<div className={styles.contentPlayer}>
-					<Image src={logoQuestion} height={40} width={60} style={{
-						marginLeft: '10px'
-					}} />
-					<span>Davi Souza</span>
-				</div>
+				{props.players === 2 && (
+					<div className={styles.contentPlayer}>
+						<Image src={logoQuestion} height={40} width={60} style={{
+							marginLeft: '10px'
+						}} />
+						<span>Davi Souza</span>
+					</div>
+				)}
 				<div className={styles.contentButton}>
 					<button onClick={() => props.onClick}>Start</button>
 				</div>
