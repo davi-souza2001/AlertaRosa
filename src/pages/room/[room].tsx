@@ -22,7 +22,11 @@ export default function Room() {
 	const [room, setRoom] = useState<RoomProps>({
 		id: '',
 		leader: '',
-		players: [],
+		players: [{
+			email: '',
+			name: '',
+			photo: ''
+		}],
 		playersLength: 0,
 		playing: false,
 		title: ''
@@ -77,7 +81,12 @@ export default function Room() {
 					</div>
 				</div>
 			) : (
-				<BeforeGame title={room.title ?? ''} players={room.playersLength ?? 0} onClick={() => setPlaying(true)} />
+				<BeforeGame
+					title={room.title ?? ''}
+					namePLayerOne={room.players[0].name}
+					photoPlayerOne={room.players[0].photo}
+					players={room.playersLength ?? 0}
+					onClick={() => setPlaying(true)} />
 			)}
 		</div>
 	)

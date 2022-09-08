@@ -30,7 +30,11 @@ export default function createRoom() {
 			leader: user.email,
 			playersLength: playersLength,
 			players: [
-				user.email
+				{
+					email: user.email,
+					photo: user.photo,
+					name: user.name
+				}
 			],
 			playing: false,
 

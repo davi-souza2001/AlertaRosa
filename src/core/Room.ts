@@ -1,6 +1,12 @@
+export interface playProps{
+	email: string
+	photo: string
+	name: string
+}
+
 export interface RoomProps {
 	id: string
-	players: string[]
+	players: playProps[]
 	playersLength: number
 	leader: string
 	title: string
