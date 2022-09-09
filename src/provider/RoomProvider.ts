@@ -6,7 +6,7 @@ import { db } from "../firebase/config"
 export class RoomProvider implements ProviderRoomProps {
 
 	async create(room: RoomProps, leader: string): Promise<void> {
-		await addDoc(collection(db, "rooms"), {
+		await setDoc(doc(db, "rooms", leader), {
 			id: room.id,
 			players: room.players,
 			playersLength: room.playersLength,
@@ -30,7 +30,6 @@ export class RoomProvider implements ProviderRoomProps {
 
 	async enterPlayingTheRoom(player: playProps, id: string): Promise<void> {
 		const searchedRoom = doc(db, 'rooms', id)
-		// const searchedRoom = query(collection(db, 'rooms'), where('id', '==', id))
 
 		const resolveQuery = await getDoc(searchedRoom)
 
