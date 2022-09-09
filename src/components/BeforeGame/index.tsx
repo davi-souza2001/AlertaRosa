@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { MouseEventHandler } from 'react'
 
-import logoQuestion from '../../../public/images/logoQuestion.svg'
+import signRoom from '../../../public/images/signRoom.svg'
 import styles from './beforegame.module.css'
 
 interface beforegameprops {
@@ -20,17 +20,18 @@ export function BeforeGame(props: beforegameprops) {
 			<div className={styles.contentCreateGameBox}>
 				<h1>{props.title}</h1>
 				<div className={styles.contentPlayer}>
-					<Image src={props.photoPlayerOne ?? logoQuestion} height={50} width={50} style={{
+					<Image src={props.photoPlayerOne ?? signRoom} height={50} width={50} style={{
 						borderRadius: '999px'
 					}} />
 					<span>{props.namePLayerOne ?? ''}</span>
 				</div>
 				{props.players === 2 && (
 					<div className={styles.contentPlayer}>
-						<Image src={props.photoPlayerTwo ?? logoQuestion} height={50} width={50} style={{
-							borderRadius: '9999px'
+						<Image src={props.photoPlayerTwo ?? signRoom} height={50} width={50} style={{
+							borderRadius: '9999px',
+							cursor: 'pointer'
 						}} />
-						<span>{props.namePLayerTwo ?? ''}</span>
+						<span>{props.namePLayerTwo ?? 'Enter the room'}</span>
 					</div>
 				)}
 				<div className={styles.contentButton}>
