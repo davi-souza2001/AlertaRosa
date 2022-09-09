@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 
 import UseAuth from '../../service/hooks/useAuth'
-import { RoomProps } from '../../core/Room'
+import { playProps, RoomProps } from '../../core/Room'
 import { ProviderRoom } from '../../core/ProviderRoom'
 import { Header } from '../../components/Header'
 import { BeforeGame } from '../../components/BeforeGame'
@@ -17,7 +17,7 @@ import styles from '../../styles/room.module.css'
 export default function Room() {
 	const id = useRouter().query.room
 	const providerRooms = new ProviderRoom(new RoomProvider())
-	const { setLoading } = UseAuth()
+	const { setLoading, user } = UseAuth()
 	const [playing, setPlaying] = useState(false)
 	const [room, setRoom] = useState<RoomProps>({
 		id: '',
@@ -36,6 +36,10 @@ export default function Room() {
 		const roomExists = await providerRooms.sign(id as string ?? '')
 		!roomExists && Router.replace('/')
 		roomExists && setRoom(roomExists)
+	}
+
+	async function enterTheRoom(player: playProps, id: string) {
+		await providerRooms.enterPlayingTheRoom(player, id)
 	}
 
 	useEffect(() => {
@@ -88,6 +92,13 @@ export default function Room() {
 					namePLayerTwo={room.players[1]?.name}
 					photoPlayerTwo={room.players[1]?.photo}
 					players={room.playersLength ?? 0}
+					enterTheRoom={() => enterTheRoom({
+						email: user.email,
+						name: user.name,
+						photo: user.photo
+					},
+						id as string ?? ''
+					)}
 					onClick={() => setPlaying(true)} />
 			)}
 		</div>

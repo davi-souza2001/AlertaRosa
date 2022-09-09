@@ -1,6 +1,6 @@
-import { addDoc, collection, getDocs, query, where } from "firebase/firestore"
+import { addDoc, collection, doc, getDoc, getDocs, query, setDoc, where } from "firebase/firestore"
 import { ProviderRoomProps } from "../core/ProviderRoom"
-import { RoomProps } from "../core/Room"
+import { playProps, RoomProps } from "../core/Room"
 import { db } from "../firebase/config"
 
 export class RoomProvider implements ProviderRoomProps {
@@ -26,6 +26,19 @@ export class RoomProvider implements ProviderRoomProps {
 		resolveQuery.forEach((room) => roomFound = room.data())
 
 		return roomFound
+	}
+
+	async enterPlayingTheRoom(player: playProps, id: string): Promise<void> {
+		const searchedRoom = doc(db, 'rooms', id)
+		// const searchedRoom = query(collection(db, 'rooms'), where('id', '==', id))
+
+		const resolveQuery = await getDoc(searchedRoom)
+
+		if (resolveQuery.exists()) {
+			console.log("Document data:", resolveQuery.data());
+		} else {
+			console.log("No such document!");
+		}
 	}
 
 	async handleAnswerQuestion(): Promise<void> {

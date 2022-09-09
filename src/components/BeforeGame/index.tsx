@@ -11,6 +11,7 @@ interface beforegameprops {
 	namePLayerOne: string
 	photoPlayerTwo?: string
 	namePLayerTwo?: string
+	enterTheRoom: MouseEventHandler<HTMLImageElement>
 	onClick: MouseEventHandler<HTMLButtonElement>
 }
 
@@ -30,7 +31,9 @@ export function BeforeGame(props: beforegameprops) {
 						<Image src={props.photoPlayerTwo ?? signRoom} height={50} width={50} style={{
 							borderRadius: '9999px',
 							cursor: 'pointer'
-						}} />
+						}}
+							onClick={props.enterTheRoom}
+						/>
 						<span>{props.namePLayerTwo ?? 'Enter the room'}</span>
 					</div>
 				)}

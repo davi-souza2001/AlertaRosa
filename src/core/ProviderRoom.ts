@@ -1,9 +1,10 @@
 import { Question } from "./Question"
-import { RoomProps } from "./Room"
+import { playProps, RoomProps } from "./Room"
 
 export interface ProviderRoomProps {
 	create(room: RoomProps, leader: string): Promise<void>
 	sign(id: string): Promise<any>
+	enterPlayingTheRoom(player: playProps, id: string): Promise<void>
 	handleAnswerQuestion(question: Question): Promise<void>
 	result(): Promise<void>
 }
@@ -21,6 +22,10 @@ export class ProviderRoom {
 		const exists = await this._providerAuthentication.sign(id)
 
 		return exists
+	}
+
+	async enterPlayingTheRoom(player: playProps, id: string): Promise<void> {
+		await this._providerAuthentication.enterPlayingTheRoom(player, id)
 	}
 
 	async handleAnswerQuestion(question: Question): Promise<void> {
