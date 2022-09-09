@@ -85,6 +85,8 @@ export default function Room() {
 					title={room.title ?? ''}
 					namePLayerOne={room.players[0].name}
 					photoPlayerOne={room.players[0].photo}
+					namePLayerTwo={room.players[1]?.name}
+					photoPlayerTwo={room.players[1]?.photo}
 					players={room.playersLength ?? 0}
 					onClick={() => setPlaying(true)} />
 			)}

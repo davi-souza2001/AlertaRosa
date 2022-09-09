@@ -9,6 +9,8 @@ interface beforegameprops {
 	title: string
 	photoPlayerOne: string
 	namePLayerOne: string
+	photoPlayerTwo?: string
+	namePLayerTwo?: string
 	onClick: MouseEventHandler<HTMLButtonElement>
 }
 
@@ -25,10 +27,10 @@ export function BeforeGame(props: beforegameprops) {
 				</div>
 				{props.players === 2 && (
 					<div className={styles.contentPlayer}>
-						<Image src={logoQuestion} height={50} width={50} style={{
+						<Image src={props.photoPlayerTwo ?? logoQuestion} height={50} width={50} style={{
 							borderRadius: '9999px'
 						}} />
-						<span>Davi Souza</span>
+						<span>{props.namePLayerTwo ?? ''}</span>
 					</div>
 				)}
 				<div className={styles.contentButton}>
