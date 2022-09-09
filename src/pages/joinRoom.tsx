@@ -12,8 +12,12 @@ export default function joinRoom() {
 	const providerRooms = new ProviderRoom(new RoomProvider())
 
 	async function checkIfExists() {
-		const exists = await providerRooms.sign(idRoom)
-		exists === 0 ? alert('Room not found') : Router.push(`/room/${idRoom}`)
+		if (idRoom) {
+			const exists = await providerRooms.sign(idRoom)
+			!exists ? alert('Room not found') : Router.push(`/room/${idRoom}`)
+		} else {
+			alert('Id undefined')
+		}
 	}
 
 	return (

@@ -13,11 +13,13 @@ import { RoomProvider } from '../../provider/RoomProvider'
 
 import logoQuestion from '../../../public/images/logoQuestion.svg'
 import styles from '../../styles/room.module.css'
+import UseRoom from '../../service/hooks/useRoom'
 
 export default function Room() {
 	const id = useRouter().query.room
 	const providerRooms = new ProviderRoom(new RoomProvider())
 	const { setLoading, user } = UseAuth()
+	const { roomRealTime } = UseRoom()
 	const [playing, setPlaying] = useState(false)
 	const [room, setRoom] = useState<RoomProps>({
 		id: '',
@@ -38,8 +40,8 @@ export default function Room() {
 		roomExists && setRoom(roomExists)
 	}
 
-	async function enterTheRoom(player: playProps, id: string) {
-		await providerRooms.enterPlayingTheRoom(player, id)
+	async function enterTheRoom(player: playProps, email: string) {
+		await providerRooms.enterPlayingTheRoom(player, email)
 	}
 
 	useEffect(() => {
@@ -87,17 +89,17 @@ export default function Room() {
 			) : (
 				<BeforeGame
 					title={room.title ?? ''}
-					namePLayerOne={room.players[0].name}
-					photoPlayerOne={room.players[0].photo}
-					namePLayerTwo={room.players[1]?.name}
-					photoPlayerTwo={room.players[1]?.photo}
+					namePLayerOne={roomRealTime.players[0].name ?? room.players[0].name}
+					photoPlayerOne={roomRealTime.players[0].photo ?? room.players[0].photo}
+					namePLayerTwo={roomRealTime.players[1]?.name ?? room.players[1]?.name}
+					photoPlayerTwo={roomRealTime.players[1]?.photo ?? room.players[1]?.photo}
 					players={room.playersLength ?? 0}
 					enterTheRoom={() => enterTheRoom({
 						email: user.email,
 						name: user.name,
 						photo: user.photo
 					},
-						id as string ?? ''
+						room.leader
 					)}
 					onClick={() => setPlaying(true)} />
 			)}

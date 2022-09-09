@@ -1,6 +1,6 @@
 import { useContext } from "react"
-import RoommContext from "../context/RoomContext"
+import RoomContext from "../context/RoomContext"
 
-const UseRoom = () => useContext(RoommContext)
+const UseRoom = () => useContext(RoomContext)
 
 export default UseRoom
