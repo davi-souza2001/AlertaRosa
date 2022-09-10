@@ -1,13 +1,18 @@
 import styles from './boxquestion.module.css'
 
-export function BoxQuestion() {
+interface boxQuestionProps {
+	text: string
+	numberQuestion: number
+}
+
+export function BoxQuestion(props: boxQuestionProps) {
 	return (
 		<div className={styles.contentGeral}>
 			<div className={styles.contentNumberQuestion}>
-				<span>1</span>
+				<span>{props.numberQuestion}</span>
 			</div>
 			<div className={styles.contentAnswers}>
-				<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+				<span>{props.text}</span>
 			</div>
 		</div>
 	)

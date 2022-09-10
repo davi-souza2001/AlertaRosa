@@ -1,7 +1,6 @@
 import { createContext, Dispatch, SetStateAction, useState } from 'react'
 
 import { ProviderRoom } from '../../core/ProviderRoom'
-import { Question } from '../../core/Question'
 import { RoomProps } from '../../core/Room'
 import UseAuth from '../hooks/useAuth'
 import { RoomProvider } from '../../provider/RoomProvider'

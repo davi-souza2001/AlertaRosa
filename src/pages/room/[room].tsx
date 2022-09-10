@@ -14,6 +14,7 @@ import { RoomProvider } from '../../provider/RoomProvider'
 import logoQuestion from '../../../public/images/logoQuestion.svg'
 import styles from '../../styles/room.module.css'
 import UseRoom from '../../service/hooks/useRoom'
+import { QuestionProps } from '../../core/Question'
 
 export default function Room() {
 	const id = useRouter().query.room
@@ -33,6 +34,12 @@ export default function Room() {
 		playing: false,
 		title: ''
 	})
+	const [questions, setQuestions] = useState<QuestionProps[]>([])
+	const [renderedQuestion, setRenderedQuestion] = useState<QuestionProps>({
+		enunciation: '',
+		answer: []
+	})
+	const [questionNumber, setQuestionNumber] = useState(1)
 
 	async function checkIfExists(id: string) {
 		const roomExists = await providerRooms.sign(id as string ?? '')
@@ -44,8 +51,28 @@ export default function Room() {
 		await providerRooms.enterPlayingTheRoom(player, email)
 	}
 
+	async function getQuestions() {
+		const questionsFound = await providerRooms.getQuestions()
+		setQuestions(questionsFound)
+		setRenderedQuestion(questionsFound[0])
+	}
+
+	async function handleNextQuestion() {
+		setQuestionNumber(state => state + 1)
+		console.log(questionNumber)
+		console.log(questions.length)
+		if (questionNumber === questions.length - 1) {
+			setPlaying(false)
+			setQuestionNumber(1)
+			setRenderedQuestion(questions[0])
+		} else {
+			setRenderedQuestion(questions[questionNumber])
+		}
+	}
+
 	useEffect(() => {
 		setLoading(true)
+		getQuestions()
 		if (id) {
 			checkIfExists(id as string)
 		}
@@ -61,13 +88,13 @@ export default function Room() {
 					<div className={styles.contentQuestionBox}>
 						<div className={styles.contentQuestion}>
 							<div className={styles.contentQuestionNow}>
-								<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ex qui explicabo iste molestias vitae assumenda expedita sed placeat doloremque officia ipsa, nostrum ut necessitatibus ad repellendus est doloribus tempora?</h1>
+								<h1>{renderedQuestion.enunciation ?? ''}</h1>
 							</div>
 							<Image src={logoQuestion} height={60} width={100} style={{ width: '20%', marginRight: '10px' }} />
 						</div>
 						<div className={styles.contentTimer}>
 							<CountdownCircleTimer
-								duration={30}
+								duration={60}
 								size={100}
 								isPlaying
 								colors={['#3c2765', '#F7B801', '#A30000', '#A30000']}
@@ -77,12 +104,12 @@ export default function Room() {
 							</CountdownCircleTimer>
 						</div>
 						<div className={styles.contentAreaAnswers}>
-							<BoxQuestion />
-							<BoxQuestion />
-							<BoxQuestion />
+							<BoxQuestion text={renderedQuestion.answer[0].value ?? ''} numberQuestion={1} />
+							<BoxQuestion text={renderedQuestion.answer[1].value ?? ''} numberQuestion={2} />
+							<BoxQuestion text={renderedQuestion.answer[2].value ?? ''} numberQuestion={3} />
 						</div>
 						<div className={styles.contentSubmitAnswer}>
-							<button>Submit 🚀</button>
+							<button onClick={handleNextQuestion}>Submit 🚀</button>
 						</div>
 					</div>
 				</div>

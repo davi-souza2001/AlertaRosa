@@ -4,6 +4,7 @@ import { db } from "../firebase/config"
 import { ProviderRoomProps } from "../core/ProviderRoom"
 import { playProps, RoomProps } from "../core/Room"
 import UseRoom from "../service/hooks/useRoom"
+import { QuestionProps } from "../core/Question"
 
 export class RoomProvider implements ProviderRoomProps {
 	#setRoomRealTime: any = UseRoom().setRoomRealTime
@@ -41,7 +42,6 @@ export class RoomProvider implements ProviderRoomProps {
 		const resolveQuery = await getDoc(searchedRoom)
 
 		if (resolveQuery.exists()) {
-			console.log("Document data:", resolveQuery.data())
 			await updateDoc(searchedRoom, {
 				players: [...resolveQuery.data().players, {
 					email: player.email,
@@ -52,6 +52,18 @@ export class RoomProvider implements ProviderRoomProps {
 		} else {
 			console.log("No such document!");
 		}
+	}
+
+	async getQuestions(): Promise<QuestionProps[]> {
+		let questionsFound: QuestionProps[] = []
+
+		const searchedRoom = await getDocs(collection(db, 'questions'))
+
+		searchedRoom.forEach((doc) => {
+			questionsFound.push(doc.data() as QuestionProps)
+		})
+
+		return questionsFound as QuestionProps[]
 	}
 
 	async handleAnswerQuestion(): Promise<void> {
