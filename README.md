@@ -1,32 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<html>   
+<h1 align="center">
+   QuizDev
+</h1>
 
-## Getting Started
+<h2>It's a multiplayer quiz game made for devs!</h2>
 
-First, run the development server:
+## Techs
+<div>
+    <img alt="NEXT" width="120" src="https://img.shields.io/badge/next.js-61DAFB?style=for-the-badge&logo=next.js&logoColor=black"/>
+    <img alt="JEST" width="90" src="https://img.shields.io/badge/jest-fff?style=for-the-badge&logo=jest&logoColor=black"/>
+    <img alt="FIREBASE" width="132" src="https://img.shields.io/badge/firebase-FFCA2A?style=for-the-badge&logo=firebase&logoColor=black"/>
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Interface
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![Screenshot_2](https://user-images.githubusercontent.com/77704994/189482923-411081e4-2115-4e9e-8593-4c37b965b747.png)
+![Screenshot_3](https://user-images.githubusercontent.com/77704994/189482928-bf8f4887-95e6-466d-9c7c-e902487ae016.png)
+![Screenshot_4](https://user-images.githubusercontent.com/77704994/189482931-4b98f559-e3bb-4020-bf46-8f604a27a2e9.png)
+![Screenshot_5](https://user-images.githubusercontent.com/77704994/189482934-837850bc-0791-45da-ae30-638ab97bc814.png)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Design Pattern
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+The design pattern used was ports and adapters, leaving the responsibility solely for the language much greater compared to the framework.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
+</html>  
