@@ -128,6 +128,7 @@ export default function Room() {
 					},
 						room.leader
 					)}
+					leader={room.leader === user.email ? true : false}
 					onClick={() => setPlaying(true)} />
 			)}
 		</div>

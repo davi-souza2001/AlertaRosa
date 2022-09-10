@@ -11,6 +11,7 @@ interface beforegameprops {
 	namePLayerOne: string
 	photoPlayerTwo?: string
 	namePLayerTwo?: string
+	leader: boolean
 	enterTheRoom: MouseEventHandler<HTMLImageElement>
 	onClick: MouseEventHandler<HTMLButtonElement>
 }
@@ -37,9 +38,11 @@ export function BeforeGame(props: beforegameprops) {
 						<span>{props.namePLayerTwo ?? 'Enter the room'}</span>
 					</div>
 				)}
-				<div className={styles.contentButton}>
-					<button onClick={props.onClick}>Start</button>
-				</div>
+				{props.leader && (
+					<div className={styles.contentButton}>
+						<button onClick={props.onClick}>Start</button>
+					</div>
+				)}
 			</div>
 		</div>
 	)
