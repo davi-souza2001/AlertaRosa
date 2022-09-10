@@ -21,7 +21,7 @@ export default function Home() {
 			</div>
 			<div className={styles.contentCreateGame}>
 				<div className={styles.contentIntoCreateGame}>
-					<p onClick={() => Router.push('/createGame')}>Create a new game 🎮</p>
+					<p onClick={() => Router.push('/createRoom')}>Create a new game 🎮</p>
 				</div>
 			</div>
 		</div>

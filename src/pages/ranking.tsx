@@ -11,8 +11,9 @@ export default function ranking() {
 				<div className={styles.contentBox}>
 					<h1>Players Ranking 🏆</h1>
 					<BoxRanking rank="first" />
-					<BoxRanking rank="second" />
-					<BoxRanking rank="third" />
+					<p>Soon...</p>
+					{/* <BoxRanking rank="second" />
+					<BoxRanking rank="third" /> */}
 				</div>
 			</div>
 		</div>

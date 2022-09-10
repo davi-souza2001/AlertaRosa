@@ -10,22 +10,22 @@ export default function rules() {
 		<div className={styles.contentGeral}>
 			<Header />
 			<div className={styles.contentRules}>
-				<List spacing={3}>
+				<List spacing={4}>
 					<ListItem>
-						<ListIcon as={CheckCircleIcon} color='green.500' style={{marginTop: '40px'}} />
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit
+						<ListIcon as={CheckCircleIcon} color='green.500' style={{ marginTop: '40px' }} />
+						The questions here are for fun and studies, nothing more.
 					</ListItem>
 					<ListItem>
-						<ListIcon as={CheckCircleIcon} color='green.500' style={{marginTop: '40px'}}/>
-						Assumenda, quia temporibus eveniet a libero incidunt suscipit
+						<ListIcon as={CheckCircleIcon} color='green.500' style={{ marginTop: '40px' }} />
+						Although any game, always keep respect with other players!
 					</ListItem>
 					<ListItem>
-						<ListIcon as={CheckCircleIcon} color='green.500' style={{marginTop: '40px'}}/>
-						Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
+						<ListIcon as={CheckCircleIcon} color='green.500' style={{ marginTop: '40px' }} />
+						Room span is permanent ban!
 					</ListItem>
 					<ListItem>
-						<ListIcon as={CheckCircleIcon} color='green.500' style={{marginTop: '40px'}}/>
-						Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
+						<ListIcon as={CheckCircleIcon} color='green.500' style={{ marginTop: '40px' }} />
+						Let's play! 🚀
 					</ListItem>
 				</List>
 			</div>

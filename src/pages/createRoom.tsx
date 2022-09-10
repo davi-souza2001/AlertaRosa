@@ -59,7 +59,7 @@ export default function createRoom() {
 						<input type="number" placeholder='Players' onChange={(e) => setPlayersLength(+e.target.value)} />
 						<button type={'submit'}>Create</button>
 					</form>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ab repellat vel quam cum maiores corporis optio iste nihil porro. Eveniet suscipit ducimus, vel facilis inventore ad ullam accusamus excepturi!</p>
+					<p>Create a room to play with your friends! Or if you prefer, play single played too!</p>
 				</div>
 			</div>
 		</div>

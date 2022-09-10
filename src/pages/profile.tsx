@@ -20,8 +20,7 @@ export default function profile() {
 					</CircularProgress>
 				</div>
 				<div className={styles.contentLevelAndExperience}>
-					<h1>Level: 123</h1>
-					<p>Experiencie</p>
+					<h1>Soon...</h1>
 				</div>
 			</div>
 			<div className={styles.contentAreaUser}>
