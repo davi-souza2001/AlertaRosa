@@ -59,8 +59,6 @@ export default function Room() {
 
 	async function handleNextQuestion() {
 		setQuestionNumber(state => state + 1)
-		console.log(questionNumber)
-		console.log(questions.length)
 		if (questionNumber === questions.length - 1) {
 			setPlaying(false)
 			setQuestionNumber(1)
@@ -104,9 +102,18 @@ export default function Room() {
 							</CountdownCircleTimer>
 						</div>
 						<div className={styles.contentAreaAnswers}>
-							<BoxQuestion text={renderedQuestion.answer[0].value ?? ''} numberQuestion={1} />
-							<BoxQuestion text={renderedQuestion.answer[1].value ?? ''} numberQuestion={2} />
-							<BoxQuestion text={renderedQuestion.answer[2].value ?? ''} numberQuestion={3} />
+							<BoxQuestion
+								text={renderedQuestion.answer[0].value ?? ''}
+								numberQuestion={1}
+							/>
+							<BoxQuestion
+								text={renderedQuestion.answer[1].value ?? ''}
+								numberQuestion={2}
+							/>
+							<BoxQuestion
+								text={renderedQuestion.answer[2].value ?? ''}
+								numberQuestion={3}
+							/>
 						</div>
 						<div className={styles.contentSubmitAnswer}>
 							<button onClick={handleNextQuestion}>Submit 🚀</button>
