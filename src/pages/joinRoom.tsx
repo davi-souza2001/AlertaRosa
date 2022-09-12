@@ -2,21 +2,18 @@ import Router from 'next/router'
 import { useState } from 'react'
 
 import { Header } from '../components/Header'
-import { ProviderRoom } from '../core/ProviderRoom'
-import { RoomProvider } from '../provider/RoomProvider'
 
 import styles from '../styles/joinRoom.module.css'
 
 export default function joinRoom() {
 	const [idRoom, setIdRoom] = useState('')
-	const providerRooms = new ProviderRoom(new RoomProvider())
 
-	async function checkIfExists() {
-		if (idRoom) {
-			const exists = await providerRooms.sign(idRoom)
-			!exists ? alert('Room not found') : Router.push(`/room/${idRoom}`)
+	function handleJoinRoom() {
+		if (idRoom.length !== 36) {
+			alert('Invalid Id')
+			return false
 		} else {
-			alert('Id undefined')
+			Router.push(`/room/${idRoom}`)
 		}
 	}
 
@@ -28,7 +25,7 @@ export default function joinRoom() {
 					<h1>Join Room</h1>
 					<form onSubmit={(e) => {
 						e.preventDefault()
-						checkIfExists()
+						handleJoinRoom()
 					}}>
 						<input type="text" placeholder='Room id' onChange={(e) => setIdRoom(e.target.value)} />
 						<button type={'submit'}>Joins</button>

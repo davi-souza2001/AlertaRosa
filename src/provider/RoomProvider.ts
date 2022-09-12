@@ -1,4 +1,4 @@
-import { doc, setDoc, } from "firebase/firestore"
+import { collection, doc, getDocs, onSnapshot, query, setDoc, where, } from "firebase/firestore"
 
 import { db } from "../firebase/config"
 import { ProviderRoomProps } from "../core/ProviderRoom"
@@ -14,5 +14,24 @@ export class RoomProvider implements ProviderRoomProps {
 			leader,
 			playing: room.playing
 		})
+	}
+
+	async getRoom(id: string): Promise<RoomProps> {
+		let roomInicial: RoomProps = {
+			id: '',
+			leader: '',
+			players: [],
+			playersLength: 0,
+			playing: false,
+			title: ''
+		}
+
+		const q = query(collection(db, "rooms"), where("id", "==", id))
+
+		const queryResult = await getDocs(q)
+
+		queryResult.forEach((doc) => roomInicial = doc.data() as RoomProps)
+
+		return roomInicial
 	}
 }

@@ -7,10 +7,12 @@ import { RoomProvider } from '../../provider/RoomProvider'
 
 interface RoomContextProps {
 	create(room: RoomProps, leader: string): Promise<void>
+	getRoom(id: string): Promise<RoomProps>
 }
 
 const RoomContext = createContext<RoomContextProps>({
-	create: () => Promise.resolve()
+	create: () => Promise.resolve(),
+	getRoom: (id) => Promise.resolve(id as unknown as RoomProps)
 })
 
 export function RoomProviderContext(props: any) {
@@ -23,9 +25,18 @@ export function RoomProviderContext(props: any) {
 		setLoading(false)
 	}
 
+	async function getRoom(id: string): Promise<RoomProps> {
+		setLoading(true)
+		const room = await roomProvider.getRoom(id)
+		setLoading(false)
+
+		return room
+	}
+
 	return (
 		<RoomContext.Provider value={{
 			create,
+			getRoom
 		}}>
 			{props.children}
 		</RoomContext.Provider>

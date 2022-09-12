@@ -1,25 +1,25 @@
 import { useEffect, useState } from 'react'
-import Router, { useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import Image from 'next/image'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 
-import UseAuth from '../../service/hooks/useAuth'
-import { playProps, RoomProps } from '../../core/Room'
-import { ProviderRoom } from '../../core/ProviderRoom'
+import { RoomProps } from '../../core/Room'
 import { Header } from '../../components/Header'
 import { BeforeGame } from '../../components/BeforeGame'
 import { BoxQuestion } from '../../components/BoxQuestion'
-import { RoomProvider } from '../../provider/RoomProvider'
 
 import logoQuestion from '../../../public/images/logoQuestion.svg'
 import styles from '../../styles/room.module.css'
 import UseRoom from '../../service/hooks/useRoom'
 import { QuestionProps } from '../../core/Question'
+import { doc, onSnapshot } from 'firebase/firestore'
+import { db } from '../../firebase/config'
+import UseAuth from '../../service/hooks/useAuth'
 
 export default function Room() {
 	const id = useRouter().query.room
-	const providerRooms = new ProviderRoom(new RoomProvider())
-	const { setLoading, user } = UseAuth()
+	const { user } = UseAuth()
+	const { getRoom } = UseRoom()
 	const [playing, setPlaying] = useState(false)
 	const [room, setRoom] = useState<RoomProps>({
 		id: '',
@@ -34,6 +34,25 @@ export default function Room() {
 		title: ''
 	})
 	const [questions, setQuestions] = useState<QuestionProps[]>([])
+
+	async function getRoomValues() {
+		const roomFound = await getRoom(id as string ?? '')
+
+		if (roomFound.leader) {
+			onSnapshot(doc(db, "rooms", roomFound.leader), (doc) => {
+				setRoom(doc.data() as RoomProps)
+			})
+		}
+	}
+
+	async function enterTheRoom() {
+		console.log('asd')
+	}
+
+	useEffect(() => {
+		getRoomValues()
+
+	}, [id])
 
 	return (
 		<div className={styles.contentGeral}>
@@ -78,7 +97,12 @@ export default function Room() {
 					</div>
 				</div>
 			) : (
-				<BeforeGame />
+				<BeforeGame
+					title={room.title}
+					leader={room.leader === user.email ? true : false}
+					players={room.players}
+					enterTheRoom={enterTheRoom}
+				/>
 			)}
 		</div>
 	)

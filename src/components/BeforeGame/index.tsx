@@ -1,35 +1,52 @@
 import Image from 'next/image'
 
 import signRoom from '../../../public/images/signRoom.svg'
+import { playProps } from '../../core/Room'
 import styles from './beforegame.module.css'
 
-export function BeforeGame() {
+interface BeforeGameProps {
+	title: string
+	leader: boolean
+	players: playProps[]
+	enterTheRoom: () => Promise<void>
+}
+
+export function BeforeGame(props: BeforeGameProps) {
 	return (
 		<div className={styles.contentCreateGame}>
 			<div className={styles.contentCreateGameBox}>
-				<h1>Algo</h1>
+				<h1>{props.title}</h1>
 				<div className={styles.contentPlayer}>
-					<Image src={signRoom} height={50} width={50} style={{
+					<Image src={props.players[0].photo ?? signRoom} height={50} width={50} style={{
 						borderRadius: '999px'
 					}} />
-					<span>as'</span>
+					<span>{props.players[0].name}</span>
 				</div>
-				{/* {props.players === 2 && (
+				{props.players.length === 2 ? (
 					<div className={styles.contentPlayer}>
-						<Image src={props.photoPlayerTwo ?? signRoom} height={50} width={50} style={{
+						<Image src={props.players[1].photo ?? ''} height={50} width={50} style={{
+							borderRadius: '9999px',
+							cursor: 'pointer'
+						}}
+						/>
+						<span>{props.players[1].name}</span>
+					</div>
+				) : (
+					<div className={styles.contentPlayer}>
+						<Image src={signRoom} height={50} width={50} style={{
 							borderRadius: '9999px',
 							cursor: 'pointer'
 						}}
 							onClick={props.enterTheRoom}
 						/>
-						<span>{props.namePLayerTwo ?? 'Enter the room'}</span>
+						<span>Enter the room</span>
 					</div>
 				)}
 				{props.leader && (
 					<div className={styles.contentButton}>
-						<button onClick={props.onClick}>Start</button>
+						<button>Start</button>
 					</div>
-				)} */}
+				)}
 			</div>
 		</div>
 	)
