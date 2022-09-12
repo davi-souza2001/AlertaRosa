@@ -20,7 +20,6 @@ export default function Room() {
 	const id = useRouter().query.room
 	const providerRooms = new ProviderRoom(new RoomProvider())
 	const { setLoading, user } = UseAuth()
-	const { roomRealTime } = UseRoom()
 	const [playing, setPlaying] = useState(false)
 	const [room, setRoom] = useState<RoomProps>({
 		id: '',
@@ -35,48 +34,6 @@ export default function Room() {
 		title: ''
 	})
 	const [questions, setQuestions] = useState<QuestionProps[]>([])
-	const [renderedQuestion, setRenderedQuestion] = useState<QuestionProps>({
-		enunciation: '',
-		answer: []
-	})
-	const [questionNumber, setQuestionNumber] = useState(1)
-
-	async function checkIfExists(id: string) {
-		const roomExists = await providerRooms.sign(id as string ?? '')
-		!roomExists && Router.replace('/')
-		roomExists && setRoom(roomExists)
-	}
-
-	async function enterTheRoom(player: playProps, email: string) {
-		await providerRooms.enterPlayingTheRoom(player, email)
-	}
-
-	async function getQuestions() {
-		const questionsFound = await providerRooms.getQuestions()
-		setQuestions(questionsFound)
-		setRenderedQuestion(questionsFound[0])
-	}
-
-	async function handleNextQuestion() {
-		setQuestionNumber(state => state + 1)
-		if (questionNumber === questions.length - 1) {
-			setPlaying(false)
-			setQuestionNumber(1)
-			setRenderedQuestion(questions[0])
-		} else {
-			setRenderedQuestion(questions[questionNumber])
-		}
-	}
-
-	useEffect(() => {
-		setLoading(true)
-		getQuestions()
-		if (id) {
-			checkIfExists(id as string)
-		}
-		setLoading(false)
-
-	}, [id])
 
 	return (
 		<div className={styles.contentGeral}>
@@ -86,7 +43,7 @@ export default function Room() {
 					<div className={styles.contentQuestionBox}>
 						<div className={styles.contentQuestion}>
 							<div className={styles.contentQuestionNow}>
-								<h1>{renderedQuestion.enunciation ?? ''}</h1>
+								<h1>Algo</h1>
 							</div>
 							<Image src={logoQuestion} height={60} width={100} style={{ width: '20%', marginRight: '10px' }} />
 						</div>
@@ -103,40 +60,25 @@ export default function Room() {
 						</div>
 						<div className={styles.contentAreaAnswers}>
 							<BoxQuestion
-								text={renderedQuestion.answer[0].value ?? ''}
+								text={'algo'}
 								numberQuestion={1}
 							/>
 							<BoxQuestion
-								text={renderedQuestion.answer[1].value ?? ''}
+								text={'algo'}
 								numberQuestion={2}
 							/>
 							<BoxQuestion
-								text={renderedQuestion.answer[2].value ?? ''}
+								text={'algo'}
 								numberQuestion={3}
 							/>
 						</div>
 						<div className={styles.contentSubmitAnswer}>
-							<button onClick={handleNextQuestion}>Submit 🚀</button>
+							<button>Submit 🚀</button>
 						</div>
 					</div>
 				</div>
 			) : (
-				<BeforeGame
-					title={room.title ?? ''}
-					namePLayerOne={roomRealTime.players[0].name ?? room.players[0].name}
-					photoPlayerOne={roomRealTime.players[0].photo ?? room.players[0].photo}
-					namePLayerTwo={roomRealTime.players[1]?.name ?? room.players[1]?.name}
-					photoPlayerTwo={roomRealTime.players[1]?.photo ?? room.players[1]?.photo}
-					players={room.playersLength ?? 0}
-					enterTheRoom={() => enterTheRoom({
-						email: user.email,
-						name: user.name,
-						photo: user.photo
-					},
-						room.leader
-					)}
-					leader={room.leader === user.email ? true : false}
-					onClick={() => setPlaying(true)} />
+				<BeforeGame />
 			)}
 		</div>
 	)

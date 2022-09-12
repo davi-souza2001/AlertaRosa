@@ -3,11 +3,6 @@ import { playProps, RoomProps } from "./Room"
 
 export interface ProviderRoomProps {
 	create(room: RoomProps, leader: string): Promise<void>
-	sign(id: string): Promise<any>
-	enterPlayingTheRoom(player: playProps, id: string): Promise<void>
-	getQuestions(): Promise<QuestionProps[]>
-	handleAnswerQuestion(question: Question): Promise<void>
-	result(): Promise<void>
 }
 
 export class ProviderRoom {
@@ -19,27 +14,4 @@ export class ProviderRoom {
 		await this._providerAuthentication.create(room, leader)
 	}
 
-	async sign(id: string): Promise<RoomProps> {
-		const exists = await this._providerAuthentication.sign(id)
-
-		return exists
-	}
-
-	async enterPlayingTheRoom(player: playProps, id: string): Promise<void> {
-		await this._providerAuthentication.enterPlayingTheRoom(player, id)
-	}
-
-	async getQuestions(): Promise<QuestionProps[]> {
-		const questions = await this._providerAuthentication.getQuestions()
-
-		return questions
-	}
-
-	async handleAnswerQuestion(question: Question): Promise<void> {
-		await this._providerAuthentication.handleAnswerQuestion(question)
-	}
-
-	async result(): Promise<void> {
-		await this._providerAuthentication.result()
-	}
 }
