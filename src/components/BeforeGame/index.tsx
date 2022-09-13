@@ -23,7 +23,7 @@ export function BeforeGame(props: BeforeGameProps) {
 					}} />
 					<span>{props.players[0].name}</span>
 				</div>
-				{props.players.length === 2 ? (
+				{props.players.length === 2 && (
 					<div className={styles.contentPlayer}>
 						<Image src={props.players[1].photo ?? ''} height={50} width={50} style={{
 							borderRadius: '9999px',
@@ -32,7 +32,8 @@ export function BeforeGame(props: BeforeGameProps) {
 						/>
 						<span>{props.players[1].name}</span>
 					</div>
-				) : (
+				)}
+				{props.roomLength === 2 && props.players.length !== 2 ? (
 					<div className={styles.contentPlayer}>
 						<Image src={signRoom} height={50} width={50} style={{
 							borderRadius: '9999px',
@@ -42,7 +43,7 @@ export function BeforeGame(props: BeforeGameProps) {
 						/>
 						<span>Enter the room</span>
 					</div>
-				)}
+				) : false}
 				{props.leader && (
 					<div className={styles.contentButton}>
 						<button>Start</button>
