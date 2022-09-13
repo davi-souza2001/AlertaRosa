@@ -8,6 +8,7 @@ interface BeforeGameProps {
 	title: string
 	leader: boolean
 	players: playProps[]
+	roomLength: number
 	enterTheRoom: () => Promise<void>
 }
 

@@ -1,8 +1,8 @@
-import { collection, doc, getDocs, onSnapshot, query, setDoc, where, } from "firebase/firestore"
+import { collection, doc, getDoc, getDocs, onSnapshot, query, setDoc, updateDoc, where, } from "firebase/firestore"
 
 import { db } from "../firebase/config"
 import { ProviderRoomProps } from "../core/ProviderRoom"
-import { RoomProps } from "../core/Room"
+import { playProps, RoomProps } from "../core/Room"
 
 export class RoomProvider implements ProviderRoomProps {
 	async create(room: RoomProps, leader: string): Promise<void> {
@@ -33,5 +33,15 @@ export class RoomProvider implements ProviderRoomProps {
 		queryResult.forEach((doc) => roomInicial = doc.data() as RoomProps)
 
 		return roomInicial
+	}
+
+	async joinRoom(id: string, user: playProps): Promise<void> {
+		const docRef = doc(db, 'rooms', id)
+		const docSnap = await getDoc(docRef)
+		const room: RoomProps = docSnap.data() as unknown as RoomProps
+
+		await updateDoc(docRef, {
+			players: [...room.players, user]
+		})
 	}
 }

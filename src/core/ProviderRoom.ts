@@ -1,8 +1,9 @@
-import { RoomProps } from "./Room"
+import { playProps, RoomProps } from "./Room"
 
 export interface ProviderRoomProps {
 	create(room: RoomProps, leader: string): Promise<void>
 	getRoom(id: string): Promise<RoomProps>
+	joinRoom(id: string, user: playProps): Promise<void>
 }
 
 export class ProviderRoom {
@@ -18,5 +19,9 @@ export class ProviderRoom {
 		const room = await this._providerAuthentication.getRoom(id)
 
 		return room
+	}
+
+	async joinRoom(id: string, user: playProps): Promise<void> {
+		await this._providerAuthentication.joinRoom(id, user)
 	}
 }

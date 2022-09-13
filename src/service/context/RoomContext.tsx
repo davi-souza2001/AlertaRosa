@@ -1,18 +1,20 @@
-import { createContext, Dispatch, SetStateAction, useState } from 'react'
+import { createContext, } from 'react'
 
 import { ProviderRoom } from '../../core/ProviderRoom'
-import { RoomProps } from '../../core/Room'
+import { playProps, RoomProps } from '../../core/Room'
 import UseAuth from '../hooks/useAuth'
 import { RoomProvider } from '../../provider/RoomProvider'
 
 interface RoomContextProps {
 	create(room: RoomProps, leader: string): Promise<void>
 	getRoom(id: string): Promise<RoomProps>
+	joinRoom(id: string, user: playProps): Promise<void>
 }
 
 const RoomContext = createContext<RoomContextProps>({
 	create: () => Promise.resolve(),
-	getRoom: (id) => Promise.resolve(id as unknown as RoomProps)
+	getRoom: (id) => Promise.resolve(id as unknown as RoomProps),
+	joinRoom: () => Promise.resolve()
 })
 
 export function RoomProviderContext(props: any) {
@@ -33,10 +35,17 @@ export function RoomProviderContext(props: any) {
 		return room
 	}
 
+	async function joinRoom(id: string, user: playProps): Promise<void> {
+		setLoading(true)
+		await roomProvider.joinRoom(id, user)
+		setLoading(false)
+	}
+
 	return (
 		<RoomContext.Provider value={{
 			create,
-			getRoom
+			getRoom,
+			joinRoom
 		}}>
 			{props.children}
 		</RoomContext.Provider>

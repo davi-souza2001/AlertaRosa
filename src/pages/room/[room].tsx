@@ -19,7 +19,7 @@ import UseAuth from '../../service/hooks/useAuth'
 export default function Room() {
 	const id = useRouter().query.room
 	const { user } = UseAuth()
-	const { getRoom } = UseRoom()
+	const { getRoom, joinRoom } = UseRoom()
 	const [playing, setPlaying] = useState(false)
 	const [room, setRoom] = useState<RoomProps>({
 		id: '',
@@ -46,7 +46,11 @@ export default function Room() {
 	}
 
 	async function enterTheRoom() {
-		console.log('asd')
+		await joinRoom(room.leader, {
+			email: user.email,
+			name: user.name,
+			photo: user.photo
+		})
 	}
 
 	useEffect(() => {
@@ -102,6 +106,7 @@ export default function Room() {
 					leader={room.leader === user.email ? true : false}
 					players={room.players}
 					enterTheRoom={enterTheRoom}
+					roomLength={room.playersLength}
 				/>
 			)}
 		</div>
