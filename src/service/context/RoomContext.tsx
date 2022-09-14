@@ -9,12 +9,14 @@ interface RoomContextProps {
 	create(room: RoomProps, leader: string): Promise<void>
 	getRoom(id: string): Promise<RoomProps>
 	joinRoom(id: string, user: playProps): Promise<void>
+	startGame(email: string): Promise<void>
 }
 
 const RoomContext = createContext<RoomContextProps>({
 	create: () => Promise.resolve(),
 	getRoom: (id) => Promise.resolve(id as unknown as RoomProps),
-	joinRoom: () => Promise.resolve()
+	joinRoom: () => Promise.resolve(),
+	startGame: () => Promise.resolve()
 })
 
 export function RoomProviderContext(props: any) {
@@ -41,11 +43,18 @@ export function RoomProviderContext(props: any) {
 		setLoading(false)
 	}
 
+	async function startGame(email: string): Promise<void> {
+		setLoading(true)
+		await roomProvider.startGame(email)
+		setLoading(false)
+	}
+
 	return (
 		<RoomContext.Provider value={{
 			create,
 			getRoom,
-			joinRoom
+			joinRoom,
+			startGame
 		}}>
 			{props.children}
 		</RoomContext.Provider>

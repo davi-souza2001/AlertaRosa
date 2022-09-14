@@ -19,8 +19,7 @@ import UseAuth from '../../service/hooks/useAuth'
 export default function Room() {
 	const id = useRouter().query.room
 	const { user } = UseAuth()
-	const { getRoom, joinRoom } = UseRoom()
-	const [playing, setPlaying] = useState(false)
+	const { getRoom, joinRoom, startGame } = UseRoom()
 	const [room, setRoom] = useState<RoomProps>({
 		id: '',
 		leader: '',
@@ -58,10 +57,12 @@ export default function Room() {
 
 	}, [id])
 
+	console.log(room)
+
 	return (
 		<div className={styles.contentGeral}>
 			<Header />
-			{playing ? (
+			{room.playing ? (
 				<div className={styles.contentGeralQuestionBox}>
 					<div className={styles.contentQuestionBox}>
 						<div className={styles.contentQuestion}>
@@ -107,6 +108,7 @@ export default function Room() {
 					players={room.players}
 					enterTheRoom={enterTheRoom}
 					roomLength={room.playersLength}
+					onClick={() => startGame(room.leader)}
 				/>
 			)}
 		</div>

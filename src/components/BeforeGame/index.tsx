@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { MouseEventHandler } from 'react'
 
 import signRoom from '../../../public/images/signRoom.svg'
 import { playProps } from '../../core/Room'
@@ -10,6 +11,7 @@ interface BeforeGameProps {
 	players: playProps[]
 	roomLength: number
 	enterTheRoom: () => Promise<void>
+	onClick: MouseEventHandler<HTMLButtonElement>
 }
 
 export function BeforeGame(props: BeforeGameProps) {
@@ -46,7 +48,7 @@ export function BeforeGame(props: BeforeGameProps) {
 				) : false}
 				{props.leader && (
 					<div className={styles.contentButton}>
-						<button>Start</button>
+						<button onClick={props.onClick}>Start</button>
 					</div>
 				)}
 			</div>

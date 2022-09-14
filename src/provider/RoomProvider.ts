@@ -44,4 +44,12 @@ export class RoomProvider implements ProviderRoomProps {
 			players: [...room.players, user]
 		})
 	}
+
+	async startGame(email: string): Promise<void> {
+		const docRef = doc(db, 'rooms', email)
+
+		await updateDoc(docRef, {
+			playing: true
+		})
+	}
 }

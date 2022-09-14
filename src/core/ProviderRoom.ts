@@ -4,6 +4,7 @@ export interface ProviderRoomProps {
 	create(room: RoomProps, leader: string): Promise<void>
 	getRoom(id: string): Promise<RoomProps>
 	joinRoom(id: string, user: playProps): Promise<void>
+	startGame(email: string): Promise<void>
 }
 
 export class ProviderRoom {
@@ -23,5 +24,9 @@ export class ProviderRoom {
 
 	async joinRoom(id: string, user: playProps): Promise<void> {
 		await this._providerAuthentication.joinRoom(id, user)
+	}
+
+	async startGame(email: string): Promise<void> {
+		await this._providerAuthentication.startGame(email)
 	}
 }
