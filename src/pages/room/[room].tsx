@@ -74,7 +74,7 @@ export default function Room() {
 	return (
 		<div className={styles.contentGeral}>
 			<Header />
-			{room.playing ? (
+			{room.playing && room.question.answer[2] ? (
 				<div className={styles.contentGeralQuestionBox}>
 					<div className={styles.contentQuestionBox}>
 						<div className={styles.contentQuestion}>
