@@ -1,3 +1,5 @@
+import { QuestionProps } from "./Question"
+
 export interface playProps {
 	email: string
 	photo: string
@@ -12,6 +14,7 @@ export interface RoomProps {
 	title: string
 	playing: boolean
 	questionNumber: number
+	question: QuestionProps
 }
 
 export class Room {
@@ -26,4 +29,5 @@ export class Room {
 	get leader() { return this._props.leader }
 	get playersLength() { return this._props.playersLength }
 	get questionNumber() { return this._props.questionNumber }
+	get QuestionProps() { return this._props.question }
 }

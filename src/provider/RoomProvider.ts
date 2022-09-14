@@ -14,7 +14,12 @@ export class RoomProvider implements ProviderRoomProps {
 			title: room.title,
 			leader,
 			playing: room.playing,
-			questionNumber: room.questionNumber
+			questionNumber: room.questionNumber,
+			question: {
+				answer: [],
+				enunciation: '',
+				id: 0
+			}
 		})
 	}
 
@@ -26,7 +31,12 @@ export class RoomProvider implements ProviderRoomProps {
 			playersLength: 0,
 			playing: false,
 			title: '',
-			questionNumber: 0
+			questionNumber: 0,
+			question: {
+				answer: [],
+				enunciation: '',
+				id: 0
+			}
 		}
 
 		const q = query(collection(db, "rooms"), where("id", "==", id))

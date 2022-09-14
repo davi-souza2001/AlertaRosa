@@ -31,7 +31,12 @@ export default function Room() {
 		playersLength: 0,
 		playing: false,
 		title: '',
-		questionNumber: 0
+		questionNumber: 0,
+		question: {
+			answer: [],
+			enunciation: '',
+			id: 0
+		}
 	})
 	const [questions, setQuestions] = useState<QuestionProps | null>(null)
 
