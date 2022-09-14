@@ -30,7 +30,8 @@ export default function Room() {
 		}],
 		playersLength: 0,
 		playing: false,
-		title: ''
+		title: '',
+		questionNumber: 0
 	})
 	const [questions, setQuestions] = useState<QuestionProps[]>([])
 
@@ -56,8 +57,6 @@ export default function Room() {
 		getRoomValues()
 
 	}, [id])
-
-	console.log(room)
 
 	return (
 		<div className={styles.contentGeral}>

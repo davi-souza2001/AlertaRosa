@@ -37,7 +37,7 @@ export default function createRoom() {
 				}
 			],
 			playing: false,
-
+			questionNumber: 0
 		}
 
 		create(room, user.email)

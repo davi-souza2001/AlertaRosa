@@ -1,4 +1,4 @@
-export interface playProps{
+export interface playProps {
 	email: string
 	photo: string
 	name: string
@@ -11,6 +11,7 @@ export interface RoomProps {
 	leader: string
 	title: string
 	playing: boolean
+	questionNumber: number
 }
 
 export class Room {
@@ -24,4 +25,5 @@ export class Room {
 	get playing() { return this._props.playing }
 	get leader() { return this._props.leader }
 	get playersLength() { return this._props.playersLength }
+	get questionNumber() { return this._props.questionNumber }
 }

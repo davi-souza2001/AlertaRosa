@@ -12,7 +12,8 @@ export class RoomProvider implements ProviderRoomProps {
 			playersLength: room.playersLength,
 			title: room.title,
 			leader,
-			playing: room.playing
+			playing: room.playing,
+			questionNumber: room.questionNumber
 		})
 	}
 
@@ -23,7 +24,8 @@ export class RoomProvider implements ProviderRoomProps {
 			players: [],
 			playersLength: 0,
 			playing: false,
-			title: ''
+			title: '',
+			questionNumber: 0
 		}
 
 		const q = query(collection(db, "rooms"), where("id", "==", id))
