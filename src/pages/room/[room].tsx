@@ -33,7 +33,7 @@ export default function Room() {
 		title: '',
 		questionNumber: 0
 	})
-	const [questions, setQuestions] = useState<QuestionProps[]>([])
+	const [questions, setQuestions] = useState<QuestionProps | null>(null)
 
 	async function getRoomValues() {
 		const roomFound = await getRoom(id as string ?? '')

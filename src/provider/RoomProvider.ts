@@ -1,8 +1,9 @@
-import { collection, doc, getDoc, getDocs, onSnapshot, query, setDoc, updateDoc, where, } from "firebase/firestore"
+import { collection, doc, getDoc, getDocs, query, setDoc, updateDoc, where, } from "firebase/firestore"
 
 import { db } from "../firebase/config"
 import { ProviderRoomProps } from "../core/ProviderRoom"
 import { playProps, RoomProps } from "../core/Room"
+import { QuestionProps } from "../core/Question"
 
 export class RoomProvider implements ProviderRoomProps {
 	async create(room: RoomProps, leader: string): Promise<void> {
@@ -53,5 +54,21 @@ export class RoomProvider implements ProviderRoomProps {
 		await updateDoc(docRef, {
 			playing: true
 		})
+	}
+
+	async getQuestion(room: RoomProps): Promise<QuestionProps> {
+		let question: QuestionProps = {
+			answer: [],
+			enunciation: '',
+			id: 0
+		}
+
+		const q = query(collection(db, "questions"), where("id", "==", room.id))
+
+		const queryResult = await getDocs(q)
+
+		queryResult.forEach((doc) => question = doc.data() as QuestionProps)
+
+		return question
 	}
 }

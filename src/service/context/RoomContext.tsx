@@ -4,19 +4,22 @@ import { ProviderRoom } from '../../core/ProviderRoom'
 import { playProps, RoomProps } from '../../core/Room'
 import UseAuth from '../hooks/useAuth'
 import { RoomProvider } from '../../provider/RoomProvider'
+import { QuestionProps } from '../../core/Question'
 
 interface RoomContextProps {
 	create(room: RoomProps, leader: string): Promise<void>
 	getRoom(id: string): Promise<RoomProps>
 	joinRoom(id: string, user: playProps): Promise<void>
 	startGame(email: string): Promise<void>
+	getQuestion(room: RoomProps): Promise<QuestionProps>
 }
 
 const RoomContext = createContext<RoomContextProps>({
 	create: () => Promise.resolve(),
 	getRoom: (id) => Promise.resolve(id as unknown as RoomProps),
 	joinRoom: () => Promise.resolve(),
-	startGame: () => Promise.resolve()
+	startGame: () => Promise.resolve(),
+	getQuestion: (room) => Promise.resolve(room as unknown as QuestionProps),
 })
 
 export function RoomProviderContext(props: any) {
@@ -49,12 +52,21 @@ export function RoomProviderContext(props: any) {
 		setLoading(false)
 	}
 
+	async function getQuestion(room: RoomProps): Promise<QuestionProps> {
+		setLoading(true)
+		const question = await roomProvider.getQuestion(room)
+		setLoading(false)
+
+		return question
+	}
+
 	return (
 		<RoomContext.Provider value={{
 			create,
 			getRoom,
 			joinRoom,
-			startGame
+			startGame,
+			getQuestion
 		}}>
 			{props.children}
 		</RoomContext.Provider>

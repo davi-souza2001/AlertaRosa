@@ -1,4 +1,5 @@
 export interface QuestionProps {
+	id: number
 	enunciation: string
 	answer: ResponseProps[]
 }

@@ -7,6 +7,7 @@ export class QuestionProvider {
 
 	private questions: QuestionProps[] = [
 		{
+			id: 0,
 			enunciation: 'A função fetch() do JavaScript serve para:',
 			answer: [
 				{
@@ -27,6 +28,7 @@ export class QuestionProvider {
 			]
 		},
 		{
+			id: 1,
 			enunciation: `Qual método Javscript permite o agrupamento de todos os elementos de um Array em
 		uma string com a possibilidade de definir o caractere de concatenação? `,
 			answer: [
@@ -48,6 +50,7 @@ export class QuestionProvider {
 			]
 		},
 		{
+			id: 2,
 			enunciation: 'Assinale a alternativa correta com relação à Template Literals:',
 			answer: [
 				{
@@ -68,6 +71,7 @@ export class QuestionProvider {
 			]
 		},
 		{
+			id: 3,
 			enunciation: `Em Javascript existem diferentes tipos de operadores, marque a alternativa que contém
 		somente operadores relacionais?`,
 			answer: [
@@ -89,6 +93,7 @@ export class QuestionProvider {
 			]
 		},
 		{
+			id: 4,
 			enunciation: `Javascript é uma linguagem que tem bastante problemas de compatibilidade entre navegadores,
 		e é de comum conhecimento que existem navegadores que se encaixam melhor à linguagem. Qual dos
 		navegadores abaixo tem o maior problema de compatibilidade com Javascript?`,
@@ -111,6 +116,7 @@ export class QuestionProvider {
 			]
 		},
 		{
+			id: 5,
 			enunciation: `O comando "document.getElementById('demo').innerHTML = Date()", numa página web na qual
 		esse código seja aplicado, o elemento que é compatível com a estrutura do comando para receber a data
 		corrente é:`,
@@ -133,6 +139,7 @@ export class QuestionProvider {
 			]
 		},
 		{
+			id: 6,
 			enunciation: `Na linguagem JavaScript, ao invocar o método getElementsByClassName, do objeto
 		document, será retornado:`,
 			answer:
@@ -155,6 +162,7 @@ export class QuestionProvider {
 				]
 		},
 		{
+			id: 7,
 			enunciation: `JavaScript é uma linguagem que sofre muito com compatibilidade entre navegadores.
 		A jQuery sofre com o mesmo problema. Animações, manipulação de DOM e outra tarefas corriqueiras
 		são mais complexas e menos produtivas ao usar o jQuery.`,
