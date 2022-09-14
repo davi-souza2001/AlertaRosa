@@ -19,7 +19,7 @@ import UseAuth from '../../service/hooks/useAuth'
 export default function Room() {
 	const id = useRouter().query.room
 	const { user } = UseAuth()
-	const { getRoom, joinRoom, startGame, getQuestion } = UseRoom()
+	const { getRoom, joinRoom, startGame, getQuestion, nextQuestion } = UseRoom()
 	const [room, setRoom] = useState<RoomProps>({
 		id: '',
 		leader: '',
@@ -38,7 +38,6 @@ export default function Room() {
 			id: 0
 		}
 	})
-	const [questions, setQuestions] = useState<QuestionProps | null>(null)
 
 	async function getRoomValues() {
 		const roomFound = await getRoom(id as string ?? '')
@@ -59,8 +58,7 @@ export default function Room() {
 	}
 
 	async function getNowQuestion() {
-		const question = await getQuestion(room)
-
+		await getQuestion(room)
 	}
 
 	useEffect(() => {
@@ -111,7 +109,7 @@ export default function Room() {
 							/>
 						</div>
 						<div className={styles.contentSubmitAnswer}>
-							<button>Submit 🚀</button>
+							<button onClick={() => nextQuestion(room.leader)}>Submit 🚀</button>
 						</div>
 					</div>
 				</div>

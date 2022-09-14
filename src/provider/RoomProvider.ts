@@ -87,4 +87,14 @@ export class RoomProvider implements ProviderRoomProps {
 			})
 		}
 	}
+
+	async nextQuestion(email: string): Promise<void> {
+		const docRef = doc(db, 'rooms', email)
+		const docSnap = await getDoc(docRef)
+		const room: RoomProps = docSnap.data() as unknown as RoomProps
+
+		await updateDoc(docRef, {
+			questionNumber: room.questionNumber + 1
+		})
+	}
 }
