@@ -11,7 +11,7 @@ interface RoomContextProps {
 	getRoom(id: string): Promise<RoomProps>
 	joinRoom(id: string, user: playProps): Promise<void>
 	startGame(email: string): Promise<void>
-	getQuestion(room: RoomProps): Promise<QuestionProps>
+	getQuestion(room: RoomProps): Promise<void>
 }
 
 const RoomContext = createContext<RoomContextProps>({
@@ -19,7 +19,7 @@ const RoomContext = createContext<RoomContextProps>({
 	getRoom: (id) => Promise.resolve(id as unknown as RoomProps),
 	joinRoom: () => Promise.resolve(),
 	startGame: () => Promise.resolve(),
-	getQuestion: (room) => Promise.resolve(room as unknown as QuestionProps),
+	getQuestion: (room) => Promise.resolve(),
 })
 
 export function RoomProviderContext(props: any) {
@@ -52,12 +52,10 @@ export function RoomProviderContext(props: any) {
 		setLoading(false)
 	}
 
-	async function getQuestion(room: RoomProps): Promise<QuestionProps> {
+	async function getQuestion(room: RoomProps): Promise<void> {
 		setLoading(true)
-		const question = await roomProvider.getQuestion(room)
+		await roomProvider.getQuestion(room)
 		setLoading(false)
-
-		return question
 	}
 
 	return (

@@ -66,7 +66,7 @@ export class RoomProvider implements ProviderRoomProps {
 		})
 	}
 
-	async getQuestion(room: RoomProps): Promise<QuestionProps> {
+	async getQuestion(room: RoomProps): Promise<void> {
 		let question: QuestionProps = {
 			answer: [],
 			enunciation: '',
@@ -79,6 +79,12 @@ export class RoomProvider implements ProviderRoomProps {
 
 		queryResult.forEach((doc) => question = doc.data() as QuestionProps)
 
-		return question
+		if (room.leader !== '') {
+			const docRef = doc(db, 'rooms', room.leader)
+
+			await updateDoc(docRef, {
+				question
+			})
+		}
 	}
 }

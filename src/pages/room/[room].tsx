@@ -61,14 +61,17 @@ export default function Room() {
 	async function getNowQuestion() {
 		const question = await getQuestion(room)
 
-		console.log(question)
 	}
 
 	useEffect(() => {
 		getRoomValues()
-		getNowQuestion()
 
 	}, [id])
+
+	useEffect(() => {
+		getNowQuestion()
+
+	}, [room])
 
 	return (
 		<div className={styles.contentGeral}>

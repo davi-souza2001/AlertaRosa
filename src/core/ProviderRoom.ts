@@ -6,7 +6,7 @@ export interface ProviderRoomProps {
 	getRoom(id: string): Promise<RoomProps>
 	joinRoom(id: string, user: playProps): Promise<void>
 	startGame(email: string): Promise<void>
-	getQuestion(room: RoomProps): Promise<QuestionProps>
+	getQuestion(room: RoomProps): Promise<void>
 }
 
 export class ProviderRoom {
@@ -32,9 +32,7 @@ export class ProviderRoom {
 		await this._providerAuthentication.startGame(email)
 	}
 
-	async getQuestion(room: RoomProps): Promise<QuestionProps> {
-		const questions = await this._providerAuthentication.getQuestion(room)
-
-		return questions
+	async getQuestion(room: RoomProps): Promise<void> {
+		await this._providerAuthentication.getQuestion(room)
 	}
 }
