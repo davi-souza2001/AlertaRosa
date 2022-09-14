@@ -73,7 +73,7 @@ export class RoomProvider implements ProviderRoomProps {
 			id: 0
 		}
 
-		const q = query(collection(db, "questions"), where("id", "==", room.id))
+		const q = query(collection(db, "questions"), where("id", "==", room.questionNumber))
 
 		const queryResult = await getDocs(q)
 

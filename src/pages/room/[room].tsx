@@ -19,7 +19,7 @@ import UseAuth from '../../service/hooks/useAuth'
 export default function Room() {
 	const id = useRouter().query.room
 	const { user } = UseAuth()
-	const { getRoom, joinRoom, startGame } = UseRoom()
+	const { getRoom, joinRoom, startGame, getQuestion } = UseRoom()
 	const [room, setRoom] = useState<RoomProps>({
 		id: '',
 		leader: '',
@@ -58,8 +58,15 @@ export default function Room() {
 		})
 	}
 
+	async function getNowQuestion() {
+		const question = await getQuestion(room)
+
+		console.log(question)
+	}
+
 	useEffect(() => {
 		getRoomValues()
+		getNowQuestion()
 
 	}, [id])
 
