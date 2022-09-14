@@ -81,7 +81,7 @@ export default function Room() {
 					<div className={styles.contentQuestionBox}>
 						<div className={styles.contentQuestion}>
 							<div className={styles.contentQuestionNow}>
-								<h1>Algo</h1>
+								<h1>{room.question.enunciation}</h1>
 							</div>
 							<Image src={logoQuestion} height={60} width={100} style={{ width: '20%', marginRight: '10px' }} />
 						</div>
@@ -98,15 +98,15 @@ export default function Room() {
 						</div>
 						<div className={styles.contentAreaAnswers}>
 							<BoxQuestion
-								text={'algo'}
+								text={room.question.answer[0].value}
 								numberQuestion={1}
 							/>
 							<BoxQuestion
-								text={'algo'}
+								text={room.question.answer[1].value}
 								numberQuestion={2}
 							/>
 							<BoxQuestion
-								text={'algo'}
+								text={room.question.answer[2].value}
 								numberQuestion={3}
 							/>
 						</div>
