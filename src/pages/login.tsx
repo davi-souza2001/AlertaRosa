@@ -6,7 +6,7 @@ import logoGoogle from '../../public/images/logoGoogle.png'
 import styles from '../styles/login.module.css'
 import UseAuth from '../service/hooks/useAuth'
 
-export default function login() {
+export default function Login() {
 	const { loginGoogle } = UseAuth()
 
 	return (

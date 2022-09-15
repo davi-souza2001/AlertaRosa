@@ -3,7 +3,7 @@ import { Header } from "../components/Header"
 
 import styles from '../styles/ranking.module.css'
 
-export default function ranking() {
+export default function Ranking() {
 	return (
 		<div className={styles.contentGeral}>
 			<Header />

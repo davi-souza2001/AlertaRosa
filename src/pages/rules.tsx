@@ -5,7 +5,7 @@ import { Header } from "../components/Header"
 
 import styles from '../styles/rules.module.css'
 
-export default function rules() {
+export default function Rules() {
 	return (
 		<div className={styles.contentGeral}>
 			<Header />
@@ -25,7 +25,7 @@ export default function rules() {
 					</ListItem>
 					<ListItem>
 						<ListIcon as={CheckCircleIcon} color='green.500' style={{ marginTop: '40px' }} />
-						Let's play! 🚀
+						Lets play! 🚀
 					</ListItem>
 				</List>
 			</div>

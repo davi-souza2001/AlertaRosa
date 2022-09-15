@@ -7,7 +7,7 @@ import UseRoom from '../service/hooks/useRoom'
 
 import styles from '../styles/createRoom.module.css'
 
-export default function createRoom() {
+export default function CreateRoom() {
 	const { create } = UseRoom()
 	const { user } = UseAuth()
 	const [title, setTitle] = useState('')

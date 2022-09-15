@@ -6,7 +6,7 @@ import { Header } from '../components/Header'
 import styles from '../styles/profile.module.css'
 import UseAuth from '../service/hooks/useAuth'
 
-export default function profile() {
+export default function Profile() {
 	const { logout, user } = UseAuth()
 
 	return (

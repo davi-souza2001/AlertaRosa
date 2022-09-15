@@ -5,7 +5,7 @@ import { Header } from '../components/Header'
 
 import styles from '../styles/joinRoom.module.css'
 
-export default function joinRoom() {
+export default function JoinRoom() {
 	const [idRoom, setIdRoom] = useState('')
 
 	function handleJoinRoom() {
