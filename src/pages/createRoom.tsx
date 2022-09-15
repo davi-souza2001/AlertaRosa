@@ -1,5 +1,6 @@
 import Router from 'next/router'
 import { useState } from 'react'
+
 import { Header } from '../components/Header'
 import UseAuth from '../service/hooks/useAuth'
 import UseRoom from '../service/hooks/useRoom'

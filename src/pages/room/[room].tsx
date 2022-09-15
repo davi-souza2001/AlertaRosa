@@ -2,19 +2,18 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
+import { doc, onSnapshot } from 'firebase/firestore'
 
 import { RoomProps } from '../../core/Room'
 import { Header } from '../../components/Header'
 import { BeforeGame } from '../../components/BeforeGame'
 import { BoxQuestion } from '../../components/BoxQuestion'
+import UseRoom from '../../service/hooks/useRoom'
+import { db } from '../../firebase/config'
+import UseAuth from '../../service/hooks/useAuth'
 
 import logoQuestion from '../../../public/images/logoQuestion.svg'
 import styles from '../../styles/room.module.css'
-import UseRoom from '../../service/hooks/useRoom'
-import { QuestionProps } from '../../core/Question'
-import { doc, onSnapshot } from 'firebase/firestore'
-import { db } from '../../firebase/config'
-import UseAuth from '../../service/hooks/useAuth'
 
 export default function Room() {
 	const id = useRouter().query.room

@@ -3,7 +3,6 @@ import Image from 'next/image'
 
 import { Header } from '../components/Header'
 
-import Test from '../../public/images/testUser.jpg'
 import styles from '../styles/profile.module.css'
 import UseAuth from '../service/hooks/useAuth'
 

@@ -1,4 +1,3 @@
-import { QuestionProps } from "./Question"
 import { playProps, RoomProps } from "./Room"
 
 export interface ProviderRoomProps {

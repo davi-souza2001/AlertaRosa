@@ -4,7 +4,6 @@ import { ProviderRoom } from '../../core/ProviderRoom'
 import { playProps, RoomProps } from '../../core/Room'
 import UseAuth from '../hooks/useAuth'
 import { RoomProvider } from '../../provider/RoomProvider'
-import { QuestionProps } from '../../core/Question'
 
 interface RoomContextProps {
 	create(room: RoomProps, leader: string): Promise<void>
