@@ -19,14 +19,22 @@ import styles from '../../styles/room.module.css'
 export default function Room() {
 	const id = useRouter().query.room
 	const { user } = UseAuth()
-	const { getRoom, joinRoom, startGame, getQuestion, nextQuestion } = UseRoom()
+	const {
+		getRoom,
+		joinRoom,
+		startGame,
+		getQuestion,
+		nextQuestion,
+		countPoints
+	} = UseRoom()
 	const [room, setRoom] = useState<RoomProps>({
 		id: '',
 		leader: '',
 		players: [{
 			email: '',
 			name: '',
-			photo: ''
+			photo: '',
+			score: 0
 		}],
 		playersLength: 0,
 		playing: false,
@@ -54,12 +62,22 @@ export default function Room() {
 		await joinRoom(room.leader, {
 			email: user.email,
 			name: user.name,
-			photo: user.photo
+			photo: user.photo,
+			score: 0
 		})
 	}
 
 	async function getNowQuestion() {
 		await getQuestion(room)
+	}
+
+	async function countAndNextQuestion() {
+		await countPoints(
+			questionSelected?.correct ?? false,
+			user.email,
+			room.leader
+		)
+		await nextQuestion(room.leader)
 	}
 
 	useEffect(() => {
@@ -71,8 +89,6 @@ export default function Room() {
 		getNowQuestion()
 
 	}, [room])
-
-	console.log(questionSelected)
 
 	return (
 		<div className={styles.contentGeral}>
@@ -115,7 +131,7 @@ export default function Room() {
 							/>
 						</div>
 						<div className={styles.contentSubmitAnswer}>
-							<button onClick={() => nextQuestion(room.leader)}>Submit 🚀</button>
+							<button onClick={() => countAndNextQuestion()}>Submit 🚀</button>
 						</div>
 					</div>
 				</div>
@@ -127,6 +143,7 @@ export default function Room() {
 					enterTheRoom={enterTheRoom}
 					roomLength={room.playersLength}
 					onClick={() => startGame(room.leader)}
+					playing={room.playing}
 				/>
 			)}
 		</div>

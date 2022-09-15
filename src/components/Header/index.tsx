@@ -46,7 +46,7 @@ export function Header() {
 						fontSize: '30px'
 					}}>
 						<div className={styles.contentIntoMobile}>
-							<Image src={Test} height={50} width={50} style={{ borderRadius: "100%" }} />
+							<Image src={user.photo} height={50} width={50} style={{ borderRadius: "100%" }} />
 							<HiChevronDown />
 						</div>
 					</MenuButton>
@@ -56,6 +56,7 @@ export function Header() {
 							<p onClick={() => Router.push('/joinRoom')}>Join Room</p>
 							<p onClick={() => Router.push('/ranking')}>Ranking</p>
 							<p onClick={() => Router.push('/rules')}>Rules</p>
+							<p onClick={() => Router.push('/profile')}>Profile</p>
 						</div>
 					</MenuList>
 				</Menu>

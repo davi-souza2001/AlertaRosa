@@ -97,4 +97,25 @@ export class RoomProvider implements ProviderRoomProps {
 			questionNumber: room.questionNumber + 1
 		})
 	}
+
+	async countPoints(correct: boolean, email: string, idRoom: string): Promise<void> {
+		const docRef = doc(db, 'rooms', idRoom)
+		const docSnap = await getDoc(docRef)
+		const room: RoomProps = docSnap.data() as unknown as RoomProps
+
+		const usersFound = room.players
+
+		if (correct) {
+			usersFound.map((user, index) => {
+				if (user.email === email) {
+					user.score += 5
+					usersFound[index] = user
+				}
+			})
+		}
+
+		await updateDoc(docRef, {
+			players: usersFound
+		})
+	}
 }

@@ -7,6 +7,7 @@ export interface ProviderRoomProps {
 	startGame(email: string): Promise<void>
 	getQuestion(room: RoomProps): Promise<void>
 	nextQuestion(email: string): Promise<void>
+	countPoints(correct: boolean, email: string, idRoom: string): Promise<void>
 }
 
 export class ProviderRoom {
@@ -38,5 +39,9 @@ export class ProviderRoom {
 
 	async nextQuestion(email: string): Promise<void> {
 		await this._providerAuthentication.nextQuestion(email)
+	}
+
+	async countPoints(correct: boolean, email: string, idRoom: string): Promise<void> {
+		await this._providerAuthentication.countPoints(correct, email, idRoom)
 	}
 }

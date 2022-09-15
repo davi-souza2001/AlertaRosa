@@ -12,6 +12,7 @@ interface RoomContextProps {
 	startGame(email: string): Promise<void>
 	getQuestion(room: RoomProps): Promise<void>
 	nextQuestion(email: string): Promise<void>
+	countPoints(correct: boolean, email: string, idRoom: string): Promise<void>
 }
 
 const RoomContext = createContext<RoomContextProps>({
@@ -20,7 +21,8 @@ const RoomContext = createContext<RoomContextProps>({
 	joinRoom: () => Promise.resolve(),
 	startGame: () => Promise.resolve(),
 	getQuestion: () => Promise.resolve(),
-	nextQuestion: () => Promise.resolve()
+	nextQuestion: () => Promise.resolve(),
+	countPoints: () => Promise.resolve()
 })
 
 export function RoomProviderContext(props: any) {
@@ -65,6 +67,12 @@ export function RoomProviderContext(props: any) {
 		setLoading(false)
 	}
 
+	async function countPoints(correct: boolean, email: string, idRoom: string): Promise<void> {
+		setLoading(true)
+		await roomProvider.countPoints(correct, email, idRoom)
+		setLoading(false)
+	}
+
 	return (
 		<RoomContext.Provider value={{
 			create,
@@ -72,7 +80,8 @@ export function RoomProviderContext(props: any) {
 			joinRoom,
 			startGame,
 			getQuestion,
-			nextQuestion
+			nextQuestion,
+			countPoints
 		}}>
 			{props.children}
 		</RoomContext.Provider>

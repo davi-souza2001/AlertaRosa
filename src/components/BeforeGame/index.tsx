@@ -12,6 +12,7 @@ interface BeforeGameProps {
 	roomLength: number
 	enterTheRoom: () => Promise<void>
 	onClick: MouseEventHandler<HTMLButtonElement>
+	playing: boolean
 }
 
 export function BeforeGame(props: BeforeGameProps) {
@@ -46,7 +47,7 @@ export function BeforeGame(props: BeforeGameProps) {
 						<span>Enter the room</span>
 					</div>
 				) : false}
-				{props.leader && (
+				{props.leader && !props.playing && (
 					<div className={styles.contentButton}>
 						<button onClick={props.onClick}>Start</button>
 					</div>

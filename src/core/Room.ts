@@ -4,7 +4,7 @@ export interface playProps {
 	email: string
 	photo: string
 	name: string
-	score?: number
+	score: number
 }
 
 export interface RoomProps {

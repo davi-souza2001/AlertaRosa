@@ -34,11 +34,17 @@ export default function createRoom() {
 				{
 					email: user.email,
 					photo: user.photo,
-					name: user.name
+					name: user.name,
+					score: 0
 				}
 			],
 			playing: false,
-			questionNumber: 0
+			questionNumber: 0,
+			question: {
+				id: 0,
+				enunciation: '',
+				answer: []
+			}
 		}
 
 		create(room, user.email)
