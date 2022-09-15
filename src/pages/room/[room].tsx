@@ -5,6 +5,7 @@ import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import { doc, onSnapshot } from 'firebase/firestore'
 
 import { RoomProps } from '../../core/Room'
+import { ResponseProps } from '../../core/Question'
 import { Header } from '../../components/Header'
 import { BeforeGame } from '../../components/BeforeGame'
 import { BoxQuestion } from '../../components/BoxQuestion'
@@ -37,6 +38,7 @@ export default function Room() {
 			id: 0
 		}
 	})
+	const [questionSelected, setQuestionSelected] = useState<ResponseProps | null>(null)
 
 	async function getRoomValues() {
 		const roomFound = await getRoom(id as string ?? '')
@@ -70,6 +72,8 @@ export default function Room() {
 
 	}, [room])
 
+	console.log(questionSelected)
+
 	return (
 		<div className={styles.contentGeral}>
 			<Header />
@@ -97,14 +101,17 @@ export default function Room() {
 							<BoxQuestion
 								text={room.question.answer[0].value}
 								numberQuestion={1}
+								onClick={() => setQuestionSelected(room.question.answer[0])}
 							/>
 							<BoxQuestion
 								text={room.question.answer[1].value}
 								numberQuestion={2}
+								onClick={() => setQuestionSelected(room.question.answer[1])}
 							/>
 							<BoxQuestion
 								text={room.question.answer[2].value}
 								numberQuestion={3}
+								onClick={() => setQuestionSelected(room.question.answer[2])}
 							/>
 						</div>
 						<div className={styles.contentSubmitAnswer}>
