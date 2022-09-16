@@ -74,6 +74,22 @@
 	transition: 0.2s;
 }
 
-.contentButton button:hover{
+.contentButton button:hover {
 	background-color: #b01687;
+}
+
+.gamerWin {
+	width: 100%;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.gamerWin p {
+	margin: 0 10px;
+}
+
+.gamerWinPhoto {
+	margin: 0 10px;
 }
