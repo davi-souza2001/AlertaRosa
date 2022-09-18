@@ -52,19 +52,38 @@ export function BeforeGame(props: BeforeGameProps) {
 						<button onClick={props.onClick}>Start</button>
 					</div>
 				)}
-				<div className={styles.gamerWin}>
-					<div className={styles.gamerWinPhoto}>
-						<Image src={props.players[0].photo ?? ''} height={30} width={30} style={{
-							borderRadius: '999px'
-						}} />
+				{props.playing && (
+					<div className={styles.gamerWinGeral}>
+						<div className={styles.gamerWin}>
+							<div className={styles.gamerWinPhoto}>
+								<Image src={props.players[0].photo ?? ''} height={30} width={30} style={{
+									borderRadius: '999px'
+								}} />
+							</div>
+							<div>
+								<p>{props.players[0].name}</p>
+							</div>
+							<div>
+								<p>Ganhou 10 pontos</p>
+							</div>
+						</div>
+						{props.players[1] && (
+							<div className={styles.gamerWin}>
+								<div className={styles.gamerWinPhoto}>
+									<Image src={props.players[1].photo ?? ''} height={30} width={30} style={{
+										borderRadius: '999px'
+									}} />
+								</div>
+								<div>
+									<p>{props.players[1].name}</p>
+								</div>
+								<div>
+									<p>Ganhou 10 pontos</p>
+								</div>
+							</div>
+						)}
 					</div>
-					<div>
-						<p>{props.players[0].name}</p>
-					</div>
-					<div>
-						<p>Ganhou 10 pontos</p>
-					</div>
-				</div>
+				)}
 			</div>
 		</div>
 	)
