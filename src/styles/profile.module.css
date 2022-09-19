@@ -63,10 +63,10 @@
 
 .contentUser {
 	height: 100%;
-	width: 250px;
+	width: 100%;
 	display: flex;
 	align-items: center;
-	justify-content: space-around;
+	justify-content: flex-start;
 	font-size: 30px;
 	font-family: 'Poppins', sans-serif;
 	font-weight: 500;
@@ -74,8 +74,8 @@
 	animation-duration: 600ms;
 }
 
-.contentUser h2 {
-	margin: 0 -50px 0 -30px;
+.contentUser h2{
+	margin-left: 30px;
 }
 
 .contentLogout {
@@ -89,6 +89,7 @@
 .contentButtonLogout{
 	background-color: rgb(215, 44, 44);
 	padding: 15px;
+	margin-top: 10px;
 	font-size: 20px;
 	font-family: 'Roboto', sans-serif;
 	border-radius: 10px;
