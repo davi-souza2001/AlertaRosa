@@ -127,12 +127,15 @@ export default function Room() {
 							<BoxQuestion
 								text={room.question.answer[2].value}
 								numberQuestion={3}
-								onClick={() => setQuestionSelected(room.question.answer[2])}
+								onClick={() => {
+									setQuestionSelected(room.question.answer[2])
+									countAndNextQuestion()
+								}}
 							/>
 						</div>
-						<div className={styles.contentSubmitAnswer}>
+						{/* <div className={styles.contentSubmitAnswer}>
 							<button onClick={() => countAndNextQuestion()}>Submit 🚀</button>
-						</div>
+						</div> */}
 					</div>
 				</div>
 			) : (
