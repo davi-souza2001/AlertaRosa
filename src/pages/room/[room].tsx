@@ -117,12 +117,18 @@ export default function Room() {
 							<BoxQuestion
 								text={room.question.answer[0].value}
 								numberQuestion={1}
-								onClick={() => setQuestionSelected(room.question.answer[0])}
+								onClick={() => {
+									setQuestionSelected(room.question.answer[0])
+									countAndNextQuestion()
+								}}
 							/>
 							<BoxQuestion
 								text={room.question.answer[1].value}
 								numberQuestion={2}
-								onClick={() => setQuestionSelected(room.question.answer[1])}
+								onClick={() => {
+									setQuestionSelected(room.question.answer[1])
+									countAndNextQuestion()
+								}}
 							/>
 							<BoxQuestion
 								text={room.question.answer[2].value}
