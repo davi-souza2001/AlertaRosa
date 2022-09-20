@@ -10,9 +10,7 @@ interface boxQuestionProps {
 
 export function BoxQuestion(props: boxQuestionProps) {
 	return (
-		<div className={styles.contentGeral} onClick={props.onClick}
-			// style={{ backgroundColor: `${props.selected && '#3d2767'}` }}
-		>
+		<div className={styles.contentGeral} onClick={props.onClick}>
 			<div className={styles.contentNumberQuestion}>
 				<span>{props.numberQuestion}</span>
 			</div>

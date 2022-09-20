@@ -19,7 +19,7 @@
 }
 
 .contentGeralQuestionBox {
-	height: 80vh;
+	height: 100%;
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -31,7 +31,6 @@
 
 .contentQuestionBox {
 	background-color: #1E103B;
-	height: 100%;
 	width: 80%;
 	border-radius: 20px;
 }
@@ -55,7 +54,7 @@
 }
 
 .contentTimer {
-	margin: 10px 0;
+	margin: 20px 0;
 	height: 100px;
 	width: 100%;
 	display: flex;
@@ -64,11 +63,10 @@
 }
 
 .contentAreaAnswers {
-	height: 40%;
 	width: 100%;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-around;
 	flex-direction: column;
 }
 

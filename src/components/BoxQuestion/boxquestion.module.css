@@ -1,6 +1,6 @@
 .contentGeral {
 	margin: 10px 0;
-	height: 70px;
+	min-height: 70px;
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -9,7 +9,7 @@
 
 .contentNumberQuestion {
 	margin: 0 20px;
-	height: 100%;
+	min-height: 70px;
 	width: 80px;
 	display: flex;
 	align-items: center;
@@ -21,7 +21,7 @@
 }
 
 .contentAnswers {
-	height: 100%;
+	min-height: 70px;
 	width: 90%;
 	display: flex;
 	align-items: center;
@@ -33,7 +33,7 @@
 	border-radius: 10px;
 }
 
-.contentAnswers span{
+.contentAnswers span {
 	margin-left: 10px;
 }
 
