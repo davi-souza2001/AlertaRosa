@@ -120,6 +120,7 @@ export default function Room() {
 								onClick={() => {
 									setQuestionSelected(room.question.answer[0])
 									countAndNextQuestion()
+									setQuestionSelected(null)
 								}}
 							/>
 							<BoxQuestion
@@ -128,6 +129,7 @@ export default function Room() {
 								onClick={() => {
 									setQuestionSelected(room.question.answer[1])
 									countAndNextQuestion()
+									setQuestionSelected(null)
 								}}
 							/>
 							<BoxQuestion
@@ -136,12 +138,10 @@ export default function Room() {
 								onClick={() => {
 									setQuestionSelected(room.question.answer[2])
 									countAndNextQuestion()
+									setQuestionSelected(null)
 								}}
 							/>
 						</div>
-						{/* <div className={styles.contentSubmitAnswer}>
-							<button onClick={() => countAndNextQuestion()}>Submit 🚀</button>
-						</div> */}
 					</div>
 				</div>
 			) : (
