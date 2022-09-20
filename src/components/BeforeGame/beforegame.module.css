@@ -21,7 +21,7 @@
 }
 
 .contentCreateGameBox {
-	height: 400px;
+	min-height: 300px;
 	width: 400px;
 	display: flex;
 	align-items: center;
