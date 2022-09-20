@@ -78,6 +78,7 @@ export default function Room() {
 			room.leader
 		)
 		await nextQuestion(room.leader)
+		setQuestionSelected(null)
 	}
 
 	useEffect(() => {
@@ -120,8 +121,8 @@ export default function Room() {
 								onClick={() => {
 									setQuestionSelected(room.question.answer[0])
 									countAndNextQuestion()
-									setQuestionSelected(null)
 								}}
+								selected={questionSelected === room.question.answer[0]}
 							/>
 							<BoxQuestion
 								text={room.question.answer[1].value}
@@ -131,6 +132,7 @@ export default function Room() {
 									countAndNextQuestion()
 									setQuestionSelected(null)
 								}}
+								selected={questionSelected === room.question.answer[1]}
 							/>
 							<BoxQuestion
 								text={room.question.answer[2].value}
@@ -140,6 +142,7 @@ export default function Room() {
 									countAndNextQuestion()
 									setQuestionSelected(null)
 								}}
+								selected={questionSelected === room.question.answer[2]}
 							/>
 						</div>
 					</div>

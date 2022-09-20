@@ -33,6 +33,20 @@
 	border-radius: 10px;
 }
 
+.contentAnswersSelected {
+	min-height: 70px;
+	width: 90%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	font-weight: 500;
+	font-size: 17px;
+	cursor: pointer;
+	transition: 0.2s;
+	border-radius: 10px;
+	background-color: #3d2767
+}
+
 .contentAnswers span {
 	margin-left: 10px;
 }

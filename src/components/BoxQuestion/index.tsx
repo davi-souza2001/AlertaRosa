@@ -6,6 +6,7 @@ interface boxQuestionProps {
 	text: string
 	numberQuestion: number
 	onClick?: MouseEventHandler<HTMLDivElement>
+	selected: boolean
 }
 
 export function BoxQuestion(props: boxQuestionProps) {
@@ -14,7 +15,7 @@ export function BoxQuestion(props: boxQuestionProps) {
 			<div className={styles.contentNumberQuestion}>
 				<span>{props.numberQuestion}</span>
 			</div>
-			<div className={styles.contentAnswers}>
+			<div className={props.selected ? styles.contentAnswersSelected : styles.contentAnswers}>
 				<span>{props.text}</span>
 			</div>
 		</div>
