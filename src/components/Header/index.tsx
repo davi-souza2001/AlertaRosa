@@ -37,7 +37,7 @@ export function Header() {
 			<div className={styles.contentMobile}>
 				<Menu>
 					<MenuButton as={Button} style={{
-						backgroundColor: '#684aae',
+						backgroundColor: '#392664',
 						width: '130px',
 						height: '100%',
 						display: 'flex',

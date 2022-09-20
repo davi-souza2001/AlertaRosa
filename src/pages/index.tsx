@@ -14,14 +14,14 @@ export default function Home() {
 				<Image src={logoTitle} width={1200} height={400} />
 			</div>
 			<div className={styles.contentSubTitle}>
-				<p>The quiz game made for devs!</p>
+				<p>The game made for devs!</p>
 			</div>
 			<div className={styles.contentMoreInformation}>
 				<p>Everything is ready for fun learning!</p>
 			</div>
 			<div className={styles.contentCreateGame}>
 				<div className={styles.contentIntoCreateGame}>
-					<p onClick={() => Router.push('/createRoom')}>Create a new game 🎮</p>
+					<p onClick={() => Router.push('/createRoom')}>New game 🎮</p>
 				</div>
 			</div>
 		</div>
