@@ -77,8 +77,8 @@ export default function Room() {
 			user.email,
 			room.leader
 		)
+
 		await nextQuestion(room.leader)
-		setQuestionSelected(null)
 	}
 
 	useEffect(() => {
@@ -130,7 +130,6 @@ export default function Room() {
 								onClick={() => {
 									setQuestionSelected(room.question.answer[1])
 									countAndNextQuestion()
-									setQuestionSelected(null)
 								}}
 								selected={questionSelected === room.question.answer[1]}
 							/>
@@ -140,7 +139,6 @@ export default function Room() {
 								onClick={() => {
 									setQuestionSelected(room.question.answer[2])
 									countAndNextQuestion()
-									setQuestionSelected(null)
 								}}
 								selected={questionSelected === room.question.answer[2]}
 							/>
