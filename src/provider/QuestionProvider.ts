@@ -160,24 +160,6 @@ export class QuestionProvider {
 						correct: false
 					}
 				]
-		},
-		{
-			id: 7,
-			enunciation: `JavaScript é uma linguagem que sofre muito com compatibilidade entre navegadores.
-		A jQuery sofre com o mesmo problema. Animações, manipulação de DOM e outra tarefas corriqueiras
-		são mais complexas e menos produtivas ao usar o jQuery.`,
-			answer: [
-				{
-					id: Math.floor(Date.now() * Math.random()).toString(36),
-					value: 'Sim',
-					correct: true
-				},
-				{
-					id: Math.floor(Date.now() * Math.random()).toString(36),
-					value: 'Não',
-					correct: false
-				}
-			]
 		}
 	]
 
