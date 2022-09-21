@@ -1,7 +1,7 @@
 import Router from "next/router"
 import Cookie from 'js-cookie'
 import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth"
-import { addDoc, collection, getDocs, query, where } from "firebase/firestore"
+import { addDoc, collection, doc, getDocs, query, setDoc, where } from "firebase/firestore"
 
 import { auth, db } from '../firebase/config'
 import { ProviderUserProps } from "../core/ProviderUser"
@@ -13,7 +13,8 @@ export class AuthenticationProvider implements ProviderUserProps {
 	private _user = new User({
 		photo: '',
 		email: '',
-		name: ''
+		name: '',
+		xp: 0
 	})
 
 	async loginGoogle(): Promise<User> {
@@ -23,7 +24,8 @@ export class AuthenticationProvider implements ProviderUserProps {
 		return this._user.clone({
 			name: login.user.displayName ?? '',
 			email: login.user.email ?? '',
-			photo: login.user.photoURL ?? ''
+			photo: login.user.photoURL ?? '',
+			xp: 0
 		})
 	}
 
@@ -36,12 +38,12 @@ export class AuthenticationProvider implements ProviderUserProps {
 	}
 
 	async submitUser(user: User): Promise<void> {
-		await addDoc(collection(db, "users"), {
+		await setDoc(doc(db, "users", user.email), {
 			name: user.name,
 			email: user.email,
-			photo: user.photo
+			photo: user.photo,
+			xp: user.xp
 		})
-		console.log("Submitted")
 	}
 
 	async logout(): Promise<void> {

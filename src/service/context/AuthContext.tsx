@@ -27,7 +27,8 @@ const AuthContext = createContext<AuthContextProps>({
 	user: new User({
 		photo: '',
 		email: '',
-		name: ''
+		name: '',
+		xp: 0
 	}),
 	loading: false,
 	setLoading: {}
@@ -35,7 +36,7 @@ const AuthContext = createContext<AuthContextProps>({
 
 export function AuthProvider(props: any) {
 	const [loading, setLoading] = useState(false)
-	const [user, setUser] = useState<User>(new User({ photo: '', email: '', name: '' }))
+	const [user, setUser] = useState<User>(new User({ photo: '', email: '', name: '', xp: 0 }))
 	const authentication = new ProviderUser(new AuthenticationProvider())
 	const userCookie = Cookie.get('Admin-QuizDev')
 
@@ -85,7 +86,8 @@ export function AuthProvider(props: any) {
 					setUser(new User({
 						name: doc.data().name,
 						email: doc.data().email,
-						photo: doc.data().photo
+						photo: doc.data().photo,
+						xp: doc.data().xp
 					}))
 				})
 			})

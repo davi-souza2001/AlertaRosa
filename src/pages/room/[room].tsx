@@ -91,6 +91,8 @@ export default function Room() {
 
 	}, [room])
 
+	console.log(user)
+
 	return (
 		<div className={styles.contentGeral}>
 			<Header />
