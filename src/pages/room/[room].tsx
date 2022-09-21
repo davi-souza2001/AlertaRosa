@@ -34,7 +34,8 @@ export default function Room() {
 			email: '',
 			name: '',
 			photo: '',
-			score: 0
+			score: 0,
+			xp: 0
 		}],
 		playersLength: 0,
 		playing: false,
@@ -63,7 +64,8 @@ export default function Room() {
 			email: user.email,
 			name: user.name,
 			photo: user.photo,
-			score: 0
+			score: 0,
+			xp: 0
 		})
 	}
 
@@ -90,8 +92,6 @@ export default function Room() {
 		getNowQuestion()
 
 	}, [room])
-
-	console.log(user)
 
 	return (
 		<div className={styles.contentGeral}>

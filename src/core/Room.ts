@@ -5,6 +5,7 @@ export interface playProps {
 	photo: string
 	name: string
 	score: number
+	xp: number
 }
 
 export interface RoomProps {

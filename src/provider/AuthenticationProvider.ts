@@ -1,11 +1,11 @@
-import Router from "next/router"
+import Router from 'next/router'
 import Cookie from 'js-cookie'
-import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth"
-import { addDoc, collection, doc, getDocs, query, setDoc, where } from "firebase/firestore"
+import { GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth'
+import { collection, doc, getDocs, query, setDoc, where } from 'firebase/firestore'
 
 import { auth, db } from '../firebase/config'
-import { ProviderUserProps } from "../core/ProviderUser"
-import { User } from "../core/User"
+import { ProviderUserProps } from '../core/ProviderUser'
+import { User } from '../core/User'
 
 export class AuthenticationProvider implements ProviderUserProps {
 
@@ -38,7 +38,7 @@ export class AuthenticationProvider implements ProviderUserProps {
 	}
 
 	async submitUser(user: User): Promise<void> {
-		await setDoc(doc(db, "users", user.email), {
+		await setDoc(doc(db, 'users', user.email), {
 			name: user.name,
 			email: user.email,
 			photo: user.photo,
