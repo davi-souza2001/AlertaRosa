@@ -1,4 +1,4 @@
-import { collection, doc, getDoc, getDocs, query, setDoc, updateDoc, where, } from "firebase/firestore"
+import { collection, doc, getDoc, getDocs, increment, query, setDoc, updateDoc, where, } from "firebase/firestore"
 
 import { db } from "../firebase/config"
 import { ProviderRoomProps } from "../core/ProviderRoom"
@@ -100,7 +100,7 @@ export class RoomProvider implements ProviderRoomProps {
 
 	async countPoints(correct: boolean, email: string, idRoom: string): Promise<void> {
 		const docRefRooms = doc(db, 'rooms', idRoom)
-		// const docRefUsers = doc(db, 'users', email)
+		const docRefUsers = doc(db, 'users', email)
 		const docSnap = await getDoc(docRefRooms)
 		const room: RoomProps = docSnap.data() as unknown as RoomProps
 		const usersFound = room.players
@@ -111,6 +111,10 @@ export class RoomProvider implements ProviderRoomProps {
 					user.score += 5
 					usersFound[index] = user
 				}
+			})
+
+			await updateDoc(docRefUsers, {
+				xp: increment(5)
 			})
 		}
 
