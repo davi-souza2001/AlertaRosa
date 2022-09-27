@@ -14,12 +14,12 @@ export default function Profile() {
 			<Header />
 			<div className={styles.contentAreaExperience}>
 				<div className={styles.contentProgressBar}>
-					<CircularProgress value={90} size={'150px'}>
-						<CircularProgressLabel>90%</CircularProgressLabel>
+					<CircularProgress value={user.xp} size={'150px'}>
+						<CircularProgressLabel>{user.xp}%</CircularProgressLabel>
 					</CircularProgress>
 				</div>
 				<div className={styles.contentLevelAndExperience}>
-					<h1>Soon...</h1>
+					<h1>Level 01</h1>
 				</div>
 			</div>
 			<div className={styles.contentAreaUser}>

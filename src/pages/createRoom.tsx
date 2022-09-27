@@ -35,7 +35,8 @@ export default function CreateRoom() {
 					email: user.email,
 					photo: user.photo,
 					name: user.name,
-					score: 0
+					score: 0,
+					xp: user.xp
 				}
 			],
 			playing: false,
@@ -44,7 +45,8 @@ export default function CreateRoom() {
 				id: 0,
 				enunciation: '',
 				answer: []
-			}
+			},
+
 		}
 
 		create(room, user.email)
