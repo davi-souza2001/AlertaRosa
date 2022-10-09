@@ -23,3 +23,5 @@
 The design pattern used was ports and adapters, leaving the responsibility solely for the language much greater compared to the framework.
 
 </html>  
+
+<!-- sdsdf -->
