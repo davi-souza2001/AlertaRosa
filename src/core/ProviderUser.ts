@@ -3,6 +3,7 @@ import { User } from "./User"
 export interface ProviderUserProps {
 	loginGoogle(): Promise<User>
 	getUser(user: User): Promise<User | false>
+	getUserLogged(cookie: string): Promise<User>
 	submitUser(user: User): Promise<void>
 	logout(): Promise<void>
 }
@@ -30,5 +31,11 @@ export class ProviderUser {
 
 	async logout(): Promise<void> {
 		await this._providerAuthentication.logout()
+	}
+
+	async getUserLogged(cookie: string): Promise<User> {
+		const user = await this._providerAuthentication.getUserLogged(cookie)
+
+		return user
 	}
 }

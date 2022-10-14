@@ -2,10 +2,8 @@ import Router from "next/router"
 import { useEffect, useState } from "react"
 import { createContext } from "react"
 import Cookie from 'js-cookie'
-import { collection, getDocs, query, where } from "firebase/firestore"
 
 import { User } from "../../core/User"
-import { db } from "../../firebase/config"
 import { AuthenticationProvider } from "../../provider/AuthenticationProvider"
 import { ProviderUser } from "../../core/ProviderUser"
 
@@ -78,20 +76,9 @@ export function AuthProvider(props: any) {
 		setLoading(true)
 
 		if (userCookie) {
-			const searchedUser = query(collection(db, 'users'), where('email', '==', userCookie))
-			const resolveQuery = getDocs(searchedUser)
-
-			resolveQuery.then((list) => {
-				list.forEach((doc) => {
-					setUser(new User({
-						name: doc.data().name,
-						email: doc.data().email,
-						photo: doc.data().photo,
-						xp: doc.data().xp
-					}))
-				})
+			authentication.getUserLogged(userCookie).then((user) => {
+				setUser(user)
 			})
-
 		} else {
 			Router.push('/login')
 		}

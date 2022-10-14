@@ -52,6 +52,28 @@ export class AuthenticationProvider implements ProviderUserProps {
 		Router.push('/login')
 	}
 
+	async getUserLogged(cookie: string): Promise<User> {
+		const searchedUser = query(collection(db, 'users'), where('email', '==', cookie))
+		const resolveQuery = getDocs(searchedUser)
+
+		return new Promise((resolve, reject) => {
+			try {
+				resolveQuery.then((list) => {
+					list.forEach((doc) => {
+						resolve(new User({
+							name: doc.data().name,
+							email: doc.data().email,
+							photo: doc.data().photo,
+							xp: doc.data().xp
+						}))
+					})
+				})
+			} catch (error) {
+				reject(error)
+			}
+		})
+	}
+
 	static setCookieUser(user: User) {
 		Cookie.set('Admin-QuizDev', user.email, { expires: 7 })
 	}
