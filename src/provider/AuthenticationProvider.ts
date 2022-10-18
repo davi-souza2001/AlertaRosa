@@ -74,6 +74,12 @@ export class AuthenticationProvider implements ProviderUserProps {
 		})
 	}
 
+	async getRankingUsers(): Promise<User[]> {
+		const ranking: User[] = []
+
+		return ranking
+	}
+
 	static setCookieUser(user: User) {
 		Cookie.set('Admin-QuizDev', user.email, { expires: 7 })
 	}

@@ -15,13 +15,14 @@ interface AuthContextProps {
 	user: User
 	loading: boolean
 	setLoading: any
+	rankingUsers: User[]
 }
 
 const AuthContext = createContext<AuthContextProps>({
 	loginGoogle: () => Promise.resolve(),
 	logout: () => Promise.resolve(),
 	getUser: (user: User) => Promise.resolve(user),
-	submitUser: (user: User) => Promise.resolve(),
+	submitUser: () => Promise.resolve(),
 	user: new User({
 		photo: '',
 		email: '',
@@ -29,12 +30,14 @@ const AuthContext = createContext<AuthContextProps>({
 		xp: 0
 	}),
 	loading: false,
-	setLoading: {}
+	setLoading: {},
+	rankingUsers: []
 })
 
 export function AuthProvider(props: any) {
 	const [loading, setLoading] = useState(false)
 	const [user, setUser] = useState<User>(new User({ photo: '', email: '', name: '', xp: 0 }))
+	const [rankingUsers, setRankingUsers] = useState<User[]>([])
 	const authentication = new ProviderUser(new AuthenticationProvider())
 	const userCookie = Cookie.get('Admin-QuizDev')
 
@@ -72,6 +75,12 @@ export function AuthProvider(props: any) {
 		await authentication.logout()
 	}
 
+	async function getRankingUsers() {
+		const ranking = await authentication.getRankingUsers()
+
+		setRankingUsers(ranking)
+	}
+
 	useEffect(() => {
 		setLoading(true)
 
@@ -94,6 +103,7 @@ export function AuthProvider(props: any) {
 			submitUser,
 			user,
 			loading,
+			rankingUsers,
 			setLoading
 		}}>
 			{props.children}
