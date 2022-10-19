@@ -1,5 +1,5 @@
 import { GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth'
-import { collection, doc, getDocs, query, setDoc, where } from 'firebase/firestore'
+import { collection, doc, getDocs, limit, orderBy, query, setDoc, where } from 'firebase/firestore'
 import Router from 'next/router'
 import Cookie from 'js-cookie'
 
@@ -75,9 +75,20 @@ export class AuthenticationProvider implements ProviderUserProps {
 	}
 
 	async getRankingUsers(): Promise<User[]> {
-		const ranking: User[] = []
+		const searchedUser = query(collection(db, 'users'))
+		const q = query(searchedUser, orderBy('xp', 'desc'), limit(3))
 
-		return ranking
+		return new Promise((resolve, reject) => {
+			try {
+				getDocs(q).then((list) => {
+					list.forEach((doc) => {
+						console.log(doc.data() as User[])
+					})
+				})
+			} catch (error) {
+				reject(error)
+			}
+		})
 	}
 
 	static setCookieUser(user: User) {

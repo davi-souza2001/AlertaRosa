@@ -84,6 +84,8 @@ export function AuthProvider(props: any) {
 	useEffect(() => {
 		setLoading(true)
 
+		getRankingUsers()
+
 		if (userCookie) {
 			authentication.getUserLogged(userCookie).then((user) => {
 				setUser(user)
