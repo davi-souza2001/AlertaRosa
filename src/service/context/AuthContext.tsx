@@ -54,17 +54,22 @@ export function AuthProvider(props: any) {
 
 		if (searchedUser) {
 			AuthenticationProvider.setCookieUser(searchedUser)
+			setLoading(false)
 			Router.push('/')
 		} else {
 			submitUser(loggedUser)
 			AuthenticationProvider.setCookieUser(loggedUser)
+			setLoading(false)
 			Router.push('/')
 		}
 	}
 
 	async function getUser(user: User) {
 		setLoading(true)
+
 		const userReceived = await authentication.getUser(user)
+
+		setLoading(false)
 
 		return userReceived ? userReceived : false
 	}
@@ -82,7 +87,11 @@ export function AuthProvider(props: any) {
 	}
 
 	async function getRankingUsers(): Promise<User[]> {
+		setLoading(true)
+
 		const ranking = await authentication.getRankingUsers()
+
+		setLoading(false)
 
 		return ranking
 	}

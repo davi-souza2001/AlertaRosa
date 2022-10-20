@@ -23,11 +23,14 @@ export default function Ranking() {
 	}
 
 	useEffect(() => {
+		console.log('Fui chamado')
 		getRankingUsers().then((users) => {
 			setRankingUsers(users)
 		})
 
 	}, [])
+
+	console.log(rankingUsers)
 
 	return (
 		<div className={styles.contentGeral}>
