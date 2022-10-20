@@ -77,14 +77,17 @@ export class AuthenticationProvider implements ProviderUserProps {
 	async getRankingUsers(): Promise<User[]> {
 		const searchedUser = query(collection(db, 'users'))
 		const q = query(searchedUser, orderBy('xp', 'desc'), limit(3))
+		const rankingUsers: User[] = []
 
 		return new Promise((resolve, reject) => {
 			try {
 				getDocs(q).then((list) => {
 					list.forEach((doc) => {
-						console.log(doc.data() as User[])
+						rankingUsers.push(doc.data() as User)
 					})
 				})
+
+				resolve(rankingUsers)
 			} catch (error) {
 				reject(error)
 			}

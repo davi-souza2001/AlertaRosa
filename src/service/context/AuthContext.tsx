@@ -12,10 +12,10 @@ interface AuthContextProps {
 	logout(): Promise<void>
 	getUser(user: User): Promise<User | false>
 	submitUser(user: User): Promise<void>
+	getRankingUsers(): Promise<User[]>
 	user: User
 	loading: boolean
 	setLoading: any
-	rankingUsers: User[]
 }
 
 const AuthContext = createContext<AuthContextProps>({
@@ -23,6 +23,14 @@ const AuthContext = createContext<AuthContextProps>({
 	logout: () => Promise.resolve(),
 	getUser: (user: User) => Promise.resolve(user),
 	submitUser: () => Promise.resolve(),
+	getRankingUsers: () => Promise.resolve([
+		new User({
+			email: '',
+			name: '',
+			photo: '',
+			xp: 0
+		})
+	]),
 	user: new User({
 		photo: '',
 		email: '',
@@ -30,14 +38,12 @@ const AuthContext = createContext<AuthContextProps>({
 		xp: 0
 	}),
 	loading: false,
-	setLoading: {},
-	rankingUsers: []
+	setLoading: {}
 })
 
 export function AuthProvider(props: any) {
 	const [loading, setLoading] = useState(false)
 	const [user, setUser] = useState<User>(new User({ photo: '', email: '', name: '', xp: 0 }))
-	const [rankingUsers, setRankingUsers] = useState<User[]>([])
 	const authentication = new ProviderUser(new AuthenticationProvider())
 	const userCookie = Cookie.get('Admin-QuizDev')
 
@@ -75,16 +81,14 @@ export function AuthProvider(props: any) {
 		await authentication.logout()
 	}
 
-	async function getRankingUsers() {
+	async function getRankingUsers(): Promise<User[]> {
 		const ranking = await authentication.getRankingUsers()
 
-		setRankingUsers(ranking)
+		return ranking
 	}
 
 	useEffect(() => {
 		setLoading(true)
-
-		getRankingUsers()
 
 		if (userCookie) {
 			authentication.getUserLogged(userCookie).then((user) => {
@@ -103,9 +107,9 @@ export function AuthProvider(props: any) {
 			logout,
 			getUser,
 			submitUser,
+			getRankingUsers,
 			user,
 			loading,
-			rankingUsers,
 			setLoading
 		}}>
 			{props.children}
