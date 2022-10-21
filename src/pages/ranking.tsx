@@ -7,8 +7,7 @@ import UseAuth from "../service/hooks/useAuth"
 import styles from '../styles/ranking.module.css'
 
 export default function Ranking() {
-	const { getRankingUsers } = UseAuth()
-	const [rankingUsers, setRankingUsers] = useState<User[]>([])
+	const { rankingUsers } = UseAuth()
 
 	function getRanking(index: number): string {
 		if (index === 0) {
@@ -21,16 +20,6 @@ export default function Ranking() {
 
 		return ''
 	}
-
-	useEffect(() => {
-		console.log('Fui chamado')
-		getRankingUsers().then((users) => {
-			setRankingUsers(users)
-		})
-
-	}, [])
-
-	console.log(rankingUsers)
 
 	return (
 		<div className={styles.contentGeral}>
