@@ -60,18 +60,14 @@ export default function CreateRoom() {
 			<div className={styles.contentCreateGame}>
 				<div className={styles.contentCreateGameBox}>
 					<h1>Create Room</h1>
-					<form onSubmit={(e) => {
-						e.preventDefault()
-						handleSubmitNewRoom()
-					}}>
+					<form>
 						<input type="text" placeholder='Room name' onChange={(e) => setTitle(e.target.value)} />
 						<select onChange={(e) => setPlayersLength(+e.target.value)}>
 							<option value="1"> 1</option>
 							<option value="2">2</option>
 						</select>
-						{/* <input type="number" placeholder='Players' onChange={(e) => setPlayersLength(+e.target.value)} /> */}
-						<button type={'submit'}>Create</button>
 					</form>
+					<button onClick={handleSubmitNewRoom}>Create</button>
 					<p>Create a room to play with your friends! Or if you prefer, play single played too!</p>
 				</div>
 			</div>
