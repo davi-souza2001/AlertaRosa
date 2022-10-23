@@ -11,7 +11,7 @@ export default function CreateRoom() {
 	const { create } = UseRoom()
 	const { user } = UseAuth()
 	const [title, setTitle] = useState('')
-	const [playersLength, setPlayersLength] = useState(0)
+	const [playersLength, setPlayersLength] = useState(1)
 
 	async function handleSubmitNewRoom() {
 		if (playersLength <= 0) {
@@ -65,12 +65,16 @@ export default function CreateRoom() {
 						handleSubmitNewRoom()
 					}}>
 						<input type="text" placeholder='Room name' onChange={(e) => setTitle(e.target.value)} />
-						<input type="number" placeholder='Players' onChange={(e) => setPlayersLength(+e.target.value)} />
+						<select onChange={(e) => setPlayersLength(+e.target.value)}>
+							<option value="1"> 1</option>
+							<option value="2">2</option>
+						</select>
+						{/* <input type="number" placeholder='Players' onChange={(e) => setPlayersLength(+e.target.value)} /> */}
 						<button type={'submit'}>Create</button>
 					</form>
 					<p>Create a room to play with your friends! Or if you prefer, play single played too!</p>
 				</div>
 			</div>
-		</div>
+		</div >
 	)
 }

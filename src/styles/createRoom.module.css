@@ -75,6 +75,16 @@
 	outline: none;
 }
 
+.contentCreateGame select {
+	height: 40px;
+	width: 300px;
+	margin-top: 30px;
+	border-radius: 5px;
+	background-color: #34274E;
+	border: none;
+	outline: none;
+}
+
 .contentCreateGameBox p {
 	padding: 20px;
 	margin-top: 30px;
