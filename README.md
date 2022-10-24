@@ -24,5 +24,4 @@ The design pattern used was ports and adapters, leaving the responsibility solel
 
 </html>  
 
-<!-- Colocar bonequinhos
-Colocar trofeu na página de vencedores -->
+<!-- Colocar bonequinhos -->

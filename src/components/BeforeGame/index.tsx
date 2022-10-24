@@ -64,7 +64,7 @@ export function BeforeGame(props: BeforeGameProps) {
 								<p>{props.players[0].name}</p>
 							</div>
 							<div>
-								<p>Ganhou {props.players[0].score} pontos</p>
+								<p>Ganhou {props.players[0].score} pontos 🏆</p>
 							</div>
 						</div>
 						{props.players[1] && (
@@ -78,7 +78,7 @@ export function BeforeGame(props: BeforeGameProps) {
 									<p>{props.players[1].name}</p>
 								</div>
 								<div>
-									<p>Ganhou {props.players[1].score} pontos</p>
+									<p>Ganhou {props.players[1].score} pontos 🏆</p>
 								</div>
 							</div>
 						)}
