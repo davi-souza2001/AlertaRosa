@@ -67,7 +67,7 @@ export default function CreateRoom() {
 							<option value="2">2</option>
 						</select>
 					</form>
-					<span onClick={handleSubmitNewRoom}>Create</span>
+					<button onClick={handleSubmitNewRoom}>Create</button>
 					<p>Create a room to play with your friends! Or if you prefer, play single played too!</p>
 				</div>
 			</div>
