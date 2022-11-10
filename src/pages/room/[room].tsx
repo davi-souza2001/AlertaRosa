@@ -9,6 +9,7 @@ import { ResponseProps } from '../../core/Question'
 import { Header } from '../../components/Header'
 import { BeforeGame } from '../../components/BeforeGame'
 import { BoxQuestion } from '../../components/BoxQuestion'
+import { AfterGame } from '../../components/AfterGame'
 import UseRoom from '../../service/hooks/useRoom'
 import { db } from '../../firebase/config'
 import UseAuth from '../../service/hooks/useAuth'
@@ -83,20 +84,11 @@ export default function Room() {
 		await nextQuestion(room.leader)
 	}
 
-	useEffect(() => {
-		getRoomValues()
+	console.log(room)
 
-	}, [id])
-
-	useEffect(() => {
-		getNowQuestion()
-
-	}, [room])
-
-	return (
-		<div className={styles.contentGeral}>
-			<Header />
-			{room.playing && room.question.answer[2] ? (
+	function renderQuestionsAndPlayers() {
+		if (room.playing && room.question.answer[2]) {
+			return (
 				<div className={styles.contentGeralQuestionBox}>
 					<div className={styles.contentQuestionBox}>
 						<div className={styles.contentQuestion}>
@@ -147,7 +139,15 @@ export default function Room() {
 						</div>
 					</div>
 				</div>
-			) : (
+			)
+		} else if (room.playing) {
+			return (
+				<div>
+					<AfterGame />
+				</div>
+			)
+		} else {
+			return (
 				<BeforeGame
 					title={room.title}
 					leader={room.leader === user.email ? true : false}
@@ -157,7 +157,24 @@ export default function Room() {
 					onClick={() => startGame(room.leader)}
 					playing={room.playing}
 				/>
-			)}
+			)
+		}
+	}
+
+	useEffect(() => {
+		getRoomValues()
+
+	}, [id])
+
+	useEffect(() => {
+		getNowQuestion()
+
+	}, [room])
+
+	return (
+		<div className={styles.contentGeral}>
+			<Header />
+			{renderQuestionsAndPlayers()}
 		</div>
 	)
 }
