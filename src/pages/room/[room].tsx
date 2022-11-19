@@ -84,8 +84,6 @@ export default function Room() {
 		await nextQuestion(room.leader)
 	}
 
-	console.log(room)
-
 	function renderQuestionsAndPlayers() {
 		if (room.playing && room.question.answer[2]) {
 			return (
@@ -143,7 +141,9 @@ export default function Room() {
 		} else if (room.playing) {
 			return (
 				<div>
-					<AfterGame />
+					<AfterGame
+						players={room.players}
+					/>
 				</div>
 			)
 		} else {
