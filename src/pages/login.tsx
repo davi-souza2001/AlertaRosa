@@ -13,7 +13,7 @@ export default function Login() {
 		<div className={styles.contentGeral}>
 			<div className={styles.contentLeft}>
 				<div className={styles.contentImage}>
-					<Image src={logoTitle} />
+					<Image alt='Logo' src={logoTitle} />
 					<h1>The quiz game made for devs!</h1>
 				</div>
 				<div className={styles.contentDescription}>
@@ -25,7 +25,7 @@ export default function Login() {
 				<div className={styles.contentLogin}>
 					<h2>Continue with</h2>
 					<div className={styles.contentBoxLoginPlatform} onClick={loginGoogle}>
-						<Image src={logoGoogle} height={30} width={30} />
+						<Image alt='Logo' src={logoGoogle} height={30} width={30} />
 						<p>Sign in with Google</p>
 					</div>
 				</div>

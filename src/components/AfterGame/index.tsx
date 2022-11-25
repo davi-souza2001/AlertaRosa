@@ -25,14 +25,14 @@ export function AfterGame(props: AfterGameProps) {
 				return (
 					<>
 						<div className={styles.contentPlayer}>
-							<Image src={props.players[0].photo ?? signRoom} height={60} width={60} style={{
+							<Image alt='Image User' src={props.players[0].photo ?? signRoom} height={60} width={60} style={{
 								borderRadius: '999px',
 							}} />
 							<span>{props.players[0].name}</span>
 							<span>'🥇'</span>
 						</div>
 						<div className={styles.contentPlayer}>
-							<Image src={props.players[1].photo ?? signRoom} height={60} width={60} style={{
+							<Image alt='Image User' src={props.players[1].photo ?? signRoom} height={60} width={60} style={{
 								borderRadius: '999px',
 							}} />
 							<span>{props.players[1].name}</span>
@@ -44,14 +44,14 @@ export function AfterGame(props: AfterGameProps) {
 				return (
 					<>
 						<div className={styles.contentPlayer}>
-							<Image src={props.players[1].photo ?? signRoom} height={60} width={60} style={{
+							<Image alt='Image User' src={props.players[1].photo ?? signRoom} height={60} width={60} style={{
 								borderRadius: '999px',
 							}} />
 							<span>{props.players[1].name}</span>
 							<span>'🥇'</span>
 						</div>
 						<div className={styles.contentPlayer}>
-							<Image src={props.players[0].photo ?? signRoom} height={60} width={60} style={{
+							<Image alt='Image User' src={props.players[0].photo ?? signRoom} height={60} width={60} style={{
 								borderRadius: '999px',
 							}} />
 							<span>{props.players[0].name}</span>
@@ -63,7 +63,7 @@ export function AfterGame(props: AfterGameProps) {
 		} else {
 			return (
 				<div className={styles.contentPlayer}>
-					<Image src={props.players[0].photo ?? signRoom} height={60} width={60} style={{
+					<Image alt='Image User' src={props.players[0].photo ?? signRoom} height={60} width={60} style={{
 						borderRadius: '999px',
 					}} />
 					<span>{props.players[0].name}</span>

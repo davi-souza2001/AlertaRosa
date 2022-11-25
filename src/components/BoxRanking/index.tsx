@@ -13,7 +13,7 @@ export function BoxRanking(props: BoxRankingProps) {
 	return (
 		<div className={styles.contentGeral}>
 			<div className={styles.contentImage}>
-				<Image src={props.photo ?? Test} height={35} width={35} style={{ borderRadius: '9999px', marginRight: '10px' }} />
+				<Image alt='Image User' src={props.photo ?? Test} height={35} width={35} style={{ borderRadius: '9999px', marginRight: '10px' }} />
 			</div>
 			<h1>{props.name}</h1>
 			<p>{props.rank === 'first' && '🥇'}</p>

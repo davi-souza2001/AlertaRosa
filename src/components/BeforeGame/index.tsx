@@ -21,14 +21,14 @@ export function BeforeGame(props: BeforeGameProps) {
 			<div className={styles.contentCreateGameBox}>
 				<h1>{props.title}</h1>
 				<div className={styles.contentPlayer}>
-					<Image src={props.players[0].photo ?? signRoom} height={50} width={50} style={{
+					<Image alt='Image User' src={props.players[0].photo ?? signRoom} height={50} width={50} style={{
 						borderRadius: '999px'
 					}} />
 					<span>{props.players[0].name}</span>
 				</div>
 				{props.players.length === 2 && (
 					<div className={styles.contentPlayer}>
-						<Image src={props.players[1].photo ?? ''} height={50} width={50} style={{
+						<Image alt='Image User' src={props.players[1].photo ?? ''} height={50} width={50} style={{
 							borderRadius: '9999px',
 							cursor: 'pointer'
 						}}
@@ -38,7 +38,7 @@ export function BeforeGame(props: BeforeGameProps) {
 				)}
 				{props.roomLength === 2 && props.players.length !== 2 ? (
 					<div className={styles.contentPlayer}>
-						<Image src={signRoom} height={50} width={50} style={{
+						<Image alt='Image User' src={signRoom} height={50} width={50} style={{
 							borderRadius: '9999px',
 							cursor: 'pointer'
 						}}
@@ -56,7 +56,7 @@ export function BeforeGame(props: BeforeGameProps) {
 					<div className={styles.gamerWinGeral}>
 						<div className={styles.gamerWin}>
 							<div className={styles.gamerWinPhoto}>
-								<Image src={props.players[0].photo ?? ''} height={30} width={30} style={{
+								<Image alt='Image User' src={props.players[0].photo ?? ''} height={30} width={30} style={{
 									borderRadius: '999px'
 								}} />
 							</div>
@@ -70,7 +70,7 @@ export function BeforeGame(props: BeforeGameProps) {
 						{props.players[1] && (
 							<div className={styles.gamerWin}>
 								<div className={styles.gamerWinPhoto}>
-									<Image src={props.players[1].photo ?? ''} height={30} width={30} style={{
+									<Image alt='Image User' src={props.players[1].photo ?? ''} height={30} width={30} style={{
 										borderRadius: '999px'
 									}} />
 								</div>

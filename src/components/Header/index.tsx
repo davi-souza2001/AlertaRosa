@@ -30,7 +30,7 @@ export function Header() {
 				<div className={styles.contentIntoProfile} onClick={() => Router.push('/profile')}>
 					<span>{user.name !== '' ? user.name : 'No user'}</span>
 					{user.photo !== '' ? (
-						<Image src={user.photo} height={50} width={50} style={{ borderRadius: "100%" }} />
+						<Image alt='Image User'	src={user.photo} height={50} width={50} style={{ borderRadius: "100%" }} />
 					) : false}
 				</div>
 			</div>
@@ -46,7 +46,7 @@ export function Header() {
 						fontSize: '30px'
 					}}>
 						<div className={styles.contentIntoMobile}>
-							<Image src={user.photo} height={50} width={50} style={{ borderRadius: "100%" }} />
+							<Image alt='Image User'	src={user.photo} height={50} width={50} style={{ borderRadius: "100%" }} />
 							<HiChevronDown />
 						</div>
 					</MenuButton>

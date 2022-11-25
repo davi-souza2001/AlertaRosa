@@ -11,7 +11,7 @@ export default function Home() {
 		<div className={styles.contentGeral}>
 			<Header />
 			<div className={styles.contentTitle}>
-				<Image src={logoTitle} width={1200} height={400} />
+				<Image alt='Image logo' src={logoTitle} width={1200} height={400} />
 			</div>
 			<div className={styles.contentSubTitle}>
 				<p>The game made for devs!</p>

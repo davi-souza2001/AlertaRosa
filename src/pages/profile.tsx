@@ -25,7 +25,7 @@ export default function Profile() {
 			<div className={styles.contentAreaUser}>
 				<div className={styles.contentUser}>
 					{user.photo !== '' ? (
-						<Image src={user.photo} height={70} width={70} style={{ borderRadius: "9999px" }} />
+						<Image alt='Image User' src={user.photo} height={70} width={70} style={{ borderRadius: "9999px" }} />
 					) : false}
 					<h2>{user.name !== '' ? user.name : ''}</h2>
 				</div>

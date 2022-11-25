@@ -93,7 +93,7 @@ export default function Room() {
 							<div className={styles.contentQuestionNow}>
 								<h1>{room.question.enunciation}</h1>
 							</div>
-							<Image src={logoQuestion} height={60} width={100} style={{ width: '20%', marginRight: '10px' }} />
+							<Image src={logoQuestion} height={60} width={100} style={{ width: '20%', marginRight: '10px' }} alt='Logo' />
 						</div>
 						<div className={styles.contentTimer}>
 							<CountdownCircleTimer
