@@ -68,6 +68,7 @@ export default function CreateRoom() {
 						</select>
 					</form>
 					<button onClick={handleSubmitNewRoom}>Create</button>
+					<button onClick={() => alert('Teste')}>Teste</button>
 					<p>Create a room to play with your friends! Or if you prefer, play single played too!</p>
 				</div>
 			</div>
