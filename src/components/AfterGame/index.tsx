@@ -29,14 +29,14 @@ export function AfterGame(props: AfterGameProps) {
 								borderRadius: '999px',
 							}} />
 							<span>{props.players[0].name}</span>
-							<span>'🥇'</span>
+							<p>🥇</p>
 						</div>
 						<div className={styles.contentPlayer}>
 							<Image alt='Image User' src={props.players[1].photo ?? signRoom} height={60} width={60} style={{
 								borderRadius: '999px',
 							}} />
 							<span>{props.players[1].name}</span>
-							<span>'🥈'</span>
+							<p>🥈</p>
 						</div>
 					</>
 				)
@@ -48,14 +48,14 @@ export function AfterGame(props: AfterGameProps) {
 								borderRadius: '999px',
 							}} />
 							<span>{props.players[1].name}</span>
-							<span>'🥇'</span>
+							<p>🥇</p>
 						</div>
 						<div className={styles.contentPlayer}>
 							<Image alt='Image User' src={props.players[0].photo ?? signRoom} height={60} width={60} style={{
 								borderRadius: '999px',
 							}} />
 							<span>{props.players[0].name}</span>
-							<span>'🥈'</span>
+							<p>🥈</p>
 						</div>
 					</>
 				)
