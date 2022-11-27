@@ -17,10 +17,13 @@ export default function Login() {
 					<h1>The quiz game made for devs!</h1>
 				</div>
 				<div className={styles.contentDescription}>
-					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat ab beatae blanditiis temporibus eveniet quibusdam voluptatum autem assumenda labore non. Quo fuga nobis doloribus suscipit illo debitis quam adipisci cupiditate!</p>
+					<p>Welcome to QuizDev! The game made for devs. Here you can learn and have fun by testing your skills. And the best! You can also call friends to have fun with you, forming rooms and hours of fun!</p>
 				</div>
 			</div>
 			<div className={styles.contentRight}>
+				<div className={styles.contentLogoMobile}>
+					<Image alt='Logo' src={logoTitle} />
+				</div>
 				<h1>Login</h1>
 				<div className={styles.contentLogin}>
 					<h2>Continue with</h2>

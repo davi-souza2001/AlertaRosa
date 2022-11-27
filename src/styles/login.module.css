@@ -52,6 +52,10 @@
 	font-family: 'Poppins', sans-serif;
 }
 
+.contentDescription p{
+	text-align: justify;
+}
+
 .contentRight {
 	height: 100vh;
 	width: 50%;
@@ -65,13 +69,17 @@
 	animation-duration: 200ms;
 }
 
-.contentRight h1{
+.contentLogoMobile{
+	display: none;
+}
+
+.contentRight h1 {
 	font-size: 55px;
 	font-weight: bold;
 	margin-bottom: -90px;
 }
 
-.contentLogin{
+.contentLogin {
 	background-color: #160342;
 	height: 60%;
 	width: 50%;
@@ -82,11 +90,11 @@
 	border-radius: 10px;
 }
 
-.contentLogin h2{
+.contentLogin h2 {
 	margin: 60px 0;
 }
 
-.contentBoxLoginPlatform{
+.contentBoxLoginPlatform {
 	background-color: #ab332a;
 	height: 65px;
 	width: 90%;
@@ -98,18 +106,43 @@
 	border-radius: 8px;
 	font-weight: 500;
 	cursor: pointer;
+	padding: 10px;
 }
 
-.contentBoxLoginPlatform p{
+.contentBoxLoginPlatform p {
 	margin-left: 30px;
 }
 
 @media (max-width: 650px) {
-	.contentLeft{
+	.contentLeft {
 		display: none;
 	}
 
-	.contentRight{
+	.contentLogoMobile{
+		display: flex;
+	}
+
+	.contentRight {
 		width: 100%;
+		justify-content: center;
+	}
+
+	.contentRight h1 {
+		font-size: 35px;
+		font-weight: 600;
+		margin-top: 10px;
+	}
+
+	.contentLogin {
+		width: 300px;
+		height: 120px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 200px;
+	}
+
+	.contentBoxLoginPlatform {
+		margin-bottom: 147px;
 	}
 }
