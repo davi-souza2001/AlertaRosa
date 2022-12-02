@@ -5,6 +5,8 @@ export interface UserProps {
 	xp: number
 }
 
+// não confundir o que o usuário vai ter com caracteristicas
+
 export class User {
 	private _props: UserProps
 
@@ -22,3 +24,14 @@ export class User {
 		})
 	}
 }
+
+
+// portas e adaptadores
+
+// portas - entidade - usuário
+// adaptadores - usuário ser compativel com firebase
+
+//core - logica da aplicação (portas)
+
+// questão
+// sala
