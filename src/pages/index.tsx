@@ -20,7 +20,7 @@ export default function Home() {
 				<p className="ml-5 font-semibold">Discover</p>
 				<p className="mr-5 flex items-center justify-center text-indigo-500">View all <HiArrowNarrowRight/> </p>
 			</div>
-			<div >
+			<div>
 				<BoxCategorie/>
 				<BoxCategorie/>
 				<BoxCategorie/>
