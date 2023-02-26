@@ -1,15 +1,12 @@
 import Image from 'next/image'
 import Router from 'next/router'
-import { EnvelopeSimple, Key, GoogleLogo, User } from 'phosphor-react'
+import { EnvelopeSimple, Key, User } from 'phosphor-react'
 import React from 'react'
 
 import Logotipo from '../../public/logotipo.png'
 import Input from '../components/Input'
-import UseAuth from '../service/hooks/useAuth'
 
-export default function Login() {
-	const { loginGoogle } = UseAuth()
-
+export default function Register() {
 	return (
 		<div className="flex flex-col items-center justify-center min-h-screen py-2 bg-indigo-500">
 			<div className="flex flex-col md:w-full w-[90%] max-w-md p-8 bg-white rounded-lg shadow-lg">
