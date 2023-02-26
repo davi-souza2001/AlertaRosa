@@ -33,7 +33,7 @@ const AuthContext = createContext<AuthContextProps>({
 })
 
 export function AuthProvider(props: any) {
-	const [loading, setLoading] = useState(false)
+	const [loading, setLoading] = useState(true)
 	const [user, setUser] = useState<User>(new User({ photo: '', email: '', name: '', xp: 0 }))
 	const authentication = new ProviderUser(new AuthenticationProvider())
 	const userCookie = Cookie.get('Admin-QuizDev')

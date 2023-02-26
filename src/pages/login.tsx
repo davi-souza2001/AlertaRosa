@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Router from 'next/router'
 import React from 'react'
 
 import GoogleIcon from '../../public/logoGoogle.png'
@@ -18,7 +19,7 @@ export default function Login() {
 						<input type="password" name="password" id="password" className="w-full border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-200" required />
 					</div>
 					<div className='h-10'>
-						<a href="#" className="text-gray-600 cursor-pointer hover:text-gray-500">Create Account</a>
+						<a href="#" className="text-gray-600 cursor-pointer hover:text-gray-500" onClick={() => Router.push('/register')}>Create Account</a>
 					</div>
 					<div className="flex items-center justify-between">
 						<button type="submit" className="bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-400 focus:outline-none focus:bg-indigo-400">Login</button>

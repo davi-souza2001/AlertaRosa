@@ -5,15 +5,18 @@ import { AuthProvider } from '../service/context/AuthContext'
 import { RoomProviderContext } from '../service/context/RoomContext'
 
 import '../styles/globals.css'
+import { Loading } from '../components/Loading'
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<AuthProvider>
-			<RoomProviderContext>
-				<ChakraProvider>
-					<Component {...pageProps} />
-				</ChakraProvider>
-			</RoomProviderContext>
+			<Loading>
+				<RoomProviderContext>
+					<ChakraProvider>
+						<Component {...pageProps} />
+					</ChakraProvider>
+				</RoomProviderContext>
+			</Loading>
 		</AuthProvider>
 	)
 }
