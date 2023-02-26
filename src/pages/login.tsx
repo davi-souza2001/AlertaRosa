@@ -20,11 +20,11 @@ export default function Login() {
 				<form>
 					<div className="mb-4">
 						<label htmlFor="email" className="block text-gray-800 font-semibold mb-2">Email</label>
-						<Input type="email" icon={<EnvelopeSimple/>} />
+						<Input type="email" icon={<EnvelopeSimple />} />
 					</div>
 					<div className="mb-6">
 						<label htmlFor="password" className="block text-gray-800 font-semibold mb-2">Senha</label>
-						<Input type="password" icon={<Key/>} />
+						<Input type="password" icon={<Key />} />
 					</div>
 					<div className='h-10'>
 						<a href="#" className="text-gray-600 hover:text-gray-500 underline transition-colors">Esqueceu a senha?</a>
@@ -38,7 +38,7 @@ export default function Login() {
 							<div className="text-indigo-500 text-2xl bg-white w-12 h-full shadow-md rounded-l-lg border-2 border-indigo-500 flex justify-center items-center">
 								<GoogleLogo />
 							</div>
-							<button className="bg-indigo-500 hover:bg-indigo-400 transition-colors w-full p-3 shadow-md rounded-r-lg">Login com Google</button>
+							<button className="bg-indigo-500 hover:bg-indigo-400 transition-colors w-full p-3 shadow-md rounded-r-lg" onClick={loginGoogle}>Login com Google</button>
 						</div>
 					</div>
 				</form>

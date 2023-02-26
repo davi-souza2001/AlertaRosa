@@ -4,7 +4,7 @@ export function BoxCategorie(){
 			<div className="h-3/5 w-full rounded-t-lg bg-red-500">
 				teste
 			</div>
-			<div className="h-2/5 w-full ">
+			<div className="h-2/5 w-full rounded-b-lg bg-slate-50">
 				Alo
 			</div>
 		</div>
