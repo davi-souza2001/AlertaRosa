@@ -1,36 +1,45 @@
 import Image from 'next/image'
 import Router from 'next/router'
+import { EnvelopeSimple, Key, GoogleLogo } from 'phosphor-react'
 import React from 'react'
 
-import GoogleIcon from '../../public/logoGoogle.png'
+import Logotipo from '../../public/logotipo.png'
+import Input from '../components/Input'
 import UseAuth from '../service/hooks/useAuth'
 
 export default function Login() {
 	const { loginGoogle } = UseAuth()
 
 	return (
-		<div className="flex flex-col items-center justify-center min-h-screen py-2">
-			<div className="flex flex-col w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
-				<h1 className="text-2xl font-bold text-gray-800 mb-4">Login</h1>
+		<div className="flex flex-col items-center justify-center min-h-screen py-2 bg-indigo-500">
+			<div className="flex flex-col md:w-full w-[90%] max-w-md p-8 bg-white rounded-lg shadow-lg">
+				<div className='flex items-center gap-3 mb-4'>
+					<Image src={Logotipo} alt='Logotipo' height={30} width={30} />
+					<h1 className="text-2xl font-bold text-gray-800">Login</h1>
+				</div>
 				<form>
 					<div className="mb-4">
 						<label htmlFor="email" className="block text-gray-800 font-semibold mb-2">Email</label>
-						<input type="email" name="email" id="email" className="w-full border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-200" required />
+						<Input type="email" icon={<EnvelopeSimple/>} />
 					</div>
 					<div className="mb-6">
-						<label htmlFor="password" className="block text-gray-800 font-semibold mb-2">Password</label>
-						<input type="password" name="password" id="password" className="w-full border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-200" required />
+						<label htmlFor="password" className="block text-gray-800 font-semibold mb-2">Senha</label>
+						<Input type="password" icon={<Key/>} />
 					</div>
 					<div className='h-10'>
-						<a href="#" className="text-gray-600 cursor-pointer hover:text-gray-500" onClick={() => Router.push('/register')}>Create Account</a>
+						<a href="#" className="text-gray-600 hover:text-gray-500 underline transition-colors">Esqueceu a senha?</a>
 					</div>
 					<div className="flex items-center justify-between">
-						<button type="submit" className="bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-400 focus:outline-none focus:bg-indigo-400">Login</button>
-						<a href="#" className="text-gray-600 hover:text-gray-500">Forgot Password?</a>
+						<button type="submit" className="bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-400 focus:outline-none focus:bg-indigo-400 transition-colors">Login</button>
+						<a href="#" className="text-gray-600 cursor-pointer hover:text-gray-500 underline transition-colors" onClick={() => Router.push('/register')}>Crie sua conta</a>
 					</div>
-					<div className="my-6 h-12 w-3/4 flex items-center justify-center rounded-lg font-medium cursor-pointer bg-slate-200">
-						<Image src={GoogleIcon} alt='Icone do google' height={30} width={30} />
-						<button className='ml-5' onClick={loginGoogle}>Login com google</button>
+					<div className='flex w-full justify-center mt-6'>
+						<div className="flex w-[80%] h-12 justify-center items-center text-white ">
+							<div className="text-indigo-500 text-2xl bg-white w-12 h-full shadow-md rounded-l-lg border-2 border-indigo-500 flex justify-center items-center">
+								<GoogleLogo />
+							</div>
+							<button className="bg-indigo-500 hover:bg-indigo-400 transition-colors w-full p-3 shadow-md rounded-r-lg">Login com Google</button>
+						</div>
 					</div>
 				</form>
 			</div>

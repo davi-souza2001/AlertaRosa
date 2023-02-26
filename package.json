@@ -10,16 +10,11 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^2.0.9",
-    "@chakra-ui/react": "^2.2.9",
-    "@emotion/react": "^11.10.0",
-    "@emotion/styled": "^11.10.0",
     "firebase": "^9.9.4",
-    "framer-motion": "^6.5.1",
     "js-cookie": "^3.0.1",
     "next": "13.0.4",
+    "phosphor-react": "^1.4.1",
     "react": "18.2.0",
-    "react-countdown-circle-timer": "^3.0.9",
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0"
   },
