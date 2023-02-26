@@ -1,5 +1,4 @@
 import type { AppProps } from 'next/app'
-import { ChakraProvider } from '@chakra-ui/react'
 
 import { AuthProvider } from '../service/context/AuthContext'
 import { RoomProviderContext } from '../service/context/RoomContext'
@@ -12,9 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 		<AuthProvider>
 			<Loading>
 				<RoomProviderContext>
-					<ChakraProvider>
-						<Component {...pageProps} />
-					</ChakraProvider>
+					<Component {...pageProps} />
 				</RoomProviderContext>
 			</Loading>
 		</AuthProvider>
