@@ -3,8 +3,11 @@ import Router from 'next/router'
 import React from 'react'
 
 import GoogleIcon from '../../public/logoGoogle.png'
+import UseAuth from '../service/hooks/useAuth'
 
 export default function Login() {
+	const { loginGoogle } = UseAuth()
+
 	return (
 		<div className="flex flex-col items-center justify-center min-h-screen py-2">
 			<div className="flex flex-col w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
@@ -27,7 +30,7 @@ export default function Login() {
 					</div>
 					<div className="my-6 h-12 w-3/4 flex items-center justify-center rounded-lg font-medium cursor-pointer bg-slate-200">
 						<Image src={GoogleIcon} alt='Icone do google' height={30} width={30} />
-						<button className='ml-5'>Login com google</button>
+						<button className='ml-5' onClick={loginGoogle}>Login com google</button>
 					</div>
 				</form>
 			</div>
