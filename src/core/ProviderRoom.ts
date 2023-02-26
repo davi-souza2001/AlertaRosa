@@ -1,47 +1,15 @@
-import { playProps, RoomProps } from "./Room"
+import { RoomProps, PlayerProps } from "./Room"
 
 export interface ProviderRoomProps {
-	create(room: RoomProps, leader: string): Promise<void>
-	getRoom(id: string): Promise<RoomProps>
-	joinRoom(id: string, user: playProps): Promise<void>
-	startGame(email: string): Promise<void>
-	getQuestion(room: RoomProps): Promise<void>
-	nextQuestion(email: string): Promise<void>
-	countPoints(correct: boolean, email: string, idRoom: string): Promise<void>
+	create(room: RoomProps, player: PlayerProps): Promise<void>
 }
 
 export class ProviderRoom {
-	private _providerAuthentication: ProviderRoomProps
+	private _providerRoom: ProviderRoomProps
 
-	constructor(provider: ProviderRoomProps) { this._providerAuthentication = provider }
+	constructor(provider: ProviderRoomProps) { this._providerRoom = provider }
 
-	async create(room: RoomProps, leader: string): Promise<void> {
-		await this._providerAuthentication.create(room, leader)
-	}
-
-	async getRoom(id: string): Promise<RoomProps> {
-		const room = await this._providerAuthentication.getRoom(id)
-
-		return room
-	}
-
-	async joinRoom(id: string, user: playProps): Promise<void> {
-		await this._providerAuthentication.joinRoom(id, user)
-	}
-
-	async startGame(email: string): Promise<void> {
-		await this._providerAuthentication.startGame(email)
-	}
-
-	async getQuestion(room: RoomProps): Promise<void> {
-		await this._providerAuthentication.getQuestion(room)
-	}
-
-	async nextQuestion(email: string): Promise<void> {
-		await this._providerAuthentication.nextQuestion(email)
-	}
-
-	async countPoints(correct: boolean, email: string, idRoom: string): Promise<void> {
-		await this._providerAuthentication.countPoints(correct, email, idRoom)
+	async create(room: RoomProps, player: PlayerProps): Promise<void> {
+		await this._providerRoom.create(room, player)
 	}
 }

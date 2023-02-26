@@ -3,8 +3,8 @@ import Image from 'next/image'
 import logoTitle from '../../public/images/logoTitle.svg'
 import logoGoogle from '../../public/images/logoGoogle.png'
 
-import styles from '../styles/login.module.css'
 import UseAuth from '../service/hooks/useAuth'
+import styles from '../styles/login.module.css'
 
 export default function Login() {
 	const { loginGoogle } = UseAuth()

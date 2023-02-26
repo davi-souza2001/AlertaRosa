@@ -6,7 +6,6 @@ export interface ProviderUserProps {
 	getUserLogged(cookie: string): Promise<User>
 	submitUser(user: User): Promise<void>
 	logout(): Promise<void>
-	getRankingUsers(): Promise<User[]>
 }
 
 export class ProviderUser {
@@ -38,11 +37,5 @@ export class ProviderUser {
 		const user = await this._providerAuthentication.getUserLogged(cookie)
 
 		return user
-	}
-
-	async getRankingUsers(): Promise<User[]> {
-		const ranking = await this._providerAuthentication.getRankingUsers()
-
-		return ranking
 	}
 }

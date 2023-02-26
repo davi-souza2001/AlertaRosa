@@ -1,19 +1,17 @@
 import { QuestionProps } from "./Question"
 
-export interface playProps {
+export interface PlayerProps {
+	name: string
 	email: string
 	photo: string
-	name: string
-	score: number
 	xp: number
+	score: number
 }
 
 export interface RoomProps {
 	id: string
-	players: playProps[]
-	playersLength: number
-	leader: string
 	title: string
+	player: PlayerProps
 	playing: boolean
 	questionNumber: number
 	question: QuestionProps
@@ -26,10 +24,8 @@ export class Room {
 
 	get id() { return this._props.id }
 	get title() { return this._props.title }
-	get players() { return this._props.players }
+	get player() { return this._props.player }
 	get playing() { return this._props.playing }
-	get leader() { return this._props.leader }
-	get playersLength() { return this._props.playersLength }
 	get questionNumber() { return this._props.questionNumber }
 	get QuestionProps() { return this._props.question }
 }
