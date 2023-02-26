@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react"
 import { BoxRanking } from "../components/BoxRanking"
 import { Header } from "../components/Header"
-import { User } from "../core/User"
 import UseAuth from "../service/hooks/useAuth"
 
 import styles from '../styles/ranking.module.css'
