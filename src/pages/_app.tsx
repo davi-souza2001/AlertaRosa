@@ -12,8 +12,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 		<AuthProvider>
 			<Loading>
 				<RoomProviderContext>
-					<TopBar />
-
 					<Component {...pageProps} />
 				</RoomProviderContext>
 			</Loading>
