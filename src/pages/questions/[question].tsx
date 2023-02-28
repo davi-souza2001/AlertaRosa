@@ -1,27 +1,37 @@
-import { useState } from "react";
+import { Progress } from "@chakra-ui/react"
+import { useState } from "react"
+import { HiCheckCircle } from "react-icons/hi"
 
-const QuizPage = () => {
-  const [question, setQuestion] = useState("Qual é a capital do Brasil?");
+import { TopBar } from "../../components/TopBar"
 
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      <h1 className="text-4xl font-bold mb-4">{question}</h1>
-      <div className="grid grid-cols-2 gap-4">
-        <button className="bg-blue-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600 transition-colors duration-300">
-          Brasília
-        </button>
-        <button className="bg-blue-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600 transition-colors duration-300">
-          São Paulo
-        </button>
-        <button className="bg-blue-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600 transition-colors duration-300">
-          Rio de Janeiro
-        </button>
-        <button className="bg-blue-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600 transition-colors duration-300">
-          Belo Horizonte
-        </button>
-      </div>
-    </div>
-  );
-};
+export default function Question() {
+	const [checked, setChecked] = useState<'yes' | 'no' | ''>('')
 
-export default QuizPage;
+	return (
+		<div>
+			<TopBar />
+			<div className="h-10 w-full flex items-center justify-center">
+				<Progress colorScheme='green' size='md' value={20} className="w-full ml-2 rounded-lg" />
+				<p className="p-2">1/5</p>
+			</div>
+			<div className="h-52 w-full flex items-center justify-center text-center p-5 text-lg font-semibold">
+				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias veniam natus eveniet dolore. Eligendi cum similique excepturi maiores dolor? Unde, architecto delectus nesciunt voluptatem similique cum quaerat fugit explicabo repudiandae!</p>
+			</div>
+			<div className="h-44 w-full flex items-center justify-center flex-col text-center p-5 font-semibold">
+				<div onClick={() => setChecked('yes')} className={`h-12 w-2/3 flex items-center justify-start rounded-md mb-7 bg-indigo-400 ${checked === "yes" && 'bg-green-500'}`}>
+					{checked === 'yes' ? <HiCheckCircle className="text-white text-3xl mr-3" /> : <p className="h-6 w-6 mx-2 mr-5 bg-indigo-500 rounded-full">A</p>}
+					<p>Sim</p>
+				</div>
+				<div onClick={() => setChecked('no')} className={`h-12 w-2/3 flex items-center justify-start rounded-md mb-7 bg-indigo-400 ${checked === "no" && 'bg-green-500'}`}>
+					{checked === 'no' ? <HiCheckCircle className="text-white text-3xl mr-3" /> : <p className="h-6 w-6 mx-2 mr-5 bg-indigo-500 rounded-full">B</p>}
+					<p>Não</p>
+				</div>
+			</div>
+			<div className="h-20 w-full font-semibold flex items-center justify-center">
+				<button disabled={checked === '' ? true : false} className={`h-10 w-32 bg-slate-300 rounded-md ${checked !== '' && 'bg-green-500 font-semibold text-white'}`}>
+					Continuar
+				</button>
+			</div>
+		</div>
+	)
+}
