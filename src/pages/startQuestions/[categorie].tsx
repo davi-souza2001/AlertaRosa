@@ -1,3 +1,4 @@
+import Router from "next/router"
 import { TopBar } from "../../components/TopBar"
 
 export default function StartQuestions() {
@@ -12,7 +13,7 @@ export default function StartQuestions() {
 					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima magni dolorum harum culpa voluptatum doloribus quis ex libero pariatur ipsam dolore, quod incidunt eius autem id, alias mollitia explicabo magnam.</p>
 				</div>
 				<div className="h-1/3 w-full flex items-center justify-center">
-					<button className="bg-indigo-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600 transition-colors duration-300">Começar</button>
+					<button onClick={() => Router.push('/questions/test')} className="bg-indigo-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600 transition-colors duration-300">Começar</button>
 				</div>
 			</div>
 		</div>
