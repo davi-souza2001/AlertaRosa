@@ -5,17 +5,13 @@ import { TopBar } from "../components/TopBar"
 export default function Home() {
 	return (
 		<>
-			<TopBar/>
-
-			<div className="pt-24">
+			<TopBar />
+			<div className="mt-5">
 				<div className="h-44 w-full flex items-center justify-center">
 					<MainBox />
 				</div>
-
 				<Sections title="Explore" />
-
 				<Sections title="Melhores Quiz" />
-
 				<Sections title="Melhores Tópicos" />
 			</div>
 		</>
