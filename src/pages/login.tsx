@@ -15,7 +15,10 @@ export default function Login() {
 			<div className="flex flex-col md:w-full w-[90%] max-w-md p-8 bg-white rounded-lg shadow-lg">
 				<div className='flex items-center gap-3 mb-4'>
 					<Image src={Logotipo} alt='Logotipo' height={30} width={30} />
-					<h1 className="text-2xl font-bold text-gray-800">Login</h1>
+					<div className='flex flex-col justify-start'>
+						<p className='text-xs'>MULHER SEGURA</p>
+						<h1 className="text-2xl font-bold text-gray-800">Login</h1>
+					</div>
 				</div>
 				<form>
 					<div className="mb-4">
