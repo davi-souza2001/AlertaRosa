@@ -16,7 +16,7 @@ export default function Login() {
 				<div className='flex items-center gap-3 mb-4'>
 					<Image src={Logotipo} alt='Logotipo' height={30} width={30} />
 					<div className='flex flex-col justify-start'>
-						<p className='text-xs'>MULHER SEGURA</p>
+						<p className='text-xs'>ALERTA ROSA</p>
 						<h1 className="text-2xl font-bold text-gray-800">Login</h1>
 					</div>
 				</div>
