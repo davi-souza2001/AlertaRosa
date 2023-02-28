@@ -1,3 +1,4 @@
+import { ArrowClockwise } from "phosphor-react"
 import UseAuth from "../service/hooks/useAuth"
 
 interface LoadingProps {
@@ -10,8 +11,9 @@ export function Loading(props: LoadingProps) {
 	return (
 		<>
 			{loading ? (
-				<div className="h-screen w-screen flex items-center justify-center bg-red-500">
-					ola
+				<div className="h-screen w-screen flex flex-col items-center justify-center bg-indigo-500 text-white gap-2">
+					<ArrowClockwise className="animate-spin text-3xl"/>
+					<p className="md:text-2xl">Carregando...</p>
 				</div>
 			) : props.children}
 		</>
