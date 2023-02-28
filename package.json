@@ -10,6 +10,9 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.11.11",
     "firebase": "^9.9.4",
     "js-cookie": "^3.0.1",
     "next": "13.0.4",
