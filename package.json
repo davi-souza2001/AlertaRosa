@@ -11,9 +11,6 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^2.5.1",
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
-    "@mui/material": "^5.11.11",
     "firebase": "^9.9.4",
     "framer-motion": "^10.0.1",
     "js-cookie": "^3.0.1",
