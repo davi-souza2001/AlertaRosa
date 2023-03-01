@@ -19,10 +19,13 @@ export function TopBar() {
 	};
 	return (
 		<div className='h-20 w-full flex items-center justify-between'>
-			<div className='h-full w-full flex items-center font-medium text-2xl px-5 bg-white border-b-4 border-indigo-500 shadow-md'>
+			<div className='h-full w-full flex items-center font-medium text-xl px-5 bg-white border-b-4 border-indigo-500 shadow-md'>
 				<div className='flex w-[70%] gap-2' onClick={() => Router.push('/')}>
 					<Image src={Logo} alt='Logo do quiz' height={30} width={30} />
-					<p>Alerta Rosa</p>
+					<div className='flex items-end'>
+						<p className=''>Alerta</p>
+						<p className='text-base font-light text-pink-600'>Rosa</p>
+					</div>
 				</div>
 
 				<div className='h-full w-[30%] flex items-center justify-end text-4xl'>

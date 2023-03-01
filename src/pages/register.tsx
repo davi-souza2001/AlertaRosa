@@ -13,7 +13,10 @@ export default function Register() {
 				<div className='flex items-center gap-3 mb-4'>
 					<Image src={Logotipo} alt='Logotipo' height={30} width={30} />
 					<div className='flex flex-col justify-start'>
-						<p className='text-xs'>ALERTA ROSA</p>
+						<div className='flex text-xs gap-1'>
+							<p className='text-xs'>ALERTA</p>
+							<p className='text-xs text-pink-600'>ROSA</p>
+						</div>
 						<h1 className="text-2xl font-bold text-gray-800">Cadastro</h1>
 					</div>
 				</div>
