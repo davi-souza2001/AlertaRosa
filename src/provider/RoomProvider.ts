@@ -5,7 +5,7 @@ import { db } from "../firebase/config"
 
 export class RoomProvider implements ProviderRoomProps {
 
-	async create(room: RoomProps, player: PlayerProps): Promise<void> {
-		await setDoc(doc(db, 'rooms', player.email), room)
+	async create(room: RoomProps): Promise<void> {
+		await setDoc(doc(db, 'rooms', room.player.email), room)
 	}
 }

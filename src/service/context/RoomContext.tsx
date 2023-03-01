@@ -6,7 +6,7 @@ import { RoomProvider } from '../../provider/RoomProvider'
 import UseAuth from '../hooks/useAuth'
 
 interface RoomContextProps {
-	create(room: RoomProps, player: PlayerProps): Promise<void>
+	create(room: RoomProps): Promise<void>
 }
 
 const RoomContext = createContext<RoomContextProps>({
@@ -14,19 +14,13 @@ const RoomContext = createContext<RoomContextProps>({
 })
 
 export function RoomProviderContext(props: any) {
-	const { setLoading, user } = UseAuth()
+	const { setLoading } = UseAuth()
 	const roomProvider = new ProviderRoom(new RoomProvider())
 
 
 	async function create(room: RoomProps): Promise<void> {
 		setLoading(true)
-		await roomProvider.create(room, {
-			email: user.email,
-			name: user.name,
-			photo: user.photo,
-			xp: user.xp,
-			score: 0
-		})
+		await roomProvider.create(room)
 		setLoading(false)
 	}
 

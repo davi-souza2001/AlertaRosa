@@ -1,7 +1,7 @@
 import { RoomProps, PlayerProps } from "./Room"
 
 export interface ProviderRoomProps {
-	create(room: RoomProps, player: PlayerProps): Promise<void>
+	create(room: RoomProps): Promise<void>
 }
 
 export class ProviderRoom {
@@ -9,7 +9,7 @@ export class ProviderRoom {
 
 	constructor(provider: ProviderRoomProps) { this._providerRoom = provider }
 
-	async create(room: RoomProps, player: PlayerProps): Promise<void> {
-		await this._providerRoom.create(room, player)
+	async create(room: RoomProps): Promise<void> {
+		await this._providerRoom.create(room)
 	}
 }
