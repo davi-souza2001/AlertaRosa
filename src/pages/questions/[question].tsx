@@ -1,6 +1,6 @@
 import { Progress } from "@chakra-ui/react"
 import { useState } from "react"
-import { HiCheckCircle } from "react-icons/hi"
+import { HiCheckCircle, HiXCircle } from "react-icons/hi"
 
 import { TopBar } from "../../components/TopBar"
 
@@ -24,7 +24,7 @@ export default function Question() {
 						<p>Sim</p>
 					</div>
 					<div onClick={() => setChecked('no')} className={`h-12 w-2/3 flex items-center justify-start rounded-md mb-7 bg-indigo-500 ${checked === 'no' ? 'bg-red-500 shadow-md font-semibold' : 'bg-indigo-500'} transition-all`}>
-						{checked === 'no' ? <HiCheckCircle className="text-white text-3xl mx-2 mr-5" /> : <p className="h-6 w-6 mx-2 mr-5 bg-white text-indigo-500 rounded-full">B</p>}
+						{checked === 'no' ? <HiXCircle className="text-white text-3xl mx-2 mr-5" /> : <p className="h-6 w-6 mx-2 mr-5 bg-white text-indigo-500 rounded-full">B</p>}
 						<p>Não</p>
 					</div>
 				</div>
