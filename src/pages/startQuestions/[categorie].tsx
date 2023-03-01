@@ -1,19 +1,24 @@
+import Image from "next/image"
 import Router from "next/router"
 import { TopBar } from "../../components/TopBar"
 
+import GirlIcon from '../../../public/girl_diary.svg'
+import { Check } from "phosphor-react"
+
 export default function StartQuestions() {
 	return (
-		<div className="h-full w-full">
+		<div>
 			<TopBar/>
-			<div className="h-96 w-full flex flex-col items-center justify-center p-2">
-				<div className="h-1/3 w-full flex items-center justify-center text-2xl font-semibold">
+			<div className="h-full w-full flex flex-col items-center justify-center p-2 gap-3">
+				<div className="w-full flex flex-col items-center justify-center text-2xl font-semibold mt-[10vh]">
+					<Image src={GirlIcon} alt='Imagem de mulher com coração' height={180} width={180} />
 					<h1>Bem-vinda ao Formulário!</h1>
 				</div>
-				<div className="h-1/3 w-full flex items-center justify-center text-center">
+				<div className="w-full flex items-center justify-center text-center">
 					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima magni dolorum harum culpa voluptatum doloribus quis ex libero pariatur ipsam dolore, quod incidunt eius autem id, alias mollitia explicabo magnam.</p>
 				</div>
-				<div className="h-1/3 w-full flex items-center justify-center">
-					<button onClick={() => Router.push('/questions/test')} className="bg-indigo-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600 transition-colors duration-300">Começar</button>
+				<div className="w-full flex items-center justify-center">
+					<button onClick={() => Router.push('/questions/test')} className="flex items-center gap-2 bg-indigo-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600 transition-colors duration-300">Começar <Check weight="bold"/></button>
 				</div>
 			</div>
 		</div>
