@@ -6,17 +6,18 @@ import { HiCheckCircle, HiXCircle } from "react-icons/hi"
 import { TopBar } from "../../components/TopBar"
 import { ProviderRoom } from "../../core/ProviderRoom"
 import { RoomProvider } from "../../provider/RoomProvider"
+import { QuestionProps } from "../../core/Question"
 
 export default function Question() {
 	const [checked, setChecked] = useState<'yes' | 'no' | ''>('')
+	const [questions, setQuestions] = useState<QuestionProps[]>([])
 	const categorie = useRouter().query.categorie
 	const roomProvider = new ProviderRoom(new RoomProvider())
 
 	async function test() {
-		console.log('Cheguei')
 		if (categorie) {
 			const list = await roomProvider.getQuestions(categorie as string)
-			console.log(list)
+			setQuestions(list)
 		}
 	}
 
@@ -33,7 +34,7 @@ export default function Question() {
 					<p className="p-2">1/5</p>
 				</div>
 				<div className="h-52 w-full flex items-center justify-center text-center p-5 text-lg font-semibold">
-					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias veniam natus eveniet dolore. Eligendi cum similique excepturi maiores dolor? Unde, architecto delectus nesciunt voluptatem similique cum quaerat fugit explicabo repudiandae!</p>
+					<p>{questions[0]?.categorie}</p>
 				</div>
 				<div className="h-44 w-full flex items-center justify-center flex-col text-center p-5 text-white">
 					<div onClick={() => setChecked('yes')} className={`h-12 w-2/3 flex items-center justify-start rounded-md mb-7 ${checked === 'yes' ? 'bg-green-500 shadow-md font-semibold' : 'bg-indigo-500'} transition-all`}>
