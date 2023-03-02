@@ -3,7 +3,7 @@ import { RoomProps } from "./Room"
 
 export interface ProviderRoomProps {
 	create(room: RoomProps): Promise<void>
-	getQuestions(room: RoomProps): Promise<QuestionProps[]>
+	getQuestions(categorie: string): Promise<QuestionProps[]>
 }
 
 export class ProviderRoom {
@@ -15,8 +15,8 @@ export class ProviderRoom {
 		await this._providerRoom.create(room)
 	}
 
-	async getQuestions(room: RoomProps): Promise<QuestionProps[]>{
-		const questions = this._providerRoom.getQuestions(room)
+	async getQuestions(categorie: string): Promise<QuestionProps[]>{
+		const questions = this._providerRoom.getQuestions(categorie)
 
 		return questions
 	}

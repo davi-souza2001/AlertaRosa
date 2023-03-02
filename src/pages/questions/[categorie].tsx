@@ -1,11 +1,28 @@
 import { Progress } from "@chakra-ui/react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useRouter } from "next/router"
 import { HiCheckCircle, HiXCircle } from "react-icons/hi"
 
 import { TopBar } from "../../components/TopBar"
+import { ProviderRoom } from "../../core/ProviderRoom"
+import { RoomProvider } from "../../provider/RoomProvider"
 
 export default function Question() {
 	const [checked, setChecked] = useState<'yes' | 'no' | ''>('')
+	const categorie = useRouter().query.categorie
+	const roomProvider = new ProviderRoom(new RoomProvider())
+
+	async function test() {
+		console.log('Cheguei')
+		if (categorie) {
+			const list = await roomProvider.getQuestions(categorie as string)
+			console.log(list)
+		}
+	}
+
+	useEffect(() => {
+		test()
+	}, [categorie])
 
 	return (
 		<div>
