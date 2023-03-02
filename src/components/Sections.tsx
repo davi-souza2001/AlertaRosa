@@ -16,8 +16,8 @@ export default function Sections({ title }: Props){
                 <p className="flex items-center justify-center text-indigo-500">Ver tudo <HiArrowNarrowRight /> </p>
             </div>
 
-            <div className="h-60 px-5">
-                <Carousel showStatus={false} showArrows={false} showIndicators={false} centerMode centerSlidePercentage={70}>
+            <div className="h-60 md:pt-2 px-5 md:shadow-inner md:bg-slate-50">
+                <Carousel showStatus={false} showArrows={true} showIndicators={false} centerMode centerSlidePercentage={70}>
                     <BoxCategorie />
                     <BoxCategorie />
                     <BoxCategorie />
