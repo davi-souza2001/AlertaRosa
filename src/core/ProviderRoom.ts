@@ -1,7 +1,9 @@
-import { RoomProps, PlayerProps } from "./Room"
+import { QuestionProps } from "./Question"
+import { RoomProps } from "./Room"
 
 export interface ProviderRoomProps {
 	create(room: RoomProps): Promise<void>
+	getQuestions(room: RoomProps): Promise<QuestionProps[]>
 }
 
 export class ProviderRoom {
@@ -11,5 +13,11 @@ export class ProviderRoom {
 
 	async create(room: RoomProps): Promise<void> {
 		await this._providerRoom.create(room)
+	}
+
+	async getQuestions(room: RoomProps): Promise<QuestionProps[]>{
+		const questions = this._providerRoom.getQuestions(room)
+
+		return questions
 	}
 }

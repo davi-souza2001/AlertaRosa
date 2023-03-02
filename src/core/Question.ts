@@ -1,5 +1,6 @@
 export interface QuestionProps {
 	id: number
+	categorie: string
 	enunciation: string
 	answer: ResponseProps[]
 }
@@ -7,7 +8,6 @@ export interface QuestionProps {
 export interface ResponseProps {
 	id?: string
 	value: string
-	correct: boolean
 }
 
 export class Question {
@@ -31,11 +31,5 @@ export class Question {
 
 	get answer(): ResponseProps[] {
 		return this.#answer
-	}
-
-	respond(id: string) {
-		const question: ResponseProps = this.#answer.find(question => question.id === id) as ResponseProps
-
-		return question.correct
 	}
 }

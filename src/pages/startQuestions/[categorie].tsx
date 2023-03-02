@@ -8,31 +8,17 @@ import UseRoom from "../../service/hooks/useRoom"
 import UseAuth from "../../service/hooks/useAuth"
 
 export default function StartQuestions() {
-	const { create } = UseRoom()
+	const { createRoom } = UseRoom()
 	const { user } = UseAuth()
 
 	function handleCreateRoom() {
-		create({
-			id: user.email,
-			title: 'teste',
-			player: {
-				name: user.name,
-				email: user.email,
-				photo: user.photo,
-				xp: user.xp,
-				score: 0
-			},
-			playing: true,
-			questionNumber: 1,
-			question: {
-				id: 0,
-				enunciation: 'string',
-				answer: []
-			}
+		createRoom({
+			caterogie: 'test',
+			player: user.email,
+			answers: []
 		})
 		Router.push('/questions/test')
 	}
-
 	return (
 		<div>
 			<TopBar />
