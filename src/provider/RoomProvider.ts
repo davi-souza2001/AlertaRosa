@@ -14,11 +14,7 @@ export class RoomProvider implements ProviderRoomProps {
 		const questionsRef = collection(db, "questions")
 		const q = query(questionsRef, where("categorie", "==", room.caterogie))
 		const querySnapshot = await getDocs(q)
-		querySnapshot.forEach((doc) => {
-			questions = doc.data() as QuestionProps[]
-
-			return doc.data()
-		})
+		querySnapshot.forEach((doc) => questions = doc.data() as QuestionProps[])
 
 		return questions
 	}
