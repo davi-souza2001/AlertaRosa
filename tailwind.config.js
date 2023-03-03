@@ -9,6 +9,14 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    extend:{
+      colors: {
+        'rosa': '#DD61E8',
+        'roxo': '#9461E8',
+        'vermelho': '#E86161',
+        'verde': '#7CE861'
+      },
+    },
     fontFamily: {
       'poppins': ['poppins', 'sans-serif']
     },
