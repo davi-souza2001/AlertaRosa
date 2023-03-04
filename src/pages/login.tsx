@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import Router from 'next/router'
-import { EnvelopeSimple, Key, GoogleLogo } from 'phosphor-react'
+import Link from 'next/link'
+import { GoogleLogo, User, Phone } from 'phosphor-react'
 import React from 'react'
 
 import Logotipo from '../../public/logotipo.svg'
@@ -11,43 +11,43 @@ export default function Login() {
 	const { loginGoogle } = UseAuth()
 
 	return (
-		<div className="flex flex-col items-center justify-center min-h-screen py-2 bg-indigo-500">
-			<div className="flex flex-col md:w-full w-[90%] max-w-md p-8 bg-white rounded-lg shadow-lg">
-				<div className='flex items-center gap-3 mb-4'>
-					<Image src={Logotipo} alt='Logotipo' height={30} width={30} />
-					<div className='flex flex-col justify-start'>
-						<div className='flex text-xs gap-1'>
-							<p className='text-xs'>ALERTA</p>
-							<p className='text-xs text-pink-600'>ROSA</p>
-						</div>
-						<h1 className="text-2xl font-bold text-gray-800">Login</h1>
-					</div>
-				</div>
-				<form>
-					<div className="mb-4">
-						<label htmlFor="email" className="block text-gray-800 font-semibold mb-2">Email</label>
-						<Input type="email" icon={<EnvelopeSimple />} />
-					</div>
-					<div className="mb-6">
-						<label htmlFor="password" className="block text-gray-800 font-semibold mb-2">Senha</label>
-						<Input type="password" icon={<Key />} />
-					</div>
-					<div className='h-10'>
-						<a href="#" className="text-gray-600 hover:text-gray-500 underline transition-colors">Esqueceu a senha?</a>
-					</div>
-					<div className="flex items-center justify-between">
-						<button type="submit" className="bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-400 focus:outline-none focus:bg-indigo-400 transition-colors">Login</button>
-						<a href="#" className="text-gray-600 cursor-pointer hover:text-gray-500 underline transition-colors" onClick={() => Router.push('/register')}>Crie sua conta</a>
-					</div>
-					<div className='flex w-full justify-center mt-6'>
-						<div className="flex w-[80%] h-12 justify-center items-center text-white ">
-							<div className="text-indigo-500 text-2xl bg-white w-12 h-full shadow-md rounded-l-lg border-2 border-indigo-500 flex justify-center items-center">
-								<GoogleLogo />
+		<div className='w-full h-screen text-white'>
+			<div className='flex flex-col w-full h-[80%] bg-gradient-to-b from-roxo to-rosa rounded-b-lg'>
+				<div className='flex flex-col items-center justify-center h-full gap-10'>
+					<Image src={Logotipo} alt="Logotipo" width={150} />
+
+					<p className='font-semibold text-xl text-center'>LOGIN</p>
+
+					<form className='flex flex-col gap-10'>
+						<div className='flex flex-col gap-2'>
+							<div className='flex flex-col gap-10'>
+								<Input type="text" icon={<User />} placeholder="Nome" />
+								<Input type="number" icon={<Phone />} placeholder="Telefone" />
 							</div>
-							<button className="bg-indigo-500 hover:bg-indigo-400 transition-colors w-full p-3 shadow-md rounded-r-lg" onClick={loginGoogle}>Login com Google</button>
+
+							<div className='flex underline text-xs lg:text-sm justify-between'>
+								<Link href="/login">Esqueci minha senha</Link>
+								<Link href="/register">Criar conta</Link>
+							</div>
 						</div>
+
+						<button className='bg-white text-rosa p-2 text-xl rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
+							ACESSAR
+						</button>
+					</form>
+				</div>
+			</div>
+
+			<div className='flex w-full h-[20%] bg-background items-center justify-center'>
+				<button className='flex w-80 lg:hover:opacity-90 transition-opacity' onClick={loginGoogle}>
+					<div className='bg-white text-roxo border-2 border-roxo rounded-l-lg text-xl p-2 py-4'>
+						<GoogleLogo/>
 					</div>
-				</form>
+
+					<div className='w-full bg-gradient-to-r from-roxo to-rosa rounded-r-lg p-2 py-4'>
+						ACESSAR COM GOOGLE
+					</div>
+				</button>
 			</div>
 		</div>
 	)
