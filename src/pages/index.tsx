@@ -6,7 +6,7 @@ export default function Home() {
 	return (
 		<>
 			<TopBar />
-			<div className="mt-5">
+			<div className="bg-[#2B2245]">
 				<div className="h-44 w-full flex items-center justify-center">
 					<MainBox />
 				</div>

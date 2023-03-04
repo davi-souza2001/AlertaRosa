@@ -8,7 +8,7 @@ interface Props {
 export function BoxCategorie() {
 	return (
 		<div className="h-56 w-48 rounded-lg border-slate-300" onClick={() => Router.push('/startQuestions/test')}>
-			<div className="h-3/5 w-full rounded-t-lg bg-indigo-500">
+			<div className="h-3/5 w-full rounded-t-lg bg-[#DD61E8]">
 				teste
 			</div>
 			<div className="h-2/5 w-full rounded-b-lg bg-slate-50 border-b-4 border-x-2 border-slate-300">
