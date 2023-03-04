@@ -3,7 +3,7 @@ import Router from 'next/router'
 import { EnvelopeSimple, Key, GoogleLogo } from 'phosphor-react'
 import React from 'react'
 
-import Logotipo from '../../public/logotipo.png'
+import Logotipo from '../../public/logotipo.svg'
 import Input from '../components/Input'
 import UseAuth from '../service/hooks/useAuth'
 

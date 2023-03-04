@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Router from 'next/router'
 import { HiMenu } from 'react-icons/hi'
 
-import Logo from '../../public/logotipo.png'
+import Logo from '../../public/logosimple.svg'
 import { Button, Menu, MenuButton, MenuList } from '@chakra-ui/react'
 
 export function TopBar() {
