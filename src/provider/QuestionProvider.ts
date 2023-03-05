@@ -10,17 +10,7 @@ export class QuestionProvider implements ProviderQuestionProps {
 		{
 			id: 0,
 			enunciation: 'A função fetch() do JavaScript serve para:',
-			categorie: 'test',
-			answer: [
-				{
-					id: Math.floor(Date.now() * Math.random()).toString(36),
-					value: 'Percorrer cursores de consultas de banco de dados.',
-				},
-				{
-					id: Math.floor(Date.now() * Math.random()).toString(36),
-					value: 'Acessar e manipular partes do pipelina HTTP.',
-				}
-			]
+			categorie: 'test'
 		},
 	]
 
