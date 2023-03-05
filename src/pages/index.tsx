@@ -7,9 +7,7 @@ export default function Home() {
 		<>
 			<TopBar />
 			<div className="bg-[#2B2245]">
-				<div className="h-44 w-full flex items-center justify-center">
-					<MainBox />
-				</div>
+				<MainBox />
 				<Sections title="Explore" />
 				<Sections title="Melhores Quiz" />
 				<Sections title="Melhores Tópicos" />
