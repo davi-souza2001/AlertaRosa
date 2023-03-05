@@ -15,7 +15,9 @@ module.exports = {
         'rosa': '#DD61E8',
         'roxo': '#9461E8',
         'vermelho': '#E86161',
-        'verde': '#7CE861'
+        'verde': '#7CE861',
+        'amarelo': '#FFD56A',
+        'laranja': '#FF9D43',
       },
     },
     fontFamily: {
