@@ -53,7 +53,7 @@ export default function Question() {
 
 					{renderQuestions()}
 
-					<div className="h-44 w-full flex items-center justify-center flex-col text-center p-5 text-white">
+					<div className="h-44 w-96 flex items-center justify-center flex-col text-center p-5 text-white">
 						<div onClick={() => setChecked('yes')} className={`h-12 w-2/3 flex items-center justify-start rounded-md mb-7 ${checked === 'yes' ? 'bg-verde shadow-md font-semibold' : 'bg-background'} transition-all lg:cursor-pointer`}>
 							{checked === 'yes' ? <HiCheckCircle className="text-white text-3xl mx-2 mr-5" /> : <p className="h-6 w-6 mx-2 mr-5 bg-white text-background rounded-full">A</p>}
 							<p>Sim</p>

@@ -2,11 +2,13 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Router from 'next/router'
 import { HiMenu } from 'react-icons/hi'
-import { Button, Menu, MenuButton, MenuList } from '@chakra-ui/react'
+import { Menu, MenuButton, MenuList } from '@chakra-ui/react'
 
 import Logo from '../../public/logosimple.svg'
+import UseAuth from '../service/hooks/useAuth'
 
 export function TopBar() {
+	const { logout } = UseAuth()
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 	const handleClick = (event: any) => {
 		setAnchorEl(event.currentTarget);
@@ -39,7 +41,7 @@ export function TopBar() {
 										<div className='h-[1px] bg-slate-500 w-[90%] rounded-md' />
 									</div>
 
-									<div className='h-5 w-full flex items-center justify-start mx-5 my-5 text-red-500 cursor-pointer'>
+									<div onClick={logout} className='h-5 w-full flex items-center justify-start mx-5 my-5 text-red-500 cursor-pointer'>
 										<p>Sair</p>
 									</div>
 								</div>

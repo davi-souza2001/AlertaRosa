@@ -1,5 +1,3 @@
-import { QuestionProps } from "./Question"
-
 export interface RoomProps {
 	player: string
 	caterogie: string
