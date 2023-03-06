@@ -7,8 +7,8 @@ import { TopBar } from "../../components/TopBar"
 import { ProviderRoom } from "../../core/ProviderRoom"
 import { RoomProvider } from "../../provider/RoomProvider"
 import { QuestionProps } from "../../core/Question"
-import Gradient from "../../components/Gradient"
-import Bottom from "../../components/Bottom"
+import GradientLg from "../../components/GradientLarge"
+import BottomSm from "../../components/BottomSmall"
 
 export default function Question() {
 	const [checked, setChecked] = useState<'yes' | 'no' | ''>('')
@@ -45,7 +45,7 @@ export default function Question() {
 			<TopBar />
 
 			<div className="w-full h-screen text-white">
-				<Gradient height="80%" flex="col" padding_top="pt-20">
+				<GradientLg flex="col" padding_top="pt-20">
 					<div className="h-10 w-full flex items-center justify-center">
 						<Progress colorScheme='green' size='md' value={20} className="w-full ml-2 rounded-lg" />
 						<p className="p-2">1/5</p>
@@ -63,15 +63,15 @@ export default function Question() {
 							<p>Não</p>
 						</div>
 					</div>
-				</Gradient>
+				</GradientLg>
 
-				<Bottom height="20%" items='center'>
+				<BottomSm items='center'>
 					<div className="w-full h-full flex items-center justify-center mt-10">
 						<button onClick={() => nextQuestion()} disabled={checked === '' ? true : false} className={`text-rosa h-10 w-32 bg-white rounded-md ${checked !== '' ? 'opacity-100 shadow-md' : 'opacity-50'} transition-all`}>
 							Continuar
 						</button>
 					</div>
-				</Bottom>
+				</BottomSm>
 			</div>
 		</div>
 	)

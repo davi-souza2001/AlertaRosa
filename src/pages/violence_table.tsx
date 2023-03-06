@@ -1,6 +1,6 @@
 import Router from "next/router";
 import { ArrowBendUpLeft } from "phosphor-react";
-import Bottom from "../components/Bottom";
+import BottomLg from "../components/BottomLarge";
 import TableSquare from "../components/TableSquare";
 import { TopBar } from "../components/TopBar";
 
@@ -39,7 +39,7 @@ export default function Violence_Table(){
             {/* flex flex-col justify-center lg:justify-start w-full h-screen text-white lg:pt-24 lg:pl-20 */}
 
             <div className="w-full h-screen text-white">
-                <Bottom height="100%" flex="col" padding_top="20" items="start">
+                <BottomLg flex="col" padding_top="20" items="start">
                     <div className="flex flex-col justify-center lg:justify-start w-full text-white lg:pl-20 p-6">
                         { alerta_amarelo.map((alerta, i) => {
                             return(
@@ -65,7 +65,7 @@ export default function Violence_Table(){
                             Voltar <ArrowBendUpLeft className="text-xl" />
                         </button>
                     </div>
-                </Bottom>
+                </BottomLg>
             </div>
         </>
     )

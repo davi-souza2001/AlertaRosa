@@ -4,14 +4,14 @@ import { Key, Phone, Share, User } from 'phosphor-react'
 import React from 'react'
 
 import Logotipo from '../../public/logotipo.svg'
-import Bottom from '../components/Bottom'
-import Gradient from '../components/Gradient'
+import BottomSm from '../components/BottomSmall'
+import GradientLg from '../components/GradientLarge'
 import Input from '../components/Input'
 
 export default function Register() {
 	return (
 		<div className='w-full h-screen text-white'>
-			<Gradient height='80%' flex='col' gap='10'>
+			<GradientLg flex='col' gap='10'>
 				<Image src={Logotipo} alt="Logotipo" width={150} />
 
 				<p className='font-semibold text-xl text-center'>CADASTRO</p>
@@ -29,9 +29,9 @@ export default function Register() {
 						CADASTRAR
 					</button>
 				</form>
-			</Gradient>
+			</GradientLg>
 
-			<Bottom height='20%' items='center'>
+			<BottomSm items='center'>
 				<Link href="/login">
 					<div className='flex w-80 lg:hover:opacity-90 transition-opacity'>
 						<div className='bg-white text-roxo border-2 border-roxo rounded-l-lg text-xl p-2 py-4'>
@@ -43,7 +43,7 @@ export default function Register() {
 						</div>
 					</div>
 				</Link>
-			</Bottom>
+			</BottomSm>
 		</div>
 	)
 }

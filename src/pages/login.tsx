@@ -4,8 +4,8 @@ import { GoogleLogo, User, Phone } from 'phosphor-react'
 import React from 'react'
 
 import Logotipo from '../../public/logotipo.svg'
-import Bottom from '../components/Bottom'
-import Gradient from '../components/Gradient'
+import BottomSm from '../components/BottomSmall'
+import GradientLg from '../components/GradientLarge'
 import Input from '../components/Input'
 import UseAuth from '../service/hooks/useAuth'
 
@@ -14,7 +14,7 @@ export default function Login() {
 
 	return (
 		<div className='w-full h-screen text-white'>
-			<Gradient height='80%' flex='col' gap='10'>
+			<GradientLg flex='col' gap='10'>
 				<Image src={Logotipo} alt="Logotipo" width={150} />
 
 				<p className='font-semibold text-xl text-center'>LOGIN</p>
@@ -36,9 +36,9 @@ export default function Login() {
 						ACESSAR
 					</button>
 				</form>
-			</Gradient>
+			</GradientLg>
 
-			<Bottom height='20%' items='center'>
+			<BottomSm items='center'>
 				<button className='flex w-80 lg:hover:opacity-90 transition-opacity' onClick={loginGoogle}>
 					<div className='bg-white text-roxo border-2 border-roxo rounded-l-lg text-xl p-2 py-4'>
 						<GoogleLogo/>
@@ -48,7 +48,7 @@ export default function Login() {
 						ACESSAR COM GOOGLE
 					</div>
 				</button>
-			</Bottom>
+			</BottomSm>
 		</div>
 	)
 }

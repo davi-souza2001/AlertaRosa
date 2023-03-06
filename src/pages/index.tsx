@@ -1,4 +1,3 @@
-import Bottom from "../components/Bottom"
 import MainBox from "../components/MainBox"
 import Sections from "../components/Sections"
 import { TopBar } from "../components/TopBar"

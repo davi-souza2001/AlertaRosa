@@ -17,7 +17,7 @@ export default function Sections({ title }: Props) {
 			</div>
 
 			<div className="h-60 px-5">
-				<Carousel showStatus={false} showArrows={false} showIndicators={false} centerMode centerSlidePercentage={70}>
+				<Carousel showStatus={false} showArrows={true} showIndicators={false} centerMode centerSlidePercentage={70}>
 					<BoxCategorie />
 					<BoxCategorie />
 					<BoxCategorie />

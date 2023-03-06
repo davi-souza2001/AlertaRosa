@@ -4,22 +4,24 @@ import { Eye } from "phosphor-react"
 
 import { TopBar } from "../../components/TopBar"
 import GirlIcon from '../../../public/girlresult.svg'
-import Gradient from "../../components/Gradient"
-import Bottom from "../../components/Bottom"
+import GradientSm from "../../components/GradientSmall"
+import BottomLg from "../../components/BottomLarge"
 
 export default function Result() {
 	return (
 		<>
 			<TopBar />
 			<div className="w-full h-screen text-white">
-				<Gradient height="30%" padding_top="pt-20">
-					<div className="w-full flex flex-col items-center justify-center text-2xl font-semibold p-2 lg:p-6">
-						<Image src={GirlIcon} alt='Imagem de mulher com coração' width={200} />
-						<h1 className="mt-5">Seu resultado!</h1>
+				<GradientSm padding_top="pt-20">
+					<div className='w-full flex items-center justify-center gap-3'>
+						<div className='w-[50%] rounded-3xl'>
+							<Image src={GirlIcon} alt='Imagem de mulher com resultado' width={200} />
+						</div>
+						<p className="w-[50%] text-lg font-semibold">Seu resultado!</p>
 					</div>
-				</Gradient>
+				</GradientSm>
 
-				<Bottom height="70%" items='center'>
+				<BottomLg items='start'>
 					<div className="flex flex-col text-white gap-5">
 						<div className="flex flex-col ml-5 my-5 gap-5">
 							<p className="text-xl font-semibold">O que fazer?</p>
@@ -34,7 +36,7 @@ export default function Result() {
 							</button>
 						</div>
 					</div>
-				</Bottom>
+				</BottomLg>
 			</div>
 		</>
 	)
