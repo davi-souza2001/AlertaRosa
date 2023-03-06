@@ -36,36 +36,32 @@ export default function Violence_Table(){
         <>
             <TopBar/>
 
-            {/* flex flex-col justify-center lg:justify-start w-full h-screen text-white lg:pt-24 lg:pl-20 */}
-
             <div className="w-full h-screen text-white">
-                <BottomLg flex="col" padding_top="20" items="start">
-                    <div className="flex flex-col justify-center lg:justify-start w-full text-white lg:pl-20 p-6">
-                        { alerta_amarelo.map((alerta, i) => {
-                            return(
-                                <TableSquare color="amarelo" text={`${alerta}`} />
-                            )
-                        }) }
+                <div className="flex flex-col justify-center lg:justify-start w-full bg-background text-white lg:pl-20 px-6 pt-24">
+                    { alerta_amarelo.map((alerta, i) => {
+                        return(
+                            <TableSquare color="amarelo" text={`${alerta}`} />
+                        )
+                    }) }
 
-                        { alerta_laranja.map((alerta, i) => {
-                            return(
-                                <TableSquare color="laranja" text={`${alerta}`} />
-                            )
-                        }) }
+                    { alerta_laranja.map((alerta, i) => {
+                        return(
+                            <TableSquare color="laranja" text={`${alerta}`} />
+                        )
+                    }) }
 
-                        { alerta_vermelho.map((alerta, i) => {
-                            return(
-                                <TableSquare color="vermelho" text={`${alerta}`} />
-                            )
-                        }) }
-                    </div>
-                    
-                    <div className="w-full flex items-center justify-center pb-10">
-                        <button onClick={() => Router.push('/result/test')} className="flex items-center gap-2 bg-white text-rosa text-xl py-3 px-6 rounded-lg lg:hover:opacity-100 lg:opacity-95 transition-opacity shadow-md">
-                            Voltar <ArrowBendUpLeft className="text-xl" />
-                        </button>
-                    </div>
-                </BottomLg>
+                    { alerta_vermelho.map((alerta, i) => {
+                        return(
+                            <TableSquare color="vermelho" text={`${alerta}`} />
+                        )
+                    }) }
+                </div>
+                
+                <div className="w-full flex items-center justify-center py-10 bg-background">
+                    <button onClick={() => Router.push('/result/test')} className="flex items-center gap-2 bg-white text-rosa text-xl py-3 px-6 rounded-lg lg:hover:opacity-100 lg:opacity-95 transition-opacity shadow-md">
+                        Voltar <ArrowBendUpLeft className="text-xl" />
+                    </button>
+                </div>
             </div>
         </>
     )
