@@ -33,7 +33,7 @@ export function TopBar() {
 							</MenuButton>
 							<MenuList>
 								<div className='text-base font-normal'>
-									<div className='h-5 w-full flex items-center justify-start mx-5 my-5 cursor-pointer'>
+									<div className='h-5 w-full flex items-center justify-start mx-5 my-5 cursor-pointer' onClick={() => Router.push('/userPage')}>
 										<p>Minha Conta</p>
 									</div>
 
