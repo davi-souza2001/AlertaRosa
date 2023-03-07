@@ -1,7 +1,6 @@
 import { Progress } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
-import { HiCheckCircle, HiXCircle } from "react-icons/hi"
 
 import { TopBar } from "../../components/TopBar"
 import { ProviderRoom } from "../../core/ProviderRoom"
@@ -54,12 +53,12 @@ export default function Question() {
 					{renderQuestions()}
 
 					<div className="h-44 w-96 flex items-center justify-center flex-col text-center p-5 text-white">
-						<div onClick={() => setChecked('yes')} className={`h-12 w-2/3 flex items-center justify-start rounded-md mb-7 ${checked === 'yes' ? 'bg-verde shadow-md font-semibold' : 'bg-background'} transition-all lg:cursor-pointer`}>
-							{checked === 'yes' ? <HiCheckCircle className="text-white text-3xl mx-2 mr-5" /> : <p className="h-6 w-6 mx-2 mr-5 bg-white text-background rounded-full">A</p>}
+						<div onClick={() => setChecked('yes')} className={`h-12 w-2/3 flex items-center justify-start rounded-md mb-7 bg-background ${checked === 'yes' ? 'opacity-100 shadow-md font-semibold' : 'opacity-80'} transition-all lg:cursor-pointer`}>
+							<p className="h-6 w-6 mx-2 mr-5 bg-white text-background rounded-full">A</p>
 							<p>Sim</p>
 						</div>
-						<div onClick={() => setChecked('no')} className={`h-12 w-2/3 flex items-center justify-start rounded-md mb-7 ${checked === 'no' ? 'bg-vermelho shadow-md font-semibold' : 'bg-background'} transition-all lg:cursor-pointer`}>
-							{checked === 'no' ? <HiXCircle className="text-white text-3xl mx-2 mr-5" /> : <p className="h-6 w-6 mx-2 mr-5 bg-white text-background rounded-full">B</p>}
+						<div onClick={() => setChecked('no')} className={`h-12 w-2/3 flex items-center justify-start rounded-md mb-7 bg-background ${checked === 'no' ? 'opacity-100 shadow-md font-semibold' : 'bg-background opacity-80'} transition-all lg:cursor-pointer`}>
+							<p className="h-6 w-6 mx-2 mr-5 bg-white text-background rounded-full">B</p>
 							<p>Não</p>
 						</div>
 					</div>
