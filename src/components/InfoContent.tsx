@@ -2,7 +2,7 @@ import { MapPin, Phone } from "phosphor-react";
 
 export default function InfoContent(){
     return(
-        <div className="flex flex-col justify-start my-3">
+        <div className="flex flex-col justify-start my-3 ml-5">
             <div className="flex items-center gap-2 text-xl">
                 <MapPin/>
                 <p>Localização</p>

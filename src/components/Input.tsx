@@ -11,18 +11,18 @@ export default function Input({ type, icon, placeholder }: Props){
                 { icon }
             </div>
 
-            <input 
-                type={type} 
+            <input
+                type={type}
                 placeholder={placeholder}
                 className="
                     bg-white
                     w-full lg:w-64
                     p-3
                     shadow-md
-                    rounded-r-lg 
-                    focus:border-roxo focus:ring-roxo focus:ring-1 focus:outline-none 
+                    rounded-r-lg
+                    focus:border-roxo focus:ring-roxo focus:ring-1 focus:outline-none
                     transition-all
-                " 
+                "
                 required
             />
         </div>

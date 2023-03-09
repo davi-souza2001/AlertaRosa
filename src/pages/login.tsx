@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { GoogleLogo, User, Phone } from 'phosphor-react'
+import { GoogleLogo, User, Key } from 'phosphor-react'
 import React from 'react'
 
 import Logotipo from '../../public/logotipo.svg'
@@ -23,7 +23,7 @@ export default function Login() {
 					<div className='flex flex-col gap-2'>
 						<div className='flex flex-col gap-10'>
 							<Input type="text" icon={<User />} placeholder="Nome" />
-							<Input type="number" icon={<Phone />} placeholder="Telefone" />
+							<Input type="number" icon={<Key />} placeholder="Senha" />
 						</div>
 
 						<div className='flex underline text-xs lg:text-sm justify-between'>
@@ -41,7 +41,7 @@ export default function Login() {
 			<BottomSm items='center'>
 				<button className='flex w-80 lg:hover:opacity-90 transition-opacity' onClick={loginGoogle}>
 					<div className='bg-white text-roxo border-2 border-roxo rounded-l-lg text-xl p-2 py-4'>
-						<GoogleLogo/>
+						<GoogleLogo />
 					</div>
 
 					<div className='w-full bg-gradient-to-r from-roxo to-rosa rounded-r-lg p-2 py-4'>
