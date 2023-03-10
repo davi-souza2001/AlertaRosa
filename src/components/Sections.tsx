@@ -17,11 +17,20 @@ export default function Sections({ title }: Props) {
 			</div>
 
 			<div className="h-60 px-5">
-				<Carousel showStatus={false} showArrows={true} showIndicators={false} centerMode centerSlidePercentage={70}>
-					<BoxCategorie />
-					<BoxCategorie />
-					<BoxCategorie />
-				</Carousel>
+				<div className="lg:hidden">
+					<Carousel showStatus={false} showArrows={true} showIndicators={false} centerMode centerSlidePercentage={70}>
+						<BoxCategorie />
+						<BoxCategorie />
+						<BoxCategorie />
+					</Carousel>
+				</div>
+				<div className="hidden lg:block">
+					<Carousel showStatus={false} showArrows={true} showIndicators={false} centerMode centerSlidePercentage={20}>
+						<BoxCategorie />
+						<BoxCategorie />
+						<BoxCategorie />
+					</Carousel>
+				</div>
 			</div>
 		</>
 	)
