@@ -24,4 +24,9 @@ The design pattern used was ports and adapters, leaving the responsibility solel
 
 </html>  
 
-<!-- asd -->
+-[] Fazer função de alertar o usuário todo erro que acontecer na plataforma
+-[] Colocar perguntas corretas da plataforma
+-[] Terminar lógica das perguntas
+-[] Fazer conta pra dar o resultado do violetometro
+-[] Fazer função pra editar os dados do usuário
+-[] Ajeitar layout

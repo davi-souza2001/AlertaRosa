@@ -24,7 +24,7 @@ export default function userPage() {
 							<p>{user.name !== '' ? user.name : 'Nome de usuário'}</p>
 							<div className="flex items-center text-sm gap-2">
 								<Phone className="text-xl" weight="bold" />
-								<p>DDD número</p>
+								<p>{user.phone ?? 'DDD número'}</p>
 							</div>
 							<div className="flex items-center text-sm gap-2">
 								<EnvelopeSimple className="text-xl" weight="bold" />

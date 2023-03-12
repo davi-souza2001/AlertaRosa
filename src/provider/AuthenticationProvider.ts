@@ -48,7 +48,8 @@ export class AuthenticationProvider implements ProviderUserProps {
 	async submitUser(user: User): Promise<void> {
 		await setDoc(doc(db, 'users', user.email), {
 			name: user.name,
-			email: user.email
+			email: user.email,
+			phone: user.phone
 		})
 	}
 
@@ -68,7 +69,8 @@ export class AuthenticationProvider implements ProviderUserProps {
 					list.forEach((doc) => {
 						resolve(new User({
 							name: doc.data().name,
-							email: doc.data().email
+							email: doc.data().email,
+							phone: doc.data().phone
 						}))
 					})
 				})

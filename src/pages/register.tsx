@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Key, Phone, Share, User } from 'phosphor-react'
+import { Key, Phone, Share, User, } from 'phosphor-react'
 import React, { FormEvent, useState } from 'react'
+import { HiMailOpen } from 'react-icons/hi'
 
 import Logotipo from '../../public/logotipo.svg'
 import BottomSm from '../components/BottomSmall'
@@ -12,13 +13,16 @@ import UseAuth from '../service/hooks/useAuth'
 export default function Register() {
 	const [name, setName] = useState('')
 	const [email, setEmail] = useState('')
+	const [phone, setPhone] = useState(0)
 	const [password, setPassword] = useState('')
 	const { createUserPassword } = UseAuth()
 
 	async function test(e: FormEvent) {
 		e.preventDefault()
-		if(name !== '' && password !== ''){
-			await createUserPassword(name, email, password)
+		if (name !== '' && password !== '' && phone.toString().length <= 11) {
+			await createUserPassword(name, phone, email, password)
+		} else {
+			alert('Value wrong!')
 		}
 	}
 
@@ -33,8 +37,8 @@ export default function Register() {
 					<div className='flex flex-col gap-2'>
 						<div className='flex flex-col gap-5'>
 							<Input type="text" value={name} valueChange={setName} icon={<User />} placeholder="Nome" />
-							<Input type="text" value={email} valueChange={setEmail} icon={<User />} placeholder="Email" />
-							{/* <Input type="number" icon={<Phone />} placeholder="Telefone" /> */}
+							<Input type="text" value={email} valueChange={setEmail} icon={<HiMailOpen />} placeholder="Email" />
+							<Input type="number" value={phone} valueChange={setPhone} icon={<Phone />} placeholder="Telefone" />
 							<Input type="password" value={password} valueChange={setPassword} icon={<Key />} placeholder="Senha" />
 						</div>
 					</div>

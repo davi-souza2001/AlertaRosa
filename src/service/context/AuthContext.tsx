@@ -10,7 +10,7 @@ import { ProviderUser } from "../../core/ProviderUser"
 interface AuthContextProps {
 	loginGoogle(): Promise<void>
 	loginPassword(email: string, password: string): Promise<void>
-	createUserPassword(name: string, email: string, password: string): Promise<void>
+	createUserPassword(name: string, phone: number, email: string, password: string): Promise<void>
 	logout(): Promise<void>
 	getUser(user: User): Promise<User | false>
 	submitUser(user: User): Promise<void>
@@ -76,11 +76,12 @@ export function AuthProvider(props: any) {
 		setLoading(false)
 	}
 
-	async function createUserPassword(name: string, email: string, password: string) {
+	async function createUserPassword(name: string, phone: number, email: string, password: string) {
 		setLoading(true)
 		const user = new User({
 			email,
-			name
+			name,
+			phone
 		})
 
 		try {
