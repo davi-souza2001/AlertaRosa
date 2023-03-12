@@ -9,6 +9,8 @@ import { ProviderUser } from "../../core/ProviderUser"
 
 interface AuthContextProps {
 	loginGoogle(): Promise<void>
+	loginPassword(email: string, password: string): Promise<void>
+	createUserPassword(name: string, email: string, password: string): Promise<void>
 	logout(): Promise<void>
 	getUser(user: User): Promise<User | false>
 	submitUser(user: User): Promise<void>
@@ -19,14 +21,14 @@ interface AuthContextProps {
 
 const AuthContext = createContext<AuthContextProps>({
 	loginGoogle: () => Promise.resolve(),
+	loginPassword: () => Promise.resolve(),
+	createUserPassword: () => Promise.resolve(),
 	logout: () => Promise.resolve(),
 	getUser: (user: User) => Promise.resolve(user),
 	submitUser: () => Promise.resolve(),
 	user: new User({
-		photo: '',
 		email: '',
-		name: '',
-		xp: 0
+		name: ''
 	}),
 	loading: false,
 	setLoading: {}
@@ -34,7 +36,7 @@ const AuthContext = createContext<AuthContextProps>({
 
 export function AuthProvider(props: any) {
 	const [loading, setLoading] = useState(true)
-	const [user, setUser] = useState<User>(new User({ photo: '', email: '', name: '', xp: 0 }))
+	const [user, setUser] = useState<User>(new User({ email: '', name: '' }))
 	const authentication = new ProviderUser(new AuthenticationProvider())
 	const userCookie = Cookie.get('Admin-QuizDev')
 
@@ -53,6 +55,38 @@ export function AuthProvider(props: any) {
 			setLoading(false)
 			Router.push('/')
 		}
+	}
+
+	async function loginPassword(email: string, password: string) {
+		setLoading(true)
+		try {
+			const loggedUser = await authentication.loginPassword(email, password)
+			const searchedUser = await getUser(loggedUser)
+
+			if (searchedUser) {
+				AuthenticationProvider.setCookieUser(searchedUser)
+				setLoading(false)
+				Router.push('/')
+			}
+
+		} catch (error: any) {
+			console.log('error.message')
+			console.log(error.message)
+		}
+		setLoading(false)
+	}
+
+	async function createUserPassword(name: string, email: string, password: string) {
+		setLoading(true)
+		const user = new User({
+			email,
+			name
+		})
+
+		await authentication.createUserPassword(email, password)
+		await authentication.submitUser(user)
+
+		setLoading(false)
 	}
 
 	async function getUser(user: User) {
@@ -74,7 +108,11 @@ export function AuthProvider(props: any) {
 	}
 
 	async function logout() {
+		setLoading(true)
+
 		await authentication.logout()
+
+		setLoading(false)
 	}
 
 	useEffect(() => {
@@ -94,6 +132,8 @@ export function AuthProvider(props: any) {
 	return (
 		<AuthContext.Provider value={{
 			loginGoogle,
+			loginPassword,
+			createUserPassword,
 			logout,
 			getUser,
 			submitUser,

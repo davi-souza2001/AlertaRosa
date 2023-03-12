@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { GoogleLogo, User, Key } from 'phosphor-react'
-import React from 'react'
+import React, { useState } from 'react'
 
 import Logotipo from '../../public/logotipo.svg'
 import BottomSm from '../components/BottomSmall'
@@ -10,7 +10,13 @@ import Input from '../components/Input'
 import UseAuth from '../service/hooks/useAuth'
 
 export default function Login() {
-	const { loginGoogle } = UseAuth()
+	const { loginGoogle, loginPassword } = UseAuth()
+	const [name, setName] = useState('')
+	const [password, setPassword] = useState('')
+
+	async function handleLoginSubmit(){
+		await loginPassword(name, password)
+	}
 
 	return (
 		<div className='w-full h-screen text-white'>
@@ -22,8 +28,8 @@ export default function Login() {
 				<form className='flex flex-col p-2 mt-[-30px]'>
 					<div className='flex flex-col gap-2'>
 						<div className='flex flex-col gap-10'>
-							<Input type="text" icon={<User />} placeholder="Nome" />
-							<Input type="number" icon={<Key />} placeholder="Senha" />
+							<Input type="text" value={name} valueChange={setName} icon={<User />} placeholder="Nome" />
+							<Input type="password" value={password} valueChange={setPassword} icon={<Key />} placeholder="Senha" />
 						</div>
 
 						<div className='flex underline text-xs lg:text-sm justify-between'>
@@ -32,7 +38,7 @@ export default function Login() {
 						</div>
 					</div>
 
-					<button className='bg-white text-rosa p-2 mt-2 text-xl rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
+					<button onClick={handleLoginSubmit} className='bg-white text-rosa p-2 mt-2 text-xl rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
 						ACESSAR
 					</button>
 				</form>

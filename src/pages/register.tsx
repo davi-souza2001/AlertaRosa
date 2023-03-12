@@ -1,14 +1,27 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Key, Phone, Share, User } from 'phosphor-react'
-import React from 'react'
+import React, { FormEvent, useState } from 'react'
 
 import Logotipo from '../../public/logotipo.svg'
 import BottomSm from '../components/BottomSmall'
 import GradientLg from '../components/GradientLarge'
 import Input from '../components/Input'
+import UseAuth from '../service/hooks/useAuth'
 
 export default function Register() {
+	const [name, setName] = useState('')
+	const [email, setEmail] = useState('')
+	const [password, setPassword] = useState('')
+	const { createUserPassword } = UseAuth()
+
+	async function test(e: FormEvent) {
+		e.preventDefault()
+		if(name !== '' && password !== ''){
+			await createUserPassword(name, email, password)
+		}
+	}
+
 	return (
 		<div className='w-full h-screen text-white'>
 			<GradientLg flex='col' gap='10'>
@@ -16,16 +29,20 @@ export default function Register() {
 
 				<p className='font-semibold text-xl text-center'>CADASTRO</p>
 
-				<form action="" className='flex flex-col gap-10'>
+				<form className='flex flex-col gap-10'>
 					<div className='flex flex-col gap-2'>
 						<div className='flex flex-col gap-5'>
-							<Input type="text" icon={<User />} placeholder="Nome" />
-							<Input type="number" icon={<Phone />} placeholder="Telefone" />
-							<Input type="password" icon={<Key />} placeholder="Senha" />
+							<Input type="text" value={name} valueChange={setName} icon={<User />} placeholder="Nome" />
+							<Input type="text" value={email} valueChange={setEmail} icon={<User />} placeholder="Email" />
+							{/* <Input type="number" icon={<Phone />} placeholder="Telefone" /> */}
+							<Input type="password" value={password} valueChange={setPassword} icon={<Key />} placeholder="Senha" />
 						</div>
 					</div>
 
-					<button className='bg-white text-rosa p-2 text-xl rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
+					<button
+						onClick={(e) => test(e)}
+						className='bg-white text-rosa p-2 text-xl rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'
+					>
 						CADASTRAR
 					</button>
 				</form>
@@ -35,7 +52,7 @@ export default function Register() {
 				<Link href="/login">
 					<div className='flex w-80 lg:hover:opacity-90 transition-opacity'>
 						<div className='bg-white text-roxo border-2 border-roxo rounded-l-lg text-xl p-2 py-4'>
-							<Share/>
+							<Share />
 						</div>
 
 						<div className='w-full text-center bg-gradient-to-r from-roxo to-rosa rounded-r-lg p-2 py-4'>
