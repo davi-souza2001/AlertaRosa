@@ -83,8 +83,22 @@ export function AuthProvider(props: any) {
 			name
 		})
 
-		await authentication.createUserPassword(email, password)
-		await authentication.submitUser(user)
+		try {
+			await authentication.createUserPassword(email, password)
+			await authentication.submitUser(user)
+			const loggedUser = await authentication.loginPassword(email, password)
+			const searchedUser = await getUser(loggedUser)
+
+			if (searchedUser) {
+				AuthenticationProvider.setCookieUser(searchedUser)
+				setLoading(false)
+				Router.push('/')
+			}
+
+		} catch (error: any) {
+			console.log('error.message')
+			console.log(error.message)
+		}
 
 		setLoading(false)
 	}
