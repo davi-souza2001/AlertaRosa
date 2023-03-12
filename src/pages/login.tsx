@@ -19,7 +19,7 @@ export default function Login() {
 
 				<p className='font-semibold text-xl text-center'>LOGIN</p>
 
-				<form className='flex flex-col gap-10'>
+				<form className='flex flex-col p-2 mt-[-30px]'>
 					<div className='flex flex-col gap-2'>
 						<div className='flex flex-col gap-10'>
 							<Input type="text" icon={<User />} placeholder="Nome" />
@@ -32,7 +32,7 @@ export default function Login() {
 						</div>
 					</div>
 
-					<button className='bg-white text-rosa p-2 text-xl rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
+					<button className='bg-white text-rosa p-2 mt-2 text-xl rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
 						ACESSAR
 					</button>
 				</form>
