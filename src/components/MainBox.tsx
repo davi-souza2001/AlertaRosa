@@ -2,7 +2,6 @@ import GirlIcon from '../../public/girllove.svg'
 import Image from "next/image"
 import GradientSm from './GradientSmall'
 
-// utilizar depois para poder mudar imagem ou texto da caixa :)
 interface Props {
 	content: string
 	image: string

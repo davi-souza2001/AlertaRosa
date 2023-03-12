@@ -17,8 +17,8 @@ export default function userPage() {
 			<TopBar />
 
 			<div className="w-full h-screen text-white">
-				<GradientSm padding_top="pt-20">
-					<div className="flex gap-6 justify-center items-center">
+				<GradientSm padding_top="pt-20" start>
+					<div className="flex gap-6 justify-center items-center ml-5">
 						<Image src={avatar} width={100} alt="avatar" />
 						<div className="flex flex-col justify-start text-xl">
 							<p>{user.name !== '' ? user.name : 'Nome de usuário'}</p>
