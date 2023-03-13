@@ -33,6 +33,7 @@ export default function Question() {
 
 	function nextQuestion() {
 		setQuestionNumber(state => state + 1)
+		setChecked('')
 	}
 
 	useEffect(() => {

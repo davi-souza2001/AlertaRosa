@@ -19,7 +19,7 @@ export default function StartQuestions() {
 			player: user.email,
 			answers: []
 		})
-		Router.push('/questions/test')
+		Router.push('/questions/red')
 	}
 	return (
 		<>
@@ -31,7 +31,7 @@ export default function StartQuestions() {
 						<Image src={GirlIcon} alt='Imagem de mulher com coração' height={180} width={180} />
 						<h1 className="mt-5">Bem-vinda ao Formulário!</h1>
 					</div>
-					
+
 					<div className="w-full lg:w-[50%] flex items-center justify-center text-center p-5">
 						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima magni dolorum harum culpa voluptatum doloribus quis ex libero pariatur ipsam dolore, quod incidunt eius autem id, alias mollitia explicabo magnam.</p>
 					</div>
