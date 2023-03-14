@@ -24,7 +24,8 @@ The design pattern used was ports and adapters, leaving the responsibility solel
 
 </html>  
 
-- [ ] Fazer função de alertar o usuário todo erro que acontecer na plataforma
+- [x] Fazer função de alertar o usuário todo erro que acontecer na plataforma
+- [ ] Verificar porque não está enviando formulário registro
 - [ ] Fazer página pra tirar dúvidas
 - [ ] Fazer página pra falar o que é violencia e dizer o que é a aplicação
 - [ ] Fazer página pra mostrar todos os quizs

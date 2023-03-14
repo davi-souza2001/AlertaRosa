@@ -1,3 +1,4 @@
+import { useToast } from '@chakra-ui/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Key, Phone, Share, User, } from 'phosphor-react'
@@ -15,6 +16,7 @@ export default function Register() {
 	const [email, setEmail] = useState('')
 	const [phone, setPhone] = useState(0)
 	const [password, setPassword] = useState('')
+	const toast = useToast()
 	const { createUserPassword } = UseAuth()
 
 	async function test(e: FormEvent) {
@@ -22,7 +24,14 @@ export default function Register() {
 		if (name !== '' && password !== '' && phone.toString().length <= 11) {
 			await createUserPassword(name, phone, email, password)
 		} else {
-			alert('Value wrong!')
+			toast({
+				position: 'top-right',
+				title: 'Algo deu errado!',
+				description: 'Verifique sua informações e tente novamente!',
+				status: 'error',
+				duration: 3000,
+				isClosable: true,
+			})
 		}
 	}
 
