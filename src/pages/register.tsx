@@ -54,7 +54,7 @@ export default function Register() {
 
 			<BottomSm items='center'>
 				<Link href="/login">
-					<div className='flex w-80 lg:hover:opacity-90 transition-opacity'>
+					<div className='flex w-80 mt-20 lg:hover:opacity-90 transition-opacity'>
 						<div className='bg-white text-roxo border-2 border-roxo rounded-l-lg text-xl p-2 py-4'>
 							<Share />
 						</div>
