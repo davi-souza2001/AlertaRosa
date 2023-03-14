@@ -2,6 +2,7 @@ import Router from "next/router"
 import { useEffect, useState } from "react"
 import { createContext } from "react"
 import Cookie from 'js-cookie'
+import { useToast } from "@chakra-ui/react"
 
 import { User } from "../../core/User"
 import { AuthenticationProvider } from "../../provider/AuthenticationProvider"
@@ -35,6 +36,7 @@ const AuthContext = createContext<AuthContextProps>({
 })
 
 export function AuthProvider(props: any) {
+	const toast = useToast()
 	const [loading, setLoading] = useState(true)
 	const [user, setUser] = useState<User>(new User({ email: '', name: '' }))
 	const authentication = new ProviderUser(new AuthenticationProvider())
@@ -70,8 +72,15 @@ export function AuthProvider(props: any) {
 			}
 
 		} catch (error: any) {
-			console.log('error.message')
-			console.log(error.message)
+			const erro = error.message
+			toast({
+				position: 'top-right',
+				title: 'Algo deu errado!',
+				description: erro.slice(16),
+				status: 'error',
+				duration: 3000,
+				isClosable: true,
+			})
 		}
 		setLoading(false)
 	}
@@ -97,8 +106,15 @@ export function AuthProvider(props: any) {
 			}
 
 		} catch (error: any) {
-			console.log('error.message')
-			console.log(error.message)
+			const erro = error.message
+			toast({
+				position: 'top-right',
+				title: 'Algo deu errado!',
+				description: erro.slice(16),
+				status: 'error',
+				duration: 3000,
+				isClosable: true,
+			})
 		}
 
 		setLoading(false)
