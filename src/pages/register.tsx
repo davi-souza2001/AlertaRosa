@@ -1,8 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Key, Phone, Share, User, } from 'phosphor-react'
+import { EnvelopeSimpleOpen, Key, Phone, Share, User, } from 'phosphor-react'
 import React, { FormEvent, useState } from 'react'
-import { HiMailOpen } from 'react-icons/hi'
 
 import Logotipo from '../../public/logotipo.svg'
 import BottomSm from '../components/BottomSmall'
@@ -28,8 +27,8 @@ export default function Register() {
 
 	return (
 		<div className='w-full h-screen text-white'>
-			<GradientLg flex='col' gap='10'>
-				<Image src={Logotipo} alt="Logotipo" width={150} />
+			<GradientLg flex='col' gap='5'>
+				<Image src={Logotipo} alt="Logotipo" width={150} className="hidden lg:flex" />
 
 				<p className='font-semibold text-xl text-center'>CADASTRO</p>
 
@@ -37,7 +36,7 @@ export default function Register() {
 					<div className='flex flex-col gap-2'>
 						<div className='flex flex-col gap-5'>
 							<Input type="text" value={name} valueChange={setName} icon={<User />} placeholder="Nome" />
-							<Input type="text" value={email} valueChange={setEmail} icon={<HiMailOpen />} placeholder="Email" />
+							<Input type="text" value={email} valueChange={setEmail} icon={<EnvelopeSimpleOpen />} placeholder="Email" />
 							<Input type="number" value={phone !== 0 ? phone : null} valueChange={setPhone} icon={<Phone />} placeholder="Telefone" />
 							<Input type="password" value={password} valueChange={setPassword} icon={<Key />} placeholder="Senha" />
 						</div>

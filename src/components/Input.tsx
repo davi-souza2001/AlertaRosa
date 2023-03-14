@@ -19,14 +19,14 @@ export default function Input({ type, icon, placeholder, value, valueChange }: P
 				onChange={e => valueChange?.(e.target.value)}
 				placeholder={placeholder}
 				className="
-           bg-white
-           w-full lg:w-64
-           p-3
-           shadow-md
-           rounded-r-lg
-           focus:border-roxo focus:ring-roxo focus:ring-1 focus:outline-none
-          transition-all
-        "
+				bg-white
+				w-full lg:w-64
+				p-3
+				shadow-md
+				rounded-r-lg
+				focus:border-roxo focus:ring-roxo focus:ring-1 focus:outline-none
+				transition-all
+				"
 				required
 			/>
 		</div>

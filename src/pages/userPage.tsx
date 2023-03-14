@@ -42,7 +42,7 @@ export default function userPage() {
 					<InfoContent />
 					<InfoContent />
 
-					<button onClick={() => Router.push('/login')} className="w-24 ml-5 flex items-center gap-2 bg-white text-rosa my-10 py-3 px-6 rounded-lg lg:hover:opacity-100 lg:opacity-95 transition-opacity">
+					<button onClick={() => Router.push('/login')} className="w-28 ml-5 flex items-center justify-center gap-2 bg-white text-rosa my-10 py-3 px-6 rounded-lg lg:hover:opacity-100 lg:opacity-95 transition-opacity">
 						Sair <Power weight="bold" />
 					</button>
 				</BottomLg>

@@ -20,13 +20,14 @@ export default function Login() {
 
 	return (
 		<div className='w-full h-screen text-white'>
-			<GradientLg flex='col' gap='10'>
-				<Image src={Logotipo} alt="Logotipo" width={150} />
+			<GradientLg flex='col' gap='5'>
+				<Image src={Logotipo} alt="Logotipo" width={150} className="hidden lg:flex" />
+				<Image src={Logotipo} alt="Logotipo" width={100} className="flex lg:hidden" />
 
 				<p className='font-semibold text-xl text-center'>LOGIN</p>
 
-				<form className='flex flex-col p-2 mt-[-30px]'>
-					<div className='flex flex-col gap-2'>
+				<form className='flex flex-col p-2 gap-5'>
+					<div className='flex flex-col gap-3'>
 						<div className='flex flex-col gap-10'>
 							<Input type="text" value={name} valueChange={setName} icon={<User />} placeholder="Nome" />
 							<Input type="password" value={password} valueChange={setPassword} icon={<Key />} placeholder="Senha" />
@@ -38,7 +39,7 @@ export default function Login() {
 						</div>
 					</div>
 
-					<button onClick={handleLoginSubmit} className='bg-white text-rosa p-2 mt-2 text-xl rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
+					<button onClick={handleLoginSubmit} className='bg-white text-rosa p-2 text-xl rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
 						ACESSAR
 					</button>
 				</form>
