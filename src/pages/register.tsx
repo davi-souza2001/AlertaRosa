@@ -27,7 +27,7 @@ export default function Register() {
 			toast({
 				position: 'top-right',
 				title: 'Algo deu errado!',
-				description: 'Verifique sua informações e tente novamente!',
+				description: 'Verifique suas informações e tente novamente!',
 				status: 'error',
 				duration: 3000,
 				isClosable: true,
