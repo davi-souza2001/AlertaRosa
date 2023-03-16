@@ -1,20 +1,19 @@
+import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { GoogleLogo, User, Key } from 'phosphor-react'
-import React, { useState } from 'react'
+import { User, Key } from 'phosphor-react'
 
 import Logotipo from '../../public/logotipo.svg'
-import BottomSm from '../components/BottomSmall'
 import GradientLg from '../components/GradientLarge'
 import Input from '../components/Input'
 import UseAuth from '../service/hooks/useAuth'
 
 export default function Login() {
-	const { loginGoogle, loginPassword } = UseAuth()
+	const { loginPassword } = UseAuth()
 	const [name, setName] = useState('')
 	const [password, setPassword] = useState('')
 
-	async function handleLoginSubmit(){
+	async function handleLoginSubmit() {
 		await loginPassword(name, password)
 	}
 
@@ -43,18 +42,6 @@ export default function Login() {
 					</button>
 				</form>
 			</GradientLg>
-
-			<BottomSm items='center'>
-				<button className='flex w-80 lg:hover:opacity-90 transition-opacity' onClick={loginGoogle}>
-					<div className='bg-white text-roxo border-2 border-roxo rounded-l-lg text-xl p-2 py-4'>
-						<GoogleLogo />
-					</div>
-
-					<div className='w-full bg-gradient-to-r from-roxo to-rosa rounded-r-lg p-2 py-4'>
-						ACESSAR COM GOOGLE
-					</div>
-				</button>
-			</BottomSm>
 		</div>
 	)
 }

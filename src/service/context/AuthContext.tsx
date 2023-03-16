@@ -9,7 +9,6 @@ import { AuthenticationProvider } from "../../provider/AuthenticationProvider"
 import { ProviderUser } from "../../core/ProviderUser"
 
 interface AuthContextProps {
-	loginGoogle(): Promise<void>
 	loginPassword(email: string, password: string): Promise<void>
 	createUserPassword(name: string, phone: number, email: string, password: string): Promise<void>
 	logout(): Promise<void>
@@ -21,7 +20,6 @@ interface AuthContextProps {
 }
 
 const AuthContext = createContext<AuthContextProps>({
-	loginGoogle: () => Promise.resolve(),
 	loginPassword: () => Promise.resolve(),
 	createUserPassword: () => Promise.resolve(),
 	logout: () => Promise.resolve(),
@@ -41,23 +39,6 @@ export function AuthProvider(props: any) {
 	const [user, setUser] = useState<User>(new User({ email: '', name: '' }))
 	const authentication = new ProviderUser(new AuthenticationProvider())
 	const userCookie = Cookie.get('Admin-QuizDev')
-
-	async function loginGoogle() {
-		setLoading(true)
-		const loggedUser = await authentication.loginGoogle()
-		const searchedUser = await getUser(loggedUser)
-
-		if (searchedUser) {
-			AuthenticationProvider.setCookieUser(searchedUser)
-			setLoading(false)
-			Router.push('/')
-		} else {
-			submitUser(loggedUser)
-			AuthenticationProvider.setCookieUser(loggedUser)
-			setLoading(false)
-			Router.push('/')
-		}
-	}
 
 	async function loginPassword(email: string, password: string) {
 		setLoading(true)
@@ -162,7 +143,6 @@ export function AuthProvider(props: any) {
 
 	return (
 		<AuthContext.Provider value={{
-			loginGoogle,
 			loginPassword,
 			createUserPassword,
 			logout,
