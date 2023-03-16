@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { User, Key } from 'phosphor-react'
+import { Key } from 'phosphor-react'
+import { HiMailOpen } from 'react-icons/hi'
+import { useToast } from '@chakra-ui/react'
 
 import Logotipo from '../../public/logotipo.svg'
 import GradientLg from '../components/GradientLarge'
@@ -10,11 +12,23 @@ import UseAuth from '../service/hooks/useAuth'
 
 export default function Login() {
 	const { loginPassword } = UseAuth()
-	const [name, setName] = useState('')
+	const toast = useToast()
+	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 
 	async function handleLoginSubmit() {
-		await loginPassword(name, password)
+		if (email === '' || password === '') {
+			toast({
+				position: 'top-right',
+				title: 'Algo deu errado!',
+				description: 'Preencha todos os dados corretamente!',
+				status: 'error',
+				duration: 3000,
+				isClosable: true,
+			})
+		} else {
+			await loginPassword(email, password)
+		}
 	}
 
 	return (
@@ -27,7 +41,7 @@ export default function Login() {
 				<form className='flex flex-col p-2 mt-[-30px]'>
 					<div className='flex flex-col gap-2'>
 						<div className='flex flex-col gap-10'>
-							<Input type="text" value={name} valueChange={setName} icon={<User />} placeholder="Nome" />
+							<Input type="text" value={name} valueChange={setEmail} icon={<HiMailOpen />} placeholder="Email" />
 							<Input type="password" value={password} valueChange={setPassword} icon={<Key />} placeholder="Senha" />
 						</div>
 
