@@ -8,7 +8,7 @@ interface Props{
 
 export default function BottomLg({ flex, padding_top, items, children, justify }: Props){
     return(
-        <div className={`flex flex-${flex} w-full h-[70%] pt-${padding_top} bg-background items-${items} ${justify}`}>
+        <div className={`flex flex-${flex} w-full pt-${padding_top} bg-background items-${items} ${justify}`}>
             { children }
         </div>
     )

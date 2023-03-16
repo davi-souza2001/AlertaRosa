@@ -41,7 +41,7 @@ export default function Login() {
 				<form className='flex flex-col p-2 mt-[-30px]'>
 					<div className='flex flex-col gap-2'>
 						<div className='flex flex-col gap-10'>
-							<Input type="text" value={name} valueChange={setEmail} icon={<HiMailOpen />} placeholder="Email" />
+							<Input type="text" value={email} valueChange={setEmail} icon={<HiMailOpen />} placeholder="Email" />
 							<Input type="password" value={password} valueChange={setPassword} icon={<Key />} placeholder="Senha" />
 						</div>
 

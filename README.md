@@ -14,10 +14,11 @@
 </html>  
 
 - [x] Fazer função de alertar o usuário todo erro que acontecer na plataforma
-- [ ] Verificar porque não está enviando formulário registro
-- [ ] Fazer página pra tirar dúvidas
-- [ ] Fazer página pra falar o que é violencia e dizer o que é a aplicação
+- [x] Verificar porque não está enviando formulário registro
+- [x] Fazer página pra falar o que é violencia e dizer o que é a aplicação
+- [x] Fazer página pra tirar dúvidas
 - [ ] Fazer página pra mostrar todos os quizs
+- [ ] Ajeitar lógica de levar até um quiz
 - [ ] Colocar perguntas corretas da plataforma
 - [ ] Terminar lógica das perguntas
 - [ ] Fazer conta pra dar o resultado do violetometro
