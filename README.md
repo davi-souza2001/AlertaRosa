@@ -17,7 +17,7 @@
 - [x] Verificar porque não está enviando formulário registro
 - [x] Fazer página pra falar o que é violencia e dizer o que é a aplicação
 - [x] Fazer página pra tirar dúvidas
-- [ ] Fazer página pra mostrar todos os quizs
+- [x] Fazer página pra mostrar todos os quizs
 - [ ] Ajeitar lógica de levar até um quiz
 - [ ] Colocar perguntas corretas da plataforma
 - [ ] Terminar lógica das perguntas

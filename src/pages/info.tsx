@@ -8,7 +8,7 @@ import BottomLg from "../components/BottomLarge"
 import GradientSm from "../components/GradientSmall"
 import { TopBar } from "../components/TopBar"
 
-export default function Result() {
+export default function Info() {
 	return (
 		<>
 			<TopBar />

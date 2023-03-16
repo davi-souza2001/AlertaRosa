@@ -1,3 +1,4 @@
+import Router from "next/router"
 import { HiArrowNarrowRight } from "react-icons/hi"
 import { Carousel } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
@@ -13,7 +14,7 @@ export default function Sections({ title }: Props) {
 		<>
 			<div className='h-20 w-full flex items-center justify-between px-5 z-0 text-white'>
 				<p className="font-semibold text-xl">{title}</p>
-				<p className="flex items-center justify-center text-[#9461E8]">Ver tudo <HiArrowNarrowRight /> </p>
+				<p className="flex items-center justify-center text-[#9461E8]" onClick={() => Router.push('/allQuiz')}>Ver tudo <HiArrowNarrowRight /> </p>
 			</div>
 
 			<div className="h-60 px-5">
