@@ -9,7 +9,7 @@ export class RoomProvider implements ProviderRoomProps {
 		await setDoc(doc(db, 'rooms', `${room.player}-${room.caterogie}`), room)
 	}
 
-	async getQuestions(categorie: string): Promise<QuestionProps[]> {
+	async getQuestions(): Promise<QuestionProps[]> {
 		let questions: QuestionProps[] = []
 		const questionsRef = collection(db, "questions")
 		const querySnapshot = await getDocs(questionsRef)

@@ -16,9 +16,9 @@ export default function Question() {
 	const categorie = useRouter().query.categorie
 	const roomProvider = new ProviderRoom(new RoomProvider())
 
-	async function test() {
+	async function getQuestions() {
 		if (categorie) {
-			const list = await roomProvider.getQuestions(categorie as string)
+			const list = await roomProvider.getQuestions()
 			setQuestions(list)
 		}
 	}
@@ -37,8 +37,8 @@ export default function Question() {
 	}
 
 	useEffect(() => {
-		test()
-	}, [categorie])
+		getQuestions()
+	}, [])
 
 	return (
 		<div>
@@ -46,9 +46,9 @@ export default function Question() {
 
 			<div className="w-full h-screen text-white">
 				<GradientLg flex="col" padding_top="pt-20">
-					<div className="h-10 w-full flex items-center justify-center">
-						<Progress colorScheme='green' size='md' value={20} className="w-full ml-2 rounded-lg" />
-						<p className="p-2">1/5</p>
+					<div className="h-10 w-96 flex items-center justify-center">
+						<Progress colorScheme='green' size='md' value={questionNumber / questions.length * 100} className="w-full ml-2 rounded-lg" />
+						<p className="p-2">{questionNumber + 1}/{questions.length}</p>
 					</div>
 
 					{renderQuestions()}
