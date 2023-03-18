@@ -31,9 +31,9 @@ export default function userPage() {
 							<div className="flex items-center  text-xl gap-2">
 								<p>{user.name !== '' ? user.name : 'Nome de usuário'}</p>
 								{editMode ? (
-									<XCircle className="text-xl" onClick={() => setEditMode(state => !state)} />
+									<XCircle className="text-xl cursor-pointer" onClick={() => setEditMode(state => !state)} />
 								) : (
-									<Pencil className="text-xl" weight="bold" onClick={() => setEditMode(state => !state)} />
+									<Pencil className="text-xl cursor-pointer" weight="bold" onClick={() => setEditMode(state => !state)} />
 								)}
 							</div>
 							<div className="flex items-center text-sm gap-2">
@@ -50,11 +50,11 @@ export default function userPage() {
 
 				<BottomLg flex="col" justify="justify-start" padding_top="10">
 					{editMode ? (
-						<div className='flex flex-col gap-10 mt-5 p-4'>
+						<div className='flex items-center justify-center flex-col gap-10 mt-5 p-4'>
 							<Input type="text" value={name} valueChange={setName} icon={<User />} placeholder="Name" />
 							<Input type="text" value={email} valueChange={setEmail} icon={<HiMailOpen />} placeholder="Email" />
 							<Input type="number" value={phone === 0 ? null : phone} valueChange={setPhone} icon={<Phone />} placeholder="Telefone" />
-							<button className='bg-white text-rosa p-2 mt-2 text-xl rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
+							<button className='w-32 bg-white text-rosa p-2 mt-2 text-xl rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
 								EDITAR
 							</button>
 						</div>
