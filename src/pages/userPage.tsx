@@ -1,23 +1,51 @@
 import Image from "next/image";
+import { useToast } from "@chakra-ui/react";
 import GradientSm from "../components/GradientSmall";
 
 import avatar from '../../public/female_avatar.svg'
-import { EnvelopeSimple, Pencil, Phone, Power, User, XCircle } from "phosphor-react";
+import { EnvelopeSimple, Pencil, Phone, Power, User as UserIcon, XCircle } from "phosphor-react";
 import { TopBar } from "../components/TopBar";
 import BottomLg from "../components/BottomLarge";
 import InfoContent from "../components/InfoContent";
 import Router from "next/router";
 import UseAuth from "../service/hooks/useAuth";
-import { useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import Input from "../components/Input";
-import { HiMailOpen } from "react-icons/hi";
+import { User } from "../core/User";
 
 export default function userPage() {
+	const { user, setUser, updateUser } = UseAuth()
+	const toast = useToast()
 	const [name, setName] = useState('')
-	const [email, setEmail] = useState('')
 	const [phone, setPhone] = useState(0)
 	const [editMode, setEditMode] = useState(false)
-	const { user } = UseAuth()
+
+	async function handleCreateSubmit(e: FormEvent) {
+		e.preventDefault()
+		if (name.length !== 0 || phone.toString().length <= 11) {
+			const newUser = new User({
+				email: user.email,
+				name: name ?? user.name,
+				phone: phone ?? user.phone
+			})
+			await updateUser(newUser)
+			setUser(newUser)
+		} else {
+			toast({
+				position: 'top-right',
+				title: 'Algo deu errado!',
+				description: 'Verifique suas informações e tente novamente!',
+				status: 'error',
+				duration: 3000,
+				isClosable: true,
+			})
+		}
+	}
+
+	useEffect(() => {
+		setName(user.name)
+		setPhone(user.phone ?? 0)
+	}, [user])
 
 	return (
 		<>
@@ -51,10 +79,9 @@ export default function userPage() {
 				<BottomLg flex="col" justify="justify-start" padding_top="10">
 					{editMode ? (
 						<div className='flex items-center justify-center flex-col gap-10 mt-5 p-4'>
-							<Input type="text" value={name} valueChange={setName} icon={<User />} placeholder="Name" />
-							<Input type="text" value={email} valueChange={setEmail} icon={<HiMailOpen />} placeholder="Email" />
+							<Input type="text" value={name} valueChange={setName} icon={<UserIcon />} placeholder="Name" />
 							<Input type="number" value={phone === 0 ? null : phone} valueChange={setPhone} icon={<Phone />} placeholder="Telefone" />
-							<button className='w-32 bg-white text-rosa p-2 mt-2 text-xl rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
+							<button onClick={handleCreateSubmit} className='w-32 bg-white text-rosa p-2 mt-2 text-xl rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
 								EDITAR
 							</button>
 						</div>

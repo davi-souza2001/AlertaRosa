@@ -11,10 +11,12 @@ import { ProviderUser } from "../../core/ProviderUser"
 interface AuthContextProps {
 	loginPassword(email: string, password: string): Promise<void>
 	createUserPassword(name: string, phone: number, email: string, password: string): Promise<void>
+	updateUser(user: User): Promise<void>
 	logout(): Promise<void>
 	getUser(user: User): Promise<User | false>
 	submitUser(user: User): Promise<void>
 	user: User
+	setUser: (value: any) => void
 	loading: boolean
 	setLoading: any
 }
@@ -22,6 +24,7 @@ interface AuthContextProps {
 const AuthContext = createContext<AuthContextProps>({
 	loginPassword: () => Promise.resolve(),
 	createUserPassword: () => Promise.resolve(),
+	updateUser: () => Promise.resolve(),
 	logout: () => Promise.resolve(),
 	getUser: (user: User) => Promise.resolve(user),
 	submitUser: () => Promise.resolve(),
@@ -29,6 +32,7 @@ const AuthContext = createContext<AuthContextProps>({
 		email: '',
 		name: ''
 	}),
+	setUser: () => {},
 	loading: false,
 	setLoading: {}
 })
@@ -111,6 +115,14 @@ export function AuthProvider(props: any) {
 		return userReceived ? userReceived : false
 	}
 
+	async function updateUser(user: User){
+		setLoading(true)
+
+		await authentication.updateUser(user)
+
+		setLoading(false)
+	}
+
 	async function submitUser(user: User) {
 		setLoading(true)
 
@@ -145,10 +157,12 @@ export function AuthProvider(props: any) {
 		<AuthContext.Provider value={{
 			loginPassword,
 			createUserPassword,
+			updateUser,
 			logout,
 			getUser,
 			submitUser,
 			user,
+			setUser,
 			loading,
 			setLoading
 		}}>

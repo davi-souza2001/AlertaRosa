@@ -3,7 +3,7 @@ interface Props {
 	icon: any
 	placeholder: any
 	value: any
-	valueChange?: (valor: any) => void
+	valueChange?: (value: any) => void
 }
 
 export default function Input({ type, icon, placeholder, value, valueChange }: Props) {

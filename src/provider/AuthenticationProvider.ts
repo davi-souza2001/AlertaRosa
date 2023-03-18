@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth'
-import { collection, doc, getDocs, limit, orderBy, query, setDoc, where } from 'firebase/firestore'
+import { collection, doc, getDocs, limit, orderBy, query, setDoc, updateDoc, where } from 'firebase/firestore'
 import Router from 'next/router'
 import Cookie from 'js-cookie'
 
@@ -24,7 +24,7 @@ export class AuthenticationProvider implements ProviderUserProps {
 		})
 	}
 
-	async loginPassword(email: string, password: string): Promise<User>{
+	async loginPassword(email: string, password: string): Promise<User> {
 		const userRequest = await signInWithEmailAndPassword(auth, email, password)
 
 		return this._user.clone({
@@ -35,6 +35,15 @@ export class AuthenticationProvider implements ProviderUserProps {
 
 	async createUserPassword(email: string, password: string): Promise<void> {
 		createUserWithEmailAndPassword(auth, email, password)
+	}
+
+	async updateUser(user: User): Promise<void> {
+		const userRef = doc(db, "users", user.email);
+
+		await updateDoc(userRef, {
+			name: user.name,
+			phone: user.phone
+		})
 	}
 
 	async getUser(user: User): Promise<User | false> {

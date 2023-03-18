@@ -4,6 +4,7 @@ export interface ProviderUserProps {
 	loginGoogle(): Promise<User>
 	loginPassword(email: string, password: string): Promise<User>
 	createUserPassword(email: string, password: string): Promise<void>
+	updateUser(user: User): Promise<void>
 	getUser(user: User): Promise<User | false>
 	getUserLogged(cookie: string): Promise<User>
 	submitUser(user: User): Promise<void>
@@ -49,5 +50,9 @@ export class ProviderUser {
 		const user = await this._providerAuthentication.getUserLogged(cookie)
 
 		return user
+	}
+
+	async updateUser(user: User): Promise<void>{
+		await this._providerAuthentication.updateUser(user)
 	}
 }
