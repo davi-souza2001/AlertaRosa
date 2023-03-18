@@ -19,7 +19,7 @@ export default function StartQuestions() {
 			player: user.email,
 			answers: []
 		})
-		Router.push('/questions/red')
+		Router.push('/questions/all')
 	}
 	return (
 		<>
