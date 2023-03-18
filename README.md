@@ -22,5 +22,5 @@
 - [x] Colocar perguntas corretas da plataforma
 - [ ] Terminar lógica das perguntas
 - [ ] Fazer conta pra dar o resultado do violetometro
-- [ ] Fazer função pra editar os dados do usuário
+- [x] Fazer função pra editar os dados do usuário
 - [ ] Ajeitar layout
