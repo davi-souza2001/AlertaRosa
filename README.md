@@ -27,6 +27,7 @@
 - [ ] Fazer página de legislação
 - [ ] Fazer página de chat
 - [ ] Fazer página de comunidades
+- [ ] Fazer novo input de número no "register", limitando ele para 11 dígitos
 - [ ] Fazer conta pra dar o resultado do violetometro
 - [x] Fazer função pra editar os dados do usuário
 - [ ] Ajeitar layout
