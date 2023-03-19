@@ -1,6 +1,6 @@
 import { Progress } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
-import { useRouter } from "next/router"
+import Router, { useRouter } from "next/router"
 
 import { TopBar } from "../../components/TopBar"
 import { ProviderRoom } from "../../core/ProviderRoom"
@@ -13,6 +13,7 @@ export default function Question() {
 	const [checked, setChecked] = useState<'yes' | 'no' | ''>('')
 	const [questions, setQuestions] = useState<QuestionProps[]>([])
 	const [questionNumber, setQuestionNumber] = useState(0)
+	const [answersList, setAnswersList] = useState([])
 	const categorie = useRouter().query.categorie
 	const roomProvider = new ProviderRoom(new RoomProvider())
 
@@ -32,8 +33,12 @@ export default function Question() {
 	}
 
 	function nextQuestion() {
-		setQuestionNumber(state => state + 1)
-		setChecked('')
+		if (questionNumber + 2 > questions.length) {
+			Router.push('/result/test')
+		} else {
+			setQuestionNumber(state => state + 1)
+			setChecked('')
+		}
 	}
 
 	useEffect(() => {
@@ -48,7 +53,7 @@ export default function Question() {
 				<GradientLg flex="col" padding_top="pt-20">
 					<div className="h-10 w-96 flex items-center justify-center">
 						<Progress colorScheme='green' size='md' value={questionNumber / questions.length * 100} className="w-full ml-2 rounded-lg" />
-						<p className="p-2">{questionNumber + 1}/{questions.length}</p>
+						<p className="p-2">{questionNumber}/{questions.length}</p>
 					</div>
 
 					{renderQuestions()}
