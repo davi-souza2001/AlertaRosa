@@ -1,6 +1,7 @@
 import { useToast } from '@chakra-ui/react'
 import Image from 'next/image'
 import Link from 'next/link'
+import Router from 'next/router'
 import { Key, Phone, User, } from 'phosphor-react'
 import React, { FormEvent, useState } from 'react'
 import { HiMailOpen } from 'react-icons/hi'
@@ -69,6 +70,9 @@ export default function Register() {
 						CRIAR
 					</button>
 				</form>
+				<button onClick={() => Router.push('/login')} className='bg-white text-rosa p-2 mt-2 text-xl rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
+					JÁ TENHO CONTA
+				</button>
 			</GradientLg>
 		</div>
 	)
