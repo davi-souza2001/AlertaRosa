@@ -22,6 +22,11 @@
 - [x] Colocar perguntas corretas da plataforma
 - [ ] Terminar lógica das perguntas
 - [ ] Fazer nova página principal
+- [ ] Fazer página de contatos úteis
+- [ ] Fazer página de dúvidas frequentes
+- [ ] Fazer página de legislação
+- [ ] Fazer página de chat
+- [ ] Fazer página de comunidades
 - [ ] Fazer conta pra dar o resultado do violetometro
 - [x] Fazer função pra editar os dados do usuário
 - [ ] Ajeitar layout
