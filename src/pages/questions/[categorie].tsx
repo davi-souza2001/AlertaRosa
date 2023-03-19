@@ -9,11 +9,16 @@ import { QuestionProps } from "../../core/Question"
 import GradientLg from "../../components/GradientLarge"
 import BottomSm from "../../components/BottomSmall"
 
+interface answersListProps{
+	id: string
+	categorie: string
+}
+
 export default function Question() {
 	const [checked, setChecked] = useState<'yes' | 'no' | ''>('')
 	const [questions, setQuestions] = useState<QuestionProps[]>([])
 	const [questionNumber, setQuestionNumber] = useState(0)
-	const [answersList, setAnswersList] = useState([])
+	const [answersList, setAnswersList] = useState<answersListProps[]>([])
 	const categorie = useRouter().query.categorie
 	const roomProvider = new ProviderRoom(new RoomProvider())
 
@@ -33,6 +38,12 @@ export default function Question() {
 	}
 
 	function nextQuestion() {
+		if (checked === "yes"){
+			setAnswersList([...answersList, {
+				id: questions[questionNumber].id.toString(),
+				categorie: questions[questionNumber].categorie
+			}])
+		}
 		if (questionNumber + 2 > questions.length) {
 			Router.push('/result/test')
 		} else {
