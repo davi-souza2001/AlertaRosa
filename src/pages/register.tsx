@@ -29,7 +29,7 @@ export default function Register() {
 				duration: 3000,
 				isClosable: true,
 			})
-		} else if (name !== '' && password !== '' && phone.toString().length <= 11) {
+		} else if (name !== '' && password !== '' && phone.toString().length !== 11) {
 			await createUserPassword(name, phone, email, password)
 		} else {
 			toast({
