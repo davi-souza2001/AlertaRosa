@@ -14,7 +14,7 @@ export default function MainBox() {
 				<div className='w-[40%] p-2 lg:p-6 rounded-3xl'>
 					<Image src={GirlIcon} alt='Imagem de mulher com coração' height={180} width={180} />
 				</div>
-				<p className="w-[60%] text-left text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non molestias laborum quis harum magnam</p>
+				<p className="w-[60%] text-left text-sm lg:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non molestias laborum quis harum magnam</p>
 			</div>
 		</GradientSm>
 	)
