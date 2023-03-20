@@ -21,7 +21,7 @@ export default function Home() {
 				<p className="font-semibold text-white text-xl pt-5 px-5">Formulário - Violentômetro</p>
 			</div>
 			<div className='h-44 w-full flex items-start justify-start lg:hidden'>
-				<div className="h-full w-96 flex items-center justify-around text-white text-left text-xs ml-5 mr-5 rounded-lg bg-rosa">
+				<div className="h-full w-96 flex items-center justify-around text-white text-left text-xs ml-5 mr-5 rounded-lg bg-rosa" onClick={() => Router.push('/startQuestions/questions')}>
 					<Image alt="mulher com flor" src={GirlFlower} height={150} width={150} />
 					<p className="p-5">Aqui você pode fazer um formulário de acordo com os parâmetros do violentômetro. Antes de começar você vai ser explicada sobre como funcionar o processo e o que pode esperar desse teste.</p>
 				</div>
