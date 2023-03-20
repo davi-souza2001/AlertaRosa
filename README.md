@@ -21,13 +21,15 @@
 - [x] Ajeitar lógica de levar até um quiz
 - [x] Colocar perguntas corretas da plataforma
 - [ ] Terminar lógica das perguntas
-- [ ] Fazer nova página principal
-- [ ] Fazer página de contatos úteis
-- [ ] Fazer página de dúvidas frequentes
-- [ ] Fazer página de legislação
-- [ ] Fazer página de chat
-- [ ] Fazer página de comunidades
-- [ ] Fazer novo input de número no "register", limitando ele para 11 dígitos
 - [ ] Fazer conta pra dar o resultado do violetometro
+- [ ] Adicionar legislações
+- [ ] Adicionar comunidades ou chats da plataformas
+- [x] Fazer nova página principal
+- [x] Fazer página de contatos úteis
+- [x] Fazer página de dúvidas frequentes
+- [x] Fazer página de legislação
+- [x] Fazer página de comunidades
+- [ ] Fazer novo input de número no "register", limitando ele para 11 dígitos
 - [x] Fazer função pra editar os dados do usuário
+- [ ] Revisar código e alinhar
 - [ ] Ajeitar layout

@@ -1,6 +1,5 @@
 import Image from "next/image"
 import Link from "next/link"
-import Router from "next/router"
 import { Eye } from "phosphor-react"
 
 import GirlIcon from '../../public/girlresult.svg'
@@ -8,7 +7,7 @@ import BottomLg from "../components/BottomLarge"
 import GradientSm from "../components/GradientSmall"
 import { TopBar } from "../components/TopBar"
 
-export default function Info() {
+export default function AskedQuestions() {
 	return (
 		<>
 			<TopBar />

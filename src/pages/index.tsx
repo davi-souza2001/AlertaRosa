@@ -42,7 +42,6 @@ export default function Home() {
 						<BoxCategorie content="Contatos Úteis" />
 						<BoxCategorie content="Dúvidas Frequentes" />
 						<BoxCategorie content="Legislação" />
-						<BoxCategorie content="Chat" />
 						<BoxCategorie content="Comunidades" />
 					</Carousel>
 				</div>
@@ -51,7 +50,6 @@ export default function Home() {
 						<BoxCategorie content="Contatos Úteis" />
 						<BoxCategorie content="Dúvidas Frequentes" />
 						<BoxCategorie content="Legislação" />
-						<BoxCategorie content="Chat" />
 						<BoxCategorie content="Comunidades" />
 					</Carousel>
 				</div>

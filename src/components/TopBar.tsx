@@ -37,8 +37,16 @@ export function TopBar() {
 										<p>Minha Conta</p>
 									</div>
 
-									<div className='h-5 w-full flex items-center justify-start mx-5 my-5 cursor-pointer' onClick={() => Router.push('/info')}>
-										<p>Informações</p>
+									<div className='h-5 w-full flex items-center justify-start mx-5 my-5 cursor-pointer' onClick={() => Router.push('/contacts')}>
+										<p>Contatos Úteis</p>
+									</div>
+
+									<div className='h-5 w-full flex items-center justify-start mx-5 my-5 cursor-pointer' onClick={() => Router.push('/AskedQuestions')}>
+										<p>Dúvidas Frequentes</p>
+									</div>
+
+									<div className='h-5 w-full flex items-center justify-start mx-5 my-5 cursor-pointer' onClick={() => Router.push('/legislation')}>
+										<p>Legislação</p>
 									</div>
 
 									<div className='flex w-full justify-center items-center'>
