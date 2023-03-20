@@ -5,7 +5,7 @@ interface BackgroundProps{
 
 export default function Background(props: BackgroundProps) {
     return(
-		<div className={`w-full bg-background ${props.className} pb-10`}>
+		<div className={`w-full bg-background ${props.className}`}>
 			{props.children}
 		</div>
     )

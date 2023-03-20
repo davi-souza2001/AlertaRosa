@@ -1,9 +1,10 @@
-import Router from "next/router";
-import { Power } from "phosphor-react";
-
 import BottomLg from "../components/BottomLarge";
+import GradientSm from "../components/GradientSmall";
 import InfoContent from "../components/InfoContent";
 import { TopBar } from "../components/TopBar";
+
+import GirlIcon from '../../public/girlPhone.svg'
+import Image from "next/image";
 
 export default function Contacts() {
 	return (
@@ -11,7 +12,14 @@ export default function Contacts() {
 			<TopBar />
 
 			<div className="w-full h-screen text-white">
-				<BottomLg flex="col" justify="justify-start" padding_top="10">
+				<GradientSm padding_top="pt-20">
+					<div className='w-full flex items-center justify-center gap-3'>
+						<Image src={GirlIcon} alt='Imagem de mulher com celular' className="flex lg:hidden" width={160} />
+						<Image src={GirlIcon} alt='Imagem de mulher com celular' className="lg:flex hidden" width={180} />
+					</div>
+				</GradientSm>
+
+				<BottomLg flex="col" justify="justify-start">
 						<p className="text-2xl font-semibold mt-8 ml-5">Informações:</p>
 
 						<InfoContent name="MPPE" contact="(81) 99232.3667" local="Av. Visconde de Suassuna, 99, Salas B-04/05, Santo Amaro – Recife. CEP: 50050-540" />

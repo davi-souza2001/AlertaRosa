@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Eye } from "phosphor-react"
 
-import GirlIcon from '../../public/girlresult.svg'
+import GirlIcon from '../../public/girlQuestion.svg'
 import BottomLg from "../components/BottomLarge"
 import GradientSm from "../components/GradientSmall"
 import { TopBar } from "../components/TopBar"
@@ -14,10 +14,7 @@ export default function AskedQuestions() {
 			<div className="w-full h-screen text-white">
 				<GradientSm padding_top="pt-20">
 					<div className='w-full flex items-center justify-center gap-3'>
-						<div className='w-[50%] rounded-3xl'>
-							<Image src={GirlIcon} alt='Imagem de mulher com resultado' width={200} />
-						</div>
-						<p className="w-[50%] text-lg font-semibold">Informações!</p>
+						<Image src={GirlIcon} alt='Imagem de mulher com dúvida' width={160} />
 					</div>
 				</GradientSm>
 
@@ -41,7 +38,7 @@ export default function AskedQuestions() {
 						</div>
 						<div className="flex flex-col ml-5 gap-5">
 
-							<Link className="bg-rosa h-10 w-36 flex items-center justify-around p-4 mb-10 rounded-md" href={'https://github.com/davi-souza2001/QuizDev'} target='_blank'>
+							<Link className="w-44 ml-5 flex justify-center items-center gap-2 bg-white text-rosa my-10 py-3 px-6 rounded-lg lg:hover:opacity-100 lg:opacity-95 transition-opacity" href={'https://github.com/davi-souza2001/QuizDev'} target='_blank'>
 								Sobre nós <Eye className="text-xl" />
 							</Link>
 						</div>

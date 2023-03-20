@@ -3,7 +3,7 @@ import Image from "next/image"
 import BottomLg from "../components/BottomLarge"
 import GradientSm from "../components/GradientSmall"
 import { TopBar } from "../components/TopBar"
-import GirlIcon from '../../public/girlresult.svg'
+import GirlIcon from '../../public/girlDocument.svg'
 
 export default function Legislation(){
 	return (
@@ -12,9 +12,7 @@ export default function Legislation(){
 			<div className="w-full h-screen text-white">
 				<GradientSm padding_top="pt-20">
 					<div className='w-full flex items-center justify-center gap-3'>
-						<div className='w-[50%] rounded-3xl'>
-							<Image src={GirlIcon} alt='Imagem de mulher com resultado' width={200} />
-						</div>
+						<Image src={GirlIcon} alt='Imagem de mulher com resultado' width={160} />
 					</div>
 				</GradientSm>
 

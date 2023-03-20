@@ -17,16 +17,38 @@ export function TopBar() {
 	return (
 		<div className='fixed w-full z-50'>
 			<div className='h-20 w-full flex items-center shadow-lg'>
-				<div className='h-full w-full flex items-center justify-between font-medium text-xl px-5 bg-roxo'>
+				<div className='h-full w-full flex items-center justify-between font-medium text-xl px-5 bg-background'>
 					<div className='flex gap-2 cursor-pointer' onClick={() => Router.push('/')}>
 						<Image src={Logo} alt='Logo do quiz' height={30} width={30} />
 						<div className='flex items-end'>
 							<p className='text-white'>Alerta</p>
-							<p className='text-base font-medium text-rosa'>Rosa</p>
+							<p className='text-base font-medium text-[#DD61E8]'>Rosa</p>
 						</div>
 					</div>
 
-					<div className='h-full w-[30%] flex items-center justify-end'>
+					<div className='text-white text-base font-light hidden lg:flex gap-2'>
+						<div className='cursor-pointer hover:opacity-80 transition-all' onClick={() => Router.push('/')}>
+							<p>Início |</p>
+						</div>
+
+						<div className='cursor-pointer hover:opacity-80 transition-all' onClick={() => Router.push('/userPage')}>
+							<p>Minha Conta |</p>
+						</div>
+
+						<div className='cursor-pointer hover:opacity-80 transition-all' onClick={() => Router.push('/contacts')}>
+							<p>Contatos Úteis |</p>
+						</div>
+
+						<div className='cursor-pointer hover:opacity-80 transition-all' onClick={() => Router.push('/AskedQuestions')}>
+							<p>Dúvidas Frequentes |</p>
+						</div>
+
+						<div className='cursor-pointer hover:opacity-80 transition-all' onClick={() => Router.push('/legislation')}>
+							<p>Legislação</p>
+						</div>
+					</div>
+
+					<div className='h-full w-[30%] flex lg:hidden items-center justify-end'>
 						<Menu>
 							<MenuButton >
 								<HiMenu className='h-8 w-14 mr-2 text-xl text-white' onClick={(e) => handleClick(e)} />
