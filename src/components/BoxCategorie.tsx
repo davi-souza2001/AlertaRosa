@@ -11,7 +11,7 @@ export function BoxCategorie(props: BoxCategorieProps) {
 			<div className="h-3/5 w-full rounded-t-lg bg-rosa">
 				teste
 			</div>
-			<div className="h-2/5 w-full flex items-center justify-center rounded-b-lg bg-slate-50">
+			<div className="h-2/5 w-full flex items-center justify-center rounded-b-lg bg-slate-50 text-black">
 				{props.content}
 			</div>
 		</div>
