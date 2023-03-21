@@ -20,15 +20,17 @@
 - [x] Fazer página pra mostrar todos os quizs
 - [x] Ajeitar lógica de levar até um quiz
 - [x] Colocar perguntas corretas da plataforma
-- [ ] Terminar lógica das perguntas
-- [ ] Fazer conta pra dar o resultado do violetometro
-- [ ] Adicionar legislações
-- [ ] Adicionar comunidades ou chats da plataformas
+- [x] Terminar lógica das perguntas
+- [x] Fazer conta pra dar o resultado do violentometro
 - [x] Fazer nova página principal
 - [x] Fazer página de contatos úteis
 - [x] Fazer página de dúvidas frequentes
 - [x] Fazer página de legislação
 - [x] Fazer página de comunidades
+- [ ] Adicionar Perguntas Frequentes
+- [ ] Adicionar legislações
+- [ ] Adicionar Mensagem com o resultado do violentometro
+- [ ] Adicionar comunidades ou chats da plataformas
 - [ ] Fazer novo input de número no "register", limitando ele para 11 dígitos
 - [x] Fazer função pra editar os dados do usuário
 - [ ] Revisar código e alinhar

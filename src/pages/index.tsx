@@ -39,18 +39,18 @@ export default function Home() {
 			<div className="h-60 px-5">
 				<div className="lg:hidden">
 					<Carousel showStatus={false} showArrows={true} showIndicators={false} centerMode centerSlidePercentage={70}>
-						<BoxCategorie content="Contatos Úteis" />
-						<BoxCategorie content="Dúvidas Frequentes" />
-						<BoxCategorie content="Legislação" />
-						<BoxCategorie content="Comunidades" />
+						<BoxCategorie content="Contatos Úteis" link="/contacts" />
+						<BoxCategorie content="Dúvidas Frequentes" link="/AskedQuestions" />
+						<BoxCategorie content="Legislação" link="/legislation" />
+						<BoxCategorie content="Comunidades" link="/legislation" />
 					</Carousel>
 				</div>
 				<div className="hidden lg:block">
 					<Carousel showStatus={false} showArrows={true} showIndicators={false} centerMode centerSlidePercentage={20}>
-						<BoxCategorie content="Contatos Úteis" />
-						<BoxCategorie content="Dúvidas Frequentes" />
-						<BoxCategorie content="Legislação" />
-						<BoxCategorie content="Comunidades" />
+						<BoxCategorie content="Contatos Úteis" link="/contacts" />
+						<BoxCategorie content="Dúvidas Frequentes" link="/AskedQuestions" />
+						<BoxCategorie content="Legislação" link="/legislation" />
+						<BoxCategorie content="Comunidades" link="/legislation" />
 					</Carousel>
 				</div>
 			</div>
