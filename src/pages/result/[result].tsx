@@ -1,5 +1,5 @@
 import Image from "next/image"
-import Router from "next/router"
+import Router, { useRouter } from "next/router"
 import { Eye } from "phosphor-react"
 
 import { TopBar } from "../../components/TopBar"
@@ -8,6 +8,8 @@ import GradientSm from "../../components/GradientSmall"
 import BottomLg from "../../components/BottomLarge"
 
 export default function Result() {
+	const router = useRouter()
+	const result: any = router.query.result
 	return (
 		<>
 			<TopBar />

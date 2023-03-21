@@ -8,8 +8,9 @@ import { RoomProvider } from "../../provider/RoomProvider"
 import { QuestionProps } from "../../core/Question"
 import GradientLg from "../../components/GradientLarge"
 import BottomSm from "../../components/BottomSmall"
+import { renderMensage } from "../../utils/renderMensage"
 
-interface answersListProps{
+export interface answersListProps{
 	id: string
 	categorie: string
 }
@@ -45,7 +46,8 @@ export default function Question() {
 			}])
 		}
 		if (questionNumber + 2 > questions.length) {
-			Router.push('/result/test')
+			const result = renderMensage(answersList)
+			Router.push(`/result/${result}`)
 		} else {
 			setQuestionNumber(state => state + 1)
 			setChecked('')
