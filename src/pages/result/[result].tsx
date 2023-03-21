@@ -9,7 +9,7 @@ import BottomLg from "../../components/BottomLarge"
 
 export default function Result() {
 	const router = useRouter()
-	const result: any = router.query.result
+	const result = router.query.result
 	return (
 		<>
 			<TopBar />
@@ -27,7 +27,7 @@ export default function Result() {
 					<div className="flex flex-col text-white gap-5">
 						<div className="flex flex-col ml-5 my-5 gap-5">
 							<p className="text-xl font-semibold">O que fazer?</p>
-							<p className="text-lg font-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima magni dolorum harum culpa voluptatum doloribus quis ex libero pariatur ipsam dolore, quod incidunt eius autem id, alias mollitia explicabo magnam.</p>
+							<p className="text-lg font-normal">Deu {result}</p>
 						</div>
 
 						<div className="flex flex-col ml-5 gap-5">
