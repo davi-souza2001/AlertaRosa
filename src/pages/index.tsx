@@ -1,6 +1,5 @@
 import Router from "next/router"
 import Image from "next/image"
-import { HiArrowNarrowRight } from "react-icons/hi"
 import { Carousel } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
@@ -9,6 +8,11 @@ import { TopBar } from "../components/TopBar"
 
 import GirlFlower from '../../public/girlFlower.svg'
 import { BoxCategorie } from "../components/BoxCategorie"
+
+import GirlPhone from '../../public/girlPhone.svg'
+import GirlLegislation from '../../public/girlDocument.svg'
+import GirlQuestion from '../../public/girlQuestion.svg'
+import GirlCommunity from '../../public/girlCommunity.svg'
 
 export default function Home() {
 	return (
@@ -21,7 +25,7 @@ export default function Home() {
 				<p className="font-semibold text-xl pt-5 px-5 text-white">Formulário - Violentômetro</p>
 			</div>
 			<div className='h-44 w-full flex items-start justify-start lg:hidden'>
-				<div className="h-full w-96 flex items-center justify-around text-white text-justify text-xs mx-5 p-5 gap-5 rounded-lg rounded-tl-none shadow-lg bg-rosa" onClick={() => Router.push('/startQuestions/questions')}>
+				<div className="h-full w-96 flex items-center justify-around text-white text-left text-xs mx-5 p-5 gap-5 rounded-lg rounded-tl-none shadow-lg bg-rosa" onClick={() => Router.push('/startQuestions/questions')}>
 					<Image alt="mulher com flor" src={GirlFlower} height={100} width={100} />
 					<p>Aqui você pode fazer um formulário de acordo com os parâmetros do violentômetro. Antes de começar você vai ser explicada sobre como funcionar o processo e o que pode esperar desse teste.</p>
 				</div>
@@ -39,18 +43,18 @@ export default function Home() {
 			<div className="h-60 px-5">
 				<div className="lg:hidden">
 					<Carousel showStatus={false} showArrows={true} showIndicators={false} centerMode centerSlidePercentage={70}>
-						<BoxCategorie content="Contatos Úteis" link="/contacts" />
-						<BoxCategorie content="Dúvidas Frequentes" link="/AskedQuestions" />
-						<BoxCategorie content="Legislação" link="/legislation" />
-						<BoxCategorie content="Comunidades" link="/legislation" />
+						<BoxCategorie image={GirlPhone} content="Contatos Úteis" link="/contacts" />
+						<BoxCategorie image={GirlQuestion} content="Dúvidas Frequentes" link="/AskedQuestions" />
+						<BoxCategorie image={GirlLegislation} content="Legislação" link="/legislation" />
+						<BoxCategorie image={GirlCommunity} content="Comunidades" link="/legislation" />
 					</Carousel>
 				</div>
 				<div className="hidden lg:block">
 					<Carousel showStatus={false} showArrows={true} showIndicators={false} centerMode centerSlidePercentage={20}>
-						<BoxCategorie content="Contatos Úteis" link="/contacts" />
-						<BoxCategorie content="Dúvidas Frequentes" link="/AskedQuestions" />
-						<BoxCategorie content="Legislação" link="/legislation" />
-						<BoxCategorie content="Comunidades" link="/legislation" />
+						<BoxCategorie image={GirlPhone} content="Contatos Úteis" link="/contacts" />
+						<BoxCategorie image={GirlQuestion} content="Dúvidas Frequentes" link="/AskedQuestions" />
+						<BoxCategorie image={GirlLegislation} content="Legislação" link="/legislation" />
+						<BoxCategorie image={GirlCommunity} content="Comunidades" link="/legislation" />
 					</Carousel>
 				</div>
 			</div>
@@ -61,18 +65,18 @@ export default function Home() {
 			<div className="h-60 px-5">
 				<div className="lg:hidden">
 					<Carousel showStatus={false} showArrows={true} showIndicators={false} centerMode centerSlidePercentage={70}>
-						<BoxCategorie content="Davi Souza" />
-						<BoxCategorie content="Vini" />
-						<BoxCategorie content="Paloma Alves" />
-						<BoxCategorie content="Juliete Sérvio" />
+						<BoxCategorie image="" content="Davi Souza" />
+						<BoxCategorie image="" content="Vini" />
+						<BoxCategorie image="" content="Paloma Alves" />
+						<BoxCategorie image="" content="Juliete Sérvio" />
 					</Carousel>
 				</div>
 				<div className="hidden lg:block">
 					<Carousel showStatus={false} showArrows={true} showIndicators={false} centerMode centerSlidePercentage={20}>
-						<BoxCategorie content="Davi Souza" />
-						<BoxCategorie content="Vini" />
-						<BoxCategorie content="Paloma Alves" />
-						<BoxCategorie content="Juliete Sérvio" />
+						<BoxCategorie image="" content="Davi Souza" />
+						<BoxCategorie image="" content="Vini" />
+						<BoxCategorie image="" content="Paloma Alves" />
+						<BoxCategorie image="" content="Juliete Sérvio" />
 					</Carousel>
 				</div>
 			</div>
