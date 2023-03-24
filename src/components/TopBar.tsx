@@ -31,10 +31,6 @@ export function TopBar() {
 							<p>Início |</p>
 						</div>
 
-						<div className='cursor-pointer hover:opacity-80 transition-all' onClick={() => Router.push('/userPage')}>
-							<p>Minha Conta |</p>
-						</div>
-
 						<div className='cursor-pointer hover:opacity-80 transition-all' onClick={() => Router.push('/contacts')}>
 							<p>Contatos Úteis |</p>
 						</div>
@@ -44,7 +40,11 @@ export function TopBar() {
 						</div>
 
 						<div className='cursor-pointer hover:opacity-80 transition-all' onClick={() => Router.push('/legislation')}>
-							<p>Legislação</p>
+							<p>Legislação |</p>
+						</div>
+
+						<div className='cursor-pointer hover:opacity-80 transition-all' onClick={() => Router.push('/userPage')}>
+							<p>Minha Conta</p>
 						</div>
 					</div>
 
