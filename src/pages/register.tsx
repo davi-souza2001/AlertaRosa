@@ -1,19 +1,17 @@
 import { useToast } from '@chakra-ui/react'
 import Image from 'next/image'
 import Link from 'next/link'
-import Router from 'next/router'
 import { EnvelopeSimpleOpen, Key, Phone, User, } from 'phosphor-react'
 import React, { FormEvent, useState } from 'react'
 
 import Logotipo from '../../public/logotipo.svg'
-import GradientLg from '../components/GradientLarge'
 import Input from '../components/Input'
 import UseAuth from '../service/hooks/useAuth'
 
 export default function Register() {
 	const [name, setName] = useState('')
 	const [email, setEmail] = useState('')
-	const [phone, setPhone] = useState(0)
+	const [phone, setPhone] = useState('')
 	const [password, setPassword] = useState('')
 	const toast = useToast()
 	const { createUserPassword } = UseAuth()
@@ -29,7 +27,7 @@ export default function Register() {
 				duration: 3000,
 				isClosable: true,
 			})
-		} else if (name !== '' && password !== '' && phone.toString().length !== 11) {
+		} else if (name !== '' && password !== '' && phone.toString().length === 15) {
 			await createUserPassword(name, phone, email, password)
 		} else {
 			toast({
@@ -55,7 +53,7 @@ export default function Register() {
 						<div className='flex flex-col gap-5'>
 							<Input type="text" value={name} valueChange={setName} icon={<User />} placeholder="Name" />
 							<Input type="text" value={email} valueChange={setEmail} icon={<EnvelopeSimpleOpen />} placeholder="Email" />
-							<Input type="number" value={phone === 0 ? null : phone} valueChange={setPhone} icon={<Phone />} placeholder="Número celular" />
+							<Input type="tel" value={phone} valueChange={setPhone} icon={<Phone />} placeholder="DDD + Número" />
 							<Input type="password" value={password} valueChange={setPassword} icon={<Key />} placeholder="Senha" />
 						</div>
 

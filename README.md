@@ -30,7 +30,7 @@
 - [ ] Adicionar Perguntas Frequentes
 - [ ] Adicionar legislações
 - [ ] Adicionar Mensagem com o resultado do violentometro
-- [ ] Fazer novo input de número no "register", limitando ele para 11 dígitos
+- [x] Fazer novo input de número no "register"
 - [x] Fazer função pra editar os dados do usuário
 - [ ] Revisar código e alinhar
 - [ ] Ajeitar layout

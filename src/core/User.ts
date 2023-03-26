@@ -1,7 +1,7 @@
 export interface UserProps {
 	name: string
 	email: string
-	phone?: number
+	phone?: string
 }
 
 export class User {
