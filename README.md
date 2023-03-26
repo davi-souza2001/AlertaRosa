@@ -34,4 +34,3 @@
 - [x] Fazer função pra editar os dados do usuário
 - [ ] Revisar código e alinhar
 - [ ] Ajeitar layout
-<!-- asd -->
