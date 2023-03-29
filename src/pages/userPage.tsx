@@ -16,7 +16,7 @@ export default function userPage() {
 	const { user, setUser, updateUser } = UseAuth()
 	const toast = useToast()
 	const [name, setName] = useState('')
-	const [phone, setPhone] = useState(0)
+	const [phone, setPhone] = useState('')
 	const [editMode, setEditMode] = useState(false)
 
 	async function handleCreateSubmit(e: FormEvent) {
@@ -43,7 +43,7 @@ export default function userPage() {
 
 	useEffect(() => {
 		setName(user.name)
-		setPhone(user.phone ?? 0)
+		setPhone(user.phone ?? '')
 	}, [user])
 
 	return (
@@ -79,7 +79,7 @@ export default function userPage() {
 					{editMode && (
 						<div className='flex items-center justify-center flex-col gap-10 mt-5 p-4'>
 							<Input type="text" value={name} valueChange={setName} icon={<UserIcon />} placeholder="Name" />
-							<Input type="number" value={phone === 0 ? null : phone} valueChange={setPhone} icon={<Phone />} placeholder="Telefone" />
+							<Input type="number" value={phone === '' ? null : phone} valueChange={setPhone} icon={<Phone />} placeholder="Telefone" />
 							<button onClick={handleCreateSubmit} className='w-32 bg-white text-rosa p-2 mt-2 text-xl rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
 								EDITAR
 							</button>
