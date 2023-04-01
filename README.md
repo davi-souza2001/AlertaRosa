@@ -27,6 +27,7 @@
 - [x] Fazer página de dúvidas frequentes
 - [x] Fazer página de legislação
 - [x] Fazer página de comunidades
+- [ ] Ajeitar tela de registro com o botão saindo da tela
 - [ ] Guardar o resultado das perguntas
 - [ ] Melhorar validação do registro
 - [ ] Melhorar inout de telefone
