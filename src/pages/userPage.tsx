@@ -79,7 +79,7 @@ export default function userPage() {
 					{editMode && (
 						<div className='flex items-center justify-center flex-col gap-10 mt-5 p-4'>
 							<Input type="text" value={name} valueChange={setName} icon={<UserIcon />} placeholder="Name" />
-							<Input type="number" value={phone === '' ? null : phone} valueChange={setPhone} icon={<Phone />} placeholder="Telefone" />
+							<Input type="tel" value={phone === '' ? null : phone} valueChange={setPhone} icon={<Phone />} placeholder="Telefone" />
 							<button onClick={handleCreateSubmit} className='w-32 bg-white text-rosa p-2 mt-2 text-xl rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
 								EDITAR
 							</button>
