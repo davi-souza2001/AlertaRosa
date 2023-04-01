@@ -58,7 +58,9 @@ export class AuthenticationProvider implements ProviderUserProps {
 		await setDoc(doc(db, 'users', user.email), {
 			name: user.name,
 			email: user.email,
-			phone: user.phone
+			phone: user.phone,
+			state: user.state,
+			city: user.city
 		})
 	}
 

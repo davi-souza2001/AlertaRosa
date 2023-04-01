@@ -11,6 +11,8 @@ import UseAuth from '../service/hooks/useAuth'
 export default function Register() {
 	const [name, setName] = useState('')
 	const [email, setEmail] = useState('')
+	const [state, setState] = useState('')
+	const [city, setCity] = useState('')
 	const [phone, setPhone] = useState('')
 	const [password, setPassword] = useState('')
 	const toast = useToast()
@@ -27,8 +29,8 @@ export default function Register() {
 				duration: 3000,
 				isClosable: true,
 			})
-		} else if (name !== '' && password !== '' && phone.toString().length === 15) {
-			await createUserPassword(name, phone, email, password)
+		} else if (name !== '' && password !== '' && state !== '' && city !== '' && phone.toString().length === 15) {
+			await createUserPassword(name, phone, state, city, email, password)
 		} else {
 			toast({
 				position: 'top-right',
@@ -53,6 +55,8 @@ export default function Register() {
 						<div className='flex flex-col gap-5'>
 							<Input type="text" value={name} valueChange={setName} icon={<User />} placeholder="Name" />
 							<Input type="text" value={email} valueChange={setEmail} icon={<EnvelopeSimpleOpen />} placeholder="Email" />
+							<Input type="text" value={state} valueChange={setState} icon={<EnvelopeSimpleOpen />} placeholder="Estado" />
+							<Input type="text" value={city} valueChange={setCity} icon={<EnvelopeSimpleOpen />} placeholder="Cidade" />
 							<Input type="tel" value={phone} valueChange={setPhone} icon={<Phone />} placeholder="DDD + Número" />
 							<Input type="password" value={password} valueChange={setPassword} icon={<Key />} placeholder="Senha" />
 						</div>

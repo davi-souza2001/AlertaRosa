@@ -10,7 +10,7 @@ import { ProviderUser } from "../../core/ProviderUser"
 
 interface AuthContextProps {
 	loginPassword(email: string, password: string): Promise<void>
-	createUserPassword(name: string, phone: string, email: string, password: string): Promise<void>
+	createUserPassword(name: string, phone: string, state: string, city: string, email: string, password: string): Promise<void>
 	updateUser(user: User): Promise<void>
 	logout(): Promise<void>
 	getUser(user: User): Promise<User | false>
@@ -32,7 +32,7 @@ const AuthContext = createContext<AuthContextProps>({
 		email: '',
 		name: ''
 	}),
-	setUser: () => {},
+	setUser: () => { },
 	loading: false,
 	setLoading: {}
 })
@@ -70,14 +70,16 @@ export function AuthProvider(props: any) {
 		setLoading(false)
 	}
 
-	async function createUserPassword(name: string, phone: string, email: string, password: string) {
+	async function createUserPassword(name: string, phone: string, state: string, city: string, email: string, password: string) {
 		setLoading(true)
 		const user = new User({
 			email,
 			name,
-			phone
+			phone,
+			state,
+			city
 		})
-
+		console.log(user)
 		try {
 			await authentication.createUserPassword(email, password)
 			await authentication.submitUser(user)
@@ -115,7 +117,7 @@ export function AuthProvider(props: any) {
 		return userReceived ? userReceived : false
 	}
 
-	async function updateUser(user: User){
+	async function updateUser(user: User) {
 		setLoading(true)
 
 		await authentication.updateUser(user)
