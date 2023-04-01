@@ -27,6 +27,9 @@
 - [x] Fazer página de dúvidas frequentes
 - [x] Fazer página de legislação
 - [x] Fazer página de comunidades
+- [ ] Guardar o resultado das perguntas
+- [ ] Melhorar validação do registro
+- [ ] Melhorar inout de telefone
 - [ ] Adicionar Perguntas Frequentes
 - [ ] Adicionar legislações
 - [ ] Adicionar Mensagem com o resultado do violentometro
