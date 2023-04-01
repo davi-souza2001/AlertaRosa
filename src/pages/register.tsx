@@ -57,8 +57,8 @@ export default function Register() {
 							<Input type="text" value={email} valueChange={setEmail} icon={<EnvelopeSimpleOpen />} placeholder="Email" />
 							<Input type="text" value={state} valueChange={setState} icon={<EnvelopeSimpleOpen />} placeholder="Estado" />
 							<Input type="text" value={city} valueChange={setCity} icon={<EnvelopeSimpleOpen />} placeholder="Cidade" />
-							<Input type="tel" value={phone} valueChange={setPhone} icon={<Phone />} placeholder="DDD + Número" />
-							<Input type="password" value={password} valueChange={setPassword} icon={<Key />} placeholder="Senha" />
+							<Input type="tel" value={phone} valueChange={setPhone} icon={<Phone />} />
+							<Input type="password" value={password} valueChange={setPassword} icon={<Key />} />
 						</div>
 
 						<div className='flex underline text-xs lg:text-sm justify-center'>

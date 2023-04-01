@@ -52,8 +52,8 @@ export function AuthProvider(props: any) {
 
 			if (searchedUser) {
 				AuthenticationProvider.setCookieUser(searchedUser)
-				setLoading(false)
 				Router.push('/')
+				setLoading(false)
 			}
 
 		} catch (error: any) {
@@ -79,7 +79,6 @@ export function AuthProvider(props: any) {
 			state,
 			city
 		})
-		console.log(user)
 		try {
 			await authentication.createUserPassword(email, password)
 			await authentication.submitUser(user)
@@ -88,8 +87,8 @@ export function AuthProvider(props: any) {
 
 			if (searchedUser) {
 				AuthenticationProvider.setCookieUser(searchedUser)
-				setLoading(false)
 				Router.push('/')
+				setLoading(false)
 			}
 
 		} catch (error: any) {
