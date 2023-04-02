@@ -44,7 +44,7 @@ export default function Register() {
 	}
 
 	return (
-		<div className='w-full h-screen text-white'>
+		<div className='w-full h-full text-white'>
 			<div className='bg-gradient-to-b from-roxo to-rosa flex flex-col justify-center items-center h-full gap-10'>
 				<Image src={Logotipo} alt="Logotipo" width={150} />
 
@@ -66,7 +66,7 @@ export default function Register() {
 						</div>
 					</div>
 
-					<button onClick={handleCreateSubmit} className='bg-white text-rosa p-2 mt-10 text-xl rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
+					<button onClick={handleCreateSubmit} className='bg-white text-rosa p-2 my-10 text-xl rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
 						CRIAR
 					</button>
 				</form>
