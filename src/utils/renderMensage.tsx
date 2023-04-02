@@ -11,10 +11,6 @@ export function renderMensage(list: answersListProps[]): string{
 		question.categorie === 'orange' && orangeQuestions.push(question)
 	})
 
-	console.log(redQuestions.length)
-	console.log(orangeQuestions.length)
-	console.log(yellowQuestions.length)
-
 	if(redQuestions.length >= 2){
 		return 'red'
 	} else if(orangeQuestions.length >= 3){

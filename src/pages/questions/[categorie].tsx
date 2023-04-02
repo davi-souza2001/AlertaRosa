@@ -9,8 +9,9 @@ import { QuestionProps } from "../../core/Question"
 import GradientLg from "../../components/GradientLarge"
 import BottomSm from "../../components/BottomSmall"
 import { renderMensage } from "../../utils/renderMensage"
+import UseAuth from "../../service/hooks/useAuth"
 
-export interface answersListProps{
+export interface answersListProps {
 	id: string
 	categorie: string
 }
@@ -22,6 +23,7 @@ export default function Question() {
 	const [answersList, setAnswersList] = useState<answersListProps[]>([])
 	const categorie = useRouter().query.categorie
 	const roomProvider = new ProviderRoom(new RoomProvider())
+	const { user, setLoading } = UseAuth()
 
 	async function getQuestions() {
 		if (categorie) {
@@ -38,16 +40,20 @@ export default function Question() {
 		)
 	}
 
-	function nextQuestion() {
-		if (checked === "yes"){
+	async function nextQuestion() {
+		if (checked === "yes") {
 			setAnswersList([...answersList, {
 				id: questions[questionNumber].id.toString(),
 				categorie: questions[questionNumber].categorie
 			}])
 		}
 		if (questionNumber + 2 > questions.length) {
+			setLoading(true)
 			const result = renderMensage(answersList)
-			Router.push(`/result/${result}`)
+			await roomProvider.sendResult(result, user)
+			Router.push(`/result/${result}`).then(() => {
+				setLoading(false)
+			})
 		} else {
 			setQuestionNumber(state => state + 1)
 			setChecked('')

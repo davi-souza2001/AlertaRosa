@@ -1,9 +1,8 @@
-import { createContext, useState, } from 'react'
+import { createContext, } from 'react'
 import { ProviderQuestion } from '../../core/ProviderQuestion'
 import { ProviderRoom } from '../../core/ProviderRoom'
-import { QuestionProps } from '../../core/Question'
 
-import {  RoomProps } from '../../core/Room'
+import { RoomProps } from '../../core/Room'
 import { QuestionProvider } from '../../provider/QuestionProvider'
 import { RoomProvider } from '../../provider/RoomProvider'
 import UseAuth from '../hooks/useAuth'
@@ -29,7 +28,7 @@ export function RoomProviderContext(props: any) {
 		setLoading(false)
 	}
 
-	async function sendQuestions(): Promise<void>{
+	async function sendQuestions(): Promise<void> {
 		await questionProvider.create()
 	}
 

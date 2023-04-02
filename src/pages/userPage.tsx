@@ -13,7 +13,7 @@ import Input from "../components/Input";
 import { User } from "../core/User";
 
 export default function userPage() {
-	const { user, setUser, updateUser } = UseAuth()
+	const { user, setUser, updateUser, logout } = UseAuth()
 	const toast = useToast()
 	const [name, setName] = useState('')
 	const [phone, setPhone] = useState('')
@@ -85,7 +85,7 @@ export default function userPage() {
 							</button>
 						</div>
 					)}
-					<button onClick={() => Router.push('/login')} className="w-28 ml-5 flex justify-center items-center gap-2 bg-white text-rosa my-10 py-3 px-6 rounded-lg lg:hover:opacity-100 lg:opacity-95 transition-opacity">
+					<button onClick={logout} className="w-28 ml-5 flex justify-center items-center gap-2 bg-white text-rosa my-10 py-3 px-6 rounded-lg lg:hover:opacity-100 lg:opacity-95 transition-opacity">
 						Sair <Power weight="bold" />
 					</button>
 				</BottomLg>

@@ -52,8 +52,7 @@ export function AuthProvider(props: any) {
 
 			if (searchedUser) {
 				AuthenticationProvider.setCookieUser(searchedUser)
-				Router.push('/')
-				setLoading(false)
+				Router.push('/').then(() => setLoading(false))
 			}
 
 		} catch (error: any) {
@@ -87,8 +86,7 @@ export function AuthProvider(props: any) {
 
 			if (searchedUser) {
 				AuthenticationProvider.setCookieUser(searchedUser)
-				Router.push('/')
-				setLoading(false)
+				Router.push('/').then(() => setLoading(false))
 			}
 
 		} catch (error: any) {

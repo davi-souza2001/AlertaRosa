@@ -28,12 +28,13 @@
 - [x] Fazer página de legislação
 - [x] Fazer página de comunidades
 - [ ] Ajeitar tela de registro com o botão saindo da tela
-- [ ] Guardar o resultado das perguntas
+- [x] Guardar o resultado das perguntas
 - [ ] Melhorar validação do registro
 - [ ] Melhorar inout de telefone
 - [ ] Adicionar Perguntas Frequentes
 - [ ] Adicionar legislações
 - [ ] Adicionar Mensagem com o resultado do violentometro
+- [ ] Adicionar mensagem na página do violentometro
 - [x] Fazer novo input de número no "register"
 - [x] Fazer função pra editar os dados do usuário
 - [ ] Revisar código e alinhar
