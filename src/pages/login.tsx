@@ -31,12 +31,12 @@ export default function Login() {
 
 	return (
 		<div className='w-full h-screen text-white'>
-			<div className='bg-gradient-to-b from-roxo to-rosa flex flex-col justify-center items-center h-full gap-10'>				
+			<div className='bg-gradient-to-b from-roxo to-rosa flex flex-col justify-center items-center h-full gap-5'>				
 				<Image src={Logotipo} alt="Logotipo" width={150} />
 
 				<p className='font-semibold text-xl text-center'>LOGIN</p>
 
-				<form className='flex flex-col p-2 mt-[-30px]'>
+				<form className='flex flex-col p-2'>
 					<div className='flex flex-col gap-2'>
 						<div className='flex flex-col gap-10'>
 							<Input type="text" value={email} valueChange={setEmail} icon={<EnvelopeSimpleOpen />} placeholder="Email" />

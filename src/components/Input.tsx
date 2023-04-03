@@ -1,4 +1,5 @@
 import { Button, Input, InputGroup, InputRightElement } from "@chakra-ui/react"
+import { Eye, EyeClosed } from "phosphor-react"
 import { useState } from "react"
 
 interface Props {
@@ -37,36 +38,34 @@ export default function Inputf({ type, icon, placeholder, value, valueChange }: 
 	}
 
 	return (
-		<div className="flex w-full h-12 justify-center items-center text-background">
-			<div className="text-roxo text-2xl bg-white w-16 h-full shadow-md rounded-l-lg flex justify-center items-center">
+		<div className="flex w-full h-12 justify-center items-center rounded-md bg-white text-background">
+			<div className="text-roxo text-2xl w-16 h-full shadow-md flex justify-center items-center">
 				{icon}
 			</div>
 
 			{type === "text" && (
-				<InputGroup size='md' className="h-full flex items-center justify-center bg-white rounded-r-md">
+				<InputGroup size='md' className="h-full flex items-center justify-center pr-3">
 					<Input placeholder={placeholder} value={value ?? ''} onChange={e => handleChangeValue(e.target.value)} />
 				</InputGroup>
 			)}
 
 			{type === "tel" && (
-				<InputGroup size='md' className="h-full flex items-center justify-center bg-white">
-					<Input type='tel' height='48px' placeholder='DDD + Número' value={value ?? ''} onChange={e => handleChangeValue(e.target.value)} />
+				<InputGroup size='md' className="h-full flex items-center justify-center pr-3">
+					<Input type='tel' placeholder='DDD + Número' value={value ?? ''} onChange={e => handleChangeValue(e.target.value)} />
 				</InputGroup>
 			)}
 
 			{type === "password" && (
-				<InputGroup size='md' className="h-full flex items-center justify-center bg-white">
+				<InputGroup size='md' className="h-full flex items-center justify-center pr-3">
 					<Input
-						height='48px'
-						pr='4.5rem'
 						type={show ? 'text' : 'password'}
 						placeholder='Senha'
 						value={value ?? ''}
 						onChange={e => handleChangeValue(e.target.value)}
 					/>
-					<InputRightElement width='4.5rem'>
-						<Button h='2.3rem' size='sm' onClick={handleClick}>
-							{show ? 'Hide' : 'Show'}
+					<InputRightElement width='4.5rem' marginTop={"1"}>
+						<Button size='lg' background='transparent' onClick={handleClick}>
+							{show ? <Eye/> : <EyeClosed/>}
 						</Button>
 					</InputRightElement>
 				</InputGroup>

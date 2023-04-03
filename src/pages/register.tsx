@@ -1,7 +1,7 @@
 import { useToast } from '@chakra-ui/react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { EnvelopeSimpleOpen, Key, Phone, User, } from 'phosphor-react'
+import { EnvelopeSimpleOpen, Key, MapPin, Phone, User, } from 'phosphor-react'
 import React, { FormEvent, useState } from 'react'
 
 import Logotipo from '../../public/logotipo.svg'
@@ -44,19 +44,19 @@ export default function Register() {
 	}
 
 	return (
-		<div className='w-full h-full text-white'>
-			<div className='bg-gradient-to-b from-roxo to-rosa flex flex-col justify-center items-center h-full gap-10'>
+		<div className='w-full h-screen text-white'>
+			<div className='bg-gradient-to-b from-roxo to-rosa flex flex-col justify-center items-center h-full gap-5'>
 				<Image src={Logotipo} alt="Logotipo" width={150} />
 
 				<p className='font-semibold text-xl text-center'>REGISTRE-SE</p>
 
-				<form className='flex flex-col p-2 mt-[-30px]'>
+				<form className='flex flex-col p-2'>
 					<div className='flex flex-col gap-2'>
 						<div className='flex flex-col gap-5'>
-							<Input type="text" value={name} valueChange={setName} icon={<User />} placeholder="Name" />
+							<Input type="text" value={name} valueChange={setName} icon={<User />} placeholder="Nome" />
 							<Input type="text" value={email} valueChange={setEmail} icon={<EnvelopeSimpleOpen />} placeholder="Email" />
-							<Input type="text" value={state} valueChange={setState} icon={<EnvelopeSimpleOpen />} placeholder="Estado" />
-							<Input type="text" value={city} valueChange={setCity} icon={<EnvelopeSimpleOpen />} placeholder="Cidade" />
+							<Input type="text" value={state} valueChange={setState} icon={<MapPin />} placeholder="Estado" />
+							<Input type="text" value={city} valueChange={setCity} icon={<MapPin />} placeholder="Cidade" />
 							<Input type="tel" value={phone} valueChange={setPhone} icon={<Phone />} />
 							<Input type="password" value={password} valueChange={setPassword} icon={<Key />} />
 						</div>
