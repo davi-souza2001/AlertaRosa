@@ -27,10 +27,10 @@
 - [x] Fazer página de dúvidas frequentes
 - [x] Fazer página de legislação
 - [x] Fazer página de comunidades
-- [ ] Ajeitar tela de registro com o botão saindo da tela
+- [x] Ajeitar tela de registro com o botão saindo da tela
 - [x] Guardar o resultado das perguntas
 - [ ] Melhorar validação do registro
-- [ ] Melhorar inout de telefone
+- [ ] Melhorar input de telefone
 - [ ] Adicionar Perguntas Frequentes
 - [ ] Adicionar legislações
 - [ ] Adicionar Mensagem com o resultado do violentometro
