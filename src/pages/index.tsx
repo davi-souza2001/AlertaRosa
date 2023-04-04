@@ -13,6 +13,10 @@ import GirlPhone from '../../public/girlPhone.svg'
 import GirlLegislation from '../../public/girlDocument.svg'
 import GirlQuestion from '../../public/girlQuestion.svg'
 import GirlCommunity from '../../public/girlCommunity.svg'
+import Davi from '../../public/Davi.jpeg'
+import Papa from '../../public/Papa.png'
+import Vini from '../../public/Vini.png'
+import Juli from '../../public/Juli.jpg'
 
 export default function Home() {
 	return (
@@ -65,18 +69,18 @@ export default function Home() {
 			<div className="h-60 px-5">
 				<div className="lg:hidden">
 					<Carousel showStatus={false} showArrows={true} showIndicators={false} centerMode centerSlidePercentage={70}>
-						<BoxCategorie image="" content="Davi Souza" />
-						<BoxCategorie image="" content="Vini" />
-						<BoxCategorie image="" content="Paloma Alves" />
-						<BoxCategorie image="" content="Juliete Sérvio" />
+						<BoxCategorie image={Davi} content="Davi Souza" />
+						<BoxCategorie image={Vini} content="Vinicius Rodrigues" />
+						<BoxCategorie image={Papa} content="Paloma Alves" />
+						<BoxCategorie image={Juli} content="Juliete Sérvio" />
 					</Carousel>
 				</div>
 				<div className="hidden lg:block">
 					<Carousel showStatus={false} showArrows={true} showIndicators={false} centerMode centerSlidePercentage={20}>
-						<BoxCategorie image="" content="Davi Souza" />
-						<BoxCategorie image="" content="Vini" />
-						<BoxCategorie image="" content="Paloma Alves" />
-						<BoxCategorie image="" content="Juliete Sérvio" />
+						<BoxCategorie image={Davi} content="Davi Souza" />
+						<BoxCategorie image={Vini} content="Vinicius Rodrigues" />
+						<BoxCategorie image={Papa} content="Paloma Alves" />
+						<BoxCategorie image={Juli} content="Juliete Sérvio" />
 					</Carousel>
 				</div>
 			</div>

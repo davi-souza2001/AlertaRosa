@@ -29,8 +29,8 @@
 - [x] Fazer página de comunidades
 - [x] Ajeitar tela de registro com o botão saindo da tela
 - [x] Guardar o resultado das perguntas
-- [ ] Melhorar validação do registro
-- [ ] Melhorar input de telefone
+- [x] Melhorar validação do registro
+- [x] Melhorar input de telefone
 - [ ] Adicionar Perguntas Frequentes
 - [ ] Adicionar legislações
 - [ ] Adicionar Mensagem com o resultado do violentometro
