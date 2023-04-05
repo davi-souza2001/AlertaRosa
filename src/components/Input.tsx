@@ -21,7 +21,7 @@ export default function Inputf({ type, icon, placeholder, value, valueChange }: 
 			return null
 		}
 		const formatted = cleaned.replace(regex, '($1) $2-$3')
-		return formatted;
+		return formatted
 	}
 
 	function handleChangeValue(value: any) {
