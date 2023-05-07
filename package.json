@@ -13,6 +13,7 @@
     "@chakra-ui/react": "^2.5.1",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@hookform/resolvers": "^3.1.0",
     "firebase": "^9.9.4",
     "framer-motion": "^10.0.1",
     "js-cookie": "^3.0.1",
@@ -20,8 +21,10 @@
     "phosphor-react": "^1.4.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.43.9",
     "react-icons": "^4.4.0",
-    "react-responsive-carousel": "^3.2.23"
+    "react-responsive-carousel": "^3.2.23",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.2",

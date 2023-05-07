@@ -2,11 +2,39 @@ import { useToast } from '@chakra-ui/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { EnvelopeSimpleOpen, Key, MapPin, Phone, User, } from 'phosphor-react'
-import React, { FormEvent, useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { z } from 'zod'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from "@hookform/resolvers/zod"
 
 import Logotipo from '../../public/logotipo.svg'
 import Input from '../components/Input'
 import UseAuth from '../service/hooks/useAuth'
+
+const createUserFormSchema = z.object({
+	name: z.string()
+		.nonempty('O nome é obrigatório!')
+		.transform(name => {
+			return name.trim().split(' ').map(word => {
+				return word[0].toLocaleUpperCase().concat(word.substring(1))
+			}).join(' ')
+		}),
+	email: z.string()
+		.nonempty('O e-mail é obrigatório!')
+		.email('Formato de e-mail inválido!')
+		.toLowerCase(),
+	state: z.string()
+		.nonempty('O estado é obrigatório!'),
+	city: z.string()
+		.nonempty('A cidade é obrigatória!'),
+	phone: z.string()
+		.nonempty('O telefone é obrigatório!'),
+	password: z.string()
+		.nonempty('A senha é obrigatório!')
+		.min(6, 'A senha precisa ter no mínimo 6 caracteres!')
+})
+
+type CreateUserFOrmData = z.infer<typeof createUserFormSchema>
 
 export default function Register() {
 	const [name, setName] = useState('')
@@ -18,30 +46,60 @@ export default function Register() {
 	const toast = useToast()
 	const { createUserPassword } = UseAuth()
 
-	async function handleCreateSubmit(e: FormEvent) {
-		e.preventDefault()
-		if (!email.includes('@')) {
-			toast({
-				position: 'top-right',
-				title: 'Algo deu errado!',
-				description: 'Digite um email válido!',
-				status: 'error',
-				duration: 3000,
-				isClosable: true,
-			})
-		} else if (name !== '' && password !== '' && state !== '' && city !== '' && phone.toString().length === 15) {
-			await createUserPassword(name, phone, state, city, email, password)
-		} else {
-			toast({
-				position: 'top-right',
-				title: 'Algo deu errado!',
-				description: 'Verifique suas informações e tente novamente!',
-				status: 'error',
-				duration: 3000,
-				isClosable: true,
-			})
-		}
+	const { register, handleSubmit, formState: { errors } } = useForm<CreateUserFOrmData>({
+		resolver: zodResolver(createUserFormSchema)
+	})
+
+	async function handleCreateSubmit() {
+		await createUserPassword(name, phone, state, city, email, password)
 	}
+
+	useEffect(() => {
+		errors.name?.message && toast({
+			position: 'top-right',
+			title: 'Algo deu errado!',
+			description: 'Digite um nome válido!',
+			status: 'error',
+			duration: 3000,
+			isClosable: true,
+		})
+
+		errors.email?.message && toast({
+			position: 'top-right',
+			title: 'Algo deu errado!',
+			description: 'Digite um email válido!',
+			status: 'error',
+			duration: 3000,
+			isClosable: true,
+		})
+
+		errors.city?.message && toast({
+			position: 'top-right',
+			title: 'Algo deu errado!',
+			description: 'Digite uma cidade válida!',
+			status: 'error',
+			duration: 3000,
+			isClosable: true,
+		})
+
+		errors.state?.message && toast({
+			position: 'top-right',
+			title: 'Algo deu errado!',
+			description: 'Digite um estado válido!',
+			status: 'error',
+			duration: 3000,
+			isClosable: true,
+		})
+
+		errors.password?.message && toast({
+			position: 'top-right',
+			title: 'Algo deu errado!',
+			description: 'Digite umm senha válida!',
+			status: 'error',
+			duration: 3000,
+			isClosable: true,
+		})
+	}, [errors])
 
 	return (
 		<div className='w-full h-screen text-white'>
@@ -50,15 +108,16 @@ export default function Register() {
 
 				<p className='font-semibold text-xl text-center'>REGISTRE-SE</p>
 
-				<form className='flex flex-col p-2'>
+				<form onSubmit={handleSubmit(handleCreateSubmit)}
+					className='flex flex-col p-2'>
 					<div className='flex flex-col gap-2'>
 						<div className='flex flex-col gap-5'>
-							<Input type="text" value={name} valueChange={setName} icon={<User />} placeholder="Nome" />
-							<Input type="text" value={email} valueChange={setEmail} icon={<EnvelopeSimpleOpen />} placeholder="Email" />
-							<Input type="text" value={state} valueChange={setState} icon={<MapPin />} placeholder="Estado" />
-							<Input type="text" value={city} valueChange={setCity} icon={<MapPin />} placeholder="Cidade" />
-							<Input type="tel" value={phone} valueChange={setPhone} icon={<Phone />} />
-							<Input type="password" value={password} valueChange={setPassword} icon={<Key />} />
+							<Input type="text" value={name} valueChange={setName} icon={<User />} placeholder="Nome" {...register('name')} />
+							<Input type="text" value={email} valueChange={setEmail} icon={<EnvelopeSimpleOpen />} placeholder="Email" {...register('email')} />
+							<Input type="text" value={state} valueChange={setState} icon={<MapPin />} placeholder="Estado" {...register('state')} />
+							<Input type="text" value={city} valueChange={setCity} icon={<MapPin />} placeholder="Cidade" {...register('city')} />
+							<Input type="tel" value={phone} valueChange={setPhone} icon={<Phone />} {...register('phone')} />
+							<Input type="password" value={password} valueChange={setPassword} icon={<Key />} {...register('password')} />
 						</div>
 
 						<div className='flex underline text-xs lg:text-sm justify-center'>
@@ -66,7 +125,8 @@ export default function Register() {
 						</div>
 					</div>
 
-					<button onClick={handleCreateSubmit} className='bg-white text-rosa p-2 my-10 text-xl rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
+					<button type='submit'
+						className='bg-white text-rosa p-2 my-10 text-xl rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
 						CRIAR
 					</button>
 				</form>
