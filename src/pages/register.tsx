@@ -9,7 +9,6 @@ import { zodResolver } from "@hookform/resolvers/zod"
 
 import Logotipo from '../../public/logotipo.svg'
 import girlLogin from '../../public/girlRegister.svg'
-import Input from '../components/Input'
 import UseAuth from '../service/hooks/useAuth'
 import { BrazilStates } from '../components/BrazilStates'
 
@@ -30,7 +29,19 @@ const createUserFormSchema = z.object({
 	city: z.string()
 		.nonempty('A cidade é obrigatória!'),
 	phone: z.string()
-		.nonempty('O telefone é obrigatório!'),
+		.nonempty('O telefone é obrigatório!')
+		.transform(tel => {
+			const parts = tel.split('')
+				.filter(tel => '0123456789'.includes(tel))
+				.filter((_, i) => i < 11)
+
+			return parts.reduce((telefone, num) => {
+				const ddd1 = [0].includes(telefone.length) ? '(' : ''
+				const ddd2 = [3].includes(telefone.length) ? ') ' : ''
+				const traco = [parts.length === 11 ? 10 : 9].includes(telefone.length) ? '-' : ''
+				return `${ddd1}${telefone}${ddd2}${traco}${num}`
+			}, '')
+		}),
 	password: z.string()
 		.nonempty('A senha é obrigatório!')
 		.min(6, 'A senha precisa ter no mínimo 6 caracteres!')
@@ -39,12 +50,6 @@ const createUserFormSchema = z.object({
 type CreateUserFOrmData = z.infer<typeof createUserFormSchema>
 
 export default function Register() {
-	const [name, setName] = useState('')
-	const [email, setEmail] = useState('')
-	const [state, setState] = useState('')
-	const [city, setCity] = useState('')
-	const [phone, setPhone] = useState('')
-	const [password, setPassword] = useState('')
 	const toast = useToast()
 	const { createUserPassword } = UseAuth()
 
@@ -52,15 +57,16 @@ export default function Register() {
 		resolver: zodResolver(createUserFormSchema)
 	})
 
-	async function handleCreateSubmit() {
-		await createUserPassword(name, phone, state, city, email, password)
+	async function handleCreateUser(data: any) {
+		// await createUserPassword(name, phone, state, city, email, password)
+		console.log(data)
 	}
 
 	useEffect(() => {
 		errors.name?.message && toast({
 			position: 'top-right',
 			title: 'Algo deu errado!',
-			description: 'Digite um nome válido!',
+			description: errors.name.message,
 			status: 'error',
 			duration: 3000,
 			isClosable: true,
@@ -69,7 +75,7 @@ export default function Register() {
 		errors.email?.message && toast({
 			position: 'top-right',
 			title: 'Algo deu errado!',
-			description: 'Digite um email válido!',
+			description: errors.email.message,
 			status: 'error',
 			duration: 3000,
 			isClosable: true,
@@ -78,7 +84,7 @@ export default function Register() {
 		errors.city?.message && toast({
 			position: 'top-right',
 			title: 'Algo deu errado!',
-			description: 'Digite uma cidade válida!',
+			description: errors.city.message,
 			status: 'error',
 			duration: 3000,
 			isClosable: true,
@@ -87,7 +93,7 @@ export default function Register() {
 		errors.state?.message && toast({
 			position: 'top-right',
 			title: 'Algo deu errado!',
-			description: 'Digite um estado válido!',
+			description: errors.state.message,
 			status: 'error',
 			duration: 3000,
 			isClosable: true,
@@ -96,7 +102,7 @@ export default function Register() {
 		errors.password?.message && toast({
 			position: 'top-right',
 			title: 'Algo deu errado!',
-			description: 'Digite umm senha válida!',
+			description: errors.password.message,
 			status: 'error',
 			duration: 3000,
 			isClosable: true,
@@ -105,33 +111,74 @@ export default function Register() {
 
 	return (
 		<div className='flex w-full h-screen'>
-			<div className='bg-background text-white hidden lg:flex flex-col items-center justify-center w-[50%] h-full gap-5'>
+			<div className='bg-background text-white hidden lg:flex flex-col items-center justify-center w-1/2 h-full gap-5 overflow-y-auto scrollbar-thin scrollbar-track-slate-200 scrollbar-track-rounded-lg scrollbar-thumb-roxo scrollbar-thumb-rounded-lg'>
+				<Image src={Logotipo} alt="Logotipo" width={150} className='mt-5' />
 				<div className='p-10 bg-white bg-opacity-10 rounded-lg'>
-					<Image src={girlLogin} alt="girl with heart" width={400} />
+					<Image src={girlLogin} alt="girl with heart" width={250} />
 				</div>
-				<p className='text-center text-2xl w-[80%]'>Junte-se à Alerta Rosa na luta contra a violência contra a mulher, cadastre-se agora e faça parte dessa causa!</p>
+				<p className='text-center text-xl w-[80%]'>Junte-se à Alerta Rosa na luta contra a violência contra a mulher, cadastre-se agora e faça parte dessa causa!</p>
 			</div>
-			<div className='bg-gradient-to-b from-roxo to-rosa text-white flex flex-col justify-center items-center w-full lg:w-[50%] h-full gap-5'>
-				<Image src={Logotipo} alt="Logotipo" width={150} />
+			<div className='w-full bg-gradient-to-b from-roxo to-rosa flex flex-col justify-center items-center lg:w-1/2 gap-5'>
 
-				<p className='font-semibold text-xl text-center'>REGISTRE-SE</p>
+				<p className='font-semibold text-2xl text-center text-white'>REGISTRE-SE</p>
 
-				<form onSubmit={handleSubmit(handleCreateSubmit)}
-					className='flex flex-col p-2'>
-					<div className='flex flex-col gap-2'>
-						<div className='flex flex-col gap-5'>
-							<Input type="text" value={name} valueChange={setName} icon={<User />} placeholder="Nome" {...register('name')} />
-							<Input type="text" value={email} valueChange={setEmail} icon={<EnvelopeSimpleOpen />} placeholder="Email" {...register('email')} />
-							{/* Alterar umas coisas nesse carinha aqui em baixo */}
-							<BrazilStates /* value={state} valueChange={setState} */ /* {...register('state')} */ />
-							<Input type="text" value={city} valueChange={setCity} icon={<MapPin />} placeholder="Cidade" {...register('city')} />
-							<Input type="tel" value={phone} valueChange={setPhone} icon={<Phone />} {...register('phone')} />
-							<Input type="password" value={password} valueChange={setPassword} icon={<Key />} {...register('password')} />
-						</div>
+				<form className='flex flex-col p-2 overflow-y-scroll' onSubmit={handleSubmit(handleCreateUser)}>
+					<div className="flex flex-col gap-1">
+						<label htmlFor="name" className='text-white'>Nome</label>
+						<input
+							className="h-10 border border-zinc-200 shadow-sm rounded text-black"
+							type='string'
+							{...register('name')}
+						/>
+					</div>
 
-						<div className='flex underline text-xs lg:text-sm justify-center'>
-							<Link href="/login">Já possuo uma conta!</Link>
-						</div>
+					<div className="flex flex-col gap-1">
+						<label htmlFor="email" className='text-white'>Email</label>
+						<input
+							className="h-10 border border-zinc-200 shadow-sm rounded text-black"
+							type='string'
+							{...register('email')}
+						/>
+					</div>
+
+					<div className="flex flex-col gap-1">
+						<label htmlFor="state" className='text-white'>Estado</label>
+						<input
+							className="h-10 border border-zinc-200 shadow-sm rounded text-black"
+							type='string'
+							{...register('state')}
+						/>
+					</div>
+
+					<div className="flex flex-col gap-1">
+						<label htmlFor="city" className='text-white'>Cidade</label>
+						<input
+							className="h-10 border border-zinc-200 shadow-sm rounded text-black"
+							type='string'
+							{...register('city')}
+						/>
+					</div>
+
+					<div className="flex flex-col gap-1">
+						<label htmlFor="phone" className='text-white'>Telefone</label>
+						<input
+							className="h-10 border border-zinc-200 shadow-sm rounded text-black"
+							type='string'
+							{...register('phone')}
+						/>
+					</div>
+
+					<div className="flex flex-col gap-1">
+						<label htmlFor="password" className='text-white'>Senha</label>
+						<input
+							className="h-10 border border-zinc-200 shadow-sm rounded text-black"
+							type='password'
+							{...register('password')}
+						/>
+					</div>
+
+					<div className='flex underline text-xs justify-center mt-3 text-white lg:text-sm '>
+						<Link href="/login">Já possuo uma conta!</Link>
 					</div>
 
 					<button type='submit'

@@ -9,7 +9,6 @@ import BottomLg from "../components/BottomLarge";
 import Router from "next/router";
 import UseAuth from "../service/hooks/useAuth";
 import { FormEvent, useEffect, useState } from "react";
-import Input from "../components/Input";
 import { User } from "../core/User";
 
 export default function userPage() {
@@ -78,8 +77,8 @@ export default function userPage() {
 				<BottomLg flex="col" justify="justify-start" padding_top="10">
 					{editMode && (
 						<div className='flex w-96 flex-col gap-10 mt-5 p-4'>
-							<Input type="text" value={name} valueChange={setName} icon={<UserIcon />} placeholder="Name" />
-							<Input type="tel" value={phone === '' ? null : phone} valueChange={setPhone} icon={<Phone />} placeholder="Telefone" />
+							{/* <Input type="text" value={name} valueChange={setName} icon={<UserIcon />} placeholder="Name" />
+							<Input type="tel" value={phone === '' ? null : phone} valueChange={setPhone} icon={<Phone />} placeholder="Telefone" /> */}
 							<button onClick={handleCreateSubmit} className='flex items-center justify-center gap-2 w-32 bg-white text-rosa p-2 text-xl rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
 								EDITAR <PencilSimple weight="bold" />
 							</button>

@@ -6,7 +6,6 @@ import { RoomProviderContext } from '../service/context/RoomContext'
 
 import '../styles/globals.css'
 import { Loading } from '../components/Loading'
-import Background from '../components/Background'
 
 function MyApp({ Component, pageProps }: AppProps) {
 	const config = {
@@ -21,9 +20,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 			<AuthProvider>
 				<Loading>
 					<RoomProviderContext>
-						<Background>
-							<Component {...pageProps} />
-						</Background>
+						<Component {...pageProps} />
 					</RoomProviderContext>
 				</Loading>
 			</AuthProvider>

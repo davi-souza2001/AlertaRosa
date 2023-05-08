@@ -6,7 +6,6 @@ import { useToast } from '@chakra-ui/react'
 
 import Logotipo from '../../public/logotipo.svg'
 import girlLogin from '../../public/girlLogin.svg'
-import Input from '../components/Input'
 import UseAuth from '../service/hooks/useAuth'
 
 export default function Login() {
@@ -38,12 +37,12 @@ export default function Login() {
 				</div>
 				<p className='text-center text-2xl w-[80%]'>Bem-vinda à Alerta Rosa, a plataforma que luta pela conscientização e prevenção da violência contra a mulher.</p>
 			</div>
-			<div className='bg-gradient-to-b from-roxo to-rosa text-white flex flex-col justify-center items-center w-full lg:w-[50%] h-full gap-5'>				
+			<div className='bg-gradient-to-b from-roxo to-rosa text-white flex flex-col justify-center items-center w-full lg:w-[50%] h-full gap-5'>
 				<Image src={Logotipo} alt="Logotipo" width={150} />
 
 				<p className='font-semibold text-xl text-center'>LOGIN</p>
 
-				<form className='flex flex-col p-2'>
+				{/* <form className='flex flex-col p-2'>
 					<div className='flex flex-col gap-2'>
 						<div className='flex flex-col gap-10'>
 							<Input type="text" value={email} valueChange={setEmail} icon={<EnvelopeSimpleOpen />} placeholder="Email" />
@@ -59,7 +58,7 @@ export default function Login() {
 					<button onClick={handleLoginSubmit} className='bg-white text-rosa p-2 mt-10 text-xl rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
 						ACESSAR
 					</button>
-				</form>		
+				</form>		 */}
 			</div>
 		</div>
 	)
