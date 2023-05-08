@@ -122,7 +122,8 @@ export default function Register() {
 						<div className='flex flex-col gap-5'>
 							<Input type="text" value={name} valueChange={setName} icon={<User />} placeholder="Nome" {...register('name')} />
 							<Input type="text" value={email} valueChange={setEmail} icon={<EnvelopeSimpleOpen />} placeholder="Email" {...register('email')} />
-							<BrazilStates value={state} valueChange={setState} {...register('state')} />
+							{/* Alterar umas coisas nesse carinha aqui em baixo */}
+							<BrazilStates /* value={state} valueChange={setState} */ /* {...register('state')} */ />
 							<Input type="text" value={city} valueChange={setCity} icon={<MapPin />} placeholder="Cidade" {...register('city')} />
 							<Input type="tel" value={phone} valueChange={setPhone} icon={<Phone />} {...register('phone')} />
 							<Input type="password" value={password} valueChange={setPassword} icon={<Key />} {...register('password')} />
