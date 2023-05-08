@@ -26,18 +26,18 @@ export default function Home() {
 			<MainBox />
 
 			<div className='h-20 w-full'>
-				<p className="font-semibold text-xl pt-5 px-5 text-white">Formulário - Violentômetro</p>
+				<p className="font-semibold text-xl pt-5 px-5 text-white">Formulário</p>
 			</div>
 			<div className='h-44 w-full flex items-start justify-start lg:hidden'>
 				<div className="h-full w-96 flex items-center justify-around text-white text-left text-xs mx-5 p-5 gap-5 rounded-lg rounded-tl-none shadow-lg bg-rosa" onClick={() => Router.push('/startQuestions/questions')}>
 					<Image alt="mulher com flor" src={GirlFlower} height={100} width={100} />
-					<p>Aqui você pode fazer um formulário de acordo com os parâmetros do violentômetro. Antes de começar você vai ser explicada sobre como funcionar o processo e o que pode esperar desse teste.</p>
+					<p>Realize um formulário personalizado de acordo com o violentômetro. Antes de começar, você receberá uma explicação sobre o processo e o que esperar do teste.</p>
 				</div>
 			</div>
-			<div className='hidden h-56 w-full lg:block'>
+			<div className='hidden h-56 w-full lg:flex justify-center'>
 				<div className="h-full w-[80%] border-2 border-transparent hover:border-roxo transition-all flex items-center justify-around text-white text-left text-lg ml-5 p-10 gap-5 rounded-lg rounded-tl-none bg-rosa shadow-lg cursor-pointer" onClick={() => Router.push('/startQuestions/questions')}>
 					<Image alt="mulher com flor" src={GirlFlower} height={200} width={200} />
-					<p>Aqui você pode fazer um formulário de acordo com os parâmetros do violentômetro. Antes de começar você vai ser explicada sobre como funcionar o processo e o que pode esperar desse teste.</p>
+					<p>Realize um formulário personalizado de acordo com o violentômetro. Antes de começar, você receberá uma explicação sobre o processo e o que esperar do teste.</p>
 				</div>
 			</div>
 
@@ -53,13 +53,12 @@ export default function Home() {
 						<BoxCategorie image={GirlCommunity} content="Comunidades" link="/legislation" />
 					</Carousel>
 				</div>
-				<div className="hidden lg:block">
-					<Carousel showStatus={false} showArrows={true} showIndicators={false} centerMode centerSlidePercentage={20}>
-						<BoxCategorie image={GirlPhone} content="Contatos Úteis" link="/contacts" />
-						<BoxCategorie image={GirlQuestion} content="Dúvidas Frequentes" link="/AskedQuestions" />
-						<BoxCategorie image={GirlLegislation} content="Legislação" link="/legislation" />
-						<BoxCategorie image={GirlCommunity} content="Comunidades" link="/legislation" />
-					</Carousel>
+
+				<div className="hidden lg:flex items-center justify-evenly w-full">
+					<BoxCategorie image={GirlPhone} content="Contatos Úteis" link="/contacts" />
+					<BoxCategorie image={GirlQuestion} content="Dúvidas Frequentes" link="/AskedQuestions" />
+					<BoxCategorie image={GirlLegislation} content="Legislação" link="/legislation" />
+					<BoxCategorie image={GirlCommunity} content="Comunidades" link="/" />
 				</div>
 			</div>
 
@@ -75,13 +74,11 @@ export default function Home() {
 						<BoxCategorie image={Juli} content="Juliete Sérvio" />
 					</Carousel>
 				</div>
-				<div className="hidden lg:block">
-					<Carousel showStatus={false} showArrows={true} showIndicators={false} centerMode centerSlidePercentage={20}>
-						<BoxCategorie image={Davi} content="Davi Souza" />
-						<BoxCategorie image={Vini} content="Vinicius Rodrigues" />
-						<BoxCategorie image={Papa} content="Paloma Alves" />
-						<BoxCategorie image={Juli} content="Juliete Sérvio" />
-					</Carousel>
+				<div className="hidden lg:flex items-center justify-evenly w-full">
+					<BoxCategorie image={Davi} content="Davi Souza" />
+					<BoxCategorie image={Vini} content="Vinicius Rodrigues" />
+					<BoxCategorie image={Papa} content="Paloma Alves" />
+					<BoxCategorie image={Juli} content="Juliete Sérvio" />
 				</div>
 			</div>
 		</>

@@ -17,8 +17,8 @@ export function TopBar() {
 	return (
 		<div className='fixed w-full z-50'>
 			<div className='h-20 w-full flex items-center shadow-lg'>
-				<div className='h-full w-full flex items-center justify-between font-medium text-xl px-5 bg-background'>
-					<div className='flex gap-2 cursor-pointer' onClick={() => Router.push('/')}>
+				<div className='h-full w-full flex items-center justify-between font-medium text-xl pr-5 bg-background'>
+					<div className='flex gap-2 h-full items-center w-52 pl-5 rounded-r-lg cursor-pointer' onClick={() => Router.push('/')}>
 						<Image src={Logo} alt='Logo do quiz' height={30} width={30} />
 						<div className='flex items-end'>
 							<p className='text-white'>Alerta</p>

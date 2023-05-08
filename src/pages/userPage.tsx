@@ -3,7 +3,7 @@ import { useToast } from "@chakra-ui/react";
 import GradientSm from "../components/GradientSmall";
 
 import avatar from '../../public/female_avatar.svg'
-import { EnvelopeSimple, Pencil, Phone, Power, User as UserIcon, XCircle } from "phosphor-react";
+import { EnvelopeSimple, PencilSimple, Phone, Power, User as UserIcon, XCircle } from "phosphor-react";
 import { TopBar } from "../components/TopBar";
 import BottomLg from "../components/BottomLarge";
 import Router from "next/router";
@@ -55,12 +55,12 @@ export default function userPage() {
 					<div className="flex gap-6 justify-center items-center ml-5">
 						<Image src={avatar} width={100} alt="avatar" />
 						<div className="flex flex-col justify-start">
-							<div className="flex items-center  text-xl gap-2">
+							<div className="flex w=full items-center justify-between text-xl">
 								<p>{user.name !== '' ? user.name : 'Nome de usuário'}</p>
 								{editMode ? (
-									<XCircle className="text-xl cursor-pointer" onClick={() => setEditMode(state => !state)} />
+									<XCircle className="w-9 h-9 p-2 text-xl cursor-pointer bg-white text-roxo rounded-full" onClick={() => setEditMode(state => !state)} />
 								) : (
-									<Pencil className="text-xl cursor-pointer" weight="bold" onClick={() => setEditMode(state => !state)} />
+									<PencilSimple className="w-9 h-9 p-2 text-xl cursor-pointer bg-white text-roxo rounded-full" weight="bold" onClick={() => setEditMode(state => !state)} />
 								)}
 							</div>
 							<div className="flex items-center text-sm gap-2">
@@ -77,11 +77,11 @@ export default function userPage() {
 
 				<BottomLg flex="col" justify="justify-start" padding_top="10">
 					{editMode && (
-						<div className='flex items-center justify-center flex-col gap-10 mt-5 p-4'>
+						<div className='flex w-96 flex-col gap-10 mt-5 p-4'>
 							<Input type="text" value={name} valueChange={setName} icon={<UserIcon />} placeholder="Name" />
 							<Input type="tel" value={phone === '' ? null : phone} valueChange={setPhone} icon={<Phone />} placeholder="Telefone" />
-							<button onClick={handleCreateSubmit} className='w-32 bg-white text-rosa p-2 mt-2 text-xl rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
-								EDITAR
+							<button onClick={handleCreateSubmit} className='flex items-center justify-center gap-2 w-32 bg-white text-rosa p-2 text-xl rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
+								EDITAR <PencilSimple weight="bold" />
 							</button>
 						</div>
 					)}

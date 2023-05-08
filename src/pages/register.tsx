@@ -8,8 +8,10 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from "@hookform/resolvers/zod"
 
 import Logotipo from '../../public/logotipo.svg'
+import girlLogin from '../../public/girlRegister.svg'
 import Input from '../components/Input'
 import UseAuth from '../service/hooks/useAuth'
+import { BrazilStates } from '../components/BrazilStates'
 
 const createUserFormSchema = z.object({
 	name: z.string()
@@ -102,8 +104,14 @@ export default function Register() {
 	}, [errors])
 
 	return (
-		<div className='w-full h-screen text-white'>
-			<div className='bg-gradient-to-b from-roxo to-rosa flex flex-col justify-center items-center h-full gap-5'>
+		<div className='flex w-full h-screen'>
+			<div className='bg-background text-white hidden lg:flex flex-col items-center justify-center w-[50%] h-full gap-5'>
+				<div className='p-10 bg-white bg-opacity-10 rounded-lg'>
+					<Image src={girlLogin} alt="girl with heart" width={400} />
+				</div>
+				<p className='text-center text-2xl w-[80%]'>Junte-se à Alerta Rosa na luta contra a violência contra a mulher, cadastre-se agora e faça parte dessa causa!</p>
+			</div>
+			<div className='bg-gradient-to-b from-roxo to-rosa text-white flex flex-col justify-center items-center w-full lg:w-[50%] h-full gap-5'>
 				<Image src={Logotipo} alt="Logotipo" width={150} />
 
 				<p className='font-semibold text-xl text-center'>REGISTRE-SE</p>
@@ -114,7 +122,7 @@ export default function Register() {
 						<div className='flex flex-col gap-5'>
 							<Input type="text" value={name} valueChange={setName} icon={<User />} placeholder="Nome" {...register('name')} />
 							<Input type="text" value={email} valueChange={setEmail} icon={<EnvelopeSimpleOpen />} placeholder="Email" {...register('email')} />
-							<Input type="text" value={state} valueChange={setState} icon={<MapPin />} placeholder="Estado" {...register('state')} />
+							<BrazilStates value={state} valueChange={setState} {...register('state')} />
 							<Input type="text" value={city} valueChange={setCity} icon={<MapPin />} placeholder="Cidade" {...register('city')} />
 							<Input type="tel" value={phone} valueChange={setPhone} icon={<Phone />} {...register('phone')} />
 							<Input type="password" value={password} valueChange={setPassword} icon={<Key />} {...register('password')} />

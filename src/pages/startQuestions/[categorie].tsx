@@ -33,12 +33,15 @@ export default function StartQuestions() {
 					</div>
 
 					<div className="w-full lg:w-[50%] flex items-center justify-center text-center p-5">
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima magni dolorum harum culpa voluptatum doloribus quis ex libero pariatur ipsam dolore, quod incidunt eius autem id, alias mollitia explicabo magnam.</p>
+						<p>
+							Nosso formulário é personalizado com perguntas baseadas no violentômetro para ajudá-la a identificar os diferentes níveis de violência em seu relacionamento. 
+							Ao final do questionário, você receberá uma análise dos resultados, podendo identificar em que nível de risco você está. Além disso, você terá a opção de visualizar sua tabela no violentômetro para entender melhor o seu resultado e as possíveis implicações.
+						</p>
 					</div>
 				</GradientLg>
 
 				<BottomSm items='center'>
-					<div className="w-full h-full flex items-center justify-center mt-10">
+					<div className="w-full h-full flex items-center justify-center">
 						<button onClick={() => handleCreateRoom()} className="flex items-center gap-2 bg-white text-rosa py-3 px-6 rounded-lg lg:hover:opacity-100 lg:opacity-95 transition-opacity">
 							Começar <Check weight="bold" />
 						</button>
