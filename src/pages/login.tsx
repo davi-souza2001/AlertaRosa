@@ -30,7 +30,7 @@ export default function Login() {
 	}
 
 	return (
-		<div className='flex w-full h-screen bg-rosa'>
+		<div className='flex w-full h-screen bg-background'>
 			<div className='bg-background text-white hidden lg:flex flex-col items-center justify-center w-[50%] h-full gap-5'>
 				<div className='p-10 bg-white bg-opacity-10 rounded-lg'>
 					<Image src={girlLogin} alt="girl with heart" width={250} />
@@ -42,14 +42,14 @@ export default function Login() {
 				<Image src={Logotipo} alt="Logotipo" width={150} className='hidden lg:flex' />
 				<Image src={Logotipo} alt="Logotipo" width={100} className='flex lg:hidden' />
 
-				<p className='text-2xl text-center'>LOGIN</p>
+				<p className='text-2xl text-center text-white'>LOGIN</p>
 
 				<form className='flex flex-col gap-3' onSubmit={handleLoginSubmit}>
 					<div className='flex flex-col gap-2 items-center'>
 						<div className='flex items-center bg-white pl-2 rounded-md gap-2 border border-roxo'>
 							<EnvelopeSimpleOpen className='text-roxo' />
 							<input
-								className="h-10 border border-zinc-200 shadow-sm rounded text-black pl-2 focus:outline-none"
+								className="h-10 border border-zinc-200 bg-white shadow-sm rounded text-black pl-2 focus:outline-none"
 								type='string'
 								placeholder='Email'
 								onChange={(e) => setEmail(e.target.value)}
@@ -59,7 +59,7 @@ export default function Login() {
 						<div className='flex items-center bg-white pl-2 rounded-md gap-2 border border-roxo'>
 							<LockSimple className='text-roxo' />
 							<input
-								className="h-10 border border-zinc-200 shadow-sm rounded text-black pl-2 focus:outline-none"
+								className="h-10 border border-zinc-200 bg-white shadow-sm rounded text-black pl-2 focus:outline-none"
 								type='password'
 								placeholder='Senha'
 								onChange={(e) => setPassword(e.target.value)}
@@ -68,13 +68,13 @@ export default function Login() {
 					</div>
 
 					<div className='flex flex-col items-center justify-center gap-2'>
-						<div className='flex underline text-xs justify-center lg:text-sm '>
+						<div className='flex underline text-xs justify-center lg:text-sm text-white'>
 							<Link href="/register">Criar conta</Link>
 						</div>
 
 						<button type='submit'
-							className='bg-rosa text-white text-xl w-28 h-10 rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
-							Login
+							className='bg-white text-rosa text-xl w-28 h-10 rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
+							Entrar
 						</button>
 					</div>
 				</form>

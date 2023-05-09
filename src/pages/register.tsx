@@ -109,7 +109,7 @@ export default function Register() {
 	}, [errors])
 
 	return (
-		<div className='flex w-full h-screen bg-rosa'>
+		<div className='flex w-full h-screen bg-background'>
 			<div className='bg-background text-white hidden lg:flex flex-col items-center justify-center w-1/2 h-full gap-5 scrollbar-thin scrollbar-track-slate-200 scrollbar-track-rounded-lg scrollbar-thumb-roxo scrollbar-thumb-rounded-lg'>
 				<div className='p-10 bg-white bg-opacity-10 rounded-lg'>
 					<Image src={girlLogin} alt="girl with heart" width={250} />
@@ -120,7 +120,7 @@ export default function Register() {
 				<Image src={Logotipo} alt="Logotipo" width={150} className='hidden lg:flex' />
 				<Image src={Logotipo} alt="Logotipo" width={100} className='flex lg:hidden' />
 
-				<p className='text-2xl text-center'>REGISTRE-SE</p>
+				<p className='text-2xl text-center text-white'>REGISTRE-SE</p>
 
 				<form className='flex flex-col gap-3' onSubmit={handleSubmit(handleCreateUser)}>
 					<div className='flex flex-col lg:flex-row gap-2 lg:gap-10 items-center'>
@@ -128,7 +128,7 @@ export default function Register() {
 							<div className='flex items-center bg-white pl-2 rounded-md gap-2 border border-roxo'>
 								<User className='text-roxo' />
 								<input
-									className="h-10 border border-zinc-200 shadow-sm rounded text-black pl-2 focus:outline-none"
+									className="h-10 border border-zinc-200 bg-white shadow-sm rounded text-black pl-2 focus:outline-none"
 									type='string'
 									{...register('name')}
 									placeholder='Nome'
@@ -138,7 +138,7 @@ export default function Register() {
 							<div className='flex items-center bg-white pl-2 rounded-md gap-2 border border-roxo'>
 								<EnvelopeSimpleOpen className='text-roxo' />
 								<input
-									className="h-10 border border-zinc-200 shadow-sm rounded text-black pl-2 focus:outline-none"
+									className="h-10 border border-zinc-200 bg-white shadow-sm rounded text-black pl-2 focus:outline-none"
 									type='string'
 									{...register('email')}
 									placeholder='Email'
@@ -148,7 +148,7 @@ export default function Register() {
 							<div className='flex items-center bg-white pl-2 rounded-md gap-2 border border-roxo'>
 								<LockSimple className='text-roxo' />
 								<input
-									className="h-10 border border-zinc-200 shadow-sm rounded text-black pl-2 focus:outline-none"
+									className="h-10 border border-zinc-200 bg-white shadow-sm rounded text-black pl-2 focus:outline-none"
 									type='password'
 									{...register('password')}
 									placeholder='Senha'
@@ -160,7 +160,7 @@ export default function Register() {
 							<div className='flex items-center bg-white pl-2 rounded-md gap-2 border border-roxo'>
 								<MapPin className='text-roxo' />
 								<input
-									className="h-10 border border-zinc-200 shadow-sm rounded text-black pl-2 focus:outline-none"
+									className="h-10 border border-zinc-200 bg-white shadow-sm rounded text-black pl-2 focus:outline-none"
 									type='string'
 									{...register('state')}
 									placeholder='Estado'
@@ -170,7 +170,7 @@ export default function Register() {
 							<div className='flex items-center bg-white pl-2 rounded-md gap-2 border border-roxo'>
 								<MapPin className='text-roxo' />
 								<input
-									className="h-10 border border-zinc-200 shadow-sm rounded text-black pl-2 focus:outline-none"
+									className="h-10 border border-zinc-200 bg-white shadow-sm rounded text-black pl-2 focus:outline-none"
 									type='string'
 									{...register('city')}
 									placeholder='Cidade'
@@ -180,7 +180,7 @@ export default function Register() {
 							<div className='flex items-center bg-white pl-2 rounded-md gap-2 border border-roxo'>
 								<Phone className='text-roxo' />
 								<input
-									className="h-10 border border-zinc-200 shadow-sm rounded text-black pl-2 focus:outline-none"
+									className="h-10 border border-zinc-200 bg-white shadow-sm rounded text-black pl-2 focus:outline-none"
 									type='string'
 									{...register('phone')}
 									placeholder='Número celular'
@@ -190,12 +190,12 @@ export default function Register() {
 					</div>
 
 					<div className='flex flex-col items-center justify-center gap-2'>
-						<div className='flex underline text-xs justify-center lg:text-sm '>
+						<div className='flex underline text-xs justify-center lg:text-sm text-white'>
 							<Link href="/login">Já possuo uma conta!</Link>
 						</div>
 
 						<button type='submit'
-							className='bg-rosa text-white text-xl w-28 h-10 rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
+							className='bg-white text-rosa text-xl w-28 h-10 rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
 							CRIAR
 						</button>
 					</div>
