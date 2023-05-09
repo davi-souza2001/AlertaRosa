@@ -22,7 +22,7 @@ export default function StartQuestions() {
 		Router.push('/questions/all')
 	}
 	return (
-		<>
+		<div className="bg-background">
 			<TopBar />
 
 			<div className="w-full h-screen text-white">
@@ -34,13 +34,13 @@ export default function StartQuestions() {
 
 					<div className="w-full lg:w-[50%] flex items-center justify-center text-center p-5">
 						<p>
-							Nosso formulário é personalizado com perguntas baseadas no violentômetro para ajudá-la a identificar os diferentes níveis de violência em seu relacionamento. 
+							Nosso formulário é personalizado com perguntas baseadas no violentômetro para ajudá-la a identificar os diferentes níveis de violência em seu relacionamento.
 							Ao final do questionário, você receberá uma análise dos resultados, podendo identificar em que nível de risco você está. Além disso, você terá a opção de visualizar sua tabela no violentômetro para entender melhor o seu resultado e as possíveis implicações.
 						</p>
 					</div>
 				</GradientLg>
 
-				<BottomSm items='center'>
+				<BottomSm items='center' bg="background">
 					<div className="w-full h-full flex items-center justify-center">
 						<button onClick={() => handleCreateRoom()} className="flex items-center gap-2 bg-rosa text-white py-3 px-6 rounded-lg lg:hover:opacity-100 lg:opacity-95 transition-opacity">
 							Começar <Check weight="bold" />
@@ -48,6 +48,6 @@ export default function StartQuestions() {
 					</div>
 				</BottomSm>
 			</div>
-		</>
+		</div>
 	)
 }

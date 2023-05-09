@@ -11,7 +11,7 @@ export default function Contacts() {
 		<>
 			<TopBar />
 
-			<div className="w-full h-screen text-roxo">
+			<div className="w-full h-screen text-white bg-background">
 				<GradientSm padding_top="pt-20">
 					<div className='w-full flex items-center justify-center gap-3'>
 						<Image src={GirlIcon} alt='Imagem de mulher com celular' className="flex lg:hidden" width={160} />
@@ -19,8 +19,8 @@ export default function Contacts() {
 					</div>
 				</GradientSm>
 
-				<BottomLg flex="col" justify="justify-start">
-						<p className="text-2xl font-semibold mt-8 ml-5">Informações:</p>
+				<BottomLg flex="col" justify="justify-start" bg="background">
+						<p className="text-2xl font-semibold mt-8 ml-5 text-roxo">Informações:</p>
 
 						<InfoContent name="MPPE" contact="(81) 99232.3667" local="Av. Visconde de Suassuna, 99, Salas B-04/05, Santo Amaro – Recife. CEP: 50050-540" />
 						<InfoContent name="Vara de Violência Doméstica e Familiar Contra Mulher de Camaragibe" contact="(81) 3181 9299 / (81) 3181 9300 / vmulher.camaragibe@tjpe.jus.br" local="Av. Visconde de Suassuna, 99, Salas B-04/05, Santo Amaro – Recife. CEP: 50050-540" />

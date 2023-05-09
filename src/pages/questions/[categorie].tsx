@@ -65,12 +65,13 @@ export default function Question() {
 	}, [])
 
 	return (
-		<div>
+		<div className="bg-background h-screen">
 			<TopBar />
 
-			<div className="w-full h-screen text-white">
+			<div className="w-full text-white bg-background">
 				<GradientLg flex="col" padding_top="pt-20">
 					<div className="h-10 w-96 flex items-center justify-center">
+						{/* @ts-ignore */}
 						<Progress colorScheme='green' size='md' value={questionNumber / questions.length * 100} className="w-full ml-2 rounded-lg" />
 						<p className="p-2">{questionNumber}/{questions.length}</p>
 					</div>
@@ -89,7 +90,7 @@ export default function Question() {
 					</div>
 				</GradientLg>
 
-				<BottomSm items='center'>
+				<BottomSm items='center' bg="background">
 					<div className="w-full h-full flex items-center justify-center mt-10">
 						<button onClick={() => nextQuestion()} disabled={checked === '' ? true : false} className={`text-white h-10 w-32 bg-rosa rounded-md ${checked !== '' ? 'opacity-100 shadow-md' : 'opacity-50'} transition-all`}>
 							Continuar

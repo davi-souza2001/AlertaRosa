@@ -11,7 +11,7 @@ export default function Result() {
 	const router = useRouter()
 	const result = router.query.result
 	return (
-		<>
+		<div className="bg-background">
 			<TopBar />
 			<div className="w-full h-screen text-white">
 				<GradientSm padding_top="pt-20">
@@ -23,10 +23,10 @@ export default function Result() {
 					</div>
 				</GradientSm>
 
-				<BottomLg items='start'>
-					<div className="flex flex-col text-roxo gap-5">
+				<BottomLg items='start' bg="background">
+					<div className="flex flex-col text-white gap-5">
 						<div className="flex flex-col ml-5 my-5 gap-5">
-							<p className="text-xl font-semibold">O que fazer?</p>
+							<p className="text-xl font-semibold text-roxo">O que fazer?</p>
 							<p className="text-lg font-normal">Deu {result}</p>
 						</div>
 
@@ -40,6 +40,6 @@ export default function Result() {
 					</div>
 				</BottomLg>
 			</div>
-		</>
+		</div>
 	)
 }

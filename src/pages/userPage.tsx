@@ -46,7 +46,7 @@ export default function userPage() {
 	}, [user])
 
 	return (
-		<>
+		<div className="bg-background">
 			<TopBar />
 
 			<div className="w-full h-screen text-white">
@@ -74,12 +74,14 @@ export default function userPage() {
 					</div>
 				</GradientSm>
 
-				<BottomLg flex="col" justify="justify-start" padding_top="10">
+				<BottomLg flex="col" justify="justify-start" padding_top="10" bg="background">
 					{editMode && (
 						<div className='flex w-96 flex-col gap-10 mt-5 p-4'>
-							{/* <Input type="text" value={name} valueChange={setName} icon={<UserIcon />} placeholder="Name" />
-							<Input type="tel" value={phone === '' ? null : phone} valueChange={setPhone} icon={<Phone />} placeholder="Telefone" /> */}
-							<button onClick={handleCreateSubmit} className='flex items-center justify-center gap-2 w-32 bg-rosa text-white p-2 text-xl rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
+							<label htmlFor="name">Nome</label>
+							<input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" className="text-black mt-[-20px] p-2 rounded outline-none border-none"/>
+							<label htmlFor="phone">Phone</label>
+							<input type="text" value={phone === '' ? '' : phone} onChange={(e) => setPhone(e.target.value)} placeholder="Telefone" className="text-black mt-[-20px] p-2 rounded outline-none border-none" />
+							<button onClick={handleCreateSubmit} className='flex items-center justify-center gap-2 w-32 bg-rosa text-white p-2 text-md rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
 								EDITAR <PencilSimple weight="bold" />
 							</button>
 						</div>
@@ -89,6 +91,6 @@ export default function userPage() {
 					</button>
 				</BottomLg>
 			</div>
-		</>
+		</div>
 	)
 }

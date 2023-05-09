@@ -9,9 +9,6 @@
 	padding: 0;
 	margin: 0;
 	font-family: 'Poppins', sans-serif;
-}
-
-* {
-  scrollbar-width: thin;
+	scrollbar-width: thin;
   scrollbar-color: var(--secondary) var(--primary);
 }

@@ -32,11 +32,11 @@ const alerta_vermelho = [
 
 export default function Violence_Table(){
     return(
-        <>
+        <div className="bg-background">
             <TopBar/>
 
-            <div className="w-full h-screen text-white">
-                <div className="flex flex-col justify-center lg:justify-start w-full bg-white text-roxo lg:pl-20 px-6 pt-24">
+            <div className="w-full h-screen text-white bg-background">
+                <div className="flex flex-col justify-center lg:justify-start w-full bg-background text-white lg:pl-20 px-6 pt-24">
                     { alerta_amarelo.map((alerta) => {
                         return(
                             <TableSquare text={`${alerta}`} bg="bg-[#FFD56A]"/>
@@ -56,12 +56,12 @@ export default function Violence_Table(){
                     }) }
                 </div>
 
-                <div className="w-full flex items-center justify-center py-10 bg-white">
+                <div className="w-full flex items-center justify-center py-10 bg-background">
                     <button onClick={() => Router.push('/result/test')} className="flex items-center gap-2 bg-rosa text-white text-xl py-3 px-6 rounded-lg lg:hover:opacity-100 lg:opacity-95 transition-opacity shadow-md">
                         Voltar <ArrowBendUpLeft className="text-xl" />
                     </button>
                 </div>
             </div>
-        </>
+        </div>
     )
 }

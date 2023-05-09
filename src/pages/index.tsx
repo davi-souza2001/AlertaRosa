@@ -20,7 +20,7 @@ import Juli from '../../public/Juli.jpg'
 
 export default function Home() {
 	return (
-		<>
+		<div className="bg-background">
 			<TopBar />
 
 			<MainBox />
@@ -81,6 +81,6 @@ export default function Home() {
 					<BoxCategorie image={Juli} content="Juliete Sérvio" />
 				</div>
 			</div>
-		</>
+		</div>
 	)
 }

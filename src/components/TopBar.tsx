@@ -50,11 +50,12 @@ export function TopBar() {
 
 					<div className='h-full w-[30%] flex lg:hidden items-center justify-end'>
 						<Menu>
-							<MenuButton >
+							{/* @ts-ignore */}
+							<MenuButton>
 								<HiMenu className='h-8 w-14 mr-2 text-xl' onClick={(e) => handleClick(e)} />
 							</MenuButton>
 							<MenuList>
-								<div className='text-base font-normal'>
+								<div className=' text-base font-normal text-background'>
 									<div className='h-5 w-full flex items-center justify-start mx-5 my-5 cursor-pointer' onClick={() => Router.push('/userPage')}>
 										<p>Minha Conta</p>
 									</div>
