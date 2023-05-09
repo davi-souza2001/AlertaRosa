@@ -42,7 +42,7 @@ export default function StartQuestions() {
 
 				<BottomSm items='center'>
 					<div className="w-full h-full flex items-center justify-center">
-						<button onClick={() => handleCreateRoom()} className="flex items-center gap-2 bg-white text-rosa py-3 px-6 rounded-lg lg:hover:opacity-100 lg:opacity-95 transition-opacity">
+						<button onClick={() => handleCreateRoom()} className="flex items-center gap-2 bg-rosa text-white py-3 px-6 rounded-lg lg:hover:opacity-100 lg:opacity-95 transition-opacity">
 							Começar <Check weight="bold" />
 						</button>
 					</div>

@@ -7,7 +7,7 @@ interface Props{
 
 export default function BottomSm({ flex, padding_top, items, children }: Props){
     return(
-        <div className={`flex flex-${flex} w-full h-[20%] pt-${padding_top} bg-background items-${items} justify-center`}>
+        <div className={`flex flex-${flex} w-full h-[20%] pt-${padding_top} bg-white items-${items} justify-center`}>
             { children }
         </div>
     )

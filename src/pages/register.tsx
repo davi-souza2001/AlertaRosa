@@ -1,7 +1,7 @@
 import { useToast } from '@chakra-ui/react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { EnvelopeSimpleOpen, Key, MapPin, Phone, User, } from 'phosphor-react'
+import { EnvelopeSimpleOpen, LockSimple, MapPin, Phone, User, } from 'phosphor-react'
 import React, { useEffect, useState } from 'react'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
@@ -110,81 +110,96 @@ export default function Register() {
 	}, [errors])
 
 	return (
-		<div className='flex w-full h-screen'>
+		<div className='flex w-full h-screen bg-rosa'>
 			<div className='bg-background text-white hidden lg:flex flex-col items-center justify-center w-1/2 h-full gap-5 scrollbar-thin scrollbar-track-slate-200 scrollbar-track-rounded-lg scrollbar-thumb-roxo scrollbar-thumb-rounded-lg'>
-				<Image src={Logotipo} alt="Logotipo" width={150} className='mt-5' />
 				<div className='p-10 bg-white bg-opacity-10 rounded-lg'>
 					<Image src={girlLogin} alt="girl with heart" width={250} />
 				</div>
 				<p className='text-center text-xl w-[80%]'>Junte-se à Alerta Rosa na luta contra a violência contra a mulher, cadastre-se agora e faça parte dessa causa!</p>
 			</div>
-			<div className='w-full bg-gradient-to-b from-roxo to-rosa flex flex-col justify-center items-center lg:w-1/2 gap-5'>
+			<div className='w-full lg:w-1/2 h-[90%] lg:h-full flex flex-col bg-white justify-center items-center gap-5 text-roxo shadow-lg rounded-b-lg'>
+				<Image src={Logotipo} alt="Logotipo" width={150} className='hidden lg:flex' />
+				<Image src={Logotipo} alt="Logotipo" width={100} className='flex lg:hidden' />
 
-				<p className='font-semibold text-2xl text-center text-white'>REGISTRE-SE</p>
+				<p className='text-2xl text-center'>REGISTRE-SE</p>
 
-				<form className='flex flex-col p-2' onSubmit={handleSubmit(handleCreateUser)}>
-					<div className="flex flex-col gap-1">
-						<label htmlFor="name" className='text-white'>Nome</label>
-						<input
-							className="h-10 border border-zinc-200 shadow-sm rounded text-black"
-							type='string'
-							{...register('name')}
-						/>
+				<form className='flex flex-col gap-3' onSubmit={handleSubmit(handleCreateUser)}>
+					<div className='flex flex-col lg:flex-row gap-2 lg:gap-10 items-center'>
+						<div className='flex flex-col items-center gap-2'>
+							<div className='flex items-center bg-white pl-2 rounded-md gap-2 border border-roxo'>
+								<User className='text-roxo' />
+								<input
+									className="h-10 border border-zinc-200 shadow-sm rounded text-black pl-2 focus:outline-none"
+									type='string'
+									{...register('name')}
+									placeholder='Nome'
+								/>
+							</div>
+
+							<div className='flex items-center bg-white pl-2 rounded-md gap-2 border border-roxo'>
+								<EnvelopeSimpleOpen className='text-roxo' />
+								<input
+									className="h-10 border border-zinc-200 shadow-sm rounded text-black pl-2 focus:outline-none"
+									type='string'
+									{...register('email')}
+									placeholder='Email'
+								/>
+							</div>
+
+							<div className='flex items-center bg-white pl-2 rounded-md gap-2 border border-roxo'>
+								<LockSimple className='text-roxo' />
+								<input
+									className="h-10 border border-zinc-200 shadow-sm rounded text-black pl-2 focus:outline-none"
+									type='password'
+									{...register('password')}
+									placeholder='Senha'
+								/>
+							</div>
+						</div>
+
+						<div className='flex flex-col items-center gap-2'>
+							<div className='flex items-center bg-white pl-2 rounded-md gap-2 border border-roxo'>
+								<MapPin className='text-roxo' />
+								<input
+									className="h-10 border border-zinc-200 shadow-sm rounded text-black pl-2 focus:outline-none"
+									type='string'
+									{...register('state')}
+									placeholder='Estado'
+								/>
+							</div>
+						
+							<div className='flex items-center bg-white pl-2 rounded-md gap-2 border border-roxo'>
+								<MapPin className='text-roxo' />
+								<input
+									className="h-10 border border-zinc-200 shadow-sm rounded text-black pl-2 focus:outline-none"
+									type='string'
+									{...register('city')}
+									placeholder='Cidade'
+								/>
+							</div>
+
+							<div className='flex items-center bg-white pl-2 rounded-md gap-2 border border-roxo'>
+								<Phone className='text-roxo' />
+								<input
+									className="h-10 border border-zinc-200 shadow-sm rounded text-black pl-2 focus:outline-none"
+									type='string'
+									{...register('phone')}
+									placeholder='Número celular'
+								/>
+							</div>
+						</div>
 					</div>
 
-					<div className="flex flex-col gap-1">
-						<label htmlFor="email" className='text-white'>Email</label>
-						<input
-							className="h-10 border border-zinc-200 shadow-sm rounded text-black"
-							type='string'
-							{...register('email')}
-						/>
-					</div>
+					<div className='flex flex-col items-center justify-center gap-2'>
+						<div className='flex underline text-xs justify-center lg:text-sm '>
+							<Link href="/login">Já possuo uma conta!</Link>
+						</div>
 
-					<div className="flex flex-col gap-1">
-						<label htmlFor="state" className='text-white'>Estado</label>
-						<input
-							className="h-10 border border-zinc-200 shadow-sm rounded text-black"
-							type='string'
-							{...register('state')}
-						/>
+						<button type='submit'
+							className='bg-rosa text-white text-xl w-28 h-10 rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
+							CRIAR
+						</button>
 					</div>
-
-					<div className="flex flex-col gap-1">
-						<label htmlFor="city" className='text-white'>Cidade</label>
-						<input
-							className="h-10 border border-zinc-200 shadow-sm rounded text-black"
-							type='string'
-							{...register('city')}
-						/>
-					</div>
-
-					<div className="flex flex-col gap-1">
-						<label htmlFor="phone" className='text-white'>Telefone</label>
-						<input
-							className="h-10 border border-zinc-200 shadow-sm rounded text-black"
-							type='string'
-							{...register('phone')}
-						/>
-					</div>
-
-					<div className="flex flex-col gap-1">
-						<label htmlFor="password" className='text-white'>Senha</label>
-						<input
-							className="h-10 border border-zinc-200 shadow-sm rounded text-black"
-							type='password'
-							{...register('password')}
-						/>
-					</div>
-
-					<div className='flex underline text-xs justify-center mt-3 text-white lg:text-sm '>
-						<Link href="/login">Já possuo uma conta!</Link>
-					</div>
-
-					<button type='submit'
-						className='bg-white text-rosa p-2 my-10 text-xl rounded-lg shadow-md lg:hover:opacity-90 transition-opacity'>
-						CRIAR
-					</button>
 				</form>
 			</div>
 		</div>

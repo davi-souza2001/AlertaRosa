@@ -91,7 +91,7 @@ export default function Question() {
 
 				<BottomSm items='center'>
 					<div className="w-full h-full flex items-center justify-center mt-10">
-						<button onClick={() => nextQuestion()} disabled={checked === '' ? true : false} className={`text-rosa h-10 w-32 bg-white rounded-md ${checked !== '' ? 'opacity-100 shadow-md' : 'opacity-50'} transition-all`}>
+						<button onClick={() => nextQuestion()} disabled={checked === '' ? true : false} className={`text-white h-10 w-32 bg-rosa rounded-md ${checked !== '' ? 'opacity-100 shadow-md' : 'opacity-50'} transition-all`}>
 							Continuar
 						</button>
 					</div>

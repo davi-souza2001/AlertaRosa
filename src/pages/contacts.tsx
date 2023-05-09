@@ -11,7 +11,7 @@ export default function Contacts() {
 		<>
 			<TopBar />
 
-			<div className="w-full h-screen text-white">
+			<div className="w-full h-screen text-roxo">
 				<GradientSm padding_top="pt-20">
 					<div className='w-full flex items-center justify-center gap-3'>
 						<Image src={GirlIcon} alt='Imagem de mulher com celular' className="flex lg:hidden" width={160} />

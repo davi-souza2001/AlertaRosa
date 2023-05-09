@@ -11,7 +11,7 @@ export default function AskedQuestions() {
 	return (
 		<>
 			<TopBar />
-			<div className="w-full h-screen text-white">
+			<div className="w-full h-screen text-roxo">
 				<GradientSm padding_top="pt-20">
 					<div className='w-full flex items-center justify-center gap-3'>
 						<Image src={GirlIcon} alt='Imagem de mulher com dúvida' width={160} />
@@ -19,7 +19,7 @@ export default function AskedQuestions() {
 				</GradientSm>
 
 				<BottomLg items='start'>
-					<div className="flex flex-col text-white gap-5">
+					<div className="flex flex-col gap-5">
 						<div className="flex flex-col ml-5 my-5 gap-5">
 							<p className="text-xl font-semibold">O que é a violência contra mulher?</p>
 							<p className="text-lg font-normal">A violência contra a mulher é qualquer ação ou conduta, baseada no gênero feminino, que cause morte, dano físico, sexual ou psicológico, tanto na esfera pública como na privada.</p>
@@ -38,7 +38,7 @@ export default function AskedQuestions() {
 						</div>
 						<div className="flex flex-col ml-5 gap-5">
 
-							<Link className="w-44 ml-5 flex justify-center items-center gap-2 bg-white text-rosa my-10 py-3 px-6 rounded-lg lg:hover:opacity-100 lg:opacity-95 transition-opacity" href={'https://github.com/davi-souza2001/QuizDev'} target='_blank'>
+							<Link className="w-44 ml-5 flex justify-center items-center gap-2 bg-rosa text-white my-10 py-3 px-6 rounded-lg lg:hover:opacity-100 lg:opacity-95 transition-opacity" href={'https://github.com/davi-souza2001/QuizDev'} target='_blank'>
 								Sobre nós <Eye className="text-xl" />
 							</Link>
 						</div>

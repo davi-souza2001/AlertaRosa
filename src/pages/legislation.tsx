@@ -9,7 +9,7 @@ export default function Legislation(){
 	return (
 		<>
 			<TopBar />
-			<div className="w-full h-screen text-white">
+			<div className="w-full h-screen text-roxo">
 				<GradientSm padding_top="pt-20">
 					<div className='w-full flex items-center justify-center gap-3'>
 						<Image src={GirlIcon} alt='Imagem de mulher com resultado' width={160} />
@@ -17,7 +17,7 @@ export default function Legislation(){
 				</GradientSm>
 
 				<BottomLg items='start'>
-					<div className="flex flex-col text-white gap-5">
+					<div className="flex flex-col gap-5">
 						<div className="flex flex-col ml-5 my-5 gap-5">
 							<p className="text-xl font-semibold">O que é lei Maria da Penha?</p>
 							<div className="flex flex-col gap-2 text-lg font-normal">

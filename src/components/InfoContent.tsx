@@ -9,7 +9,7 @@ interface InfoContentProps {
 export default function InfoContent(props: InfoContentProps) {
 	return (
 		<div className="flex flex-col justify-start my-3 ml-5">
-			<div className="h-[1px] rounded-full w-[90%] lg:w-[70%] bg-white" />
+			<div className="h-[1px] rounded-full w-[90%] lg:w-[70%] bg-roxo" />
 			<div className="text-xl font-bold my-2">
 				{props.name}:
 			</div>

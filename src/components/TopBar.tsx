@@ -16,9 +16,9 @@ export function TopBar() {
 
 	return (
 		<div className='fixed w-full z-50'>
-			<div className='h-20 w-full flex items-center shadow-lg'>
+			<div className='h-20 w-full flex items-center shadow-lg text-white'>
 				<div className='h-full w-full flex items-center justify-between font-medium text-xl pr-5 bg-background'>
-					<div className='flex gap-2 h-full items-center w-52 pl-5 rounded-r-lg cursor-pointer' onClick={() => Router.push('/')}>
+					<div className='flex gap-2 h-full items-center pl-5 cursor-pointer' onClick={() => Router.push('/')}>
 						<Image src={Logo} alt='Logo do quiz' height={30} width={30} />
 						<div className='flex items-end'>
 							<p className='text-white'>Alerta</p>
@@ -26,7 +26,7 @@ export function TopBar() {
 						</div>
 					</div>
 
-					<div className='text-white text-base font-light hidden lg:flex gap-2'>
+					<div className='text-base font-light hidden lg:flex gap-2'>
 						<div className='cursor-pointer hover:opacity-80 transition-all' onClick={() => Router.push('/')}>
 							<p>Início |</p>
 						</div>
@@ -51,7 +51,7 @@ export function TopBar() {
 					<div className='h-full w-[30%] flex lg:hidden items-center justify-end'>
 						<Menu>
 							<MenuButton >
-								<HiMenu className='h-8 w-14 mr-2 text-xl text-white' onClick={(e) => handleClick(e)} />
+								<HiMenu className='h-8 w-14 mr-2 text-xl' onClick={(e) => handleClick(e)} />
 							</MenuButton>
 							<MenuList>
 								<div className='text-base font-normal'>

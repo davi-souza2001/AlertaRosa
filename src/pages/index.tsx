@@ -26,10 +26,10 @@ export default function Home() {
 			<MainBox />
 
 			<div className='h-20 w-full'>
-				<p className="font-semibold text-xl pt-5 px-5 text-white">Formulário</p>
+				<p className="font-semibold text-xl pt-5 px-5 text-roxo">Formulário</p>
 			</div>
 			<div className='h-44 w-full flex items-start justify-start lg:hidden'>
-				<div className="h-full w-96 flex items-center justify-around text-white text-left text-xs mx-5 p-5 gap-5 rounded-lg rounded-tl-none shadow-lg bg-rosa" onClick={() => Router.push('/startQuestions/questions')}>
+				<div className="h-full w-[90%] flex items-center justify-around text-white text-left text-xs mx-5 p-5 gap-5 rounded-lg rounded-tl-none shadow-lg bg-rosa" onClick={() => Router.push('/startQuestions/questions')}>
 					<Image alt="mulher com flor" src={GirlFlower} height={100} width={100} />
 					<p>Realize um formulário personalizado de acordo com o violentômetro. Antes de começar, você receberá uma explicação sobre o processo e o que esperar do teste.</p>
 				</div>
@@ -42,7 +42,7 @@ export default function Home() {
 			</div>
 
 			<div className='h-20 w-full flex items-center justify-between px-5 z-0'>
-				<p className="font-semibold text-xl text-white">Explore</p>
+				<p className="font-semibold text-xl text-roxo">Explore</p>
 			</div>
 			<div className="h-60 px-5">
 				<div className="lg:hidden">
@@ -63,7 +63,7 @@ export default function Home() {
 			</div>
 
 			<div className='h-20 w-full flex items-center justify-between px-5 z-0'>
-				<p className="font-semibold text-xl text-white">Sobre nós</p>
+				<p className="font-semibold text-xl text-roxo">Sobre nós</p>
 			</div>
 			<div className="h-60 px-5">
 				<div className="lg:hidden">
