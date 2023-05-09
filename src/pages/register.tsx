@@ -111,7 +111,7 @@ export default function Register() {
 
 	return (
 		<div className='flex w-full h-screen'>
-			<div className='bg-background text-white hidden lg:flex flex-col items-center justify-center w-1/2 h-full gap-5 overflow-y-auto scrollbar-thin scrollbar-track-slate-200 scrollbar-track-rounded-lg scrollbar-thumb-roxo scrollbar-thumb-rounded-lg'>
+			<div className='bg-background text-white hidden lg:flex flex-col items-center justify-center w-1/2 h-full gap-5 scrollbar-thin scrollbar-track-slate-200 scrollbar-track-rounded-lg scrollbar-thumb-roxo scrollbar-thumb-rounded-lg'>
 				<Image src={Logotipo} alt="Logotipo" width={150} className='mt-5' />
 				<div className='p-10 bg-white bg-opacity-10 rounded-lg'>
 					<Image src={girlLogin} alt="girl with heart" width={250} />
@@ -122,7 +122,7 @@ export default function Register() {
 
 				<p className='font-semibold text-2xl text-center text-white'>REGISTRE-SE</p>
 
-				<form className='flex flex-col p-2 overflow-y-scroll' onSubmit={handleSubmit(handleCreateUser)}>
+				<form className='flex flex-col p-2' onSubmit={handleSubmit(handleCreateUser)}>
 					<div className="flex flex-col gap-1">
 						<label htmlFor="name" className='text-white'>Nome</label>
 						<input
