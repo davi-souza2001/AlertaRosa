@@ -1,7 +1,7 @@
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth'
 import { collection, doc, getDocs, limit, orderBy, query, setDoc, updateDoc, where } from 'firebase/firestore'
 import Router from 'next/router'
-import Cookie from 'js-cookie'
+import { deleteCookie, setCookie } from 'cookies-next'
 
 import { auth, db } from '../firebase/config'
 import { ProviderUserProps } from '../core/ProviderUser'
@@ -66,7 +66,7 @@ export class AuthenticationProvider implements ProviderUserProps {
 
 	async logout(): Promise<void> {
 		await signOut(auth)
-		Cookie.remove('Admin-QuizDev')
+		deleteCookie('Admin-QuizDev')
 		Router.push('/login')
 	}
 
@@ -112,6 +112,6 @@ export class AuthenticationProvider implements ProviderUserProps {
 	}
 
 	static setCookieUser(user: User) {
-		Cookie.set('Admin-QuizDev', user.email, { expires: 7 })
+		setCookie('Admin-QuizDev', user.email)
 	}
 }

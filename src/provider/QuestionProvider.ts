@@ -122,6 +122,41 @@ export class QuestionProvider implements ProviderQuestionProps {
 			enunciation: 'Ele diz que se você não for dele não será de mais ninguém?',
 			categorie: 'red'
 		},
+		{
+			id: 23,
+			enunciation: 'Você já foi vítima de violência doméstica ou familiar?',
+			categorie: 'red'
+		},
+		{
+			id: 24,
+			enunciation: 'Você acredita que o agressor tem consciência de que praticou um crime com a violência?',
+			categorie: 'red'
+		},
+		{
+			id: 25,
+			enunciation: 'Você participaria de uma prática restaurativa?',
+			categorie: 'red'
+		},
+		{
+			id: 26,
+			enunciation: 'Você sofreu dano Psicológico?',
+			categorie: 'red'
+		},
+		{
+			id: 27,
+			enunciation: 'Você sofreu dano Moral?',
+			categorie: 'red'
+		},
+		{
+			id: 28,
+			enunciation: 'Você sofreu dano material?',
+			categorie: 'red'
+		},
+		{
+			id: 29,
+			enunciation: 'Você sofreu dano físico?',
+			categorie: 'red'
+		}
 	]
 
 	async create() {

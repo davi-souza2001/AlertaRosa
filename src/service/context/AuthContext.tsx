@@ -1,8 +1,9 @@
 import Router from "next/router"
 import { useEffect, useState } from "react"
 import { createContext } from "react"
-import Cookie from 'js-cookie'
 import { useToast } from "@chakra-ui/react"
+import { getCookie } from 'cookies-next'
+
 
 import { User } from "../../core/User"
 import { AuthenticationProvider } from "../../provider/AuthenticationProvider"
@@ -42,7 +43,7 @@ export function AuthProvider(props: any) {
 	const [loading, setLoading] = useState(true)
 	const [user, setUser] = useState<User>(new User({ email: '', name: '' }))
 	const authentication = new ProviderUser(new AuthenticationProvider())
-	const userCookie = Cookie.get('Admin-QuizDev')
+	const userCookie = getCookie('Admin-QuizDev')?.toString()
 
 	async function loginPassword(email: string, password: string) {
 		setLoading(true)
