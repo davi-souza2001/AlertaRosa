@@ -58,8 +58,7 @@ export default function Register() {
 	})
 
 	async function handleCreateUser(data: any) {
-		// await createUserPassword(name, phone, state, city, email, password)
-		console.log(data)
+		await createUserPassword(data.name, data.phone, data.state, data.city, data.email, data.password)
 	}
 
 	useEffect(() => {
@@ -117,7 +116,7 @@ export default function Register() {
 				</div>
 				<p className='text-center text-xl w-[80%]'>Junte-se à Alerta Rosa na luta contra a violência contra a mulher, cadastre-se agora e faça parte dessa causa!</p>
 			</div>
-			<div className='w-full lg:w-1/2 h-[90%] lg:h-full flex flex-col bg-white justify-center items-center gap-5 text-roxo shadow-lg rounded-b-lg'>
+			<div className='w-full lg:w-1/2 h-[90%] lg:h-full flex flex-col bg-gradient-to-b from-roxo to-rosa justify-center items-center gap-5 text-roxo shadow-lg rounded-b-lg'>
 				<Image src={Logotipo} alt="Logotipo" width={150} className='hidden lg:flex' />
 				<Image src={Logotipo} alt="Logotipo" width={100} className='flex lg:hidden' />
 
@@ -167,7 +166,7 @@ export default function Register() {
 									placeholder='Estado'
 								/>
 							</div>
-						
+
 							<div className='flex items-center bg-white pl-2 rounded-md gap-2 border border-roxo'>
 								<MapPin className='text-roxo' />
 								<input
