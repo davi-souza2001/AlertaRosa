@@ -55,7 +55,7 @@ export function TopBar() {
 								<HiMenu className='h-8 w-14 mr-2 text-xl' onClick={(e) => handleClick(e)} />
 							</MenuButton>
 							<MenuList>
-								<div className=' text-base font-normal text-background'>
+								<div className=' text-base font-normal text-white'>
 									<div className='h-5 w-full flex items-center justify-start mx-5 my-5 cursor-pointer' onClick={() => Router.push('/userPage')}>
 										<p>Minha Conta</p>
 									</div>
