@@ -10,6 +10,19 @@ import BottomLg from "../../components/BottomLarge"
 export default function Result() {
 	const router = useRouter()
 	const result = router.query.result
+
+	function renderMensage(){
+		if(result === 'red'){
+			return 'Afaste-se! Risco de vida! Procure uma delegacia da mulher.'
+		}else if( result === 'yellow'){
+			return 'Reaja, você está em risco, procure ajuda!'
+		} else if(result === 'orange'){
+			return 'Tenha cuidado! Reaja! A violência pode aumentar.'
+		} else{
+			return 'Resultado inválido, por favor, refazer o questionário.'
+		}
+	}
+
 	return (
 		<div className="bg-background">
 			<TopBar />
@@ -27,7 +40,7 @@ export default function Result() {
 					<div className="flex flex-col text-white gap-5">
 						<div className="flex flex-col ml-5 my-5 gap-5">
 							<p className="text-xl font-semibold text-roxo">O que fazer?</p>
-							<p className="text-lg font-normal">Deu {result}</p>
+							<p className="text-lg font-normal">{renderMensage()}</p>
 						</div>
 
 						<div className="flex flex-col ml-5 gap-5">

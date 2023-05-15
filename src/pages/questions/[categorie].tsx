@@ -11,7 +11,7 @@ import BottomSm from "../../components/BottomSmall"
 import { renderMensage } from "../../utils/renderMensage"
 import UseAuth from "../../service/hooks/useAuth"
 
-export interface answersListProps {
+export interface AnswersListProps {
 	id: string
 	categorie: string
 }
@@ -20,7 +20,7 @@ export default function Question() {
 	const [checked, setChecked] = useState<'yes' | 'no' | ''>('')
 	const [questions, setQuestions] = useState<QuestionProps[]>([])
 	const [questionNumber, setQuestionNumber] = useState(0)
-	const [answersList, setAnswersList] = useState<answersListProps[]>([])
+	const [answersList, setAnswersList] = useState<AnswersListProps[]>([])
 	const categorie = useRouter().query.categorie
 	const roomProvider = new ProviderRoom(new RoomProvider())
 	const { user, setLoading } = UseAuth()

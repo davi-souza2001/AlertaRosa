@@ -1,9 +1,9 @@
-import { answersListProps } from "../pages/questions/[categorie]";
+import { AnswersListProps } from "../pages/questions/[categorie]";
 
-export function renderMensage(list: answersListProps[]): string{
-	const redQuestions: answersListProps[] = []
-	const orangeQuestions: answersListProps[] = []
-	const yellowQuestions: answersListProps[] = []
+export function renderMensage(list: AnswersListProps[]): string{
+	const redQuestions: AnswersListProps[] = []
+	const orangeQuestions: AnswersListProps[] = []
+	const yellowQuestions: AnswersListProps[] = []
 
 	list.map(question => {
 		question.categorie === 'red' && redQuestions.push(question)

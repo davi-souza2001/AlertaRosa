@@ -22,7 +22,7 @@ export default function AskedQuestions() {
 					<div className="flex flex-col gap-5 bg-background">
 						<div className="flex flex-col ml-5 my-5 gap-5">
 							<p className="text-xl font-semibold text-roxo">O que é a violência contra mulher?</p>
-							<p className="text-lg font-normal">A violência contra a mulher é qualquer ação ou conduta, baseada no gênero feminino, que cause morte, dano físico, sexual ou psicológico, tanto na esfera pública como na privada.</p>
+							<p className="text-lg font-normal">A violência contra a mulher é qualquer ação ou conduta, baseada no gênero feminino, que cause morte, dano físico, moral, sexual ou psicológico, tanto na esfera pública como na privada.</p>
 						</div>
 						<div className="flex flex-col ml-5 my-5 gap-5">
 							<p className="text-xl font-semibold text-roxo">O que é o Alerta Rosa?</p>
