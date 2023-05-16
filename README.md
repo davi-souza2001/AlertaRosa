@@ -31,11 +31,11 @@
 - [x] Guardar o resultado das perguntas
 - [x] Melhorar validação do registro
 - [x] Melhorar input de telefone
-- [ ] Adicionar Perguntas Frequentes
-- [ ] Adicionar legislações
+- [x] Adicionar Perguntas Frequentes
+- [x] Adicionar legislações
 - [ ] Adicionar Mensagem com o resultado do violentometro
-- [ ] Adicionar mensagem na página do violentometro
+- [x] Adicionar mensagem na página do violentometro
 - [x] Fazer novo input de número no "register"
 - [x] Fazer função pra editar os dados do usuário
 - [ ] Revisar código e alinhar
-- [ ] Ajeitar layout
+- [x] Ajeitar layout
