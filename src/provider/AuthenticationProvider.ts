@@ -5,7 +5,7 @@ import { deleteCookie, setCookie } from 'cookies-next'
 
 import { auth, db } from '../firebase/config'
 import { ProviderUserProps } from '../core/ProviderUser'
-import { User } from '../core/User'
+import { Percentage, User } from '../core/User'
 
 export class AuthenticationProvider implements ProviderUserProps {
 
@@ -64,6 +64,14 @@ export class AuthenticationProvider implements ProviderUserProps {
 		})
 	}
 
+	async submitPercentages(percentages: Percentage, email: string): Promise<void> {
+		const userRef = doc(db, "users", email);
+
+		await updateDoc(userRef, {
+			percentages
+		})
+	}
+
 	async logout(): Promise<void> {
 		await signOut(auth)
 		deleteCookie('Admin-QuizDev')
@@ -81,7 +89,10 @@ export class AuthenticationProvider implements ProviderUserProps {
 						resolve(new User({
 							name: doc.data().name,
 							email: doc.data().email,
-							phone: doc.data().phone
+							phone: doc.data().phone,
+							percentages: doc.data().percentages ?? {orangePorcentage: 0, redPorcentage: 0, yellowPorcentage: 0},
+							city: doc.data().city ?? '',
+							state: doc.data().state ?? ''
 						}))
 					})
 				})

@@ -34,7 +34,8 @@ export default function Contacts() {
 						<InfoContent name="5ª Delegacia de Polícia Especializada da Mulher" local="Praça Frederico Ludgren, s/n°. Paulista" contact="(81) 3184.7072" />
 						<InfoContent name="9ª Delegacia de Polícia Especializada da Mulher" local="Rua Frei Caneca, nº 460. Heliópolis. Garanhuns" contact="(81) 3761.8507" />
 						<InfoContent name="Instituto Médico Legal" local="Rua do Pombal, nº 455. Santo Amaro. Recife." contact="(81) 3222.5814" />
-
+						<InfoContent name="Vara de Violência Doméstica e Familiar Contra Mulher de Jaboatão dos Guararapes" local="Endereço: Rua do Jangadeiro, 127 - Candeias. CEP 54430-315." contact="(81) 3181-5833" />
+						<InfoContent name="1ª Vara de Violência Doméstica e Familiar Contra Mulher de Recife" local="Endereço: Avenida Des. Guerra Barreto, s/n, Ilha Joana Bezerra (Fórum Des. Rodolfo Aureliano, 4º andar - Ala Norte)" contact="(81) 3181.0620 / 0737" />
 				</BottomLg>
 			</div>
 		</>

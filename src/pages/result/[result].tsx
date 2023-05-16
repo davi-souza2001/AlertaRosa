@@ -11,7 +11,7 @@ export default function Result() {
 	const router = useRouter()
 	const result = router.query.result
 
-	function renderMensage(){
+	function renderMensageResult(){
 		if(result === 'red'){
 			return 'Afaste-se! Risco de vida! Procure uma delegacia da mulher.'
 		}else if( result === 'yellow'){
@@ -40,7 +40,7 @@ export default function Result() {
 					<div className="flex flex-col text-white gap-5">
 						<div className="flex flex-col ml-5 my-5 gap-5">
 							<p className="text-xl font-semibold text-roxo">O que fazer?</p>
-							<p className="text-lg font-normal">{renderMensage()}</p>
+							<p className="text-lg font-normal">{renderMensageResult()}</p>
 						</div>
 
 						<div className="flex flex-col ml-5 gap-5">

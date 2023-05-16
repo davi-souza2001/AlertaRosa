@@ -1,6 +1,13 @@
 import { AnswersListProps } from "../pages/questions/[categorie]";
 
-export function renderMensage(list: AnswersListProps[]): string {
+interface RenderMensageProps {
+	value: string
+	redPercentage: number
+	orangePercentage: number
+	yellowPercentage: number
+}
+
+export function renderMensage(list: AnswersListProps[]): RenderMensageProps {
 	const total: number = list.length
 	const redQuestions: AnswersListProps[] = []
 	const orangeQuestions: AnswersListProps[] = []
@@ -16,16 +23,38 @@ export function renderMensage(list: AnswersListProps[]): string {
 	const orangePercentage = (orangeQuestions.length / total) * 100
 	const yellowPercentage = (yellowQuestions.length / total) * 100
 	const percentages = [redPercentage, orangePercentage, yellowPercentage]
+	console.log(percentages)
 
 	const maxValue = percentages.reduce((prev, current) => prev > current ? prev : current)
 
+
 	if (maxValue === redPercentage) {
-		return 'red'
+		return {
+			value: 'red',
+			redPercentage,
+			orangePercentage,
+			yellowPercentage
+		}
 	} else if (maxValue === orangePercentage) {
-		return 'orange'
+		return {
+			value: 'orange',
+			redPercentage,
+			orangePercentage,
+			yellowPercentage
+		}
 	} else if (maxValue === yellowPercentage) {
-		return 'yellow'
+		return {
+			value: 'yellow',
+			redPercentage,
+			orangePercentage,
+			yellowPercentage
+		}
 	} else {
-		return 'invalid'
+		return {
+			value: 'invalid',
+			redPercentage,
+			orangePercentage,
+			yellowPercentage
+		}
 	}
 }

@@ -5,7 +5,7 @@ import { useToast } from "@chakra-ui/react"
 import { getCookie } from 'cookies-next'
 
 
-import { User } from "../../core/User"
+import { Percentage, User } from "../../core/User"
 import { AuthenticationProvider } from "../../provider/AuthenticationProvider"
 import { ProviderUser } from "../../core/ProviderUser"
 
@@ -16,6 +16,7 @@ interface AuthContextProps {
 	logout(): Promise<void>
 	getUser(user: User): Promise<User | false>
 	submitUser(user: User): Promise<void>
+	submitPercentages(percentages: Percentage, email: string): Promise<void>
 	user: User
 	setUser: (value: any) => void
 	loading: boolean
@@ -33,6 +34,7 @@ const AuthContext = createContext<AuthContextProps>({
 		email: '',
 		name: ''
 	}),
+	submitPercentages: () => Promise.resolve(),
 	setUser: () => { },
 	loading: false,
 	setLoading: {}
@@ -131,6 +133,14 @@ export function AuthProvider(props: any) {
 		setLoading(false)
 	}
 
+	async function submitPercentages(percentages: Percentage, email: string) {
+		setLoading(true)
+
+		await authentication.submitPercentages(percentages, email)
+
+		setLoading(false)
+	}
+
 	async function logout() {
 		setLoading(true)
 
@@ -161,6 +171,7 @@ export function AuthProvider(props: any) {
 			logout,
 			getUser,
 			submitUser,
+			submitPercentages,
 			user,
 			setUser,
 			loading,

@@ -1,4 +1,4 @@
-import { User } from "./User"
+import { Percentage, User } from "./User"
 
 export interface ProviderUserProps {
 	loginGoogle(): Promise<User>
@@ -8,6 +8,7 @@ export interface ProviderUserProps {
 	getUser(user: User): Promise<User | false>
 	getUserLogged(cookie: string): Promise<User>
 	submitUser(user: User): Promise<void>
+	submitPercentages(percentages: Percentage, email: string): Promise<void>
 	logout(): Promise<void>
 }
 
@@ -42,6 +43,10 @@ export class ProviderUser {
 		await this._providerAuthentication.submitUser(user)
 	}
 
+	async submitPercentages(percentages: Percentage, email: string): Promise<void> {
+		await this._providerAuthentication.submitPercentages(percentages, email)
+	}
+
 	async logout(): Promise<void> {
 		await this._providerAuthentication.logout()
 	}
@@ -52,7 +57,7 @@ export class ProviderUser {
 		return user
 	}
 
-	async updateUser(user: User): Promise<void>{
+	async updateUser(user: User): Promise<void> {
 		await this._providerAuthentication.updateUser(user)
 	}
 }

@@ -23,7 +23,7 @@ export default function Question() {
 	const [answersList, setAnswersList] = useState<AnswersListProps[]>([])
 	const categorie = useRouter().query.categorie
 	const roomProvider = new ProviderRoom(new RoomProvider())
-	const { user, setLoading } = UseAuth()
+	const { user, setLoading, submitPercentages } = UseAuth()
 
 	async function getQuestions() {
 		if (categorie) {
@@ -50,8 +50,15 @@ export default function Question() {
 		if (questionNumber + 2 > questions.length) {
 			setLoading(true)
 			const result = renderMensage(answersList)
-			await roomProvider.sendResult(result, user)
-			Router.push(`/result/${result}`).then(() => {
+			await roomProvider.sendResult(result.value, user)
+			submitPercentages({
+				orangePorcentage: result.orangePercentage,
+				redPorcentage: result.redPercentage,
+				yellowPorcentage: result.yellowPercentage
+			},
+				user.email
+			)
+			Router.push(`/result/${result.value}`).then(() => {
 				setLoading(false)
 			})
 		} else {

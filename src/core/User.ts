@@ -1,9 +1,16 @@
+export interface Percentage {
+	redPorcentage: number
+	orangePorcentage: number
+	yellowPorcentage: number
+}
+
 export interface UserProps {
 	name: string
 	email: string
 	state?: string
 	city?: string
 	phone?: string
+	percentages?: Percentage
 }
 
 export class User {
@@ -16,6 +23,7 @@ export class User {
 	get state() { return this._props.state }
 	get city() { return this._props.state }
 	get phone() { return this._props.phone }
+	get percentages() { return this._props.percentages }
 
 	clone(props: UserProps) {
 		return new User({
