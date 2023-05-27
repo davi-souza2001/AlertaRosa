@@ -65,7 +65,7 @@ export default function Violence_Table() {
 				</div>
 
 				<div className="w-full flex items-center justify-center py-10 bg-background">
-					<button onClick={() => Router.push('/result/test')} className="flex items-center gap-2 bg-rosa text-white text-xl py-3 px-6 rounded-lg lg:hover:opacity-100 lg:opacity-95 transition-opacity shadow-md">
+					<button onClick={() => Router.push('/')} className="flex items-center gap-2 bg-rosa text-white text-xl py-3 px-6 rounded-lg lg:hover:opacity-100 lg:opacity-95 transition-opacity shadow-md">
 						Voltar <ArrowBendUpLeft className="text-xl" />
 					</button>
 				</div>

@@ -23,10 +23,8 @@ export function renderMensage(list: AnswersListProps[]): RenderMensageProps {
 	const orangePercentage = (orangeQuestions.length / total) * 100
 	const yellowPercentage = (yellowQuestions.length / total) * 100
 	const percentages = [redPercentage, orangePercentage, yellowPercentage]
-	console.log(percentages)
 
 	const maxValue = percentages.reduce((prev, current) => prev > current ? prev : current)
-
 
 	if (maxValue === redPercentage) {
 		return {

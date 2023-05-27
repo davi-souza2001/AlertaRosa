@@ -50,7 +50,7 @@ export default function Home() {
 						<BoxCategorie image={GirlPhone} content="Contatos Úteis" link="/contacts" />
 						<BoxCategorie image={GirlQuestion} content="Dúvidas Frequentes" link="/AskedQuestions" />
 						<BoxCategorie image={GirlLegislation} content="Legislação" link="/legislation" />
-						<BoxCategorie image={GirlCommunity} content="Comunidades" link="/legislation" />
+						<BoxCategorie image={GirlCommunity} content="Comunidades" link="https://www.instagram.com/secmulherpe/" />
 					</Carousel>
 				</div>
 
@@ -58,7 +58,7 @@ export default function Home() {
 					<BoxCategorie image={GirlPhone} content="Contatos Úteis" link="/contacts" />
 					<BoxCategorie image={GirlQuestion} content="Dúvidas Frequentes" link="/AskedQuestions" />
 					<BoxCategorie image={GirlLegislation} content="Legislação" link="/legislation" />
-					<BoxCategorie image={GirlCommunity} content="Comunidades" link="/" />
+					<BoxCategorie image={GirlCommunity} content="Comunidades" link="https://www.instagram.com/secmulherpe/" />
 				</div>
 			</div>
 

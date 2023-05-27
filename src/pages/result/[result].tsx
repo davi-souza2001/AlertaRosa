@@ -11,15 +11,15 @@ export default function Result() {
 	const router = useRouter()
 	const result = router.query.result
 
-	function renderMensageResult(){
-		if(result === 'red'){
+	function renderMensageResult() {
+		if (result === 'red') {
 			return 'Afaste-se! Risco de vida! Procure uma delegacia da mulher.'
-		}else if( result === 'yellow'){
+		} else if (result === 'yellow') {
 			return 'Reaja, você está em risco, procure ajuda!'
-		} else if(result === 'orange'){
+		} else if (result === 'orange') {
 			return 'Tenha cuidado! Reaja! A violência pode aumentar.'
-		} else{
-			return 'Resultado inválido, por favor, refazer o questionário.'
+		} else {
+			return 'Obrigado pela sua participação! Conheça mais sobre o nosso projeto.'
 		}
 	}
 

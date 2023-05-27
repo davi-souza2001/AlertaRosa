@@ -34,7 +34,7 @@ export default function AskedQuestions() {
 						</div>
 						<div className="flex flex-col ml-5 my-5 gap-5">
 							<p className="text-xl font-semibold text-roxo">Quer tirar dúvidas?</p>
-							<p className="text-lg font-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima magni dolorum harum culpa voluptatum doloribus quis ex libero pariatur ipsam dolore, quod incidunt eius autem id, alias mollitia explicabo magnam.</p>
+							<p className="text-lg font-normal">Entre em contato com a universidade!</p>
 						</div>
 						<div className="flex flex-col ml-5 gap-5">
 

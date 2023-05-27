@@ -1,3 +1,4 @@
+import { useState } from "react"
 import Image from "next/image"
 import Router from "next/router"
 import { TopBar } from "../../components/TopBar"
@@ -8,10 +9,12 @@ import UseRoom from "../../service/hooks/useRoom"
 import UseAuth from "../../service/hooks/useAuth"
 import GradientLg from "../../components/GradientLarge"
 import BottomSm from "../../components/BottomSmall"
+import { textOne, textTwo } from "../../utils/renderTexts"
 
 export default function StartQuestions() {
 	const { createRoom } = UseRoom()
 	const { user } = UseAuth()
+	const [textNumber, setTextNumber] = useState(0)
 
 	function handleCreateRoom() {
 		createRoom({
@@ -32,11 +35,30 @@ export default function StartQuestions() {
 						<h1 className="mt-5">Bem-vinda ao Formulário!</h1>
 					</div>
 
-					<div className="w-full lg:w-[50%] flex items-center justify-center text-center p-5">
-						<p>
-							Nosso formulário é personalizado com perguntas baseadas no violentômetro para ajudá-la a identificar os diferentes níveis de violência em seu relacionamento.
-							Ao final do questionário, você receberá uma análise dos resultados, podendo identificar em que nível de risco você está. Além disso, você terá a opção de visualizar sua tabela no violentômetro para entender melhor o seu resultado e as possíveis implicações.
-						</p>
+					<div className="w-full lg:w-[50%] flex flex-col items-center justify-center text-center p-5">
+						{textNumber === 0 ? (
+							<>
+								<p>
+									{textOne}
+								</p>
+								<strong
+									onClick={() => setTextNumber(1)}
+									className="mt-2 text-xl font-semibold cursor-pointer">
+									Ler mais
+								</strong>
+							</>
+						) : (
+							<>
+								<p>
+									{textTwo}
+								</p>
+								<strong
+									onClick={() => setTextNumber(0)}
+									className="mt-2 text-xl font-semibold cursor-pointer">
+									Voltar
+								</strong>
+							</>
+						)}
 					</div>
 				</GradientLg>
 
