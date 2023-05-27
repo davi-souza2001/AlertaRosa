@@ -68,16 +68,16 @@ export default function Home() {
 			<div className="h-60 px-5">
 				<div className="lg:hidden">
 					<Carousel showStatus={false} showArrows={true} showIndicators={false} centerMode centerSlidePercentage={70}>
-						<BoxCategorie image={Davi} content="Davi Souza" />
-						<BoxCategorie image={Vini} content="Vinicius Rodrigues" />
-						<BoxCategorie image={Papa} content="Paloma Alves" />
+						<BoxCategorie image={Davi} content="Davi Souza" link="https://www.linkedin.com/in/davi-souza2001/" />
+						<BoxCategorie image={Vini} content="Vinicius Rodrigues" link="https://www.linkedin.com/in/vinicius-rc-silva/" />
+						<BoxCategorie image={Papa} content="Paloma Alves" link="https://www.linkedin.com/in/paloma-alves1006/" />
 						<BoxCategorie image={Juli} content="Juliete Sérvio" />
 					</Carousel>
 				</div>
 				<div className="hidden lg:flex items-center justify-evenly w-full">
-					<BoxCategorie image={Davi} content="Davi Souza" />
-					<BoxCategorie image={Vini} content="Vinicius Rodrigues" />
-					<BoxCategorie image={Papa} content="Paloma Alves" />
+					<BoxCategorie image={Davi} content="Davi Souza" link="https://www.linkedin.com/in/davi-souza2001/" />
+					<BoxCategorie image={Vini} content="Vinicius Rodrigues" link="https://www.linkedin.com/in/vinicius-rc-silva/" />
+					<BoxCategorie image={Papa} content="Paloma Alves" link="https://www.linkedin.com/in/paloma-alves1006/" />
 					<BoxCategorie image={Juli} content="Juliete Sérvio" />
 				</div>
 			</div>
