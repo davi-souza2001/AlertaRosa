@@ -2,16 +2,15 @@ import { useToast } from '@chakra-ui/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { EnvelopeSimpleOpen, LockSimple, MapPin, Phone, User, } from 'phosphor-react'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import InputMask  from 'react-input-mask'
+import InputMask from 'react-input-mask'
 
 import Logotipo from '../../public/logotipo.svg'
 import girlLogin from '../../public/girlRegister.svg'
 import UseAuth from '../service/hooks/useAuth'
-import { BrazilStates } from '../components/BrazilStates'
 
 const createUserFormSchema = z.object({
 	name: z.string()
@@ -33,7 +32,7 @@ const createUserFormSchema = z.object({
 		.regex(
 			/^\(\d{2}\)\s\d\s\d{4}-\d{4}$/,
 			"Informe um número de telefone válido"
-	  	)
+		)
 		.nonempty('O telefone é obrigatório!'),
 	password: z.string()
 		.nonempty('A senha é obrigatório!')
@@ -54,22 +53,22 @@ export default function Register() {
 		await createUserPassword(data.name, data.phone, data.state, data.city, data.email, data.password)
 	}
 
-	function showToastError(field: string, message: string)  {
+	function showToastError(field: string, message: string) {
 		toast({
-				position: 'top-right',
-				title: 'Algo deu errado!',
-				description: message,
-				status: 'error',
-				duration: 3000,
-				isClosable: true,
-			});
+			position: 'top-right',
+			title: 'Algo deu errado!',
+			description: message,
+			status: 'error',
+			duration: 3000,
+			isClosable: true,
+		});
 	};
-		
+
 	useEffect(() => {
 		if (errors) {
 			Object.entries(errors).forEach(([key, value]) => {
 				value?.message && showToastError(key, value.message);
-			  });
+			});
 		}
 	}, [errors])
 
