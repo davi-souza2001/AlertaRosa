@@ -5,7 +5,8 @@ import { EnvelopeSimpleOpen, LockSimple, MapPin, Phone, User, } from 'phosphor-r
 import React, { useEffect, useState } from 'react'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
-import { zodResolver } from "@hookform/resolvers/zod"
+import { zodResolver } from '@hookform/resolvers/zod'
+import InputMask  from 'react-input-mask'
 
 import Logotipo from '../../public/logotipo.svg'
 import girlLogin from '../../public/girlRegister.svg'
@@ -29,19 +30,11 @@ const createUserFormSchema = z.object({
 	city: z.string()
 		.nonempty('A cidade é obrigatória!'),
 	phone: z.string()
-		.nonempty('O telefone é obrigatório!')
-		.transform(tel => {
-			const parts = tel.split('')
-				.filter(tel => '0123456789'.includes(tel))
-				.filter((_, i) => i < 11)
-
-			return parts.reduce((telefone, num) => {
-				const ddd1 = [0].includes(telefone.length) ? '(' : ''
-				const ddd2 = [3].includes(telefone.length) ? ') ' : ''
-				const traco = [parts.length === 11 ? 10 : 9].includes(telefone.length) ? '-' : ''
-				return `${ddd1}${telefone}${ddd2}${traco}${num}`
-			}, '')
-		}),
+		.regex(
+			/^\(\d{2}\)\s\d\s\d{4}-\d{4}$/,
+			"Informe um número de telefone válido"
+	  	)
+		.nonempty('O telefone é obrigatório!'),
 	password: z.string()
 		.nonempty('A senha é obrigatório!')
 		.min(6, 'A senha precisa ter no mínimo 6 caracteres!')
@@ -61,51 +54,23 @@ export default function Register() {
 		await createUserPassword(data.name, data.phone, data.state, data.city, data.email, data.password)
 	}
 
+	function showToastError(field: string, message: string)  {
+		toast({
+				position: 'top-right',
+				title: 'Algo deu errado!',
+				description: message,
+				status: 'error',
+				duration: 3000,
+				isClosable: true,
+			});
+	};
+		
 	useEffect(() => {
-		errors.name?.message && toast({
-			position: 'top-right',
-			title: 'Algo deu errado!',
-			description: errors.name.message,
-			status: 'error',
-			duration: 3000,
-			isClosable: true,
-		})
-
-		errors.email?.message && toast({
-			position: 'top-right',
-			title: 'Algo deu errado!',
-			description: errors.email.message,
-			status: 'error',
-			duration: 3000,
-			isClosable: true,
-		})
-
-		errors.city?.message && toast({
-			position: 'top-right',
-			title: 'Algo deu errado!',
-			description: errors.city.message,
-			status: 'error',
-			duration: 3000,
-			isClosable: true,
-		})
-
-		errors.state?.message && toast({
-			position: 'top-right',
-			title: 'Algo deu errado!',
-			description: errors.state.message,
-			status: 'error',
-			duration: 3000,
-			isClosable: true,
-		})
-
-		errors.password?.message && toast({
-			position: 'top-right',
-			title: 'Algo deu errado!',
-			description: errors.password.message,
-			status: 'error',
-			duration: 3000,
-			isClosable: true,
-		})
+		if (errors) {
+			Object.entries(errors).forEach(([key, value]) => {
+				value?.message && showToastError(key, value.message);
+			  });
+		}
 	}, [errors])
 
 	return (
@@ -179,11 +144,17 @@ export default function Register() {
 
 							<div className='flex items-center bg-white pl-2 rounded-md gap-2 border border-roxo'>
 								<Phone className='text-roxo' />
-								<input
+								<InputMask
+									// mask options
+									mask={"(99) 9 9999-9999"}
+									alwaysShowMask={false}
+									maskPlaceholder=''
+									// input options
 									className="h-10 border border-zinc-200 bg-white shadow-sm rounded text-black pl-2 focus:outline-none"
-									type='string'
+									type={'tel'}
+									placeholder="Número celular"
+									// react hook form register
 									{...register('phone')}
-									placeholder='Número celular'
 								/>
 							</div>
 						</div>
