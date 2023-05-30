@@ -56,6 +56,10 @@ export function TopBar() {
 							</MenuButton>
 							<MenuList>
 								<div className=' text-base font-normal text-white'>
+									<div className='h-5 w-full flex items-center justify-start mx-5 my-5 cursor-pointer' onClick={() => Router.push('/')}>
+										<p>Início</p>
+									</div>
+
 									<div className='h-5 w-full flex items-center justify-start mx-5 my-5 cursor-pointer' onClick={() => Router.push('/userPage')}>
 										<p>Minha Conta</p>
 									</div>
