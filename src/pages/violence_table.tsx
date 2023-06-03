@@ -1,8 +1,13 @@
+import { useEffect, useState } from "react";
 import Router from "next/router";
 import { ArrowBendUpLeft } from "phosphor-react";
+
 import TableSquare from "../components/TableSquare";
 import { TopBar } from "../components/TopBar";
 import UseAuth from "../service/hooks/useAuth";
+
+import Tabela from '../../public/Tabela.svg'
+import Image from "next/image";
 
 const alerta_amarelo = [
 	'Chantagear',
@@ -32,20 +37,32 @@ const alerta_vermelho = [
 ]
 
 export default function Violence_Table() {
+	const [noOneYes, setNoOneYes] = useState(false)
 	const { user } = UseAuth()
+
+	useEffect(() => {
+		if (user.percentages?.orangePorcentage === 0 && user.percentages?.redPorcentage === 0 && user.percentages?.yellowPorcentage === 0) {
+			setNoOneYes(true)
+		}
+	}, [user])
 
 	return (
 		<div className="bg-background">
 			<TopBar />
 
 			<div className="w-full h-screen text-white bg-background">
-				<div className="flex flex-col justify-center lg:justify-start w-full bg-background text-white lg:pl-20 px-6 pt-24">
-					{
+				<div className="flex flex-col justify-center lg:justify-start w-full bg-background text-white text-xl lg:pl-20 px-6 pt-24">
+					{noOneYes ? (
+						<>
+							Você não tem respostas com sim, portanto, acreditamos que você não se encaixa em nenhum quadro de alerta. Porém, fique a vontade para saber mais sobre nossa plataforma!
+						</>
+					) : (
 						`Suas respostas foram ${Math.round(user.percentages?.yellowPorcentage ?? 0)}% para o alerta amarelo,
-						${Math.round(user.percentages?.orangePorcentage ?? 0)}% para o alerta laranja e
-						${Math.round(user.percentages?.redPorcentage ?? 0)}% para o alerta vermelho.`
-					}
-					{alerta_amarelo.map((alerta) => {
+							${Math.round(user.percentages?.orangePorcentage ?? 0)}% para o alerta laranja e
+							${Math.round(user.percentages?.redPorcentage ?? 0)}% para o alerta vermelho.`
+					)}
+
+					{/* {alerta_amarelo.map((alerta) => {
 						return (
 							<TableSquare text={`${alerta}`} bg="bg-[#FFD56A]" />
 						)
@@ -61,7 +78,10 @@ export default function Violence_Table() {
 						return (
 							<TableSquare text={`${alerta}`} bg='bg-[#E86161]' />
 						)
-					})}
+					})} */}
+					<div className="my-5 w-full">
+						<Image src={Tabela} alt="Tabela violentometro" />
+					</div>
 				</div>
 
 				<div className="w-full flex items-center justify-center py-10 bg-background">

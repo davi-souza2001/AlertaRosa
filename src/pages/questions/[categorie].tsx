@@ -14,6 +14,7 @@ import UseAuth from "../../service/hooks/useAuth"
 export interface AnswersListProps {
 	id: string
 	categorie: string
+	answer: string
 }
 
 export default function Question() {
@@ -41,10 +42,11 @@ export default function Question() {
 	}
 
 	async function nextQuestion() {
-		if (checked === "yes") {
+		if (checked) {
 			setAnswersList([...answersList, {
 				id: questions[questionNumber].id.toString(),
-				categorie: questions[questionNumber].categorie
+				categorie: questions[questionNumber].categorie,
+				answer: checked
 			}])
 		}
 		if (questionNumber + 2 > questions.length) {
