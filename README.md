@@ -5,37 +5,7 @@
 
 <h2>It's a application made for women who want to understand a little more about violence against women, and maybe seek help.</h2>
 
-## Techs
-
-
-## Interface
-
+...
 
 </html>  
 
-- [x] Fazer função de alertar o usuário todo erro que acontecer na plataforma
-- [x] Verificar porque não está enviando formulário registro
-- [x] Fazer página pra falar o que é violencia e dizer o que é a aplicação
-- [x] Fazer página pra tirar dúvidas
-- [x] Fazer página pra mostrar todos os quizs
-- [x] Ajeitar lógica de levar até um quiz
-- [x] Colocar perguntas corretas da plataforma
-- [x] Terminar lógica das perguntas
-- [x] Fazer conta pra dar o resultado do violentometro
-- [x] Fazer nova página principal
-- [x] Fazer página de contatos úteis
-- [x] Fazer página de dúvidas frequentes
-- [x] Fazer página de legislação
-- [x] Fazer página de comunidades
-- [x] Ajeitar tela de registro com o botão saindo da tela
-- [x] Guardar o resultado das perguntas
-- [x] Melhorar validação do registro
-- [x] Melhorar input de telefone
-- [x] Adicionar Perguntas Frequentes
-- [x] Adicionar legislações
-- [ ] Adicionar Mensagem com o resultado do violentometro
-- [x] Adicionar mensagem na página do violentometro
-- [x] Fazer novo input de número no "register"
-- [x] Fazer função pra editar os dados do usuário
-- [ ] Revisar código e alinhar
-- [x] Ajeitar layout
