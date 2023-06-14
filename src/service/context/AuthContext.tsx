@@ -16,6 +16,7 @@ interface AuthContextProps {
 	logout(): Promise<void>
 	getUser(user: User): Promise<User | false>
 	submitUser(user: User): Promise<void>
+	getPercentages(email: string): Promise<Percentage>
 	submitPercentages(percentages: Percentage, email: string): Promise<void>
 	user: User
 	setUser: (value: any) => void
@@ -30,6 +31,7 @@ const AuthContext = createContext<AuthContextProps>({
 	logout: () => Promise.resolve(),
 	getUser: (user: User) => Promise.resolve(user),
 	submitUser: () => Promise.resolve(),
+	getPercentages: () => Promise.resolve({ redPorcentage: 0, orangePorcentage: 0, yellowPorcentage: 0 }),
 	user: new User({
 		email: '',
 		name: ''
@@ -107,6 +109,12 @@ export function AuthProvider(props: any) {
 		setLoading(false)
 	}
 
+	async function getPercentages(email: string): Promise<Percentage> {
+		const percentages = await authentication.getPercentages(email)
+
+		return percentages
+	}
+
 	async function getUser(user: User) {
 		setLoading(true)
 
@@ -168,6 +176,7 @@ export function AuthProvider(props: any) {
 			loginPassword,
 			createUserPassword,
 			updateUser,
+			getPercentages,
 			logout,
 			getUser,
 			submitUser,

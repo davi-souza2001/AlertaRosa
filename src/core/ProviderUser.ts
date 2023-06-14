@@ -9,6 +9,7 @@ export interface ProviderUserProps {
 	getUserLogged(cookie: string): Promise<User>
 	submitUser(user: User): Promise<void>
 	submitPercentages(percentages: Percentage, email: string): Promise<void>
+	getPercentages(email: string): Promise<Percentage>
 	logout(): Promise<void>
 }
 
@@ -45,6 +46,12 @@ export class ProviderUser {
 
 	async submitPercentages(percentages: Percentage, email: string): Promise<void> {
 		await this._providerAuthentication.submitPercentages(percentages, email)
+	}
+
+	async getPercentages(email: string): Promise<Percentage> {
+		const percentages = await this._providerAuthentication.getPercentages(email)
+
+		return percentages
 	}
 
 	async logout(): Promise<void> {

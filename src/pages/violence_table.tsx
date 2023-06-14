@@ -1,49 +1,27 @@
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Router from "next/router";
 import { ArrowBendUpLeft } from "phosphor-react";
 
-import TableSquare from "../components/TableSquare";
 import { TopBar } from "../components/TopBar";
 import UseAuth from "../service/hooks/useAuth";
 
 import Tabela from '../../public/Tabela.svg'
-import Image from "next/image";
-
-const alerta_amarelo = [
-	'Chantagear',
-	'Mentir e enganar',
-	'Ignorar',
-	'Ciúmes excessivos',
-	'Ofender e humilhar',
-	'Intimidar e ameaçar',
-	'Proibir e controlar',
-]
-
-const alerta_laranja = [
-	'Destruir bens pessoais',
-	'Machucar e agredir',
-	'Empurrar',
-	'Golpear',
-	'Chutar',
-]
-
-const alerta_vermelho = [
-	'Confinar e prender',
-	'Ameaçar com armas',
-	'Ameçar de morte',
-	'Abusar sexualmente',
-	'Espancar e mutilar',
-	'Matar - Feminicídio',
-]
 
 export default function Violence_Table() {
 	const [noOneYes, setNoOneYes] = useState(false)
-	const { user } = UseAuth()
+	const { user, getPercentages, loading, setLoading } = UseAuth()
 
 	useEffect(() => {
-		if (user.percentages?.orangePorcentage === 0 && user.percentages?.redPorcentage === 0 && user.percentages?.yellowPorcentage === 0) {
-			setNoOneYes(true)
-		}
+		setLoading(true)
+
+		getPercentages(user.email).then((percentages) => {
+			if (percentages.orangePorcentage === 0 && percentages.redPorcentage === 0 && percentages.yellowPorcentage === 0) {
+				setNoOneYes(true)
+			}
+		})
+
+		setLoading(false)
 	}, [user])
 
 	return (
@@ -61,24 +39,6 @@ export default function Violence_Table() {
 							${Math.round(user.percentages?.orangePorcentage ?? 0)}% para o alerta laranja e
 							${Math.round(user.percentages?.redPorcentage ?? 0)}% para o alerta vermelho.`
 					)}
-
-					{/* {alerta_amarelo.map((alerta) => {
-						return (
-							<TableSquare text={`${alerta}`} bg="bg-[#FFD56A]" />
-						)
-					})}
-
-					{alerta_laranja.map((alerta) => {
-						return (
-							<TableSquare text={`${alerta}`} bg='bg-[#FF9D43]' />
-						)
-					})}
-
-					{alerta_vermelho.map((alerta) => {
-						return (
-							<TableSquare text={`${alerta}`} bg='bg-[#E86161]' />
-						)
-					})} */}
 					<div className="my-5 w-full">
 						<Image src={Tabela} alt="Tabela violentometro" />
 					</div>

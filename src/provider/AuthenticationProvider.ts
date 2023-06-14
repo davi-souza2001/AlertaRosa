@@ -78,6 +78,21 @@ export class AuthenticationProvider implements ProviderUserProps {
 		Router.push('/login')
 	}
 
+	async getPercentages(email: string): Promise<Percentage> {
+		const searchedUser = query(collection(db, 'users'), where('email', '==', email))
+		const docSnap = await getDocs(searchedUser)
+
+		return new Promise((resolve, reject) => {
+			try {
+				docSnap.forEach((doc) => {
+					resolve(doc.data().percentages)
+				})
+			} catch (error) {
+				reject(error)
+			}
+		})
+	}
+
 	async getUserLogged(cookie: string): Promise<User> {
 		const searchedUser = query(collection(db, 'users'), where('email', '==', cookie))
 		const resolveQuery = getDocs(searchedUser)
@@ -90,7 +105,7 @@ export class AuthenticationProvider implements ProviderUserProps {
 							name: doc.data().name,
 							email: doc.data().email,
 							phone: doc.data().phone,
-							percentages: doc.data().percentages ?? {orangePorcentage: 0, redPorcentage: 0, yellowPorcentage: 0},
+							percentages: doc.data().percentages ?? { orangePorcentage: 0, redPorcentage: 0, yellowPorcentage: 0 },
 							city: doc.data().city ?? '',
 							state: doc.data().state ?? ''
 						}))

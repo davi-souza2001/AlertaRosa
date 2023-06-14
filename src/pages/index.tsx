@@ -25,21 +25,7 @@ export default function Home() {
 
 			<MainBox />
 
-			<div className='h-20 w-full'>
-				<p className="font-semibold text-xl pt-5 px-5 text-roxo">Formulário</p>
-			</div>
-			<div className='h-44 w-full flex items-start justify-start lg:hidden'>
-				<div className="h-full w-[90%] flex items-center justify-around text-white text-left text-xs mx-5 p-5 gap-5 rounded-lg rounded-tl-none shadow-lg bg-rosa" onClick={() => Router.push('/startQuestions/questions')}>
-					<Image alt="mulher com flor" src={GirlFlower} height={100} width={100} />
-					<p>Responda um formulário personalizado de acordo com o violentômetro. Antes de começar, você receberá uma explicação sobre o processo e o que esperar do teste.</p>
-				</div>
-			</div>
-			<div className='hidden h-56 w-full lg:flex justify-center'>
-				<div className="h-full w-[80%] border-2 border-transparent hover:border-roxo transition-all flex items-center justify-around text-white text-left text-lg ml-5 p-10 gap-5 rounded-lg rounded-tl-none bg-rosa shadow-lg cursor-pointer" onClick={() => Router.push('/startQuestions/questions')}>
-					<Image alt="mulher com flor" src={GirlFlower} height={200} width={200} />
-					<p>Responda um formulário personalizado de acordo com o violentômetro. Antes de começar, você receberá uma explicação sobre o processo e o que esperar do teste.</p>
-				</div>
-			</div>
+
 
 			<div className='h-20 w-full flex items-center justify-between px-5 z-0'>
 				<p className="font-semibold text-xl text-roxo">Explore</p>
@@ -59,6 +45,22 @@ export default function Home() {
 					<BoxCategorie image={GirlQuestion} content="Dúvidas Frequentes" link="/AskedQuestions" />
 					<BoxCategorie image={GirlLegislation} content="Legislação" link="/legislation" />
 					<BoxCategorie image={GirlCommunity} content="Comunidades" link="https://www.instagram.com/secmulherpe/" />
+				</div>
+			</div>
+
+			<div className='h-20 w-full'>
+				<p className="font-semibold text-xl pt-5 px-5 text-roxo">Formulário</p>
+			</div>
+			<div className='h-44 w-full flex items-start justify-start lg:hidden'>
+				<div className="h-full w-[90%] flex items-center justify-around text-white text-left text-xs mx-5 p-5 gap-5 rounded-lg rounded-tl-none shadow-lg bg-rosa" onClick={() => Router.push('/startQuestions/questions')}>
+					<Image alt="mulher com flor" src={GirlFlower} height={100} width={100} />
+					<p>Responda um formulário personalizado de acordo com o violentômetro. Antes de começar, você receberá uma explicação sobre o processo e o que esperar do teste.</p>
+				</div>
+			</div>
+			<div className='hidden h-56 w-full lg:flex justify-center'>
+				<div className="h-full w-[80%] border-2 border-transparent hover:border-roxo transition-all flex items-center justify-around text-white text-left text-lg ml-5 p-10 gap-5 rounded-lg rounded-tl-none bg-rosa shadow-lg cursor-pointer" onClick={() => Router.push('/startQuestions/questions')}>
+					<Image alt="mulher com flor" src={GirlFlower} height={200} width={200} />
+					<p>Responda um formulário personalizado de acordo com o violentômetro. Antes de começar, você receberá uma explicação sobre o processo e o que esperar do teste.</p>
 				</div>
 			</div>
 
